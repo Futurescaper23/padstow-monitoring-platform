@@ -3177,6 +3177,7 @@ async function renderVolume() {
     || "Show base terrain turns the latest beach surface on or off. With it on, you can see the actual shape of the most recent scan underneath the colours. With it off, the change colours are easier to read on their own. Bigger point size makes the surface look fuller and easier to see. Smaller point size makes it look finer and lighter.";
   const viewerGuideUse = areaDataset?.viewerGuideUse
     || "Start by turning the model around and zooming into the area you care about. If the view feels too busy, switch off Show base terrain to focus on the colour change only. If the model looks too thin or patchy, increase point size. If it looks too chunky, reduce point size for a cleaner look.";
+  trendAreaCachePromises.delete(area.id);
   const trendData = await loadTrendData(area.id);
 
   if (singleScanOnly) {

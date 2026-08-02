@@ -3993,6 +3993,7 @@ textarea {
   border: 1px solid rgba(145, 197, 255, 0.22);
   background: linear-gradient(180deg, rgba(15, 28, 50, 0.98), rgba(7, 16, 30, 0.98));
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+  overflow: auto;
 }
 
 .volume-image-lightbox__content {
@@ -4001,6 +4002,7 @@ textarea {
   gap: 16px;
   min-height: 0;
   align-items: stretch;
+  overflow: visible;
 }
 
 .volume-image-lightbox__content.has-legend {
@@ -4094,7 +4096,7 @@ textarea {
 }
 
 .volume-image-lightbox__legend {
-  overflow: hidden;
+  overflow: auto;
   border-radius: 18px;
   border: 1px solid rgba(124, 170, 245, 0.16);
   background: linear-gradient(180deg, rgba(10, 21, 38, 0.98), rgba(6, 14, 26, 0.98));
