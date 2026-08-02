@@ -73,12 +73,6 @@
             </span>
             <span class="tab__label">Panoramas</span>
           </button>
-          <button class="tab" data-tab="fixedpoints" aria-label="Fixed Points" title="Fixed Points">
-            <span class="tab__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s-5-5.4-5-9a5 5 0 1 1 10 0c0 3.6-5 9-5 9Z"/><path d="M12 14.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/></svg>
-            </span>
-            <span class="tab__label">Fixed Points</span>
-          </button>
           <button class="tab" data-tab="volume" aria-label="Sandbar Volume Change" title="Sandbar Volume Change">
             <span class="tab__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false"><path d="M5 18V9"/><path d="M12 18V5"/><path d="M19 18v-7"/></svg>
@@ -143,7 +137,6 @@
       <section class="panel toolbar shell-toolbar">
         <label class="shell-toolbar__field">Survey Round<select id="surveySelect"></select></label>
         <label class="shell-toolbar__field shell-toolbar__field--area">Survey Area<select id="areaSelect"></select></label>
-        <label class="shell-toolbar__field shell-toolbar__field--fixedpoints hidden">Observation Point<select id="fixedPointSelect"></select></label>
       </section>
 
       <section class="tab-panel active" data-panel="overview">
@@ -263,49 +256,6 @@
             ></iframe>
           </div>
           <div id="panoramaDetails" class="detail-list section-gap"></div>
-        </article>
-      </section>
-
-      <section class="tab-panel" data-panel="fixedpoints">
-        <article class="panel fixed-points-shell">
-          <div class="fixed-points-shell__intro">
-            <div>
-              <p class="eyebrow">Repeat Observation Network</p>
-              <h2>Fixed Observation Points</h2>
-              <p id="fixedPointsSummary" class="muted">Fixed-point guidance for the selected project will appear here.</p>
-            </div>
-          </div>
-          <div class="fixed-points-shell__body section-gap">
-            <article class="panel fixed-points-shell__map-panel">
-              <div class="panel-head">
-                <div>
-                  <p class="eyebrow">Estuary Map</p>
-                  <h3>Fixed Point Location Map</h3>
-                  <p class="subtext muted">This can swap to the ortho once you drop the preferred site map in.</p>
-                </div>
-              </div>
-              <div class="fixed-points-map-stage section-gap">
-                <img id="fixedPointsMapImage" class="fixed-points-map-image" alt="">
-                <div id="fixedPointsMapMarkers" class="fixed-points-map-markers"></div>
-              </div>
-              <article class="fixed-points-info-card section-gap">
-                <p class="eyebrow">Point Notes</p>
-                <div id="fixedPointDetails" class="detail-list"></div>
-              </article>
-            </article>
-            <article class="panel fixed-points-shell__selected">
-              <div class="panel-head">
-                <div>
-                  <p class="eyebrow">Selected Point</p>
-                  <h3 id="fixedPointTitle">Observation Point</h3>
-                  <p id="fixedPointSummary" class="subtext muted"></p>
-                </div>
-              </div>
-              <div id="fixedPointChips" class="chips"></div>
-              <div id="fixedPointGallery" class="fixed-points-gallery section-gap"></div>
-            </article>
-          </div>
-          <div id="fixedPointsHistory" class="fixed-points-history section-gap"></div>
         </article>
       </section>
 
