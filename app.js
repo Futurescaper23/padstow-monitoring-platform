@@ -78,6 +78,7 @@ import { volumeChangeSettings } from "./src/data/volumeChange.js?v=20260722a";
   volumeLightboxStartY: 0,
   volumeLightboxStartPanX: 0,
   volumeLightboxStartPanY: 0,
+  volumeLightboxMode: "single",
   accessUsers: [],
   projectCatalog: null
     };
@@ -503,8 +504,17 @@ const els = {
   volumeImageLightboxEyebrow: byId("volumeImageLightboxEyebrow"),
   volumeImageLightboxTitle: byId("volumeImageLightboxTitle"),
   volumeImageLightboxCaption: byId("volumeImageLightboxCaption"),
+  volumeImageLightboxContent: byId("volumeImageLightboxContent"),
   volumeImageLightboxViewport: byId("volumeImageLightboxViewport"),
+  volumeImageLightboxCanvas: byId("volumeImageLightboxCanvas"),
+  volumeImageLightboxPrimaryLabel: byId("volumeImageLightboxPrimaryLabel"),
+  volumeImageLightboxPrimaryOverlay: byId("volumeImageLightboxPrimaryOverlay"),
+  volumeImageLightboxSecondaryPane: byId("volumeImageLightboxSecondaryPane"),
+  volumeImageLightboxSecondaryLabel: byId("volumeImageLightboxSecondaryLabel"),
+  volumeImageLightboxSecondaryOverlay: byId("volumeImageLightboxSecondaryOverlay"),
+  volumeImageLightboxSecondaryImage: byId("volumeImageLightboxSecondaryImage"),
   volumeImageLightboxImage: byId("volumeImageLightboxImage"),
+  volumeImageLightboxCompareGrid: byId("volumeImageLightboxCompareGrid"),
   volumeImageLightboxLegend: byId("volumeImageLightboxLegend"),
   volumeImageLightboxZoomIn: byId("volumeImageLightboxZoomIn"),
   volumeImageLightboxZoomOut: byId("volumeImageLightboxZoomOut"),
@@ -1069,6 +1079,22 @@ function bindEvents() {
       Number.parseFloat(trigger.dataset.volumeLightboxRotation || "0") || 0
     );
   };
+  const handleVolumeCompareTrigger = (event) => {
+    const trigger = event.target.closest("[data-volume-compare-items]");
+    if (!trigger) {
+      return;
+    }
+    const items = parseVolumeCompareItems(trigger.dataset.volumeCompareItems);
+    if (!items.length) {
+      return;
+    }
+    openVolumeImageLightboxCompare(
+      trigger.dataset.volumeCompareEyebrow || "Reference maps",
+      trigger.dataset.volumeCompareTitle || "Comparison set",
+      trigger.dataset.volumeCompareCaption || "",
+      items
+    );
+  };
   const handleVolumeAreaTrigger = (event) => {
     const trigger = event.target.closest("[data-volume-area]");
     if (!trigger) {
@@ -1077,6 +1103,7 @@ function bindEvents() {
     updateArea(trigger.dataset.volumeArea);
     activateTab("volume");
   };
+  els.volumeImageryGrid?.addEventListener("click", handleVolumeCompareTrigger);
   els.volumeImageryGrid?.addEventListener("click", handleVolumeLightboxTrigger);
   els.volumeTrendBody?.addEventListener("click", handleVolumeLightboxTrigger);
   els.volumeTrendBody?.addEventListener("click", handleVolumeAreaTrigger);
@@ -1087,7 +1114,7 @@ function bindEvents() {
   els.volumeImageLightboxZoomOut?.addEventListener("click", () => setVolumeImageLightboxZoom(state.volumeLightboxZoom / 1.2));
   els.volumeImageLightboxReset?.addEventListener("click", () => setVolumeImageLightboxZoom(1));
   els.volumeImageLightboxViewport?.addEventListener("wheel", (event) => {
-    if (els.volumeImageLightbox?.classList.contains("hidden")) {
+    if (els.volumeImageLightbox?.classList.contains("hidden") || state.volumeLightboxMode !== "single") {
       return;
     }
     event.preventDefault();
@@ -1095,7 +1122,7 @@ function bindEvents() {
     setVolumeImageLightboxZoom(state.volumeLightboxZoom * direction);
   }, { passive: false });
   els.volumeImageLightboxViewport?.addEventListener("pointerdown", (event) => {
-    if (state.volumeLightboxZoom <= 1 || !els.volumeImageLightboxViewport) {
+    if (state.volumeLightboxMode !== "single" || state.volumeLightboxZoom <= 1 || !els.volumeImageLightboxViewport) {
       return;
     }
     state.volumeLightboxIsPanning = true;
@@ -5611,6 +5638,21 @@ function renderVolumeReferenceGallery(cards, options = {}) {
             <h3>${escapeHtml(group.title)}</h3>
             <p class="muted">${escapeHtml(group.copy)}</p>
           </div>
+          <button
+            class="chip volume-reference-group__compare"
+            type="button"
+            data-volume-compare-eyebrow="${escapeAttr(group.title)}"
+            data-volume-compare-title="${escapeAttr(`${group.title} - ${currentArea()?.label || "Area"}`)}"
+            data-volume-compare-caption="${escapeAttr(`Open ${group.items.length} ${group.title.toLowerCase()} maps together for side-by-side review.`)}"
+            data-volume-compare-items="${escapeAttr(JSON.stringify(group.items.map((item) => ({
+              src: item.src,
+              title: item.title || "Reference image",
+              alt: item.alt || item.title || "Reference image",
+              label: item.label || item.badge || item.title || "Reference image"
+            }))))}"
+          >
+            Compare This Set
+          </button>
         </div>
         <div class="volume-reference-group__grid">
           ${group.items.map(renderCard).join("")}
@@ -7610,13 +7652,66 @@ function closeSectionInsightOverlay() {
   els.sectionInsightOverlay.setAttribute("aria-hidden", "true");
 }
 
+function parseVolumeCompareItems(rawValue) {
+  if (!rawValue) {
+    return [];
+  }
+  try {
+    const parsed = JSON.parse(rawValue);
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return parsed
+      .filter((item) => item && typeof item === "object" && item.src)
+      .map((item) => ({
+        src: String(item.src),
+        title: String(item.title || "Reference image"),
+        alt: String(item.alt || item.title || "Reference image"),
+        label: String(item.label || item.title || "Reference image")
+      }));
+  } catch {
+    return [];
+  }
+}
+
+function renderVolumeImageLightboxCompareGrid(items = []) {
+  if (!els.volumeImageLightboxCompareGrid || !els.volumeImageLightboxCanvas) {
+    return;
+  }
+  if (!items.length) {
+    els.volumeImageLightboxCompareGrid.classList.add("hidden");
+    els.volumeImageLightboxCompareGrid.innerHTML = "";
+    els.volumeImageLightboxCanvas.classList.remove("hidden");
+    return;
+  }
+  els.volumeImageLightboxCanvas.classList.add("hidden");
+  els.volumeImageLightboxCompareGrid.classList.remove("hidden");
+  els.volumeImageLightboxCompareGrid.innerHTML = items.map((item) => `
+    <figure class="volume-image-lightbox__compare-item">
+      <figcaption class="volume-image-lightbox__compare-label">${escapeHtml(item.label)}</figcaption>
+      <div class="volume-image-lightbox__compare-frame">
+        <img src="${escapeAttr(item.src)}" alt="${escapeAttr(item.alt)}">
+      </div>
+    </figure>
+  `).join("");
+}
+
 function openVolumeImageLightbox(eyebrow, title, caption, src, alt, legendItems = [], rotation = 0) {
   if (!src || !els.volumeImageLightbox) {
     return;
   }
+  state.volumeLightboxMode = "single";
   els.volumeImageLightboxEyebrow.textContent = eyebrow;
   els.volumeImageLightboxTitle.textContent = title;
   els.volumeImageLightboxCaption.textContent = caption;
+  els.volumeImageLightboxCanvas?.classList.remove("hidden");
+  renderVolumeImageLightboxCompareGrid([]);
+  els.volumeImageLightboxContent?.classList.toggle("has-legend", Boolean(legendItems.length));
+  els.volumeImageLightboxSecondaryPane?.classList.add("hidden");
+  els.volumeImageLightboxPrimaryLabel?.classList.add("hidden");
+  els.volumeImageLightboxPrimaryOverlay?.classList.add("hidden");
+  els.volumeImageLightboxSecondaryLabel?.classList.add("hidden");
+  els.volumeImageLightboxSecondaryOverlay?.classList.add("hidden");
   els.volumeImageLightboxImage.onload = () => {
     clampVolumeImageLightboxPan();
     applyVolumeImageLightboxTransform();
@@ -7631,6 +7726,29 @@ function openVolumeImageLightbox(eyebrow, title, caption, src, alt, legendItems 
   setVolumeImageLightboxZoom(1);
 }
 
+function openVolumeImageLightboxCompare(eyebrow, title, caption, items = []) {
+  if (!items.length || !els.volumeImageLightbox) {
+    return;
+  }
+  state.volumeLightboxMode = "compare";
+  state.volumeLightboxRotation = 0;
+  state.volumeLightboxZoom = 1;
+  state.volumeLightboxPanX = 0;
+  state.volumeLightboxPanY = 0;
+  els.volumeImageLightboxEyebrow.textContent = eyebrow;
+  els.volumeImageLightboxTitle.textContent = title;
+  els.volumeImageLightboxCaption.textContent = caption;
+  els.volumeImageLightboxImage.removeAttribute("src");
+  els.volumeImageLightboxSecondaryImage?.removeAttribute("src");
+  els.volumeImageLightboxContent?.classList.remove("has-legend");
+  renderVolumeImageLightboxLegend([]);
+  renderVolumeImageLightboxCompareGrid(items);
+  els.volumeImageLightbox.classList.remove("hidden");
+  els.volumeImageLightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("volume-lightbox-open");
+  els.volumeImageLightboxViewport?.classList.remove("is-zoomed", "is-panning");
+}
+
 function closeVolumeImageLightbox() {
   if (!els.volumeImageLightbox) {
     return;
@@ -7638,7 +7756,10 @@ function closeVolumeImageLightbox() {
   els.volumeImageLightbox.classList.add("hidden");
   els.volumeImageLightbox.setAttribute("aria-hidden", "true");
   els.volumeImageLightboxImage.removeAttribute("src");
+  els.volumeImageLightboxSecondaryImage?.removeAttribute("src");
+  renderVolumeImageLightboxCompareGrid([]);
   state.volumeLightboxRotation = 0;
+  state.volumeLightboxMode = "single";
   renderVolumeImageLightboxLegend([]);
   document.body.classList.remove("volume-lightbox-open");
   state.volumeLightboxZoom = 1;
@@ -7650,6 +7771,9 @@ function closeVolumeImageLightbox() {
 }
 
 function setVolumeImageLightboxZoom(value) {
+  if (state.volumeLightboxMode !== "single") {
+    return;
+  }
   const nextZoom = clamp(value, 1, 4);
   state.volumeLightboxZoom = nextZoom;
   if (nextZoom <= 1) {
@@ -7662,6 +7786,9 @@ function setVolumeImageLightboxZoom(value) {
 }
 
 function setVolumeImageLightboxPan(x, y) {
+  if (state.volumeLightboxMode !== "single") {
+    return;
+  }
   state.volumeLightboxPanX = x;
   state.volumeLightboxPanY = y;
   clampVolumeImageLightboxPan();
@@ -7669,6 +7796,9 @@ function setVolumeImageLightboxPan(x, y) {
 }
 
 function clampVolumeImageLightboxPan() {
+  if (state.volumeLightboxMode !== "single") {
+    return;
+  }
   if (!els.volumeImageLightboxImage || !els.volumeImageLightboxViewport) {
     return;
   }
@@ -7688,6 +7818,9 @@ function clampVolumeImageLightboxPan() {
 }
 
 function applyVolumeImageLightboxTransform() {
+  if (state.volumeLightboxMode !== "single") {
+    return;
+  }
   if (!els.volumeImageLightboxImage) {
     return;
   }

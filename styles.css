@@ -3540,6 +3540,13 @@ textarea {
   gap: 14px;
 }
 
+.volume-reference-group__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .volume-reference-group__head h3,
 .volume-reference-group__head p {
   margin: 0;
@@ -3557,6 +3564,11 @@ textarea {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+}
+
+.volume-reference-group__compare {
+  white-space: nowrap;
+  align-self: flex-start;
 }
 
 .volume-reference-card {
@@ -4053,6 +4065,56 @@ textarea {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.volume-image-lightbox__compare-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.volume-image-lightbox__compare-grid.hidden,
+.volume-image-lightbox__canvas.hidden {
+  display: none;
+}
+
+.volume-image-lightbox__compare-item {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.volume-image-lightbox__compare-label {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(191, 218, 255, 0.86);
+}
+
+.volume-image-lightbox__compare-frame {
+  min-height: min(42vh, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 170, 245, 0.16);
+  background: linear-gradient(180deg, rgba(7, 16, 30, 0.98), rgba(9, 20, 36, 0.98));
+  padding: 10px;
+}
+
+.volume-image-lightbox__compare-frame img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
 .volume-image-lightbox__pane {
   margin: 0;
   display: grid;
@@ -4176,6 +4238,15 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .volume-reference-group__head {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .volume-image-lightbox__compare-grid {
+    grid-template-columns: 1fr;
+  }
+
   .volume-trend-callout__head {
     display: grid;
     align-items: start;
@@ -4197,8 +4268,17 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .volume-reference-group__compare {
+    width: 100%;
+    justify-content: center;
+  }
+
   .volume-image-lightbox__canvas.is-comparison {
     grid-template-columns: 1fr;
+  }
+
+  .volume-image-lightbox__compare-frame {
+    min-height: min(34vh, 320px);
   }
 
   .volume-viewer-stats {
