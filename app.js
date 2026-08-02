@@ -3280,6 +3280,7 @@ async function renderVolume() {
     return [
       assets.height ? {
         comparisonKey: item.key,
+        group: "height",
         eyebrow: "Height change analysis",
         title: item.label,
         badge: `Comparison ${index + 1}`,
@@ -3290,6 +3291,7 @@ async function renderVolume() {
       } : null,
       assets.classification ? {
         comparisonKey: item.key,
+        group: "classification",
         eyebrow: "Gain and loss classes",
         title: item.label,
         badge: `Comparison ${index + 1}`,
@@ -3567,11 +3569,11 @@ async function renderVolume() {
           alt: `${area.label} ${survey.label} volume change context`,
           caption: previewCurrentCaption || `${area.label} with the measured change overlay shown against the later survey context.`
         }
-      ]);
+      ], { grouped: allReferenceMaps.length > 2 });
       els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
       els.volumeImageSummary.textContent = "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
     } else if (allReferenceMaps.length) {
-      renderVolumeReferenceGallery(allReferenceMaps);
+      renderVolumeReferenceGallery(allReferenceMaps, { grouped: true });
       els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
       els.volumeImageSummary.textContent = "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
     } else {
@@ -5318,18 +5320,22 @@ async function loadTrendData(areaId) {
   }
   if (!trendAreaCachePromises.has(areaId)) {
     trendAreaCachePromises.set(areaId, (async () => {
-      const [manifestResponse, statsResponse, imageSrc] = await Promise.all([
-        fetch(areaTrendPaths.manifest).catch(() => null),
-        fetch(areaTrendPaths.stats).catch(() => null),
+      const [manifestResponse, statsResponse, resolvedImageSrc] = await Promise.all([
+        fetch(areaTrendPaths.manifest, { cache: "no-store" }).catch(() => null),
+        fetch(areaTrendPaths.stats, { cache: "no-store" }).catch(() => null),
         resolveExistingAsset([areaTrendPaths.image])
       ]);
-      if (!manifestResponse?.ok || !statsResponse?.ok || !imageSrc) {
+      if (!manifestResponse?.ok || !statsResponse?.ok || !resolvedImageSrc) {
         return null;
       }
       const [manifest, stats] = await Promise.all([
         manifestResponse.json(),
         statsResponse.json()
       ]);
+      const trendVersion = encodeURIComponent(stats?.generated_at || manifest?.generated_at || "");
+      const imageSrc = trendVersion
+        ? `${resolvedImageSrc}${resolvedImageSrc.includes("?") ? "&" : "?"}v=${trendVersion}`
+        : resolvedImageSrc;
       return { manifest, stats, imageSrc };
     })());
   }
@@ -5531,8 +5537,10 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
 function renderVolumeReferenceGallery(cards, options = {}) {
   const validCards = cards.filter((item) => item?.src);
   const single = options.single ?? validCards.length === 1;
+  const grouped = options.grouped ?? validCards.some((item) => item?.group);
   els.volumeImageryGrid.classList.toggle("volume-imagery-grid--single", single);
   els.volumeImageryGrid.classList.toggle("volume-imagery-grid--gallery", validCards.length > 2);
+  els.volumeImageryGrid.classList.toggle("volume-imagery-grid--grouped", grouped && !single);
 
   if (!validCards.length) {
     els.volumeImageryGrid.innerHTML = `
@@ -5544,7 +5552,7 @@ function renderVolumeReferenceGallery(cards, options = {}) {
     return;
   }
 
-  els.volumeImageryGrid.innerHTML = validCards.map((item) => `
+  const renderCard = (item) => `
     <figure class="volume-reference-card">
       <button
         class="volume-reference-card__button"
@@ -5571,7 +5579,43 @@ function renderVolumeReferenceGallery(cards, options = {}) {
         </div>
       </figcaption>
     </figure>
-  `).join("");
+  `;
+
+  if (grouped && !single) {
+    const groups = [
+      {
+        key: "height",
+        title: "Height change analysis",
+        copy: "Plan-view height-difference exports for each available survey comparison."
+      },
+      {
+        key: "classification",
+        title: "Gain and loss classes",
+        copy: "Simplified gain/loss class views for the same comparison set."
+      }
+    ].map((group) => ({
+      ...group,
+      items: validCards.filter((item) => item.group === group.key)
+    })).filter((group) => group.items.length);
+
+    els.volumeImageryGrid.innerHTML = groups.map((group) => `
+      <section class="volume-reference-group">
+        <div class="volume-reference-group__head">
+          <div>
+            <p class="eyebrow">${escapeHtml(group.title)}</p>
+            <h3>${escapeHtml(group.title)}</h3>
+            <p class="muted">${escapeHtml(group.copy)}</p>
+          </div>
+        </div>
+        <div class="volume-reference-group__grid">
+          ${group.items.map(renderCard).join("")}
+        </div>
+      </section>
+    `).join("");
+    return;
+  }
+
+  els.volumeImageryGrid.innerHTML = validCards.map(renderCard).join("");
 }
 
 function renderVolumeReferenceSelector(activeKey = "ab", availableKeys = []) {
@@ -7568,6 +7612,10 @@ function openVolumeImageLightbox(eyebrow, title, caption, src, alt, legendItems 
   els.volumeImageLightboxEyebrow.textContent = eyebrow;
   els.volumeImageLightboxTitle.textContent = title;
   els.volumeImageLightboxCaption.textContent = caption;
+  els.volumeImageLightboxImage.onload = () => {
+    clampVolumeImageLightboxPan();
+    applyVolumeImageLightboxTransform();
+  };
   els.volumeImageLightboxImage.src = src;
   els.volumeImageLightboxImage.alt = alt;
   state.volumeLightboxRotation = rotation;

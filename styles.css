@@ -3531,6 +3531,34 @@ textarea {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.volume-imagery-grid--grouped {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.volume-reference-group {
+  display: grid;
+  gap: 14px;
+}
+
+.volume-reference-group__head h3,
+.volume-reference-group__head p {
+  margin: 0;
+}
+
+.volume-reference-group__head h3 {
+  margin-top: 4px;
+}
+
+.volume-reference-group__head .muted {
+  margin-top: 8px;
+}
+
+.volume-reference-group__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .volume-reference-card {
   margin: 0;
   padding: 14px;
@@ -4916,7 +4944,8 @@ a { color: var(--accent); }
   .volume-viewer-stats,
   .volume-card__grid,
   .volume-imagery-grid,
-  .volume-imagery-grid--single {
+  .volume-imagery-grid--single,
+  .volume-reference-group__grid {
     grid-template-columns: 1fr;
   }
 
