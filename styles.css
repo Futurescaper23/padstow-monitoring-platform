@@ -3600,7 +3600,7 @@ textarea {
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(120, 168, 245, 0.16);
-  background: linear-gradient(180deg, rgba(7, 18, 34, 0.98), rgba(10, 22, 40, 0.98));
+  background: linear-gradient(180deg, #eef2f7 0%, #dbe3ee 100%);
   display: grid;
   place-items: center;
 }
@@ -4070,7 +4070,7 @@ textarea {
   overflow: hidden;
   border-radius: 14px;
   border: 1px solid rgba(124, 170, 245, 0.16);
-  background: linear-gradient(180deg, rgba(7, 16, 30, 0.98), rgba(9, 20, 36, 0.98));
+  background: linear-gradient(180deg, #eef2f7 0%, #dbe3ee 100%);
   padding: 8px;
 }
 
@@ -4219,7 +4219,7 @@ textarea {
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid rgba(124, 170, 245, 0.16);
-  background: linear-gradient(180deg, rgba(7, 16, 30, 0.98), rgba(9, 20, 36, 0.98));
+  background: linear-gradient(180deg, #eef2f7 0%, #dbe3ee 100%);
   padding: 10px;
 }
 
@@ -4259,7 +4259,7 @@ textarea {
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid rgba(124, 170, 245, 0.16);
-  background: linear-gradient(180deg, rgba(7, 16, 30, 0.98), rgba(9, 20, 36, 0.98));
+  background: linear-gradient(180deg, #eef2f7 0%, #dbe3ee 100%);
   padding: 10px;
 }
 
