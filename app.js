@@ -5407,8 +5407,12 @@ function trendRoundCount(stats) {
 }
 
 function trendPairSummaries(stats) {
-  if (Array.isArray(stats?.comparison_pairs) && stats.comparison_pairs.length) {
-    return stats.comparison_pairs.map((item) => {
+  const comparisonPairs = Array.isArray(stats?.comparison_pairs) && stats.comparison_pairs.length
+    ? stats.comparison_pairs
+    : (Array.isArray(stats?.classification_inputs?.comparison_pairs) ? stats.classification_inputs.comparison_pairs : []);
+
+  if (comparisonPairs.length) {
+    return comparisonPairs.map((item) => {
       const volumeStats = item.volume_stats || {};
       const net = Number(volumeStats.net_volume_m3 || 0);
       return {
