@@ -575,18 +575,18 @@
   },
   "trendAssets": {
     "area1": {
-      "manifest": "./data/area1-trend-manifest.json",
-      "stats": "./data/area1-trend-stats.json",
+      "manifest": "/data/area1-trend-manifest.json",
+      "stats": "/data/area1-trend-stats.json",
       "image": "/public/projects/padstow-estuary/assets/stats/area1-trend-classification-panel.png"
     },
     "area3": {
-      "manifest": "./data/area3-trend-manifest.json",
-      "stats": "./data/area3-trend-stats.json",
+      "manifest": "/data/area3-trend-manifest.json",
+      "stats": "/data/area3-trend-stats.json",
       "image": "/public/projects/padstow-estuary/assets/stats/area3-trend-classification-panel.png"
     },
     "area4": {
-      "manifest": "./data/area4-trend-manifest.json",
-      "stats": "./data/area4-trend-stats.json",
+      "manifest": "/data/area4-trend-manifest.json",
+      "stats": "/data/area4-trend-stats.json",
       "image": "/public/projects/padstow-estuary/assets/stats/area4-trend-classification-panel.png"
     }
   }
