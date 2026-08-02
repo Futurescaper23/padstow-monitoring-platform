@@ -570,6 +570,28 @@
         </article>
       </div>
 
+      <div id="volumeComparePicker" class="volume-compare-picker hidden" aria-hidden="true">
+        <div id="volumeComparePickerBackdrop" class="volume-compare-picker__backdrop"></div>
+        <article class="volume-compare-picker__dialog" role="dialog" aria-modal="true" aria-labelledby="volumeComparePickerTitle">
+          <div class="volume-compare-picker__header">
+            <div>
+              <p id="volumeComparePickerEyebrow" class="eyebrow">Reference map compare</p>
+              <h3 id="volumeComparePickerTitle">Choose maps to compare</h3>
+              <p id="volumeComparePickerCaption" class="muted">Pick between two and four maps, then open them together.</p>
+            </div>
+            <button id="volumeComparePickerClose" class="chip" type="button" aria-label="Close compare picker">Close</button>
+          </div>
+          <div id="volumeComparePickerGrid" class="volume-compare-picker__grid"></div>
+          <div class="volume-compare-picker__footer">
+            <p id="volumeComparePickerStatus" class="muted">Choose at least two maps.</p>
+            <div class="volume-compare-picker__actions">
+              <button id="volumeComparePickerReset" class="chip" type="button">Reset</button>
+              <button id="volumeComparePickerOpen" class="chip chip--primary" type="button">Compare Selected</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
       <section class="tab-panel hidden" data-panel="admin" data-admin-only="true">
         <div class="two-col">
           <article class="panel">

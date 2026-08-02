@@ -79,6 +79,8 @@ import { volumeChangeSettings } from "./src/data/volumeChange.js?v=20260722a";
   volumeLightboxStartPanX: 0,
   volumeLightboxStartPanY: 0,
   volumeLightboxMode: "single",
+  volumeComparePickerItems: [],
+  volumeComparePickerSelected: [],
   accessUsers: [],
   projectCatalog: null
     };
@@ -519,6 +521,16 @@ const els = {
   volumeImageLightboxZoomIn: byId("volumeImageLightboxZoomIn"),
   volumeImageLightboxZoomOut: byId("volumeImageLightboxZoomOut"),
   volumeImageLightboxReset: byId("volumeImageLightboxReset"),
+  volumeComparePicker: byId("volumeComparePicker"),
+  volumeComparePickerBackdrop: byId("volumeComparePickerBackdrop"),
+  volumeComparePickerClose: byId("volumeComparePickerClose"),
+  volumeComparePickerEyebrow: byId("volumeComparePickerEyebrow"),
+  volumeComparePickerTitle: byId("volumeComparePickerTitle"),
+  volumeComparePickerCaption: byId("volumeComparePickerCaption"),
+  volumeComparePickerGrid: byId("volumeComparePickerGrid"),
+  volumeComparePickerStatus: byId("volumeComparePickerStatus"),
+  volumeComparePickerReset: byId("volumeComparePickerReset"),
+  volumeComparePickerOpen: byId("volumeComparePickerOpen"),
   viewerTitle: byId("viewerTitle"),
   layerWorkspace: byId("layerWorkspace"),
   primaryCompareSelect: byId("primaryCompareSelect"),
@@ -1088,7 +1100,7 @@ function bindEvents() {
     if (!items.length) {
       return;
     }
-    openVolumeImageLightboxCompare(
+    openVolumeComparePicker(
       trigger.dataset.volumeCompareEyebrow || "Reference maps",
       trigger.dataset.volumeCompareTitle || "Comparison set",
       trigger.dataset.volumeCompareCaption || "",
@@ -1156,6 +1168,17 @@ function bindEvents() {
   };
   els.volumeImageLightboxViewport?.addEventListener("pointerup", endVolumeLightboxPan);
   els.volumeImageLightboxViewport?.addEventListener("pointercancel", endVolumeLightboxPan);
+  els.volumeComparePickerClose?.addEventListener("click", closeVolumeComparePicker);
+  els.volumeComparePickerBackdrop?.addEventListener("click", closeVolumeComparePicker);
+  els.volumeComparePickerReset?.addEventListener("click", resetVolumeComparePickerSelection);
+  els.volumeComparePickerOpen?.addEventListener("click", openSelectedVolumeCompareItems);
+  els.volumeComparePickerGrid?.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-volume-compare-index]");
+    if (!card) {
+      return;
+    }
+    toggleVolumeComparePickerItem(Number.parseInt(card.dataset.volumeCompareIndex || "", 10));
+  });
   els.sectionComparisonSnapshotBtn?.addEventListener("click", () => {
     if (!state.sectionComparisonSnapshot) {
       return;
@@ -1172,6 +1195,7 @@ function bindEvents() {
     if (event.key === "Escape") {
       closeSectionInsightOverlay();
       closeVolumeImageLightbox();
+      closeVolumeComparePicker();
     }
   });
   document.addEventListener("fullscreenchange", () => {
@@ -7674,6 +7698,108 @@ function parseVolumeCompareItems(rawValue) {
   }
 }
 
+function renderVolumeComparePicker() {
+  if (!els.volumeComparePickerGrid || !els.volumeComparePickerStatus || !els.volumeComparePickerOpen) {
+    return;
+  }
+  const selected = new Set(state.volumeComparePickerSelected);
+  els.volumeComparePickerGrid.innerHTML = state.volumeComparePickerItems.map((item, index) => {
+    const isSelected = selected.has(index);
+    return `
+      <button
+        class="volume-compare-picker__card ${isSelected ? "is-selected" : ""}"
+        type="button"
+        data-volume-compare-index="${index}"
+        aria-pressed="${isSelected ? "true" : "false"}"
+      >
+        <div class="volume-compare-picker__thumb">
+          <img src="${escapeAttr(item.src)}" alt="${escapeAttr(item.alt)}">
+        </div>
+        <div class="volume-compare-picker__meta">
+          <strong>${escapeHtml(item.label)}</strong>
+          <span>${escapeHtml(item.title)}</span>
+        </div>
+      </button>
+    `;
+  }).join("");
+
+  const count = state.volumeComparePickerSelected.length;
+  if (count < 2) {
+    els.volumeComparePickerStatus.textContent = "Choose at least two maps.";
+  } else if (count >= 4) {
+    els.volumeComparePickerStatus.textContent = "Four maps selected. Compare is ready.";
+  } else {
+    els.volumeComparePickerStatus.textContent = `${count} maps selected. You can add up to ${4 - count} more.`;
+  }
+  els.volumeComparePickerOpen.disabled = count < 2;
+}
+
+function openVolumeComparePicker(eyebrow, title, caption, items = []) {
+  if (!items.length || !els.volumeComparePicker) {
+    return;
+  }
+  state.volumeComparePickerItems = items.slice(0, 6);
+  state.volumeComparePickerSelected = state.volumeComparePickerItems.slice(0, Math.min(4, state.volumeComparePickerItems.length)).map((_, index) => index);
+  els.volumeComparePickerEyebrow.textContent = eyebrow;
+  els.volumeComparePickerTitle.textContent = title;
+  els.volumeComparePickerCaption.textContent = caption || "Pick between two and four maps, then open them together.";
+  renderVolumeComparePicker();
+  els.volumeComparePicker.classList.remove("hidden");
+  els.volumeComparePicker.setAttribute("aria-hidden", "false");
+  document.body.classList.add("volume-lightbox-open");
+}
+
+function closeVolumeComparePicker() {
+  if (!els.volumeComparePicker) {
+    return;
+  }
+  els.volumeComparePicker.classList.add("hidden");
+  els.volumeComparePicker.setAttribute("aria-hidden", "true");
+  state.volumeComparePickerItems = [];
+  state.volumeComparePickerSelected = [];
+  els.volumeComparePickerGrid.innerHTML = "";
+  if (els.volumeImageLightbox?.classList.contains("hidden")) {
+    document.body.classList.remove("volume-lightbox-open");
+  }
+}
+
+function resetVolumeComparePickerSelection() {
+  state.volumeComparePickerSelected = state.volumeComparePickerItems.slice(0, Math.min(4, state.volumeComparePickerItems.length)).map((_, index) => index);
+  renderVolumeComparePicker();
+}
+
+function toggleVolumeComparePickerItem(index) {
+  if (!Number.isInteger(index) || index < 0 || index >= state.volumeComparePickerItems.length) {
+    return;
+  }
+  const selected = new Set(state.volumeComparePickerSelected);
+  if (selected.has(index)) {
+    selected.delete(index);
+  } else {
+    if (selected.size >= 4) {
+      return;
+    }
+    selected.add(index);
+  }
+  state.volumeComparePickerSelected = Array.from(selected).sort((a, b) => a - b);
+  renderVolumeComparePicker();
+}
+
+function openSelectedVolumeCompareItems() {
+  const items = state.volumeComparePickerSelected
+    .map((index) => state.volumeComparePickerItems[index])
+    .filter(Boolean);
+  if (items.length < 2) {
+    renderVolumeComparePicker();
+    return;
+  }
+  const eyebrow = els.volumeComparePickerEyebrow?.textContent || "Reference maps";
+  const title = els.volumeComparePickerTitle?.textContent || "Comparison set";
+  const caption = els.volumeComparePickerCaption?.textContent || "";
+  closeVolumeComparePicker();
+  openVolumeImageLightboxCompare(eyebrow, title, caption, items);
+}
+
 function renderVolumeImageLightboxCompareGrid(items = []) {
   if (!els.volumeImageLightboxCompareGrid || !els.volumeImageLightboxCanvas) {
     return;
@@ -7700,6 +7826,7 @@ function openVolumeImageLightbox(eyebrow, title, caption, src, alt, legendItems 
   if (!src || !els.volumeImageLightbox) {
     return;
   }
+  closeVolumeComparePicker();
   state.volumeLightboxMode = "single";
   els.volumeImageLightboxEyebrow.textContent = eyebrow;
   els.volumeImageLightboxTitle.textContent = title;
@@ -7730,6 +7857,7 @@ function openVolumeImageLightboxCompare(eyebrow, title, caption, items = []) {
   if (!items.length || !els.volumeImageLightbox) {
     return;
   }
+  closeVolumeComparePicker();
   state.volumeLightboxMode = "compare";
   state.volumeLightboxRotation = 0;
   state.volumeLightboxZoom = 1;
