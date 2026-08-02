@@ -150,6 +150,104 @@
           "average_neighbors_per_cell": 7.8
         }
       }
+    ],
+    "comparison_pairs": [
+      {
+        "key": "ab",
+        "pair": "A->B",
+        "from_round_id": "A",
+        "to_round_id": "B",
+        "label": "Survey 1 vs Survey 2",
+        "date_range": "22 Mar 2026 to 19 Apr 2026",
+        "interval_days": 28,
+        "volume_stats": {
+          "net_volume_m3": 9529.03,
+          "surface_area_m2": 134609.997,
+          "added_volume_m3": 12116.791,
+          "removed_volume_m3": 2587.761,
+          "matching_cells_percent": 99.2
+        }
+      },
+      {
+        "key": "ac",
+        "pair": "A->C",
+        "from_round_id": "A",
+        "to_round_id": "C",
+        "label": "Survey 1 vs Survey 3",
+        "date_range": "22 Mar 2026 to 17 Jun 2026",
+        "interval_days": 87,
+        "volume_stats": {
+          "net_volume_m3": 6262.219,
+          "surface_area_m2": 134123.227,
+          "added_volume_m3": 13072.162,
+          "removed_volume_m3": 6809.943,
+          "matching_cells_percent": 98.8
+        }
+      },
+      {
+        "key": "ad",
+        "pair": "A->D",
+        "from_round_id": "A",
+        "to_round_id": "D",
+        "label": "Survey 1 vs Survey 4",
+        "date_range": "22 Mar 2026 to 15 Jul 2026",
+        "interval_days": 115,
+        "volume_stats": {
+          "net_volume_m3": 6571.277475,
+          "surface_area_m2": 131683.207057,
+          "added_volume_m3": 14487.846846,
+          "removed_volume_m3": 7916.569371,
+          "matching_cells_percent": 97.1
+        }
+      },
+      {
+        "key": "bc",
+        "pair": "B->C",
+        "from_round_id": "B",
+        "to_round_id": "C",
+        "label": "Survey 2 vs Survey 3",
+        "date_range": "18 Apr 2026 to 17 Jun 2026",
+        "interval_days": 60,
+        "volume_stats": {
+          "net_volume_m3": -3223.576,
+          "surface_area_m2": 134812.417,
+          "added_volume_m3": 5109.668,
+          "removed_volume_m3": 8333.244,
+          "matching_cells_percent": 99.4
+        }
+      },
+      {
+        "key": "bd",
+        "pair": "B->D",
+        "from_round_id": "B",
+        "to_round_id": "D",
+        "label": "Survey 2 vs Survey 4",
+        "date_range": "18 Apr 2026 to 15 Jul 2026",
+        "interval_days": 88,
+        "volume_stats": {
+          "net_volume_m3": -2751.951734,
+          "surface_area_m2": 132423.90704,
+          "added_volume_m3": 6454.533137,
+          "removed_volume_m3": 9206.484871,
+          "matching_cells_percent": 97.6
+        }
+      },
+      {
+        "key": "cd",
+        "pair": "C->D",
+        "from_round_id": "C",
+        "to_round_id": "D",
+        "label": "Survey 3 vs Survey 4",
+        "date_range": "16 Jun 2026 to 15 Jul 2026",
+        "interval_days": 29,
+        "volume_stats": {
+          "net_volume_m3": 398.655237,
+          "surface_area_m2": 131926.447051,
+          "added_volume_m3": 3297.313348,
+          "removed_volume_m3": 2898.658112,
+          "matching_cells_percent": 97.2
+        }
+      }
     ]
   },
   "classified_area": {

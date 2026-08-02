@@ -200,6 +200,45 @@
           ]
         }
       }
+    },
+    "2026-07-15": {
+      "baselineSurveyId": "2026-06-16",
+      "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
+      "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+      "areas": {
+        "area3": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 3 now carries the full four-round story. The July scan keeps the interactive 3D viewer focused on the newest June-to-July surface change while the trend panel and supporting imagery below bring all six survey-pair comparisons together.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area3_C_vs_D_height_change_analysis.png",
+          "previewCurrentImage": "area3_C_vs_D_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewBaselineCaption": "Plan-view height change surface for Area 3 between the June and July surveys, showing where the latest survey sits higher or lower inside the measured footprint.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same June-to-July Area 3 comparison, useful as the quick flat-view reference for the newest scan.",
+          "viewerEmbedUrl": "https://hostedsite.vercel.app/?embed=1",
+          "viewerTitle": "Area 3 3D Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 3 between 16-17 June 2026 and 15 July 2026. Use it with the four-round trend panel and the full supporting reference-map set to inspect how the newest scan sits against the previous rounds.",
+          "viewerStats": {
+            "analysedArea": "131,926 m2",
+            "matchingCells": "97.2%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Area 3 change footprint",
+              "gainM3": 3297.313348,
+              "lossM3": 2898.658112,
+              "netM3": 398.655237,
+              "confidence": "Measured review",
+              "summary": "Slight net accretion across the current Area 3 footprint between June and July, with gains and losses both still active inside the same monitored zone.",
+              "notes": "Aggregate Area 3 summary for the June-to-July change-analysis page."
+            }
+          ]
+        }
+      }
     }
   }
 }

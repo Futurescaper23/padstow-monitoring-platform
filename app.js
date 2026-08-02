@@ -3191,8 +3191,9 @@ async function renderVolume() {
   setVolumeUnsupportedAreaLayout(!isLiveArea);
   renderVolumeQuickAreas(isLiveArea ? liveAreaIds : [], currentAreaSelection.id);
   if (els.volumeTrendIntro) {
+    const roundCount = trendRoundCount(trendData?.stats);
     els.volumeTrendIntro.textContent = isLiveArea
-      ? `This brings all three survey rounds together so people can see what is steadily building up, steadily lowering, reversing, or settling down across ${currentAreaSelection.label}.`
+      ? `This brings the full ${roundCount || ""} survey-round record together so people can see what is steadily building up, steadily lowering, reversing, or settling down across ${currentAreaSelection.label}.`.replace("full  survey-round", "full survey")
       : "Trend analysis is currently available only in the live areas below.";
   }
 
@@ -3233,12 +3234,7 @@ async function renderVolume() {
     previewImageSrc,
     previewBaselineImageSrc,
     previewCurrentImageSrc,
-    surveyOneVsTwoHeightSrc,
-    surveyOneVsTwoClassSrc,
-    surveyOneVsThreeHeightSrc,
-    surveyOneVsThreeClassSrc,
-    surveyTwoVsThreeHeightSrc,
-    surveyTwoVsThreeClassSrc
+    ...comparisonAssetResults
   ] = await Promise.all([
     baselineSurvey ? resolveExistingAsset(surveyAssetCandidates(project.id, baselineSurvey.id, area.id, "ortho.jpg")) : Promise.resolve(""),
     resolveExistingAsset(surveyAssetCandidates(project.id, survey.id, area.id, "ortho.jpg")),
@@ -3260,81 +3256,52 @@ async function renderVolume() {
         baselineSurvey ? surveyAssetPath(project.id, baselineSurvey.id, area.id, previewCurrentImageFile) : ""
       ])
       : Promise.resolve(""),
-    resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, "ab", "height")),
-    resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, "ab", "classification")),
-    resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, "ac", "height")),
-    resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, "ac", "classification")),
-    resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, "bc", "height")),
-    resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, "bc", "classification"))
+    ...volumeComparisonDefinitions(trendData?.stats).flatMap((item) => ([
+      resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, item.key, "height")),
+      resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, item.key, "classification"))
+    ]))
   ]);
+
+  const comparisonDefinitions = volumeComparisonDefinitions(trendData?.stats);
+  const comparisonAssetsByKey = {};
+  comparisonDefinitions.forEach((item, index) => {
+    comparisonAssetsByKey[item.key] = {
+      height: comparisonAssetResults[index * 2] || "",
+      classification: comparisonAssetResults[index * 2 + 1] || ""
+    };
+  });
 
   const baselineImageExists = Boolean(baselineImageSrc);
   const currentImageExists = Boolean(currentImageSrc);
   const useSinglePreview = previewMode === "single" && Boolean(previewImageSrc);
   const usePairedPreview = previewMode === "pair" && Boolean(previewBaselineImageSrc) && Boolean(previewCurrentImageSrc);
-  const allReferenceMaps = [
-    {
-      comparisonKey: "ab",
-      eyebrow: "Height change analysis",
-      title: "Survey 1 vs Survey 2",
-      badge: "Comparison 1",
-      label: "Measured surface difference",
-      src: surveyOneVsTwoHeightSrc,
-      alt: `${area.label} Survey 1 versus Survey 2 height change analysis`,
-      caption: "Survey 1 versus Survey 2 height change map. Use this to see where the later survey sits higher or lower across the measured footprint."
-    },
-    {
-      comparisonKey: "ac",
-      eyebrow: "Height change analysis",
-      title: "Survey 1 vs Survey 3",
-      badge: "Comparison 2",
-      label: "Measured surface difference",
-      src: surveyOneVsThreeHeightSrc,
-      alt: `${area.label} Survey 1 versus Survey 3 height change analysis`,
-      caption: "Survey 1 versus Survey 3 height change map. This gives the longer-gap view from the March round straight through to June."
-    },
-    {
-      comparisonKey: "bc",
-      eyebrow: "Height change analysis",
-      title: "Survey 2 vs Survey 3",
-      badge: "Comparison 3",
-      label: "Measured surface difference",
-      src: surveyTwoVsThreeHeightSrc,
-      alt: `${area.label} Survey 2 versus Survey 3 height change analysis`,
-      caption: "Survey 2 versus Survey 3 height change map. This isolates what changed between the April and June rounds."
-    },
-    {
-      comparisonKey: "ab",
-      eyebrow: "Gain and loss classes",
-      title: "Survey 1 vs Survey 2",
-      badge: "Comparison 1",
-      label: "Simplified class view",
-      src: surveyOneVsTwoClassSrc,
-      alt: `${area.label} Survey 1 versus Survey 2 gain and loss classification`,
-      caption: "Survey 1 versus Survey 2 class map. This is the simpler flat-view version for quick client-facing reading."
-    },
-    {
-      comparisonKey: "ac",
-      eyebrow: "Gain and loss classes",
-      title: "Survey 1 vs Survey 3",
-      badge: "Comparison 2",
-      label: "Simplified class view",
-      src: surveyOneVsThreeClassSrc,
-      alt: `${area.label} Survey 1 versus Survey 3 gain and loss classification`,
-      caption: "Survey 1 versus Survey 3 class map. This shows the broader build-up and lowering pattern across the full time gap."
-    },
-    {
-      comparisonKey: "bc",
-      eyebrow: "Gain and loss classes",
-      title: "Survey 2 vs Survey 3",
-      badge: "Comparison 3",
-      label: "Simplified class view",
-      src: surveyTwoVsThreeClassSrc,
-      alt: `${area.label} Survey 2 versus Survey 3 gain and loss classification`,
-      caption: "Survey 2 versus Survey 3 class map. Use this for the latest repeat-survey pattern only."
-    }
-  ].filter((item) => item.src);
+  const allReferenceMaps = comparisonDefinitions.flatMap((item, index) => {
+    const assets = comparisonAssetsByKey[item.key] || {};
+    return [
+      assets.height ? {
+        comparisonKey: item.key,
+        eyebrow: "Height change analysis",
+        title: item.label,
+        badge: `Comparison ${index + 1}`,
+        label: "Measured surface difference",
+        src: assets.height,
+        alt: `${area.label} ${item.label} height change analysis`,
+        caption: `${item.label} height change map. Use this to see where the later survey sits higher or lower across the measured footprint.`
+      } : null,
+      assets.classification ? {
+        comparisonKey: item.key,
+        eyebrow: "Gain and loss classes",
+        title: item.label,
+        badge: `Comparison ${index + 1}`,
+        label: "Simplified class view",
+        src: assets.classification,
+        alt: `${area.label} ${item.label} gain and loss classification`,
+        caption: `${item.label} class map. This is the simpler flat-view version for quick client-facing reading.`
+      } : null
+    ].filter(Boolean);
+  });
   const availableComparisonKeys = [...new Set(allReferenceMaps.map((item) => item.comparisonKey))];
+  const availableReferenceMapCount = allReferenceMaps.length;
 
   const totals = configuredPolygons.reduce((acc, item) => {
     acc.gain += Number(item.gainM3 || 0);
@@ -3401,6 +3368,7 @@ async function renderVolume() {
     const pairSummaries = trendPairSummaries(data.stats);
     const trendClasses = sortedTrendClasses(data.stats.trend_classes || []);
     const topClass = trendClasses[0] || null;
+    const roundCount = trendRoundCount(data.stats);
     state.volumeLightboxLegendItems = trendClasses.map((item) => ({
       label: item.label,
       description: trendClassExplanation(item.key),
@@ -3452,14 +3420,14 @@ async function renderVolume() {
           data-volume-lightbox-eyebrow="Trend analysis map"
           data-volume-lightbox-title="${escapeAttr(area.label)} trend pattern"
           data-volume-lightbox-caption="Expanded trend view with the class legend shown alongside it. Use the zoom controls to inspect the map in more detail."
-          data-volume-lightbox-alt="Trend classification map for ${escapeAttr(area.label)} across all three survey rounds"
+          data-volume-lightbox-alt="Trend classification map for ${escapeAttr(area.label)} across the full survey record"
           data-volume-lightbox-legend="trend-map"
         >
           <div class="volume-trend-map__stage">
-            <img src="${escapeAttr(data.imageSrc)}" alt="Trend classification map for ${escapeAttr(area.label)} across all three survey rounds">
+            <img src="${escapeAttr(data.imageSrc)}" alt="Trend classification map for ${escapeAttr(area.label)} across the full survey record">
           </div>
         </button>
-        <figcaption class="muted">Use this map as the long-term view. The 3D viewer shows one comparison at a time, while this shows the wider three-round pattern in one place.</figcaption>
+        <figcaption class="muted">Use this map as the long-term view. The 3D viewer shows one comparison at a time, while this shows the wider ${escapeHtml(String(roundCount || ""))}-round pattern in one place.</figcaption>
       </figure>
       <div class="volume-trend-classes">
         ${trendClasses.map((item) => `
@@ -3482,7 +3450,7 @@ async function renderVolume() {
   els.volumeSandboxBanner.innerHTML = trendData
     ? `
       <strong>Longer-term trend view available</strong>
-      <p>${escapeHtml(area.label)} includes a trend panel here so the longer three-round pattern can be viewed alongside the comparison imagery.</p>
+      <p>${escapeHtml(area.label)} includes a trend panel here so the longer survey-round pattern can be viewed alongside the comparison imagery.</p>
     `
     : `
       <strong>Standard comparison view</strong>
@@ -3602,6 +3570,10 @@ async function renderVolume() {
       ]);
       els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
       els.volumeImageSummary.textContent = "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
+    } else if (allReferenceMaps.length) {
+      renderVolumeReferenceGallery(allReferenceMaps);
+      els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
+      els.volumeImageSummary.textContent = "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
     } else {
       const beforeAfterCards = [];
       if (baselineImageExists) {
@@ -3653,15 +3625,15 @@ async function renderVolume() {
     <div class="volume-explainer">
       <div class="volume-explainer__block">
         <strong>What this page is doing now</strong>
-        <p>This page now combines three layers of evidence for ${escapeHtml(area.label)}: the interactive 3D comparison viewer, the longer-term trend map across all three survey rounds, and the flat reference maps underneath.</p>
+        <p>This page now combines three layers of evidence for ${escapeHtml(area.label)}: the interactive 3D comparison viewer, the longer-term trend map across the full survey record, and the flat reference maps underneath.</p>
       </div>
       <div class="volume-explainer__block">
         <strong>How to read it in order</strong>
-        <p>Start with the 3D viewer for detailed shape change, use the trend panel to see whether movement is repeating or reversing across the full survey set, then use the six reference maps for a simpler side-by-side plan-view check.</p>
+        <p>Start with the 3D viewer for detailed shape change, use the trend panel to see whether movement is repeating or reversing across the full survey set, then use the ${escapeHtml(String(availableReferenceMapCount || 0))} reference maps for a simpler side-by-side plan-view check.</p>
       </div>
       <div class="volume-explainer__block">
         <strong>How the trend layer is built</strong>
-        <p>The trend panel is not just one before-and-after comparison. It looks across Survey 1, Survey 2, and Survey 3 together so we can separate steady build-up, steady lowering, and areas that changed direction over time.</p>
+        <p>The trend panel is not just one before-and-after comparison. It looks across the full survey sequence so we can separate steady build-up, steady lowering, and areas that changed direction over time.</p>
       </div>
       <div class="volume-explainer__block">
         <strong>Current area note</strong>
@@ -3674,7 +3646,7 @@ async function renderVolume() {
     <div class="volume-explainer">
       <div class="volume-explainer__block">
         <strong>What is live right now</strong>
-        <p>${escapeHtml(area.label)} is using the current live change-analysis layout. Where the trend package is present, the page can now bring the three-round story, the change viewer, and the exported flat maps together in one place.</p>
+        <p>${escapeHtml(area.label)} is using the current live change-analysis layout. Where the trend package is present, the page can now bring the full survey-round story, the change viewer, and the exported flat maps together in one place.</p>
       </div>
       <div class="volume-explainer__block">
         <strong>What the client should take from it</strong>
@@ -3682,7 +3654,7 @@ async function renderVolume() {
       </div>
       <div class="volume-explainer__block">
         <strong>What comes next</strong>
-        <p>Any future areas can now use this same structure: 3D viewer at the top, trend summary in the middle, and a six-image comparison strip underneath with click-to-expand detail when needed.</p>
+        <p>Any future areas can now use this same structure: 3D viewer at the top, trend summary in the middle, and a flexible comparison strip underneath with click-to-expand detail when needed.</p>
       </div>
     </div>
   `;
@@ -5406,22 +5378,64 @@ function trendRoundIntervalDays(stats, fromRoundId, toRoundId) {
   return Math.round((toMs - fromMs) / 86400000);
 }
 
+const VOLUME_COMPARISON_DEFINITIONS = [
+  { key: "ab", fromRoundId: "A", toRoundId: "B", surveyId: "2026-04-18", label: "Survey 1 vs Survey 2" },
+  { key: "ac", fromRoundId: "A", toRoundId: "C", surveyId: "2026-06-16", label: "Survey 1 vs Survey 3" },
+  { key: "ad", fromRoundId: "A", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 1 vs Survey 4" },
+  { key: "bc", fromRoundId: "B", toRoundId: "C", surveyId: "2026-06-16", label: "Survey 2 vs Survey 3" },
+  { key: "bd", fromRoundId: "B", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 2 vs Survey 4" },
+  { key: "cd", fromRoundId: "C", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 3 vs Survey 4" }
+];
+
+function volumeComparisonDefinitions(stats) {
+  if (!stats?.survey_rounds?.length) {
+    return VOLUME_COMPARISON_DEFINITIONS.filter((item) => ["ab", "ac", "bc"].includes(item.key));
+  }
+  const roundIds = new Set(stats.survey_rounds.map((item) => item.id));
+  return VOLUME_COMPARISON_DEFINITIONS.filter((item) => roundIds.has(item.fromRoundId) && roundIds.has(item.toRoundId));
+}
+
+function trendRoundCount(stats) {
+  return stats?.survey_rounds?.length || 0;
+}
+
 function trendPairSummaries(stats) {
+  if (Array.isArray(stats?.comparison_pairs) && stats.comparison_pairs.length) {
+    return stats.comparison_pairs.map((item) => {
+      const volumeStats = item.volume_stats || {};
+      const net = Number(volumeStats.net_volume_m3 || 0);
+      return {
+        key: item.key,
+        label: item.label || `${item.from_round_id} vs ${item.to_round_id}`,
+        added: Number(volumeStats.added_volume_m3 || 0),
+        removed: Number(volumeStats.removed_volume_m3 || 0),
+        net,
+        readoutTitle: net >= 0 ? "Net build-up" : "Net lowering",
+        readoutCopy: net >= 0
+          ? `${item.label} ends with more material in the later survey overall.`
+          : `${item.label} ends with less material in the later survey overall.`,
+        supportingCopy: `${item.date_range || trendRoundDateRange(stats, item.from_round_id, item.to_round_id)} • ${item.interval_days ?? trendRoundIntervalDays(stats, item.from_round_id, item.to_round_id)} day gap • ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
+      };
+    });
+  }
+
   const pairAB = stats?.classification_inputs?.primary_pair_1;
   const pairBC = stats?.classification_inputs?.primary_pair_2;
   const pairAC = stats?.classification_inputs?.cumulative_pairs?.[0];
   return [
-    pairAB ? { label: "Survey 1 vs Survey 2", dateRange: pairAB.date_range, intervalDays: pairAB.interval_days, ...pairAB.volume_stats } : null,
+    pairAB ? { key: "ab", label: "Survey 1 vs Survey 2", dateRange: pairAB.date_range, intervalDays: pairAB.interval_days, ...pairAB.volume_stats } : null,
     pairAC ? {
+      key: "ac",
       label: "Survey 1 vs Survey 3",
       dateRange: trendRoundDateRange(stats, "A", "C"),
       intervalDays: trendRoundIntervalDays(stats, "A", "C"),
       ...pairAC.volume_stats
     } : null,
-    pairBC ? { label: "Survey 2 vs Survey 3", dateRange: pairBC.date_range, intervalDays: pairBC.interval_days, ...pairBC.volume_stats } : null
+    pairBC ? { key: "bc", label: "Survey 2 vs Survey 3", dateRange: pairBC.date_range, intervalDays: pairBC.interval_days, ...pairBC.volume_stats } : null
   ].filter(Boolean).map((item) => {
     const net = Number(item.net_volume_m3 || 0);
     return {
+      key: item.key,
       label: item.label,
       added: Number(item.added_volume_m3 || 0),
       removed: Number(item.removed_volume_m3 || 0),
@@ -5472,6 +5486,33 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       classification: [
         `${areaId}_s2_vs_s3_gain_loss_classification.png`,
         `${areaId}_B_vs_C_gain_loss_classification.png`
+      ]
+    },
+    ad: {
+      surveyId: "2026-07-15",
+      height: [
+        `${areaId}_A_vs_D_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_A_vs_D_gain_loss_classification.png`
+      ]
+    },
+    bd: {
+      surveyId: "2026-07-15",
+      height: [
+        `${areaId}_B_vs_D_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_B_vs_D_gain_loss_classification.png`
+      ]
+    },
+    cd: {
+      surveyId: "2026-07-15",
+      height: [
+        `${areaId}_C_vs_D_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_C_vs_D_gain_loss_classification.png`
       ]
     }
   }[pairKey];
@@ -5556,35 +5597,19 @@ function renderVolumeReferenceSelector(activeKey = "ab", availableKeys = []) {
 
 function comparisonReadinessCards(trendData, areaLabel, availableKeys = []) {
   const pairSummaries = trendData ? trendPairSummaries(trendData.stats) : [];
-  const rollout = [
-    {
-      key: "ab",
-      label: "Survey 1 vs Survey 2",
-      status: availableKeys.includes("ab") ? "Live now" : "Waiting on files",
-      detail: availableKeys.includes("ab")
-        ? "The first comparison pair is now available with the wider trend story and flat reference maps."
-        : "This first comparison pair still needs its exported reference maps added before it can sit beside the trend panel cleanly.",
-      note: pairSummaries[0]?.supportingCopy || "Reference maps loaded."
-    },
-    {
-      key: "ac",
-      label: "Survey 1 vs Survey 3",
-      status: availableKeys.includes("ac") ? "Live now" : "Waiting on files",
-      detail: availableKeys.includes("ac")
-        ? `The longer-gap comparison is now live for ${areaLabel}, so people can jump from the trend summary into the full March-to-June reference view.`
-        : `The longer-gap comparison still needs its exported flat maps before the full March-to-June story is complete for ${areaLabel}.`,
-      note: pairSummaries[1]?.supportingCopy || "Reference maps loaded."
-    },
-    {
-      key: "bc",
-      label: "Survey 2 vs Survey 3",
-      status: availableKeys.includes("bc") ? "Live now" : "Waiting on files",
-      detail: availableKeys.includes("bc")
-        ? `The short late-season comparison is now live for ${areaLabel}, so the latest round-on-round change can be checked directly.`
-        : `The short late-season comparison is not wired in yet for ${areaLabel}, so the latest round-on-round flat maps are still missing.`,
-      note: pairSummaries[2]?.supportingCopy || "Reference maps loaded."
-    }
-  ];
+  const summaryByKey = new Map(pairSummaries.map((item) => [item.key, item]));
+  const rollout = volumeComparisonDefinitions(trendData?.stats).map((item) => {
+    const isLive = availableKeys.includes(item.key);
+    return {
+      key: item.key,
+      label: item.label,
+      status: isLive ? "Live now" : "Waiting on files",
+      detail: isLive
+        ? `${item.label} is now available for ${areaLabel}, so this survey pair can be checked directly against the wider trend story and flat reference imagery.`
+        : `${item.label} still needs its exported flat maps added before it can sit beside the trend panel cleanly for ${areaLabel}.`,
+      note: summaryByKey.get(item.key)?.supportingCopy || "Reference maps loaded."
+    };
+  });
   return rollout.map((item) => `
     <article class="card volume-breakdown-card">
       <div class="volume-card__meta">
@@ -5611,13 +5636,13 @@ function trendHeadline(topClass) {
     case "consistent_erosion":
       return "The main pattern here is steady lowering, so this part of the footprint has mostly kept losing material from one survey to the next.";
     case "accretion_then_erosion":
-      return "The main pattern here is build-up first, then lowering later. In plain English, material gathered earlier in the season, then some of that gain was lost again by June.";
+      return "The main pattern here is build-up first, then lowering later. In plain English, material gathered earlier in the survey sequence, then some of that gain was lost again in a later round.";
     case "erosion_then_accretion":
-      return "The main pattern here is lowering first, then recovery later. In plain English, this area dipped earlier on, then built back up by June.";
+      return "The main pattern here is lowering first, then recovery later. In plain English, this area dipped earlier on, then built back up again in a later round.";
     case "stable":
-      return "A large part of this footprint stayed broadly similar across all three rounds, so it did not move enough to count as a meaningful rise or fall.";
+      return "A large part of this footprint stayed broadly similar across the full survey record, so it did not move enough to count as a meaningful rise or fall.";
     default:
-      return "This panel shows the longer-term story across all three survey rounds, not just one before-and-after pair.";
+      return "This panel shows the longer-term story across the full survey record, not just one before-and-after pair.";
   }
 }
 
@@ -5634,15 +5659,15 @@ function trendClassExplanation(key) {
     case "stable":
       return "This part stayed broadly the same across the survey set.";
     case "new_latest_accretion":
-      return "This part mainly changed in the latest round, ending up higher by June.";
+      return "This part mainly changed in the latest round, ending up higher by the most recent survey.";
     case "new_latest_erosion":
-      return "This part mainly changed in the latest round, ending up lower by June.";
+      return "This part mainly changed in the latest round, ending up lower by the most recent survey.";
     case "earlier_accretion_now_stable":
       return "This part built up earlier, then mostly held that newer shape.";
     case "earlier_erosion_now_stable":
       return "This part lowered earlier, then mostly settled into that newer level.";
     default:
-      return "This colour marks one of the repeated change patterns picked up across all three rounds.";
+      return "This colour marks one of the repeated change patterns picked up across the full survey record.";
   }
 }
 
