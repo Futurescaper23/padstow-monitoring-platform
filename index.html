@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Padstow Estuary Monitoring System</title>
+    <meta name="description" content="Padstow Estuary monitoring platform for repeat aerial surveys, section profiles, tide context, area notes, and change tracking across Padstow Harbour and the Camel Estuary.">
+    <link rel="canonical" href="https://padstow-monitoring-platform.onrender.com/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FutureScaping">
+    <meta property="og:url" content="https://padstow-monitoring-platform.onrender.com/">
+    <meta property="og:title" content="Padstow Estuary Monitoring System">
+    <meta property="og:description" content="Padstow Estuary monitoring platform for repeat aerial surveys, section profiles, tide context, area notes, and change tracking across Padstow Harbour and the Camel Estuary.">
+    <meta property="og:image" content="https://padstow-monitoring-platform.onrender.com/social-preview.png?v=20260510">
+    <meta property="og:image:secure_url" content="https://padstow-monitoring-platform.onrender.com/social-preview.png?v=20260510">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Padstow Estuary Monitoring System">
+    <meta name="twitter:description" content="Padstow Estuary monitoring platform for repeat aerial surveys, section profiles, tide context, area notes, and change tracking across Padstow Harbour and the Camel Estuary.">
+    <meta name="twitter:image" content="https://padstow-monitoring-platform.onrender.com/social-preview.png?v=20260510">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=20260709a">
+  </head>
+  <body>
+    <main class="shell">
+      <div class="shell-topbar">
+        <section class="hero panel">
+          <div class="shell-brand">
+            <div class="shell-brand__mark" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="shell-brand__wordmark">
+              <p class="shell-brand__name">FutureScaping</p>
+              <p class="shell-brand__sub">Monitoring</p>
+            </div>
+          </div>
+          <div class="shell-project-meta">
+            <p class="shell-project-kicker">Active Project</p>
+            <h1 id="projectTitle">Loading project</h1>
+            <p id="projectSummary" class="muted"></p>
+          </div>
+        </section>
+
+        <section class="tabs" id="tabs">
+          <button class="tab active" data-tab="overview" aria-label="Overview" title="Overview">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 11.5 12 5l8 6.5V20H4z"/><path d="M9 20v-5h6v5"/></svg>
+            </span>
+            <span class="tab__label">Overview</span>
+          </button>
+          <button class="tab" data-tab="areas" aria-label="Survey Areas" title="Survey Areas">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 6h16v12H4z"/><path d="M12 6v12"/><path d="M4 12h16"/></svg>
+            </span>
+            <span class="tab__label">Survey Areas</span>
+          </button>
+          <button class="tab" data-tab="weather" aria-label="Environmental Conditions" title="Environmental Conditions">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M7 18h10a4 4 0 1 0-.9-7.9A5.5 5.5 0 0 0 5 12.5"/></svg>
+            </span>
+            <span class="tab__label">Weather</span>
+          </button>
+          <button class="tab" data-tab="panorama" aria-label="Panoramas" title="Panoramas">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 18V7l4 2 4-2 4 2 4-2v11"/><path d="M4 18c2-1.5 4-2.2 6-2.2 2.1 0 4 .7 6 2.2 2-1.5 3.9-2.2 6-2.2"/><path d="M12 7v11"/></svg>
+            </span>
+            <span class="tab__label">Panoramas</span>
+          </button>
+          <button class="tab" data-tab="fixedpoints" aria-label="Fixed Points" title="Fixed Points">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s-5-5.4-5-9a5 5 0 1 1 10 0c0 3.6-5 9-5 9Z"/><path d="M12 14.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/></svg>
+            </span>
+            <span class="tab__label">Fixed Points</span>
+          </button>
+          <button class="tab" data-tab="volume" aria-label="Sandbar Volume Change" title="Sandbar Volume Change">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M5 18V9"/><path d="M12 18V5"/><path d="M19 18v-7"/></svg>
+            </span>
+            <span class="tab__label">Volume Change</span>
+          </button>
+          <button class="tab" data-tab="layers" aria-label="Aerial View" title="Aerial View">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M9 6H5v12h4"/><path d="M15 6h4v12h-4"/><path d="M12 4v16"/></svg>
+            </span>
+            <span class="tab__label">Compare</span>
+          </button>
+          <button class="tab" data-tab="sections" aria-label="Sections" title="Sections">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M6 4v16"/><path d="M12 4v16"/><path d="M18 4v16"/></svg>
+            </span>
+            <span class="tab__label">Sections</span>
+          </button>
+          <button class="tab hidden" data-tab="admin" data-admin-only="true" aria-label="Admin">
+            <span class="tab__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 8.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5Z"/><path d="M12 3v2.5"/><path d="M12 18.5V21"/><path d="m4.9 4.9 1.8 1.8"/><path d="m17.3 17.3 1.8 1.8"/><path d="M3 12h2.5"/><path d="M18.5 12H21"/><path d="m4.9 19.1 1.8-1.8"/><path d="m17.3 6.7 1.8-1.8"/></svg>
+            </span>
+            <span class="tab__label">Admin</span>
+          </button>
+        </section>
+      </div>
+
+      <button id="backToTopBtn" class="back-to-top hidden" type="button" aria-label="Back to top">Top</button>
+
+      <section class="shell-stagebar panel">
+        <div class="shell-stagebar__copy">
+          <div class="shell-stagebar__brand">
+            <div class="shell-brand__mark" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="shell-stagebar__brandword">
+              <p id="shellStageBrandName" class="shell-stagebar__brandname">Monitoring Platform</p>
+            </div>
+          </div>
+          <p id="shellStageEyebrow" class="eyebrow">Monitoring View</p>
+          <div class="shell-stagebar__titlegroup">
+            <h2 id="shellStageTitle">Loading view</h2>
+            <p id="shellStageSummary" class="muted"></p>
+          </div>
+        </div>
+        <div id="shellStageVisual" class="shell-stagebar__visual" aria-hidden="true">
+          <img id="shellStageVisualImage" class="shell-stagebar__image" src="./assets/overview-hero-estuary.png" alt="Project overview image">
+          <div class="shell-stagebar__visual-glow" aria-hidden="true"></div>
+        </div>
+        <div class="shell-stagebar__bottom-dock">
+          <div id="shellStageSummaryDock" class="shell-stagebar__summary-dock hidden" aria-hidden="true"></div>
+          <div id="shellStageAction" class="shell-stagebar__action hidden" aria-hidden="true"></div>
+        </div>
+        <div class="shell-stagebar__meta">
+          <article id="shellStageSurvey" class="shell-stage-pill"></article>
+          <article id="shellStageArea" class="shell-stage-pill"></article>
+        </div>
+      </section>
+
+      <section class="panel toolbar shell-toolbar">
+        <label class="shell-toolbar__field">Survey Round<select id="surveySelect"></select></label>
+        <label class="shell-toolbar__field shell-toolbar__field--area">Survey Area<select id="areaSelect"></select></label>
+        <label class="shell-toolbar__field shell-toolbar__field--fixedpoints hidden">Observation Point<select id="fixedPointSelect"></select></label>
+      </section>
+
+      <section class="tab-panel active" data-panel="overview">
+        <article class="panel overview-hero">
+          <div class="overview-hero__copy">
+            <p class="eyebrow">Programme Overview</p>
+            <h2 id="overviewHeroTitle">Monitoring Overview</h2>
+            <p id="overviewHeroText" class="muted"></p>
+            <div class="overview-tab-row section-gap">
+              <button id="overviewInfoBtn" class="chip active" type="button">Information</button>
+              <button id="overviewSurveyBtn" class="chip" type="button">Survey Notes</button>
+              <button id="overviewHelpBtn" class="chip" type="button">Help</button>
+              <div class="overview-index-wrap">
+                <button id="overviewIndexBtn" class="chip" type="button" aria-expanded="false" aria-controls="overviewIndexMenu">Index</button>
+                <div id="overviewIndexMenu" class="overview-index-menu hidden" aria-hidden="true">
+                  <div class="overview-index-menu__head">
+                    <h3 id="overviewContentsTitle">Contents</h3>
+                    <p id="overviewContentsLead" class="subtext muted">Jump to any section in this page.</p>
+                  </div>
+                  <div id="overviewContentsGrid" class="overview-index-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="metricGrid" class="stats-grid overview-hero__stats"></div>
+        </article>
+
+        <div class="section-gap overview-support">
+          <article class="panel overview-support__primary">
+            <div class="panel-head">
+              <div>
+                <h3 id="overviewStoryTitle">Programme Context</h3>
+                <p id="overviewContentsSubtext" class="subtext muted"></p>
+              </div>
+            </div>
+            <div id="overviewStory" class="overview-story section-gap"></div>
+          </article>
+          <div id="overviewGlanceGrid" class="overview-glance-grid hidden" aria-hidden="true"></div>
+        </div>
+
+        <div class="two-col section-gap overview-lower">
+          <article class="panel overview-lower__panel overview-lower__panel--insights">
+            <p class="eyebrow">What This Shows</p>
+            <h2>Why It Matters</h2>
+            <div id="surveyReadinessGrid" class="card-grid section-gap"></div>
+            <div id="surveyReadinessDetails" class="detail-list"></div>
+          </article>
+          <article class="panel overview-lower__panel overview-lower__panel--actions">
+            <p class="eyebrow">How To Use It</p>
+            <h2>What To Do Next</h2>
+            <div id="timeline" class="timeline section-gap"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-panel="areas">
+        <article id="areaOverviewPanel" class="panel section-gap">
+          <div class="panel-head">
+            <div>
+              <h3>Survey Areas</h3>
+              <p id="overviewAreasSubtext" class="subtext muted">Interactive area summary for the current survey round.</p>
+            </div>
+          </div>
+          <div id="overviewAreaFilters" class="overview-area-filters section-gap"></div>
+          <div id="overviewAreaGrid" class="card-grid section-gap"></div>
+        </article>
+
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">Area Catalogue</p>
+            <h2>Monitoring Areas</h2>
+            <div id="areaList" class="stack section-gap"></div>
+          </article>
+          <article id="selectedAreaPanel" class="panel">
+            <p class="eyebrow">Selected Area And Round Comparison</p>
+            <h2 id="selectedAreaTitle">Area</h2>
+            <p id="selectedAreaSummary" class="muted section-gap"></p>
+            <div id="selectedAreaChips" class="chips"></div>
+            <div id="selectedAreaAssets" class="card-grid section-gap"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-panel="weather">
+        <article class="panel weather-shell">
+          <div class="weather-shell__intro">
+            <div>
+              <p class="eyebrow">Weather And Tides</p>
+              <h2>Environmental Conditions Dashboard</h2>
+              <p id="weatherSummary" class="muted">Loading weather context...</p>
+            </div>
+          </div>
+          <div class="weather-frame-wrap section-gap">
+            <iframe id="weatherFrame" class="weather-frame" title="Project weather and tide dashboard" loading="lazy"></iframe>
+          </div>
+        </article>
+      </section>
+
+      <section class="tab-panel" data-panel="panorama">
+        <article class="panel panorama-shell">
+          <div class="panorama-shell__intro">
+            <div>
+              <p class="eyebrow">Immersive Area Tour</p>
+              <h2>Area Panorama</h2>
+              <p id="panoramaSummary" class="muted">Panorama guidance for the selected area will appear here.</p>
+            </div>
+            <div id="panoramaStats" class="stats-grid panorama-shell__stats"></div>
+          </div>
+          <div class="panorama-frame-wrap section-gap">
+            <iframe
+              id="panoramaFrame"
+              class="panorama-frame"
+              title="Area panorama viewer"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div id="panoramaDetails" class="detail-list section-gap"></div>
+        </article>
+      </section>
+
+      <section class="tab-panel" data-panel="fixedpoints">
+        <article class="panel fixed-points-shell">
+          <div class="fixed-points-shell__intro">
+            <div>
+              <p class="eyebrow">Repeat Observation Network</p>
+              <h2>Fixed Observation Points</h2>
+              <p id="fixedPointsSummary" class="muted">Fixed-point guidance for the selected project will appear here.</p>
+            </div>
+          </div>
+          <div class="fixed-points-shell__body section-gap">
+            <article class="panel fixed-points-shell__map-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Estuary Map</p>
+                  <h3>Fixed Point Location Map</h3>
+                  <p class="subtext muted">This can swap to the ortho once you drop the preferred site map in.</p>
+                </div>
+              </div>
+              <div class="fixed-points-map-stage section-gap">
+                <img id="fixedPointsMapImage" class="fixed-points-map-image" alt="">
+                <div id="fixedPointsMapMarkers" class="fixed-points-map-markers"></div>
+              </div>
+              <article class="fixed-points-info-card section-gap">
+                <p class="eyebrow">Point Notes</p>
+                <div id="fixedPointDetails" class="detail-list"></div>
+              </article>
+            </article>
+            <article class="panel fixed-points-shell__selected">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Selected Point</p>
+                  <h3 id="fixedPointTitle">Observation Point</h3>
+                  <p id="fixedPointSummary" class="subtext muted"></p>
+                </div>
+              </div>
+              <div id="fixedPointChips" class="chips"></div>
+              <div id="fixedPointGallery" class="fixed-points-gallery section-gap"></div>
+            </article>
+          </div>
+          <div id="fixedPointsHistory" class="fixed-points-history section-gap"></div>
+        </article>
+      </section>
+
+      <section class="tab-panel" data-panel="volume">
+        <article class="panel volume-hero">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Sediment Change</p>
+              <h2>Sandbar Volume Change</h2>
+              <p id="volumeSummary" class="subtext muted"></p>
+            </div>
+          </div>
+          <div id="volumeQuickAreas" class="chips section-gap"></div>
+          <div id="volumeSandboxBanner" class="notice-banner section-gap"></div>
+          <div id="volumeMetricGrid" class="stats-grid section-gap"></div>
+        </article>
+
+        <article id="volumeViewerPanel" class="panel section-gap is-hidden">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Interactive 3D View</p>
+              <h2 id="volumeViewerTitle">Area Change Viewer</h2>
+              <p id="volumeViewerSummary" class="subtext muted"></p>
+            </div>
+          </div>
+          <div class="volume-viewer-layout section-gap">
+            <div id="volumeViewerGuide" class="volume-viewer-guide"></div>
+            <div class="volume-viewer-stage">
+              <iframe
+                id="volumeViewerFrame"
+                class="volume-viewer-frame"
+                title="Area change 3D viewer"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <aside class="volume-viewer-aside">
+              <div id="volumeViewerStats" class="stats-grid volume-viewer-stats"></div>
+              <div id="volumeViewerDetails" class="detail-list section-gap"></div>
+            </aside>
+          </div>
+        </article>
+
+        <article id="volumeTrendPanel" class="panel section-gap is-hidden">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Trend Analysis</p>
+              <h2>What Is Repeating Over Time</h2>
+              <p id="volumeTrendIntro" class="subtext muted">This brings all three survey rounds together so people can see what is steadily building up, steadily lowering, reversing, or settling down across the current live monitoring area.</p>
+            </div>
+          </div>
+          <div id="volumeTrendBody" class="section-gap"></div>
+        </article>
+
+        <article id="volumeReferencePanel" class="panel section-gap">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Supporting Imagery</p>
+              <h2>Reference Maps</h2>
+              <p id="volumeImageSummary" class="subtext muted"></p>
+            </div>
+          </div>
+          <div id="volumeImageryGrid" class="volume-imagery-grid section-gap"></div>
+        </article>
+
+        <div id="volumeGuidancePanels" class="two-col section-gap">
+          <article class="panel">
+            <p class="eyebrow">How To Read This Page</p>
+            <h2>Current Workflow</h2>
+            <div id="volumeMethod" class="detail-list section-gap"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">What This Means</p>
+            <h2>Current Interpretation</h2>
+            <div id="volumeNarrative" class="detail-list section-gap"></div>
+          </article>
+        </div>
+
+        <article id="volumeRolloutPanel" class="panel section-gap">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Comparison Rollout</p>
+              <h2>What Is Ready</h2>
+            </div>
+          </div>
+          <div id="volumeAreaGrid" class="card-grid section-gap"></div>
+        </article>
+      </section>
+
+      <section class="tab-panel" data-panel="layers">
+        <article id="layerWorkspace" class="panel layer-panel">
+          <div class="layer-heading">
+            <div>
+              <p class="eyebrow">Image Comparison</p>
+              <h2 id="viewerTitle">Comparison Viewer</h2>
+            </div>
+            <div class="chips">
+              <button id="viewerFullscreenBtn" class="chip" type="button">Fullscreen</button>
+              <button id="zoomOutBtn" class="chip" type="button">Zoom Out</button>
+              <button id="resetViewBtn" class="chip" type="button">Reset</button>
+              <button id="zoomInBtn" class="chip" type="button">Zoom In</button>
+            </div>
+          </div>
+
+          <div class="layer-toolbar section-gap">
+                <div id="layerControls" class="chips"></div>
+                <div class="viewer-compare-controls">
+                  <label>Primary Survey<select id="primaryCompareSelect"></select></label>
+                  <label>Secondary Survey<select id="secondaryCompareSelect"></select></label>
+                  <label>Primary View<select id="primaryLayerCompareSelect"></select></label>
+                  <label>Secondary View<select id="secondaryLayerCompareSelect"></select></label>
+                </div>
+                <div class="viewer-assist-controls">
+                  <label class="viewer-toggle"><input id="toggleGuideDsm" type="checkbox"><span>Show colour elevation</span></label>
+                  <label class="viewer-toggle"><input id="toggleGuideContours" type="checkbox" checked><span>Show contours</span></label>
+                  <label class="viewer-toggle"><input id="toggleChangeHighlight" type="checkbox"><span>Highlight change</span></label>
+                </div>
+                <div id="compareModeControls" class="chips">
+              <button class="chip active" type="button" data-compare-mode="single">Single View</button>
+              <button class="chip" type="button" data-compare-mode="transparency">Overlay</button>
+              <button class="chip" type="button" data-compare-mode="slider">Swipe</button>
+            </div>
+            <div id="compareHighlightLegend" class="compare-highlight-legend hidden" aria-live="polite"></div>
+          </div>
+
+          <div id="viewerStage" class="viewer-stage section-gap">
+            <div id="transparencyControls" class="transparency-panel hidden" aria-live="polite">
+              <div class="transparency-panel__header">
+                <p class="eyebrow">Transparency Mix</p>
+              </div>
+              <label>
+                Primary Image
+                <input id="primaryOpacityRange" type="range" min="0" max="100" step="1" value="100">
+              </label>
+              <label>
+                Secondary Image
+                <input id="secondaryOpacityRange" type="range" min="0" max="100" step="1" value="55">
+              </label>
+            </div>
+            <div id="viewerTransform" class="viewer-transform">
+              <img id="viewerBaseImage" alt="">
+              <div id="viewerGuideDsmOverlay" class="viewer-overlay hidden viewer-overlay--guide">
+                <img id="viewerGuideDsmImage" alt="">
+              </div>
+              <div id="viewerGuideContourOverlay" class="viewer-overlay hidden viewer-overlay--guide">
+                <img id="viewerGuideContourImage" alt="">
+              </div>
+              <div id="viewerTransparencyOverlay" class="viewer-overlay hidden">
+                <img id="viewerOverlayImage" alt="">
+              </div>
+              <div id="viewerHighlightOverlay" class="viewer-overlay hidden viewer-overlay--highlight">
+                <img id="viewerHighlightImage" alt="">
+              </div>
+              <div id="viewerSliderOverlay" class="viewer-overlay hidden">
+                <img id="viewerSliderImage" alt="">
+              </div>
+            </div>
+            <div id="sliderHandle" class="slider-handle hidden" aria-hidden="true"></div>
+          </div>
+
+          <p id="viewerCaption" class="muted section-gap"></p>
+
+          <div class="layer-support section-gap">
+            <div id="compareInsightGrid" class="card-grid"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="tab-panel" data-panel="sections">
+        <article id="sectionWorkspace" class="panel section-workspace">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Cross Sections</p>
+              <h2 id="sectionPanelTitle">Section Profile</h2>
+              <p id="sectionStatusText" class="muted section-gap"></p>
+            </div>
+            <div class="section-toolbar">
+              <label class="section-select-label">Section<select id="sectionSelect"></select></label>
+              <div class="chips">
+                <button id="sectionOrthoBtn" class="chip active" type="button">Aerial View</button>
+                <button id="sectionDsmBtn" class="chip" type="button">Colour Elevation</button>
+              </div>
+              <button id="sectionFullscreenBtn" class="chip" type="button">Fullscreen</button>
+            </div>
+          </div>
+
+            <div class="section-map-panel section-gap">
+              <div id="sectionMapStage" class="section-map-stage">
+                <img id="sectionBaseImage" class="section-map-image" alt="">
+                <img id="sectionOverlayImage" class="section-map-image section-map-overlay" alt="">
+                <div class="section-stage-head">
+                  <article class="section-stage-hero">
+                    <p class="eyebrow">Monitoring Area</p>
+                    <h3 id="sectionHeroTitle">Section View</h3>
+                    <p id="sectionHeroSummary" class="muted"></p>
+                  </article>
+                  <article id="sectionSurveyPill" class="section-survey-pill"></article>
+                </div>
+                <div id="sectionHotspots" class="section-hotspots"></div>
+                <div id="sectionMapMarker" class="section-map-marker hidden" aria-hidden="true"></div>
+                <div id="sectionHeroStats" class="section-hero-stats"></div>
+                <div id="sectionQuickSelect" class="chips section-quick-inline"></div>
+              </div>
+            </div>
+
+            <div class="section-profile-panel section-gap">
+              <div class="chart-wrap section-chart-wrap">
+                <div id="sectionAnalysisGrid" class="section-analysis-grid">
+                  <div class="section-analysis-chart">
+                    <svg id="profileChart" viewBox="0 0 960 320" role="img" aria-label="Section profile"></svg>
+                  </div>
+                  <div id="sectionComparisonSummary" class="section-comparison-summary hidden">
+                    <article class="section-difference-card">
+                      <p class="eyebrow">Height Difference</p>
+                      <p id="sectionDifferenceSurveyLabel" class="muted">Live comparison along this section.</p>
+                      <div id="sectionDifferenceValue" class="section-difference-card__stack">
+                        <p class="section-difference-card__value">--</p>
+                      </div>
+                      <p id="sectionDifferenceText" class="section-difference-card__text muted">Tick one or more survey rounds to compare the same fixed section.</p>
+                    </article>
+                    <article class="section-trend-card section-trend-card--snapshot-source">
+                      <p class="eyebrow">Trend</p>
+                      <p id="sectionTrendLabel" class="section-trend-card__label">Awaiting comparison</p>
+                      <p id="sectionTrendText" class="muted">Tick one or more survey rounds to see whether this point is building up, eroding, or reversing.</p>
+                      <div id="sectionTrendMini" class="section-trend-mini" aria-hidden="true"></div>
+                    </article>
+                    <article class="section-difference-inset">
+                      <div class="section-difference-inset__header">
+                        <p class="eyebrow">Local Zoom</p>
+                        <p id="sectionDifferenceRange" class="muted">A short window around the current cursor position.</p>
+                      </div>
+                      <svg id="sectionDifferenceInset" viewBox="0 0 380 150" role="img" aria-label="Local section comparison zoom"></svg>
+                    </article>
+                  </div>
+                </div>
+                <div class="section-profile-toolbar section-chart-toolbar">
+                  <div>
+                    <p class="eyebrow">Survey Profiles</p>
+                    <div id="sectionProfileControls" class="section-profile-controls"></div>
+                  </div>
+                  <div id="sectionProfileLegend" class="section-profile-legend"></div>
+                </div>
+                <div id="sectionComparisonQuickbar" class="section-comparison-quickbar hidden" aria-hidden="true">
+                  <div class="section-comparison-quickbar__copy">
+                    <p class="eyebrow">Section Snapshot</p>
+                    <p id="sectionComparisonQuickText" class="muted">Hover or tap the chart to open a plain-English snapshot for this point.</p>
+                  </div>
+                  <button id="sectionComparisonSnapshotBtn" class="chip" type="button">Open Snapshot</button>
+                </div>
+              </div>
+              <div id="sectionMetrics" class="stats-grid section-metric-strip section-gap"></div>
+              <div id="sectionDetails" class="section-insight-grid section-gap"></div>
+            </div>
+        </article>
+
+        <div id="sectionInsightOverlay" class="section-insight-overlay hidden" aria-hidden="true">
+          <div id="sectionInsightOverlayBackdrop" class="section-insight-overlay__backdrop"></div>
+          <article class="section-insight-overlay__dialog" role="dialog" aria-modal="true" aria-labelledby="sectionInsightOverlayTitle">
+            <div class="section-insight-overlay__header">
+              <div>
+                <p id="sectionInsightOverlayEyebrow" class="eyebrow">Section Insight</p>
+                <h3 id="sectionInsightOverlayTitle">Insight</h3>
+              </div>
+              <button id="sectionInsightOverlayClose" class="chip" type="button" aria-label="Close section insight">Close</button>
+            </div>
+            <p id="sectionInsightOverlaySummary" class="section-insight-overlay__summary muted"></p>
+            <div id="sectionInsightOverlayBody" class="section-insight-overlay__body"></div>
+          </article>
+        </div>
+
+      </section>
+
+      <div id="volumeImageLightbox" class="volume-image-lightbox hidden" aria-hidden="true">
+        <div id="volumeImageLightboxBackdrop" class="volume-image-lightbox__backdrop"></div>
+        <article class="volume-image-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="volumeImageLightboxTitle">
+          <div class="volume-image-lightbox__header">
+            <div>
+              <p id="volumeImageLightboxEyebrow" class="eyebrow">Reference map</p>
+              <h3 id="volumeImageLightboxTitle">Reference image</h3>
+              <p id="volumeImageLightboxCaption" class="muted"></p>
+            </div>
+            <div class="volume-image-lightbox__actions">
+              <button id="volumeImageLightboxZoomOut" class="chip" type="button" aria-label="Zoom out">-</button>
+              <button id="volumeImageLightboxReset" class="chip" type="button">Reset</button>
+              <button id="volumeImageLightboxZoomIn" class="chip" type="button" aria-label="Zoom in">+</button>
+              <button id="volumeImageLightboxClose" class="chip" type="button" aria-label="Close reference image">Close</button>
+            </div>
+          </div>
+          <div id="volumeImageLightboxContent" class="volume-image-lightbox__content">
+            <div id="volumeImageLightboxViewport" class="volume-image-lightbox__viewport">
+              <div id="volumeImageLightboxCanvas" class="volume-image-lightbox__canvas">
+                <figure class="volume-image-lightbox__pane">
+                  <figcaption id="volumeImageLightboxPrimaryLabel" class="volume-image-lightbox__pane-label hidden"></figcaption>
+                  <div class="volume-image-lightbox__image-frame">
+                    <div id="volumeImageLightboxPrimaryOverlay" class="volume-image-lightbox__image-heading hidden"></div>
+                    <img id="volumeImageLightboxImage" alt="">
+                  </div>
+                </figure>
+                <figure id="volumeImageLightboxSecondaryPane" class="volume-image-lightbox__pane hidden">
+                  <figcaption id="volumeImageLightboxSecondaryLabel" class="volume-image-lightbox__pane-label hidden"></figcaption>
+                  <div class="volume-image-lightbox__image-frame">
+                    <div id="volumeImageLightboxSecondaryOverlay" class="volume-image-lightbox__image-heading hidden"></div>
+                    <img id="volumeImageLightboxSecondaryImage" alt="">
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <aside id="volumeImageLightboxLegend" class="volume-image-lightbox__legend is-hidden"></aside>
+          </div>
+        </article>
+      </div>
+
+      <section class="tab-panel hidden" data-panel="admin" data-admin-only="true">
+        <div class="two-col">
+          <article class="panel">
+            <p class="eyebrow">Project Onboarding</p>
+            <h2>Setup Progress</h2>
+            <p class="muted section-gap">Use this checklist to see whether the selected project is still in starter mode, partly configured, or ready for repeat-survey monitoring.</p>
+            <div id="adminOnboardingSummary" class="stats-grid section-gap"></div>
+            <div id="adminOnboardingDetails" class="card-grid"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Internal Console</p>
+            <h2>Survey Round Manager</h2>
+            <p class="muted section-gap">Create the next survey round here, then upload its area outputs once processing is ready.</p>
+            <div class="admin-grid section-gap">
+              <label>Survey name<input id="newSurveyName" type="text" placeholder="Survey Round 3"></label>
+              <label>Start date<input id="newSurveyStart" type="date"></label>
+              <label>End date<input id="newSurveyEnd" type="date"></label>
+              <label>Compare against<select id="newSurveyBaseline"></select></label>
+            </div>
+            <div class="admin-actions section-gap">
+              <button id="createSurveyBtn" class="area-action" type="button">Create Survey Round</button>
+            </div>
+            <div id="createSurveyStatus" class="detail-list section-gap"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Survey Context Editor</p>
+            <h2>Selected Survey and Area Notes</h2>
+            <p id="adminMetadataSummary" class="muted section-gap"></p>
+            <div class="admin-grid section-gap">
+              <label>Status label<input id="metaStatusLabel" type="text" placeholder="Near low tide"></label>
+              <label>Status tone
+                <select id="metaStatusTone">
+                  <option value="blue">Blue</option>
+                  <option value="green">Green</option>
+                  <option value="amber">Amber</option>
+                  <option value="rose">Rose</option>
+                </select>
+              </label>
+              <label class="admin-span-2">Area summary<textarea id="metaPurpose" placeholder="Short explanation of why this area matters in this survey round."></textarea></label>
+              <label>Flight start<input id="metaStart" type="text" placeholder="13:14"></label>
+              <label>Flight finish<input id="metaFinish" type="text" placeholder="13:56"></label>
+              <label>Area size<input id="metaSize" type="text" placeholder="0.91 km2"></label>
+              <label>Low tide time<input id="metaLowTide" type="text" placeholder="13:47"></label>
+              <label>Low tide height<input id="metaLowTideHeight" type="text" placeholder="0.53 m"></label>
+              <label>Launch offset<input id="metaLaunchOffset" type="text" placeholder="33 mins before low tide"></label>
+              <label>Estimated duration<input id="metaEstimatedDuration" type="text" placeholder="31m 21s"></label>
+              <label>Actual duration<input id="metaActualDuration" type="text" placeholder="39m 11s"></label>
+              <label>Tidal window<input id="metaTideWindow" type="text" placeholder="Approx. 1.12 m to 0.70 m"></label>
+              <label>Low-tide alignment score<input id="metaTideScore" type="text" placeholder="95"></label>
+              <label class="admin-span-2">Tags<input id="metaTags" type="text" placeholder="Day 1, Central reach, Near low tide"></label>
+              <label class="admin-span-2">Mission role<textarea id="metaMissionRole" placeholder="What role this area played in the survey round."></textarea></label>
+              <label class="admin-span-2">Operational note<textarea id="metaOperationalNote" placeholder="Access, timing, field conditions, logistics."></textarea></label>
+              <label class="admin-span-2">Weather note<textarea id="metaWeatherNotes" placeholder="Wind, cloud, exposure, anything notable on site."></textarea></label>
+              <label class="admin-span-2">Interpretation note<textarea id="metaSurveyNotes" placeholder="What this area showed and why it matters for clients."></textarea></label>
+            </div>
+            <div class="admin-actions section-gap">
+              <button id="saveAreaMetadataBtn" class="area-action" type="button">Save Survey Area Notes</button>
+              <button id="resetAreaMetadataBtn" class="chip" type="button">Reset To Baseline</button>
+            </div>
+            <div id="areaMetadataStatus" class="detail-list section-gap"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Volume Change Intake</p>
+            <h2>Selected Survey and Area Volumes</h2>
+            <p id="volumeAdminSummary" class="muted section-gap"></p>
+            <div class="admin-grid section-gap">
+              <label>Calculation method<input id="volumeMethodInput" type="text" placeholder="DSM difference raster clipped to fixed sandbar polygons"></label>
+              <label>Cell size / grid note<input id="volumeCellSizeInput" type="text" placeholder="0.05 m cell size"></label>
+              <label class="admin-span-2">Area note<textarea id="volumeNotesInput" placeholder="Plain-English summary for this area in this comparison."></textarea></label>
+              <label class="admin-span-2">Sandbar rows<textarea id="volumeRowsInput" placeholder="Outer Bar|120.5|45.2|75.3|High confidence|Build-up on seaward edge&#10;Inner Bar|60.0|18.4|41.6|Medium confidence|Small gain on upper ridge"></textarea></label>
+            </div>
+            <div class="admin-actions section-gap">
+              <button id="saveVolumeBtn" class="area-action" type="button">Save Volume Change</button>
+            </div>
+            <div id="volumeAdminStatus" class="detail-list section-gap"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Upload Console</p>
+            <h2>Survey Asset Intake</h2>
+            <p id="adminTargetSummary" class="muted section-gap"></p>
+            <div id="adminExpectedFiles" class="detail-list section-gap"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Upload Files</p>
+            <h2>Selected Survey and Area</h2>
+            <div class="admin-grid section-gap">
+              <label>Aerial View<input id="uploadOrtho" type="file" accept=".jpg,.jpeg,image/jpeg"></label>
+              <label>Colour Elevation<input id="uploadDsm" type="file" accept=".png,image/png"></label>
+              <label>Contours<input id="uploadContour" type="file" accept=".png,image/png"></label>
+              <label>Section Lines<input id="uploadSectionLines" type="file" accept=".png,image/png"></label>
+              <label>Section Profiles CSV<input id="uploadSectionCsv" type="file" accept=".csv,text/csv"></label>
+            </div>
+            <div class="admin-actions section-gap">
+              <button id="uploadSelectedFiles" class="area-action" type="button">Upload Selected Files</button>
+            </div>
+            <div id="adminUploadStatus" class="detail-list section-gap"></div>
+          </article>
+        </div>
+        <article class="panel section-gap">
+          <p class="eyebrow">Survey Board</p>
+          <h2>All Areas For This Survey</h2>
+          <div id="adminBoardSummary" class="stats-grid section-gap"></div>
+          <div id="adminBoardGrid" class="card-grid section-gap"></div>
+        </article>
+        <article class="panel section-gap">
+          <p class="eyebrow">Access Overview</p>
+          <h2>Active And Expiring Logins</h2>
+          <p class="muted section-gap">Create a permanent harbour login or short-term contractor logins here. Temporary logins stop working automatically once their expiry time is reached.</p>
+          <div class="admin-grid section-gap">
+            <label>Display label<input id="accessLabelInput" type="text" placeholder="Harbour team"></label>
+            <label>Username<input id="accessUsernameInput" type="text" placeholder="harbour"></label>
+            <label>Password<input id="accessPasswordInput" type="text" placeholder="Create a password"></label>
+            <label>Expires at<input id="accessExpiresAtInput" type="datetime-local"></label>
+            <label class="admin-span-2">Notes<textarea id="accessNotesInput" placeholder="Who this is for, what it should be used for, or when it should be revoked."></textarea></label>
+          </div>
+          <div class="admin-actions section-gap">
+            <button id="createAccessUserBtn" class="area-action" type="button">Create Report Login</button>
+          </div>
+          <div id="accessUserStatus" class="detail-list section-gap"></div>
+          <div id="accessUsersSummary" class="stats-grid section-gap"></div>
+          <div id="accessUsersGrid" class="card-grid section-gap"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Reusable Pattern</p>
+          <h2>How This Scales</h2>
+          <div id="workflowGrid" class="card-grid section-gap"></div>
+        </article>
+      </section>
+
+      <footer class="shell-footer">
+        <p>&copy; 2026 FutureScaping Ltd. All rights reserved.</p>
+        <div class="shell-footer__actions">
+          <a href="https://futurescaping.co.uk/">FutureScaping</a>
+          <a href="./privacy.html">Privacy Notice</a>
+          <a href="./cookies.html">Cookie Notice</a>
+          <a href="./contact.html">Contact</a>
+          <button id="adminModeToggle" class="chip shell-footer__toggle hidden" type="button">Open Admin Console</button>
+          <button id="signOutBtn" class="chip shell-footer__toggle" type="button">Sign Out</button>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        const canonicalHref = document.querySelector("link[rel='canonical']")?.href || "https://padstow-monitoring-platform.onrender.com/";
+        if (window.location.protocol !== "file:") {
+          const script = document.createElement("script");
+          script.type = "module";
+          script.src = "/app.js?v=20260722a";
+          document.body.appendChild(script);
+          return;
+        }
+
+        const escapedHref = canonicalHref
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+
+        document.body.innerHTML = `
+          <main style="min-height:100vh;display:grid;place-items:center;padding:32px;background:radial-gradient(circle at top, #203a63 0%, #0b172b 55%, #08111f 100%);color:#f3f7ff;font-family:Montserrat,Arial,sans-serif;">
+            <section style="width:min(720px,100%);padding:32px;border-radius:28px;border:1px solid rgba(126,192,255,0.22);background:rgba(13,24,42,0.92);box-shadow:0 24px 60px rgba(0,0,0,0.35);">
+              <p style="margin:0 0 12px;font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:#7ec0ff;">Padstow Estuary Monitoring System</p>
+              <h1 style="margin:0 0 16px;font-size:clamp(2rem,5vw,3.5rem);line-height:0.95;">Open the hosted project, not the raw file copy</h1>
+              <p style="margin:0 0 14px;color:rgba(232,239,255,0.82);line-height:1.65;">This screen appeared because the project was opened from a local <code style="color:#9fd2ff;">file:///</code> path. The full monitoring system uses ES modules and needs either the hosted site or a local web server.</p>
+              <p style="margin:0 0 22px;color:rgba(232,239,255,0.82);line-height:1.65;">Use <strong>Open Live Project</strong> to view the working public version, or run <code style="color:#9fd2ff;">run-local.cmd</code> if you want to test it locally.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+                <a href="${escapedHref}" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:16px;background:linear-gradient(180deg,#58c8ff 0%,#2ca8f7 100%);color:#08213a;text-decoration:none;font-weight:800;">Open Live Project</a>
+                <button id="copyHostedLinkBtn" type="button" style="padding:14px 18px;border-radius:16px;border:1px solid rgba(126,192,255,0.26);background:rgba(17,33,58,0.88);color:#f3f7ff;font:inherit;font-weight:700;cursor:pointer;">Copy Public Link</button>
+              </div>
+              <p style="margin:0;color:rgba(191,206,233,0.76);font-size:0.95rem;">Public URL: <a href="${escapedHref}" style="color:#8fc9ff;">${escapedHref}</a></p>
+            </section>
+          </main>
+        `;
+
+        document.getElementById("copyHostedLinkBtn")?.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(canonicalHref);
+            document.getElementById("copyHostedLinkBtn").textContent = "Public Link Copied";
+          } catch (error) {
+            window.prompt("Copy this public project link:", canonicalHref);
+          }
+        });
+      }());
+    </script>
+  </body>
+</html>
+
+

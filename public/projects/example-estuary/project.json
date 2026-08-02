@@ -1,0 +1,41 @@
+{
+  "id": "example-estuary",
+  "name": "Example Estuary Monitoring",
+  "shortName": "Example Estuary Monitoring",
+  "description": "Placeholder starter project showing the reusable multi-project structure before live survey assets are onboarded.",
+  "status": "Starter placeholder",
+  "selectorSummary": "Reference setup for future estuary onboarding.",
+  "singleScanMessage": "Change monitoring will become available after the second comparable survey.",
+  "site": {
+    "name": "Example Estuary",
+    "county": "TBD",
+    "country": "United Kingdom",
+    "context": "Use this folder as the safe starter for a new monitoring rollout without affecting Padstow."
+  },
+  "programme": {
+    "cadence": "Starter project",
+    "objectiveShort": "Prepare reusable onboarding structure",
+    "operationalLesson": "New projects need a clear home for identity, area setup, and scan metadata before the first repeat comparison exists.",
+    "consolidationGoal": "Use the same folders, routing, and metadata shape as Padstow without inheriting Padstow-specific text or assets."
+  },
+  "environment": {
+    "defaultLocationName": "Example Estuary",
+    "fallbackSurveyEndDate": "2026-07-21",
+    "weatherWindowMonths": 1,
+    "timezone": "Europe/London",
+    "tide": {
+      "latitude": "",
+      "longitude": "",
+      "datum": "CD"
+    }
+  },
+  "branding": {
+    "overviewHeroImagePath": "/public/projects/example-estuary/assets/maps/example-overview.png"
+  },
+  "workflow": [
+    { "stage": "1", "title": "Define the project", "copy": "Set the project metadata, public route, and reporting tone in project.json." },
+    { "stage": "2", "title": "Add monitoring areas", "copy": "List the initial monitoring areas in areas.json so the shared UI can render them." },
+    { "stage": "3", "title": "Load the first scan", "copy": "Add the opening survey round in scans.json and wire any available assets." },
+    { "stage": "4", "title": "Unlock change monitoring", "copy": "Once a second comparable survey exists, the comparison features can be populated." }
+  ]
+}

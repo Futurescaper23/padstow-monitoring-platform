@@ -1,0 +1,16 @@
+{
+  "areas": [
+    {
+      "id": "area1",
+      "number": 1,
+      "overviewCode": "A1",
+      "title": "Example Monitoring Area",
+      "day": "Initial setup",
+      "zone": "Placeholder estuary reach",
+      "filterKey": "setup",
+      "statusLabel": "Starter area",
+      "statusTone": "blue",
+      "purpose": "Starter monitoring area used to prove the multi-project structure before real survey content is added."
+    }
+  ]
+}

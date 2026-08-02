@@ -1,0 +1,100 @@
+{
+  "areas": [
+    {
+      "id": "area1",
+      "number": 1,
+      "overviewCode": "A1",
+      "title": "Hawker's Cove / Tregirls Beach",
+      "day": "Day 1",
+      "zone": "Outer estuary / Padstow side",
+      "filterKey": "day1",
+      "statusLabel": "Later than low tide",
+      "statusTone": "amber",
+      "purpose": "Shows conditions in the outer Padstow-side section after low tide and helps link this area to the rest of the estuary survey."
+    },
+    {
+      "id": "area2",
+      "number": 2,
+      "overviewCode": "A2",
+      "title": "Daymer Bay",
+      "day": "Day 1",
+      "zone": "Rock side / outer entrance",
+      "filterKey": "day1",
+      "statusLabel": "Early tide window",
+      "statusTone": "amber",
+      "purpose": "Shows the outer bay area as the tide was still falling and gives context for the entrance to the estuary."
+    },
+    {
+      "id": "area3",
+      "number": 3,
+      "overviewCode": "A3",
+      "title": "Rock Beach",
+      "day": "Day 1",
+      "zone": "Central estuary / Tregirls side",
+      "filterKey": "day1",
+      "statusLabel": "Good low-tide alignment",
+      "statusTone": "green",
+      "purpose": "Shows the central area close to low tide, when more of the estuary bed was exposed."
+    },
+    {
+      "id": "area4",
+      "number": 4,
+      "overviewCode": "A4",
+      "title": "Padstow Harbour Estuary",
+      "day": "Day 2",
+      "zone": "Padstow side / upper harbour flats",
+      "filterKey": "day2",
+      "statusLabel": "After low tide",
+      "statusTone": "amber",
+      "purpose": "Shows the Padstow-side harbour flats as the water started to return."
+    },
+    {
+      "id": "area5",
+      "number": 5,
+      "overviewCode": "A5",
+      "title": "Porthilly Cove",
+      "day": "Day 1",
+      "zone": "Transition zone / central bar area",
+      "filterKey": "day1",
+      "statusLabel": "Around low tide",
+      "statusTone": "green",
+      "purpose": "Shows a key transition area where changes to bars and channels are easier to track over time."
+    },
+    {
+      "id": "area6",
+      "number": 6,
+      "overviewCode": "A6",
+      "title": "Old Town Cove",
+      "day": "Day 2",
+      "zone": "Inland / upper estuary",
+      "filterKey": "day2",
+      "statusLabel": "Later session",
+      "statusTone": "rose",
+      "purpose": "Shows the upper estuary later in the tide cycle and helps record how conditions changed further inland."
+    },
+    {
+      "id": "area7",
+      "number": 7,
+      "overviewCode": "A7",
+      "title": "Slate Quarry",
+      "day": "Day 2",
+      "zone": "Mid-inner estuary",
+      "filterKey": "day2",
+      "statusLabel": "Near low tide",
+      "statusTone": "green",
+      "purpose": "Shows how the mid-inner estuary was exposing before low tide."
+    },
+    {
+      "id": "area8",
+      "number": 8,
+      "overviewCode": "A8",
+      "title": "Wadebridge",
+      "day": "Day 2",
+      "zone": "Rock side / upper edge",
+      "filterKey": "day2",
+      "statusLabel": "Early tide window",
+      "statusTone": "amber",
+      "purpose": "Shows early Day 2 conditions while the tide was still falling and more water remained across the estuary."
+    }
+  ]
+}

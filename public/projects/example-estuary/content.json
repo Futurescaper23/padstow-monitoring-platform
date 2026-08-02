@@ -1,0 +1,76 @@
+{
+  "overviewModes": {
+    "information": {
+      "heroTitle": "Set up the project story before the second scan exists",
+      "heroText": "This placeholder project shows how a future estuary can define its own project story without inheriting Padstow text.",
+      "storyTitle": "Project Information",
+      "contentsSubtext": "Use this file as the template for new project narrative content.",
+      "story": [
+        {
+          "id": "starter-purpose",
+          "title": "Why this placeholder exists",
+          "paragraphs": [
+            "This starter project is here to prove the multi-project structure and make future onboarding easier.",
+            "Replace this copy with the real project context, objectives, and monitoring purpose for the next estuary."
+          ]
+        }
+      ]
+    },
+    "help": {
+      "heroTitle": "Guide the next project without hard-coding it in the app",
+      "heroText": "Each new project can now define its own help copy inside its project folder.",
+      "storyTitle": "Project Help",
+      "contentsSubtext": "Use this space for tool guidance and client-facing help tailored to the new project.",
+      "story": [
+        {
+          "id": "starter-help",
+          "title": "How to use this placeholder",
+          "paragraphs": [
+            "Treat this as a starter pack for the next onboarding.",
+            "Add the real navigation guidance, area notes, and measurement explanations once the project is live."
+          ]
+        }
+      ]
+    }
+  },
+  "surveySpecificOverview": {
+    "2026-07-21": {
+      "heroTitle": "Single-scan starter project",
+      "heroText": "This starter survey is intentionally a first-round only example. It demonstrates the baseline state before change monitoring is available.",
+      "storyTitle": "Survey Notes",
+      "contentsSubtext": "Use this section for project-specific field notes once the real work begins.",
+      "glance": [
+        ["Survey window", "21 Jul 2026"],
+        ["Current state", "Single scan only"],
+        ["Change monitoring", "Not active yet"],
+        ["Next milestone", "Add a second comparable survey"],
+        ["Routing", "Project folder structure working"],
+        ["Purpose", "Reusable onboarding baseline"]
+      ],
+      "story": [
+        {
+          "id": "starter-single-scan",
+          "title": "Why change monitoring is not active yet",
+          "paragraphs": [
+            "This example project only has one survey round, so the platform correctly stays in its baseline state.",
+            "Once a second comparable survey exists, comparison and change features can be populated."
+          ]
+        }
+      ]
+    }
+  },
+  "panoramaGuides": {
+    "area1": {
+      "summary": "Starter panorama guidance for a new project.",
+      "stats": [
+        ["Main focus", "Future area context", "Replace this with the real area-specific panorama purpose."],
+        ["Best for", "Visual onboarding", "Use this as a placeholder until a hosted panorama exists."]
+      ],
+      "details": [
+        ["What to look for", "Describe the main landform, shoreline, or channel features that matter for this area."],
+        ["Why it matters", "Explain how the panorama supports the measured outputs for the project."],
+        ["Client takeaway", "Add the one-sentence message a non-technical viewer should leave with."]
+      ]
+    }
+  }
+}

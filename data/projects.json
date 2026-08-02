@@ -1,0 +1,670 @@
+{
+  "projects": [
+    {
+      "id": "padstow-estuary",
+      "name": "Padstow Estuary Monitoring System",
+      "description": "A consolidated monitoring workspace for repeated Padstow estuary surveys, combining project context, imagery outputs, section profiles, and operational notes in one live reporting interface.",
+      "site": {
+        "name": "Padstow Harbour / Camel Estuary",
+        "county": "Cornwall",
+        "country": "England",
+        "context": "The original workflow proved the value of the survey outputs. This version brings the Padstow Harbour and Camel Estuary monitoring outputs into one reporting system."
+      },
+      "programme": {
+        "cadence": "Repeat survey programme",
+        "objectiveShort": "Track estuary change over time",
+        "operationalLesson": "The 3DVista-linked workflow works as a prototype, but repeated surveys become difficult to manage when each output lives in a separate hard-coded app.",
+        "consolidationGoal": "Add future survey rounds as data records and asset paths, rather than cloning more standalone apps."
+      },
+      "surveyAssetModel": {
+        "currentMode": "baseline-survey-migrated",
+        "currentModeLabel": "Baseline round migrated to survey-data",
+        "futureModeLabel": "Per-survey output folders",
+        "note": "The baseline survey round has now been copied into the new survey-data structure. Later rounds still need their own processed outputs copied into matching survey folders."
+      },
+      "legacyApps": [
+        {
+          "name": "Information App",
+          "type": "Project narrative",
+          "description": "Method, context, and reporting support.",
+          "path": "../apps/Information App/index.html"
+        },
+        {
+          "name": "Comparison App",
+          "type": "Layer viewer",
+          "description": "Ortho, DSM, and contour layers by area.",
+          "path": "../apps/Comparison App/index.html?area=8"
+        },
+        {
+          "name": "Slider App",
+          "type": "Swipe comparison",
+          "description": "Image comparison pattern for repeat surveys.",
+          "path": "../apps/Slider App/index.html"
+        },
+        {
+          "name": "Simple Section App",
+          "type": "Cross sections",
+          "description": "CSV-backed section profile viewer.",
+          "path": "../apps/Simple_Section App/index.html?area=area8"
+        },
+        {
+          "name": "Padstow Dashboard",
+          "type": "Environmental context",
+          "description": "Weather, tides, and survey timing context.",
+          "path": "../apps/Padstow Dashboard/index.html"
+        },
+        {
+          "name": "Monitoring Areas Map",
+          "type": "Area overview",
+          "description": "Area extents across the estuary.",
+          "path": "../apps/Estuary_Monitoring_Areas.html"
+        }
+      ],
+      "surveys": [
+        {
+          "id": "2026-03-22",
+          "label": "Survey Round 1 - 22 and 23 March 2026",
+          "shortDate": "22-23 Mar 2026",
+          "dateFrom": "2026-03-22",
+          "dateTo": "2026-03-23",
+          "status": "Baseline loaded",
+          "readiness": "assets linked",
+          "assetFolder": "padstow/2026-03-22",
+          "dataFolder": "2026-03-22",
+          "comparisonBaseline": null,
+          "notes": "First completed survey round and current baseline in the monitoring system."
+        },
+        {
+          "id": "2026-04-18",
+          "label": "Survey Round 2 - 18 and 19 April 2026",
+          "shortDate": "18-19 Apr 2026",
+          "dateFrom": "2026-04-18",
+          "dateTo": "2026-04-19",
+          "status": "Planned next round",
+          "readiness": "awaiting survey-specific exports",
+          "assetFolder": "padstow/2026-04-18",
+          "dataFolder": "2026-04-18",
+          "comparisonBaseline": "2026-03-22",
+          "notes": "Next planned repeat survey round."
+        },
+        {
+          "id": "2026-06-16",
+          "label": "Survey Round 3 - 16 and 17 June 2026",
+          "shortDate": "16-17 Jun 2026",
+          "dateFrom": "2026-06-16",
+          "dateTo": "2026-06-17",
+          "status": "Ready for uploads",
+          "readiness": "awaiting survey-specific exports",
+          "assetFolder": "padstow-estuary/2026-06-16",
+          "dataFolder": "2026-06-16",
+          "comparisonBaseline": "2026-04-18",
+          "notes": "Survey Round 3 created for the 16-17 June 2026 drone survey."
+        }
+      ],
+        "surveyAreaOverrides": {
+          "2026-04-18": {
+            "area8": {
+              "statusLabel": "Early falling tide",
+              "statusTone": "amber",
+              "start": "10:15",
+              "finish": "11:15",
+              "lowTide": "12:56",
+              "lowTideHeight": "-0.15 m",
+              "launchOffset": "161 mins before low tide",
+              "midOffset": -130,
+              "estimatedDuration": "44m 31s",
+              "actualDuration": "60m 03s",
+              "tideWindow": "Falling tide well ahead of low water",
+              "tideScore": 66,
+              "missionRole": "Opened Day 1 of the April repeat survey and covered the upper Wadebridge end before low tide.",
+              "operationalNote": "This block used the first two flights of the day, giving a long early-tide window before the estuary reached low water.",
+              "weatherNotes": "Day 1, 18 April 2026. Early survey window with the tide still falling and plenty of water remaining across the upper estuary. Low tide reference for Wadebridge / upper estuary was about 12:56 BST.",
+              "surveyNotes": "This was the first area covered on the 18 April scan day, using the first two flights of the day. It gives an early-tide picture of the upper estuary before the system moved down-estuary towards the lower water windows.",
+              "tags": [
+                "Day 1 April repeat",
+                "Upper estuary",
+                "Early falling tide",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Early Day 1 upper-estuary repeat",
+              "purpose": "Shows the Wadebridge end of the estuary well before low water, giving context for how much water was still present at the start of the April repeat survey."
+            },
+            "area7": {
+              "statusLabel": "Approaching low tide",
+              "statusTone": "green",
+              "start": "11:27",
+              "finish": "12:23",
+              "lowTide": "12:56",
+              "lowTideHeight": "-0.15 m",
+              "launchOffset": "89 mins before low tide",
+              "midOffset": -61,
+              "estimatedDuration": "43m 26s",
+              "actualDuration": "56m 45s",
+              "tideWindow": "Falling tide moving towards low water",
+              "tideScore": 84,
+              "missionRole": "Covered the mid-inner estuary before low tide, using the second pair of flights on Day 1.",
+              "operationalNote": "This section sat in a stronger low-tide window than Area 8 and gave a cleaner pre-low-water view of the inland channel system.",
+              "weatherNotes": "Day 1, 18 April 2026. Midday survey window on the falling tide. Low tide reference for Wadebridge / upper estuary was about 12:56 BST.",
+              "surveyNotes": "This was the second area group flown on 18 April, using flights three and four of the day. It captures the estuary as it moved closer to low water and should be a stronger comparison window than the earlier Wadebridge block.",
+              "tags": [
+                "Day 1 April repeat",
+                "Mid-inner estuary",
+                "Approaching low tide",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Stronger pre-low-tide repeat window",
+              "purpose": "Shows the Slate Quarry reach as the tide dropped closer to low water, giving a more exposed inland comparison than the earlier Area 8 pass."
+            },
+            "area4": {
+              "statusLabel": "Around low tide",
+              "statusTone": "green",
+              "start": "12:49",
+              "finish": "13:56",
+              "lowTide": "12:56",
+              "lowTideHeight": "-0.15 m",
+              "launchOffset": "7 mins before low tide",
+              "midOffset": 26,
+              "estimatedDuration": "44m 59s",
+              "actualDuration": "67m 42s",
+              "tideWindow": "Crossing low water into the early return",
+              "tideScore": 95,
+              "missionRole": "Captured the Padstow Harbour Estuary in the best Day 1 low-tide window, using the middle three flights of the session.",
+              "operationalNote": "This was the key Area 4 repeat block and is the strongest first-day candidate for change analysis because it straddles low water directly.",
+              "weatherNotes": "Day 1, 18 April 2026. Main low-tide capture window. Low tide reference for Wadebridge / upper estuary was about 12:56 BST, so this block begins just before low water and continues into the first part of the flood.",
+              "surveyNotes": "This area used flights five, six, and seven of the day and sits closest to low tide. It is the main Day 1 repeat-survey block for testing section change and sandbar change outputs because the estuary bed was at or near its most exposed state.",
+              "tags": [
+                "Day 1 April repeat",
+                "Near low tide",
+                "Area 4 low-tide focus",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Best Day 1 low-tide repeat window",
+              "purpose": "Shows the Padstow Harbour estuary around low tide, making it the clearest Day 1 repeat-survey window for exposed sandbar and surface-change interpretation."
+            },
+            "area6": {
+              "statusLabel": "After low tide",
+              "statusTone": "amber",
+              "start": "14:16",
+              "finish": "14:59",
+              "lowTide": "12:56",
+              "lowTideHeight": "-0.15 m",
+              "launchOffset": "80 mins after low tide",
+              "midOffset": 101,
+              "estimatedDuration": "39m 00s",
+              "actualDuration": "42m 48s",
+              "tideWindow": "Flood tide after low water",
+              "tideScore": 63,
+              "missionRole": "Closed Day 1 with the final two flights, covering the inland Area 6 block after the tide had already turned.",
+              "operationalNote": "This section was surveyed later in the day once the estuary was beginning to refill, so it should be read as a post-low-tide repeat block rather than a maximum-exposure window.",
+              "weatherNotes": "Day 1, 18 April 2026. Later afternoon survey window after low tide. Low tide reference for Wadebridge / upper estuary was about 12:56 BST.",
+              "surveyNotes": "This was the last area group flown on 18 April, using the final two flights of the day. By this stage the tide had already turned and was beginning to return, so the area should be interpreted as a later-window repeat rather than a low-water maximum.",
+              "tags": [
+                "Day 1 April repeat",
+                "Later tide window",
+                "Upper estuary",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Late-session repeat block",
+              "purpose": "Shows Old Town Cove after low tide, capturing the area once the water had started to return rather than at the maximum exposure point."
+            }
+          },
+          "2026-04-19": {
+            "area1": {
+              "statusLabel": "Approaching low tide",
+              "statusTone": "amber",
+              "start": "11:47",
+              "finish": "12:42",
+              "lowTide": "13:35",
+              "lowTideHeight": "-0.09 m",
+              "launchOffset": "108 mins before low tide",
+              "midOffset": -80,
+              "estimatedDuration": "43m 14s",
+              "actualDuration": "54m 54s",
+              "tideWindow": "Falling tide before low water",
+              "tideScore": 74,
+              "missionRole": "Opened Day 2 with the first two flights, covering the outer-estuary Area 1 block before low tide.",
+              "operationalNote": "This was the first lower-estuary block of the day and gives a clear pre-low-tide view before the session moved through the remaining outer and mid-estuary areas.",
+              "weatherNotes": "Day 2, 19 April 2026. Late-morning survey window on the falling tide. Estuary low tide reference was about 13:35 BST.",
+              "surveyNotes": "This area used the first two flights on 19 April. It captures the outer Padstow-side block before low water, with plenty of exposed ground but still some water present in the lower channels.",
+              "tags": [
+                "Day 2 April repeat",
+                "Outer estuary",
+                "Pre-low-tide",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Day 2 outer-estuary opening block",
+              "purpose": "Shows Hawker's Cove / Tregirls Beach on the falling tide before low water, giving the first Day 2 repeat view of the lower estuary."
+            },
+            "area3": {
+              "statusLabel": "Around low tide",
+              "statusTone": "green",
+              "start": "13:10",
+              "finish": "14:08",
+              "lowTide": "13:35",
+              "lowTideHeight": "-0.09 m",
+              "launchOffset": "25 mins before low tide",
+              "midOffset": 4,
+              "estimatedDuration": "38m 48s",
+              "actualDuration": "58m 55s",
+              "tideWindow": "Crossing low water into the early return",
+              "tideScore": 96,
+              "missionRole": "Captured Area 3 in the strongest Day 2 low-tide window, using the second pair of flights.",
+              "operationalNote": "This block straddled low water and should be one of the clearest Day 2 survey windows for exposed bar and shoreline comparison.",
+              "weatherNotes": "Day 2, 19 April 2026. Main low-tide capture window. Estuary low tide reference was about 13:35 BST, so this block starts before low water and ends soon after the turn.",
+              "surveyNotes": "This area used flights three and four of the day. It sits closest to low tide on Day 2 and should offer one of the best repeat-survey comparisons for the lower estuary.",
+              "tags": [
+                "Day 2 April repeat",
+                "Near low tide",
+                "Central estuary",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Best Day 2 low-tide window",
+              "purpose": "Shows Rock Beach around low tide, making it the clearest Day 2 repeat-survey window for exposed ground and change interpretation."
+            },
+            "area5": {
+              "statusLabel": "After low tide",
+              "statusTone": "amber",
+              "start": "14:19",
+              "finish": "15:23",
+              "lowTide": "13:35",
+              "lowTideHeight": "-0.09 m",
+              "launchOffset": "44 mins after low tide",
+              "midOffset": 76,
+              "estimatedDuration": "41m 10s",
+              "actualDuration": "64m 17s",
+              "tideWindow": "Flood tide after low water",
+              "tideScore": 68,
+              "missionRole": "Covered Area 5 after low tide, using the middle-late pair of flights on Day 2.",
+              "operationalNote": "This area was surveyed once the tide had already turned, so it should be read as an early-flood repeat block rather than a maximum-exposure moment.",
+              "weatherNotes": "Day 2, 19 April 2026. Early afternoon survey window after low tide. Estuary low tide reference was about 13:35 BST.",
+              "surveyNotes": "This area used flights five and six of the day. By this point the tide was returning, so the area offers a useful repeat comparison but not the most exposed state of the intertidal surface.",
+              "tags": [
+                "Day 2 April repeat",
+                "Transition zone",
+                "Early flood tide",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Post-low-tide transition block",
+              "purpose": "Shows Porthilly Cove after low tide, capturing the area once water had started to return across the central transition zone."
+            },
+            "area2": {
+              "statusLabel": "Later flood tide",
+              "statusTone": "rose",
+              "start": "15:50",
+              "finish": "16:19",
+              "lowTide": "13:35",
+              "lowTideHeight": "-0.09 m",
+              "launchOffset": "135 mins after low tide",
+              "midOffset": 150,
+              "estimatedDuration": "25m 40s",
+              "actualDuration": "29m 28s",
+              "tideWindow": "Later flood tide well after low water",
+              "tideScore": 46,
+              "missionRole": "Closed Day 2 with the final two flights, returning to Area 2 well after low tide.",
+              "operationalNote": "This was the latest lower-estuary block of the day and should be read as a later-tide repeat window rather than a low-water maximum.",
+              "weatherNotes": "Day 2, 19 April 2026. Later afternoon survey window with the tide well into its return. Estuary low tide reference was about 13:35 BST.",
+              "surveyNotes": "This area used the last two flights on 19 April. It gives a later-tide repeat view of the outer estuary once water had already returned to the lower channels and margins.",
+              "tags": [
+                "Day 2 April repeat",
+                "Outer entrance",
+                "Later flood tide",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Late Day 2 outer-estuary block",
+              "purpose": "Shows Daymer Bay later in the tide cycle, giving a repeat-survey view of the outer entrance once the estuary had started to refill."
+            }
+          },
+          "2026-06-16": {
+            "area1": {
+              "statusLabel": "Approaching low tide",
+              "statusTone": "amber",
+              "start": "11:43",
+              "finish": "12:38",
+              "lowTide": "13:22",
+              "launchOffset": "99 mins before low tide",
+              "midOffset": -71,
+              "estimatedDuration": "45m 26s",
+              "actualDuration": "54m 21s",
+              "tideWindow": "Falling tide before low water",
+              "tideScore": 78,
+              "missionRole": "Opened Day 1 of the June repeat survey using the first two grouped flights.",
+              "operationalNote": "This was the first scan of Day 1 at Hawker's Cove / Tregirls Beach. The team waited until Doom Bar was clearly visible and then was able to walk a long way out towards the middle of the estuary while tracking the drone, which made this a strong opening block.",
+              "weatherNotes": "Day 1, 16 June 2026. The wind was up a little, which is fairly typical for this outer edge, and the sky stayed overcast with the sun breaking through at times. Light rain began to spit just as the drone came down, so the timing of this block worked out very well.",
+              "surveyNotes": "This area used the first two flight records on 16 June 2026. The grouped block ran from 11:43 to 12:38, placing it around 99 minutes before the provisional low tide reference. It should be a useful pre-low-water comparison because more of Doom Bar and the outer beach were visible than would usually be seen later in the cycle."
+            },
+            "area4": {
+              "statusLabel": "Around low tide",
+              "statusTone": "green",
+              "start": "13:25",
+              "finish": "14:16",
+              "lowTide": "13:22",
+              "launchOffset": "3 mins after low tide",
+              "midOffset": 28,
+              "estimatedDuration": "40m 14s",
+              "actualDuration": "50m 57s",
+              "tideWindow": "Crossing low water into the early flood",
+              "tideScore": 94,
+              "missionRole": "Covered the main near-low-tide Day 1 block using the third and fourth grouped flights.",
+              "operationalNote": "This was the second area on Day 1. The drone went up just as light rain started to spit, but the shower eased almost immediately and the team was able to carry on and complete the area well.",
+              "weatherNotes": "Day 1, 16 June 2026. Conditions were unsettled for a few minutes at launch, with light rain right at the start of the block, but it did not build into a heavier shower and the flying remained workable.",
+              "surveyNotes": "This area used the third and fourth flight records on 16 June 2026. The grouped block ran from 13:25 to 14:16, placing it closest to low tide on Day 1. It also looked in the field as though some of the sand features had shifted since the previous visit, although the imagery will need to confirm that properly."
+            },
+            "area6": {
+              "statusLabel": "After low tide",
+              "statusTone": "amber",
+              "start": "14:46",
+              "finish": "15:23",
+              "lowTide": "13:22",
+              "launchOffset": "84 mins after low tide",
+              "midOffset": 103,
+              "estimatedDuration": "34m 58s",
+              "actualDuration": "37m 06s",
+              "tideWindow": "Flood tide after low water",
+              "tideScore": 60,
+              "missionRole": "Covered the later Day 1 inland block using the fifth and sixth grouped flights.",
+              "operationalNote": "This was the third area on Day 1. The team got right out into the centre of the sandbar, but by then the tide was already returning quickly. A shallow crossing used on the way out had become much more difficult on the return, which meant moving further down to find another route back and then dealing with very soft sinking mud before eventually finding a better line out along one of the small channels.",
+              "weatherNotes": "Day 1, 16 June 2026. By this point the weather was still workable, but the operational challenge here was much more about the returning water and ground conditions than wind or rain.",
+              "surveyNotes": "This area used the fifth and sixth flight records on 16 June 2026. The grouped block ran from 14:46 to 15:23, placing it around 84 minutes after the provisional low tide reference. It should be read as a post-low-water repeat because the tide was already coming back in quickly across the central sandbar."
+            },
+            "area7": {
+              "statusLabel": "Later flood tide",
+              "statusTone": "rose",
+              "start": "15:40",
+              "finish": "16:21",
+              "lowTide": "13:22",
+              "launchOffset": "138 mins after low tide",
+              "midOffset": 159,
+              "estimatedDuration": "39m 54s",
+              "actualDuration": "41m 45s",
+              "tideWindow": "Later flood tide well after low water",
+              "tideScore": 43,
+              "missionRole": "Closed Day 1 using the final two grouped flights.",
+              "operationalNote": "This was the last area on Day 1. The tide was already coming back in by this point, but the wind had dropped right away and the overall conditions had turned into a much calmer and more pleasant end to the day.",
+              "weatherNotes": "Day 1, 16 June 2026. The wind had largely died by the time this block was flown, and the weather felt much more settled than it had earlier in the day.",
+              "surveyNotes": "This area used the seventh and eighth flight records on 16 June 2026. The grouped block ran from 15:40 to 16:21, placing it around 138 minutes after the provisional low tide reference. It should be treated as a later flood-tide repeat rather than a low-water comparison window."
+            }
+          },
+          "2026-06-17": {
+            "area2": {
+              "statusLabel": "Approaching low tide",
+              "statusTone": "amber",
+              "start": "12:31",
+              "finish": "13:13",
+              "lowTide": "14:10",
+              "launchOffset": "99 mins before low tide",
+              "midOffset": -78,
+              "estimatedDuration": "40m 14s",
+              "actualDuration": "42m 17s",
+              "tideWindow": "Falling tide before low water",
+              "tideScore": 78,
+              "missionRole": "Opened Day 2 of the June repeat survey using the first two grouped flights.",
+              "operationalNote": "This was the first area on Day 2. The team arrived early and then spent about 45 minutes watching the tide continue to drop before deciding to launch, which gave a better window for the area than going up straight away. A windsurfer was out on the water for a while, but had come in and moved on before the drone launched.",
+              "weatherNotes": "Day 2, 17 June 2026. The tide was still quite high on arrival, but conditions were otherwise workable. Visibility began to reduce slightly towards the end of the block, although the team was still able to complete it cleanly.",
+              "surveyNotes": "This area used the first two flight records on 17 June 2026. The grouped block ran from 12:31 to 13:13, placing it around 99 minutes before the provisional low tide reference. Waiting on site for the tide to run out further appears to have improved this comparison window."
+            },
+            "area3": {
+              "statusLabel": "Around low tide",
+              "statusTone": "green",
+              "start": "13:30",
+              "finish": "14:36",
+              "lowTide": "14:10",
+              "launchOffset": "40 mins before low tide",
+              "midOffset": -7,
+              "estimatedDuration": "39m 26s",
+              "actualDuration": "66m 52s",
+              "tideWindow": "Crossing low water into the early flood",
+              "tideScore": 95,
+              "missionRole": "Covered the main near-low-tide Day 2 block using the third and fourth grouped flights.",
+              "operationalNote": "This was the second area on Day 2 and sat in a strong low-water window. It looked in the field as though some of the sand was lying in different places from the previous visit, although the outputs will need to confirm that properly.",
+              "weatherNotes": "Day 2, 17 June 2026. The weather just about held for this block. There was some very light spitting rain at points, but not enough to stop the survey and the team got through it successfully.",
+              "surveyNotes": "This area used the third and fourth flight records on 17 June 2026. The grouped block ran from 13:30 to 14:36, placing its midpoint just before the provisional low tide reference. It should be one of the stronger Day 2 low-water comparison areas."
+            },
+            "area5": {
+              "statusLabel": "After low tide",
+              "statusTone": "amber",
+              "start": "14:44",
+              "finish": "15:47",
+              "lowTide": "14:10",
+              "launchOffset": "34 mins after low tide",
+              "midOffset": 65,
+              "estimatedDuration": "40m 43s",
+              "actualDuration": "63m 28s",
+              "tideWindow": "Flood tide after low water",
+              "tideScore": 69,
+              "missionRole": "Covered the middle-late Day 2 block using the fifth and sixth grouped flights.",
+              "operationalNote": "This was Porthilly Cove on Day 2. The team pushed a little further into the cove itself this time to include more of the beach edge. It remained one of the quieter and more peaceful sections of the whole survey, with very little disturbance on the ground apart from birds across the mud and shoreline.",
+              "weatherNotes": "Day 2, 17 June 2026. The weather was again trying to spit lightly during this block, but the team stayed on top of it and completed the area without interruption.",
+              "surveyNotes": "This area used the fifth and sixth flight records on 17 June 2026. The grouped block ran from 14:44 to 15:47, placing it roughly 34 minutes after the provisional low tide reference. It should be read as an early-flood repeat window rather than a maximum-exposure moment."
+            },
+            "area8": {
+              "statusLabel": "Later flood tide",
+              "statusTone": "rose",
+              "start": "16:40",
+              "finish": "17:22",
+              "lowTide": "14:10",
+              "launchOffset": "150 mins after low tide",
+              "midOffset": 171,
+              "estimatedDuration": "40m 18s",
+              "actualDuration": "42m 26s",
+              "tideWindow": "Later flood tide well after low water",
+              "tideScore": 38,
+              "missionRole": "Closed Day 2 using the final three grouped flight records.",
+              "operationalNote": "This was the final area on Day 2. Rain started as the team arrived, so they paused briefly, then launched when it eased. It began to spit again once the drone was up, but quickly quietened down and the block was completed. There were also large numbers of geese out across the estuary, which added to the sense of this being a very active but calm final survey location.",
+              "weatherNotes": "Day 2, 17 June 2026. Rain threatened this block more than the earlier Day 2 areas, with two short periods of spitting rain around launch, but it never developed into a heavier shower and the drone was able to stay up safely.",
+              "surveyNotes": "This area used the seventh, eighth, and ninth flight records on 17 June 2026. The grouped block ran from 16:40 to 17:22, placing it around 150 minutes after the provisional low tide reference. The first of the three records was only a very short positioning hop, followed by the two main survey flights."
+            }
+          }
+        },
+      "volumeChangeComparisons": {
+        "2026-04-18": {
+          "baselineSurveyId": "2026-03-22",
+                            "method": "Later survey ground surface compared with the earlier survey inside one fixed sandbar outline",
+                            "cellSize": "Survey grid size approx 0.0651 m x 0.0651 m (cell area approx 0.00423778 m2)",
+          "areas": {
+            "area1": {
+              "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 1 monitoring footprint",
+              "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+              "notes": "Area 1 now has its first live change-analysis setup, pairing the hosted 3D viewer with the March-to-April height-change and gain-loss exports for the outer estuary. The March survey did not expose enough of the sand for the wider footprint, so this comparison uses the original tighter monitoring area.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area1_A_vs_B_height_change_analysis.png",
+              "previewCurrentImage": "area1_A_vs_B_gain_loss_classification.png",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewBaselineCaption": "Plan-view height change surface for Area 1 between the March and April surveys, showing where the later survey sits higher or lower across the monitored outer-estuary footprint.",
+              "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 1 March-to-April comparison, useful as a quick client-facing reference image.",
+              "viewerEmbedUrl": "https://area1-lyart.vercel.app/",
+              "viewerTitle": "Area 1 Change Analysis",
+              "viewerSummary": "Interactive change-analysis view for Area 1 between 22-23 March 2026 and 18-19 April 2026. Use it with the flat reference maps to inspect how the outer-estuary surface shifted across the first repeat-survey window.",
+              "viewerStats": {
+                "analysedArea": "140,244 m2",
+                "matchingCells": "99.4%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              },
+              "polygons": [
+                {
+                  "label": "Area 1 original footprint",
+                  "gainM3": 9019.068,
+                  "lossM3": 4698.593,
+                  "netM3": 4320.475,
+                  "confidence": "Measured review",
+                  "summary": "Net accretion across the original Area 1 footprint between March and April, with clear local losses still present inside the same monitored zone.",
+                  "notes": "Outer-estuary Area 1 footprint based on the smaller March-compatible comparison extent."
+                }
+              ]
+            },
+            "area4": {
+                                        "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 4 sandbar outline",
+                                        "cellSize": "Survey grid size approx 0.0651 m x 0.0651 m (cell area approx 0.00423778 m2)",
+                                        "notes": "Single monitored sandbar in Area 4. This first pass adds up where material appears to have built up or been lost inside the same fixed outline.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area4_volume_change_march_context.png",
+              "previewCurrentImage": "area4_volume_change_april_context.png",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewLabel": "Sandbar Volume Change Preview",
+              "previewCaption": "These first preview maps place the measured change overlay on both survey contexts so people can see where the monitored sandbar appears to be building up or wearing away inside the measured zone.",
+              "viewerEmbedUrl": "https://area4-nine.vercel.app/?embed=1",
+              "viewerTitle": "Area 4 Change Analysis",
+              "viewerSummary": "Interactive change-analysis view for Area 4 alongside the wider three-round trend package. Use it with the trend panel and flat reference maps to see where the harbour-side area lowered first and then built back up by June.",
+              "viewerStats": {
+                "analysedArea": "683,066 m2",
+                "matchingCells": "36.9%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              },
+              "polygons": [
+                {
+                  "label": "Harbour Sandbar",
+                  "gainM3": 8464.48,
+                  "lossM3": 410.17,
+                  "netM3": 8054.31,
+                  "confidence": "Medium",
+                  "summary": "Strong net accretion between 22-23 Mar 2026 and 18-19 Apr 2026, with smaller local losses.",
+                  "notes": "Padstow harbour bar"
+                }
+              ]
+            }
+            ,
+            "area3": {
+              "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
+              "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+              "notes": "Area 3 combines the hosted 3D viewer, downloaded classification imagery, and a plain-English measured summary for the live change-analysis page.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area3_height_change_analysis.jpg",
+              "previewCurrentImage": "area3_gain_loss_classification.jpg",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewBaselineCaption": "Plan-view height change surface for Area 3, showing where the later survey sits higher or lower across the measured footprint.",
+              "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 3 comparison, useful as a quick client-facing reference image.",
+              "viewerEmbedUrl": "https://hostedsite.vercel.app/?embed=1",
+              "viewerTitle": "Area 3 3D Change Viewer",
+              "viewerSummary": "Interactive terrain preview for Area 3 between 22-23 March 2026 and 18-19 April 2026. Use it with the measured totals and reference maps to inspect where sediment appears to have built up or lowered.",
+              "viewerStats": {
+                "analysedArea": "164,653 m2",
+                "gainArea": "79,834 m2",
+                "lossArea": "84,819 m2",
+                "matchingCells": "98.7%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              },
+              "polygons": [
+                {
+                  "label": "Area 3 change footprint",
+                  "gainM3": 13001.71,
+                  "lossM3": 7430.795,
+                  "netM3": 5570.915,
+                  "confidence": "Measured review",
+                  "summary": "Net accretion across the current Area 3 test footprint, with meaningful local loss still visible in parts of the compared surface.",
+                  "notes": "Aggregate Area 3 summary for the first hosted change-analysis page."
+                }
+              ]
+            }
+          }
+        },
+        "2026-06-16": {
+          "baselineSurveyId": "2026-03-22",
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "areas": {
+            "area1": {
+              "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 1 monitoring footprint",
+              "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+              "notes": "Area 1 now brings together the March-to-April, March-to-June, and April-to-June flat comparison exports alongside the hosted 3D viewer, so the outer-estuary story can be reviewed in one place. The March-to-June top-line figures still use the original tighter March-compatible footprint, while the newer April-to-June work opens up into a larger footprint that can be carried forward on later rounds.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area1_A_vs_C_height_change_analysis.png",
+              "previewCurrentImage": "area1_A_vs_C_gain_loss_classification.png",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewLabel": "Area 1 Comparison Review",
+              "previewCaption": "This Area 1 setup uses the wider March-to-June outputs as the main comparison view, then keeps the other available survey-pair maps underneath for side-by-side checking.",
+              "previewBaselineCaption": "Plan-view height change surface for Area 1 between the March and June surveys, showing where the latest survey sits higher or lower across the monitored outer-estuary footprint.",
+              "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 1 March-to-June comparison, useful as a quick client-facing reference image inside the wider three-round story.",
+              "viewerEmbedUrl": "https://area1-lyart.vercel.app/",
+              "viewerTitle": "Area 1 Change Analysis",
+              "viewerSummary": "Interactive change-analysis view for Area 1, framed from 22-23 March 2026 through to 16-17 June 2026. Use it with the exported flat maps below to inspect how the outer-estuary surface appears to have built up, lowered, or shifted across the wider monitoring window.",
+              "viewerStats": {
+                "analysedArea": "139,775 m2",
+                "matchingCells": "99.1%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              },
+              "polygons": [
+                {
+                  "label": "Area 1 original footprint",
+                  "gainM3": 12056.595,
+                  "lossM3": 4711.072,
+                  "netM3": 7345.523,
+                  "confidence": "Measured review",
+                  "summary": "Net accretion across the original Area 1 footprint between March and June, with the later survey ending up higher overall while still containing local losses.",
+                  "notes": "Outer-estuary Area 1 footprint based on the smaller March-compatible comparison extent."
+                }
+              ]
+            },
+            "area4": {
+              "method": "Trend-based change review using the March, April, and June Area 4 exports across the full analysed footprint.",
+              "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+              "notes": "Area 4 now has a full three-round trend package, plus all three flat comparison sets across March-to-April, March-to-June, and April-to-June.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area4_A_vs_C_height_change_analysis.png",
+              "previewCurrentImage": "area4_A_vs_C_gain_loss_classification.png",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewLabel": "Area 4 Trend Review",
+              "previewCaption": "This Area 4 setup uses the March-to-June change outputs as the top comparison view, then brings the wider trend-analysis package in underneath so people can see the longer three-round pattern.",
+              "viewerEmbedUrl": "https://area4-nine.vercel.app/?embed=1",
+              "viewerTitle": "Area 4 Change Analysis",
+              "viewerSummary": "Interactive change-analysis view for Area 4, framed from 22-23 March 2026 through to 16-17 June 2026. Use it with the trend panel and the exported flat maps to see where the area lowered first and then rebuilt by June.",
+              "viewerStats": {
+                "analysedArea": "683,066 m2",
+                "matchingCells": "37.0%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              }
+            },
+            "area3": {
+              "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
+              "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+              "notes": "Area 3 now frames the story from the first March survey through to the latest June survey, with the intermediate April round feeding the wider three-round analysis underneath.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area3_s2_vs_s3_height_change_analysis.png",
+              "previewCurrentImage": "area3_s2_vs_s3_gain_loss_classification.png",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewBaselineCaption": "Plan-view height change surface for Area 3, used here as part of the wider March-to-June story so people can see where the latest survey sits higher or lower within the measured footprint.",
+              "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 3 review, useful as a quick client-facing reference image inside the wider March-to-June story.",
+              "viewerEmbedUrl": "https://hostedsite.vercel.app/?embed=1",
+              "viewerTitle": "Area 3 3D Change Viewer",
+              "viewerSummary": "Interactive terrain preview for Area 3 between 22-23 March 2026 and 16-17 June 2026. Use it with the measured totals and reference maps to inspect where sediment appears to have built up or lowered across the wider monitoring window.",
+              "viewerStats": {
+                "analysedArea": "164,653 m2",
+                "gainArea": "79,834 m2",
+                "lossArea": "84,819 m2",
+                "matchingCells": "99.4%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              },
+              "polygons": [
+                {
+                  "label": "Area 3 change footprint",
+                  "gainM3": 510,
+                  "lossM3": 8333,
+                  "netM3": -3224,
+                  "confidence": "Measured review",
+                  "summary": "Net lowering across the current Area 3 test footprint between April and June, with the later survey ending up lower overall.",
+                  "notes": "Aggregate Area 3 summary for the April-to-June change-analysis page."
+                }
+              ]
+            }
+          }
+        }
+      },
+      "workflow": [
+        { "stage": "1", "title": "Add the survey round once", "copy": "Create one survey entry with its date, status, and notes instead of cloning multiple apps." },
+        { "stage": "2", "title": "Attach outputs by area", "copy": "For each area, point the system at the new ortho, DSM, contour, and section outputs generated for that survey round." },
+        { "stage": "3", "title": "Keep the interface stable", "copy": "The viewer, section panel, and project context all reuse the same UI, so only the data changes." },
+        { "stage": "4", "title": "Add comparison later", "copy": "Once repeat-survey imagery is aligned per area, this same system can add true before-and-after viewers and change metrics without restructuring again." }
+      ]
+    }
+  ]
+}

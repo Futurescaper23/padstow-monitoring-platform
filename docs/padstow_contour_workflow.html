@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Padstow Contour Workflow</title>
+    <style>
+      :root {
+        --bg: #0b1422;
+        --panel: #13233a;
+        --text: #edf5ff;
+        --muted: #bfd0e6;
+        --accent: #4cc5ff;
+        --line: rgba(255, 255, 255, 0.12);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 36px;
+        font-family: Montserrat, Arial, sans-serif;
+        background: linear-gradient(180deg, #07111f 0%, #10213a 100%);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      .page { max-width: 960px; margin: 0 auto; }
+      .hero, .panel, .card {
+        background: linear-gradient(180deg, rgba(56, 86, 132, 0.96), rgba(28, 47, 78, 0.98));
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+      .hero, .panel { padding: 28px 30px; }
+      .hero { margin-bottom: 22px; }
+      .panel { margin-bottom: 18px; }
+      .eyebrow {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 12px;
+        color: var(--accent);
+      }
+      h1 { margin: 0 0 14px; font-size: 40px; line-height: 1.08; }
+      h2 { margin: 0 0 12px; font-size: 24px; }
+      h3 { margin: 0 0 8px; font-size: 18px; }
+      p, li { color: var(--muted); font-size: 16px; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .card { padding: 18px; }
+      ol, ul { margin: 0; padding-left: 22px; }
+      code, pre { font-family: Consolas, "Courier New", monospace; }
+      pre {
+        margin: 10px 0 0;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(7, 17, 31, 0.76);
+        border: 1px solid var(--line);
+        color: #dff2ff;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      .step-list li { margin-bottom: 14px; }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Padstow Workflow Library</p>
+        <h1>Contour Workflow</h1>
+        <p>
+          A simple QGIS guide for generating contour outputs from survey surfaces and preparing clean contour images
+          for the monitoring app.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>What The Contour Layer Is For</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Interpretation</h3>
+            <p>Contours help show surface shape, ridges, troughs, and the way sandforms are shifting through time.</p>
+          </div>
+          <div class="card">
+            <h3>App support</h3>
+            <p>The app can use contour images as an optional layer in Compare and as supporting context for Highlight Change.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Step-by-Step QGIS Workflow</h2>
+        <ol class="step-list">
+          <li>
+            <strong>Load the survey surface.</strong>
+            <p>Use the survey surface you want to contour.</p>
+          </li>
+          <li>
+            <strong>Open the contour tool.</strong>
+            <p>Search for <code>Contour</code> in the Processing Toolbox.</p>
+          </li>
+          <li>
+            <strong>Choose the contour interval.</strong>
+            <p>Use an interval that is detailed enough to show the surface shape without becoming cluttered.</p>
+            <pre>Example starting point: 0.5 m</pre>
+          </li>
+          <li>
+            <strong>Set the elevation field name.</strong>
+            <p>Use a clear name such as <code>ELEV</code>.</p>
+          </li>
+          <li>
+            <strong>Run the contour output.</strong>
+            <p>This creates the contour line layer.</p>
+          </li>
+          <li>
+            <strong>Style the contour layer clearly.</strong>
+            <p>For app exports, keep the line styling simple and readable.</p>
+          </li>
+          <li>
+            <strong>Place the contour layer over the ortho or colour elevation view.</strong>
+            <p>Use the same rotated frame and export extent as the other app images if you want the layers to line up neatly.</p>
+          </li>
+          <li>
+            <strong>Export the contour image.</strong>
+            <p>Keep it as a clean overlay-style image if possible.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>Styling Recommendations</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Line colour</h3>
+            <p>Use a consistent colour that stands out from the ortho or colour elevation background.</p>
+          </div>
+          <div class="card">
+            <h3>Line weight</h3>
+            <p>Keep lines fine enough to avoid clutter but thick enough to survive export.</p>
+          </div>
+          <div class="card">
+            <h3>Labels</h3>
+            <p>Use labels only if they genuinely help the interpretation. For the app, clean unlabeled lines are often easier.</p>
+          </div>
+          <div class="card">
+            <h3>Export frame</h3>
+            <p>Use the same extent, rotation, and image size as the matching ortho or elevation view if the app needs them to sit together.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Good Habits</h2>
+        <ul>
+          <li>Use the same contour interval for comparable survey rounds unless there is a strong reason not to.</li>
+          <li>Keep export naming clear and consistent.</li>
+          <li>If you rotate the map for a landscape page or app view, export all related layers from that same rotated frame.</li>
+          <li>Use contours to support interpretation, not to replace the measured difference workflow for volume change.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

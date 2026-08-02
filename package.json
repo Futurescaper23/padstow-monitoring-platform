@@ -1,0 +1,16 @@
+{
+  "name": "future-monitoring-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "FutureScaping estuary monitoring system",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check app.js && node --check server.js && node tools/validate-project-files.mjs",
+    "scaffold:project": "node tools/scaffold-project.mjs",
+    "import:processing-round": "node tools/import-processing-round.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

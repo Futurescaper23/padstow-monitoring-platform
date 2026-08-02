@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Monitoring Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css?v=20260721a">
+    <style>
+      .project-selector-shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 48px;
+      }
+
+      .project-selector-hero,
+      .project-selector-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .project-selector-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin-top: 22px;
+      }
+
+      .project-selector-card {
+        display: grid;
+        gap: 14px;
+      }
+
+      .project-selector-card__meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .project-selector-card__actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .project-selector-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="project-selector-shell">
+      <section class="panel project-selector-hero">
+        <p class="eyebrow">Multi-Project Platform</p>
+        <h1>Choose a monitoring project</h1>
+        <p class="muted">This selector keeps the Padstow app behavior intact while giving the platform a reusable entry point for future projects such as Hayle or other estuaries.</p>
+      </section>
+
+      <section id="projectSelectorGrid" class="project-selector-grid">
+        <article class="card">
+          <h3>Loading projects</h3>
+          <p class="muted">The available monitoring projects are being loaded.</p>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      async function loadProjects() {
+        const grid = document.getElementById("projectSelectorGrid");
+        try {
+          const response = await fetch("/public/projects/index.json");
+          if (!response.ok) {
+            throw new Error("Project catalog could not be loaded.");
+          }
+          const catalog = await response.json();
+          const projects = Array.isArray(catalog.projects) ? catalog.projects : [];
+          if (!projects.length) {
+            grid.innerHTML = `
+              <article class="card">
+                <h3>No projects configured yet</h3>
+                <p class="muted">Add a project folder inside <code>public/projects/</code> to make it available here.</p>
+              </article>
+            `;
+            return;
+          }
+
+          grid.innerHTML = projects.map((project) => `
+            <article class="card project-selector-card">
+              <div class="project-selector-card__meta">
+                <span class="chip">${escapeHtml(project.status || "Configured project")}</span>
+                <span class="chip">${escapeHtml(project.id)}</span>
+              </div>
+              <div>
+                <h3>${escapeHtml(project.name || project.id)}</h3>
+                <p class="muted">${escapeHtml(project.summary || "Monitoring project")}</p>
+              </div>
+              <div class="project-selector-card__actions">
+                <a class="chip active project-selector-link" href="/project/${encodeURIComponent(project.id)}">Open Project</a>
+              </div>
+            </article>
+          `).join("");
+        } catch (error) {
+          grid.innerHTML = `
+            <article class="card">
+              <h3>Could not load projects</h3>
+              <p class="muted">${escapeHtml(error.message || "Unknown error")}</p>
+            </article>
+          `;
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll("\"", "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      loadProjects();
+    </script>
+  </body>
+</html>

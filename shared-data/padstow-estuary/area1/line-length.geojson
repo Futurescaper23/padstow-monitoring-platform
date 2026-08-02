@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "name": "area1-line-length",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "section_id": "A1-01",
+        "label": "Section 1",
+        "sort_order": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            191810.11354761024,
+            77917.02564798389
+          ],
+          [
+            191311.219147575,
+            77902.97433323978
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "section_id": "A1-02",
+        "label": "Section 2",
+        "sort_order": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            191848.3844904597,
+            77467.67503910538
+          ],
+          [
+            191105.4376819346,
+            77024.70265940909
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "section_id": "A1-03",
+        "label": "Section 3",
+        "sort_order": 3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            191966.90993014656,
+            77114.21252236929
+          ],
+          [
+            191504.82115160825,
+            76850.31140692995
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sandbar Volume Change Workflow</title>
+    <style>
+      :root {
+        --bg: #0b1422;
+        --panel: #13233a;
+        --panel-soft: #1f3352;
+        --text: #edf5ff;
+        --muted: #bfd0e6;
+        --accent: #4cc5ff;
+        --line: rgba(255, 255, 255, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 36px;
+        font-family: Montserrat, Arial, sans-serif;
+        background: linear-gradient(180deg, #07111f 0%, #10213a 100%);
+        color: var(--text);
+        line-height: 1.55;
+      }
+
+      .page {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .hero,
+      .panel {
+        background: linear-gradient(180deg, rgba(56, 86, 132, 0.96), rgba(28, 47, 78, 0.98));
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+
+      .hero {
+        padding: 28px 30px;
+        margin-bottom: 22px;
+      }
+
+      .panel {
+        padding: 22px 24px;
+        margin-bottom: 18px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 12px;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: 40px;
+        line-height: 1.08;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 24px;
+      }
+
+      h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(77, 112, 166, 0.32), rgba(39, 60, 96, 0.42));
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      code,
+      pre {
+        font-family: Consolas, "Courier New", monospace;
+      }
+
+      pre {
+        margin: 10px 0 0;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(7, 17, 31, 0.76);
+        border: 1px solid var(--line);
+        color: #dff2ff;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+
+      .step-list li {
+        margin-bottom: 14px;
+      }
+
+      .footer-note {
+        font-size: 14px;
+        color: #d6e7fb;
+      }
+
+      .small {
+        font-size: 14px;
+      }
+
+      @media print {
+        body {
+          padding: 14mm;
+          background: white;
+          color: #0f1b2c;
+        }
+
+        .hero,
+        .panel,
+        .card {
+          background: white !important;
+          color: #0f1b2c !important;
+          box-shadow: none !important;
+          border-color: #cfd9e6 !important;
+        }
+
+        p,
+        li,
+        .footer-note,
+        .small {
+          color: #33465f !important;
+        }
+
+        .eyebrow {
+          color: #0d74b8 !important;
+        }
+
+        pre {
+          background: #f4f7fb !important;
+          color: #13253d !important;
+          border-color: #d9e2ef !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">FutureScaping Monitoring System</p>
+        <h1>Sandbar Volume Change Workflow</h1>
+        <p>
+          A practical QGIS prompt sheet for repeating the same sandbar volume-change method across future survey rounds.
+          This is the workflow we used to build the first Area 4 preview in the app.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Core Idea</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>What stays fixed</h3>
+            <p>The monitored sandbar polygon. Keep the same polygon through time so each comparison is measuring the same sandbody.</p>
+          </div>
+          <div class="card">
+            <h3>What changes</h3>
+            <p>The survey surface. Compare one survey surface against the next one inside the same polygon.</p>
+          </div>
+        </div>
+        <p>
+          The volume calculation is not based on the aerial image alone. It is based on the difference between two
+          survey surfaces, measured inside a fixed polygon.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Before You Start</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Load both survey surfaces</h3>
+            <p>Bring the earlier and later survey surfaces into QGIS.</p>
+          </div>
+          <div class="card">
+            <h3>Load the sandbar polygon</h3>
+            <p>Use the polygon that marks the monitored sandbar or monitoring zone.</p>
+          </div>
+          <div class="card">
+            <h3>Check the basics</h3>
+            <p>Same CRS, same pixel size, same alignment, and as much shared coverage as possible.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Step-by-Step QGIS Workflow</h2>
+        <ol class="step-list">
+          <li>
+            <strong>Create or load a shared valid coverage polygon.</strong>
+            <p>Draw a polygon around the area both survey surfaces genuinely cover and that you trust for analysis.</p>
+          </li>
+          <li>
+            <strong>Clip the earlier survey surface to that shared coverage polygon.</strong>
+            <p>Use <code>Clip Raster by Mask Layer</code>.</p>
+          </li>
+          <li>
+            <strong>Clip the later survey surface to that same shared coverage polygon.</strong>
+            <p>Use the exact same mask polygon so both clipped surfaces match.</p>
+          </li>
+          <li>
+            <strong>Subtract the earlier surface from the later surface.</strong>
+            <pre>"later_survey_surface@1" - "earlier_survey_surface@1"</pre>
+            <p>Positive values mean the later survey is higher there. Negative values mean it is lower there.</p>
+          </li>
+          <li>
+            <strong>If the subtraction looks stripy or nonsensical, stop and fix alignment first.</strong>
+            <p>Bad subtraction usually means mismatched grids, mismatched coverage, or no-data problems.</p>
+          </li>
+          <li>
+            <strong>Edit the sandbar polygon if needed.</strong>
+            <p>Make sure it actually covers the meaningful change zone of the real sandbody you want to measure.</p>
+          </li>
+          <li>
+            <strong>Clip the difference raster to the sandbar polygon.</strong>
+            <p>That gives you the change surface only inside the monitored sandbar.</p>
+          </li>
+          <li>
+            <strong>Find the raster cell size.</strong>
+            <p>In Layer Properties, note the pixel width and height.</p>
+          </li>
+          <li>
+            <strong>Calculate cell area.</strong>
+            <pre>cell area = pixel width × pixel height</pre>
+          </li>
+          <li>
+            <strong>Create three volume rasters.</strong>
+            <p>One for material added, one for material removed, and one for overall balance.</p>
+          </li>
+          <li>
+            <strong>Read the totals from those three rasters.</strong>
+            <p>Those three totals are the headline numbers that go into the app.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>Raster Calculator Formulas</h2>
+        <p>Once you have the clipped difference raster and the cell area, use the following formulas.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Difference raster</h3>
+            <pre>"later_clipped_surface@1" - "earlier_clipped_surface@1"</pre>
+          </div>
+          <div class="card">
+            <h3>Cell area</h3>
+            <pre>pixel width × pixel height</pre>
+          </div>
+          <div class="card">
+            <h3>Material added</h3>
+            <pre>("diff_clipped@1" &gt; 0) * "diff_clipped@1" * CELL_AREA</pre>
+          </div>
+          <div class="card">
+            <h3>Material removed</h3>
+            <pre>("diff_clipped@1" &lt; 0) * abs("diff_clipped@1") * CELL_AREA</pre>
+          </div>
+          <div class="card">
+            <h3>Overall balance</h3>
+            <pre>"diff_clipped@1" * CELL_AREA</pre>
+          </div>
+          <div class="card">
+            <h3>Interpretation</h3>
+            <p>Added and removed are positive headline totals. Overall balance can be positive or negative.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>How To Style The Change Preview PNG</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Base</h3>
+            <p>Use the ortho as the base image.</p>
+          </div>
+          <div class="card">
+            <h3>Overlay</h3>
+            <p>Place the clipped difference raster over the ortho with partial transparency.</p>
+          </div>
+          <div class="card">
+            <h3>Outline</h3>
+            <p>Show the sandbar polygon outline only. No solid fill.</p>
+          </div>
+          <div class="card">
+            <h3>Colour range</h3>
+            <p>Use a diverging ramp with red/orange for lowering, pale centre for little change, and green/blue for build-up.</p>
+          </div>
+          <div class="card">
+            <h3>Manual range</h3>
+            <p>Set the raster min/max manually. A good starting point is <code>-0.25</code> to <code>0.25</code> metres.</p>
+          </div>
+          <div class="card">
+            <h3>Export</h3>
+            <p>Export one PNG against the earlier ortho and one against the later ortho if you want both contexts in the app.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Area 4 Example From This Project</h2>
+        <p>For the first Area 4 pilot, we used a raster cell area of approximately <code>0.00423778 m²</code>.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Material added</h3>
+            <pre>8464.48 m³</pre>
+          </div>
+          <div class="card">
+            <h3>Material removed</h3>
+            <pre>410.17 m³</pre>
+          </div>
+          <div class="card">
+            <h3>Overall balance</h3>
+            <pre>+8054.31 m³</pre>
+          </div>
+          <div class="card">
+            <h3>Plain-English summary</h3>
+            <p>Strong net build-up between the two survey rounds, with smaller local losses.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>What Goes Into The App</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Preview images</h3>
+            <p>The change overlay PNG against the earlier ortho and the later ortho.</p>
+          </div>
+          <div class="card">
+            <h3>Headline figures</h3>
+            <p>Material added, material removed, and overall balance.</p>
+          </div>
+          <div class="card">
+            <h3>Simple explanation</h3>
+            <p>A short note explaining what changed in plain language.</p>
+          </div>
+          <div class="card">
+            <h3>Confidence</h3>
+            <p>A quick confidence label such as Low, Medium, or High.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Troubleshooting</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Blank or ridiculous difference raster</h3>
+            <p>Usually a grid alignment, no-data, or extent problem. Recheck clipping and alignment first.</p>
+          </div>
+          <div class="card">
+            <h3>Clip-by-mask error</h3>
+            <p>If QGIS says a cutline feature has no geometry, export only the one real polygon as a clean new layer and use that as the mask.</p>
+          </div>
+          <div class="card">
+            <h3>Too much white space in the preview</h3>
+            <p>Zoom tighter before exporting the PNG so the monitored sandbar is the main subject.</p>
+          </div>
+          <div class="card">
+            <h3>Change not showing clearly</h3>
+            <p>Tighten the pseudocolour min/max range and reduce the raster opacity slightly until the ortho and change both read well.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Quick Checklist</h2>
+        <ul>
+          <li>Same CRS, same pixel size, same alignment.</li>
+          <li>Clip both survey surfaces to the same valid shared coverage.</li>
+          <li>Subtract later minus earlier.</li>
+          <li>Clip the difference raster to the monitored sandbar polygon.</li>
+          <li>Use the real cell area in the raster calculator formulas.</li>
+          <li>Extract material added, material removed, and overall balance.</li>
+          <li>Export a clean preview PNG and add the headline figures to the app.</li>
+        </ul>
+        <p class="footer-note">
+          Recommended habit: reuse the same polygon names, file names, and output labels every time so each new survey
+          round feels like repeating a system rather than reinventing a method.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

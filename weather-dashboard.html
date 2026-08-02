@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FutureScaping Weather Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+      :root {
+        --bg: #07111f;
+        --panel: rgba(38, 60, 98, 0.98);
+        --panel-2: rgba(49, 74, 116, 0.96);
+        --text: #eef4ff;
+        --muted: #aab9d3;
+        --line: rgba(255, 255, 255, 0.1);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Montserrat", Inter, Arial, sans-serif;
+        background: radial-gradient(circle at top left, rgba(85, 200, 255, 0.12), transparent 24%), linear-gradient(180deg, #07111f 0%, #040b15 100%);
+        color: var(--text);
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+      .wrap { width: min(100% - 24px, 1480px); margin: 0 auto; padding: 18px 0 28px; }
+      .panel, .metric, .event {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(49, 74, 116, 0.98), rgba(35, 57, 92, 0.95));
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+      }
+      .panel, .metric { padding: 16px; }
+      .hero, .layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 16px; margin-bottom: 16px; }
+      .controls { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr auto; gap: 12px; margin-bottom: 16px; }
+      .summary-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+      .stack { display: grid; gap: 16px; }
+      .field { display: grid; gap: 8px; }
+      .field--wide { grid-column: span 2; }
+      .field label, .eyebrow {
+        color: #8edbff;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.72rem;
+      }
+      .eyebrow { margin: 0 0 8px; }
+      h1, h2 { margin: 0; font-weight: 700; }
+      h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.08; margin-bottom: 10px; }
+      .muted, .sub, .desc, .insights, .footer-note { color: var(--muted); line-height: 1.6; }
+      input, select, textarea {
+        width: 100%; padding: 11px 12px; border-radius: 14px; border: 1px solid var(--line);
+        background: rgba(35, 57, 92, 0.95); color: var(--text); font: inherit;
+      }
+      textarea { min-height: 48px; resize: vertical; }
+      .actions { display: flex; gap: 10px; align-items: end; flex-wrap: wrap; }
+      button {
+        border: 0; border-radius: 999px; padding: 11px 15px; font: inherit; font-weight: 700; cursor: pointer;
+        min-width: 148px;
+        justify-content: center;
+      }
+      .btn-primary { background: linear-gradient(180deg, #55c8ff 0%, #38bdf8 100%); color: #082f49; }
+      .btn-secondary { background: rgba(56, 189, 248, 0.12); color: #d8f4ff; border: 1px solid rgba(56, 189, 248, 0.24); }
+      .metric .label { color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.7rem; margin-bottom: 10px; }
+      .metric .value { font-size: 1.65rem; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+      .panel-title { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+      .panel-title .small { color: var(--muted); font-size: 0.82rem; }
+      .chart-wrap { position: relative; min-height: 320px; }
+      .timeline { display: grid; gap: 10px; }
+      .event { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 12px; }
+      .date { color: #d7e8ff; font-weight: 700; font-size: 0.82rem; }
+      .insights { white-space: pre-wrap; font-size: 0.92rem; }
+      .pill-row, .legend-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .pill {
+        padding: 7px 10px; border-radius: 999px; background: rgba(56, 189, 248, 0.12);
+        border: 1px solid rgba(56, 189, 248, 0.24); color: #d8f4ff; font-size: 0.75rem;
+      }
+      .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: #cfe3ff; }
+      .legend-swatch { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.16); }
+      @media (max-width: 1180px) {
+        .hero, .layout { grid-template-columns: 1fr; }
+        .controls, .summary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+      @media (max-width: 760px) {
+        .controls, .summary-grid { grid-template-columns: 1fr 1fr; }
+        .field--wide { grid-column: span 2; }
+        .event { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <article class="panel">
+          <p class="eyebrow">Weather And Tides</p>
+          <h1 id="dashboardTitle">Project Conditions Interface</h1>
+          <p id="dashboardIntro" class="muted">Historical weather, tide, and survey-context dashboard for monitoring and client presentation.</p>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Current View</p>
+          <h2 id="windowSummary">Loading selected window...</h2>
+          <p id="sourceSummary" class="muted">Weather from Open-Meteo archive. Tide readings from WorldTides.</p>
+        </article>
+      </section>
+
+      <section class="panel controls">
+        <div class="field field--wide"><label>Location</label><input id="locationName" value="Project monitoring area"></div>
+        <div class="field"><label>Start Date</label><input id="startDate" type="date"></div>
+        <div class="field"><label>End Date</label><input id="endDate" type="date"></div>
+        <div class="field"><label>View</label><select id="viewMode"><option value="daily">Daily</option><option value="weekly">Weekly</option></select></div>
+        <div class="field"><label>Status</label><input id="statusBox" value="Ready" readonly></div>
+        <div class="actions"><button id="loadBtn" class="btn-primary" type="button">Load Data</button><button id="exportBtn" class="btn-secondary" type="button">Export JSON</button></div>
+      </section>
+
+      <section class="summary-grid">
+        <div class="metric"><div class="label">Total Rainfall</div><div class="value" id="totalRain">-</div><div class="sub">Across the selected date range</div></div>
+        <div class="metric"><div class="label">Peak Wind Gust</div><div class="value" id="peakGust">-</div><div class="sub">Strongest gust recorded</div></div>
+        <div class="metric"><div class="label">Lowest Pressure</div><div class="value" id="lowPressure">-</div><div class="sub">Possible storm-system marker</div></div>
+        <div class="metric"><div class="label">Mean Temperature</div><div class="value" id="meanTemp">-</div><div class="sub">Average air temperature</div></div>
+        <div class="metric"><div class="label">Storm-Like Days</div><div class="value" id="stormDays">-</div><div class="sub">Wind, rain, or pressure trigger days</div></div>
+        <div class="metric"><div class="label">Max Tidal Range</div><div class="value" id="maxTidalRange">-</div><div class="sub">Largest daily tide range</div></div>
+      </section>
+
+      <section class="layout">
+        <div class="stack">
+          <article class="panel">
+            <div class="panel-title"><h2>Tide Height And Survey Windows</h2><div class="small">WorldTides height feed</div></div>
+            <div class="chart-wrap"><canvas id="tideChart"></canvas></div>
+            <div class="legend-row">
+              <div class="legend-item"><span class="legend-swatch" style="background:#38bdf8"></span>Tide height</div>
+              <div class="legend-item"><span class="legend-swatch" style="background:#34d399"></span>Low tide</div>
+              <div class="legend-item"><span class="legend-swatch" style="background:#fbbf24"></span>High tide</div>
+              <div class="legend-item"><span class="legend-swatch" style="background:#fb7185"></span>Survey day marker</div>
+              <div class="legend-item"><span class="legend-swatch" style="background:#a78bfa"></span>Nearest low-tide match</div>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="panel-title"><h2>Rainfall And Pressure Context</h2><div class="small">Weather conditions across the chosen window</div></div>
+            <div class="chart-wrap"><canvas id="rainPressureChart"></canvas></div>
+          </article>
+          <article class="panel">
+            <div class="panel-title"><h2>Wind Speed And Gust Profile</h2><div class="small">Mean wind and strongest gusts</div></div>
+            <div class="chart-wrap"><canvas id="windChart"></canvas></div>
+          </article>
+          <article class="panel">
+            <div class="panel-title"><h2>Temperature Profile</h2><div class="small">Mean, minimum, and maximum air temperature</div></div>
+            <div class="chart-wrap"><canvas id="tempChart"></canvas></div>
+          </article>
+        </div>
+        <div class="stack">
+          <article class="panel">
+            <div class="panel-title"><h2>Survey Window Summary</h2><div class="small">Plain-English notes for reporting</div></div>
+            <div id="insights" class="insights">Load data to generate insight notes.</div>
+            <div id="surveyPills" class="pill-row"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-title"><h2>Environmental Timeline</h2><div class="small">Largest events and likely change drivers</div></div>
+            <div id="timeline" class="timeline"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-title"><h2>Tide Events</h2><div class="small">Tide context across the selected window</div></div>
+            <div id="tideEvents" class="insights">Load data to generate tide event notes.</div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./weather-dashboard.js"></script>
+  </body>
+</html>

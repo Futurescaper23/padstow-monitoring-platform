@@ -1,0 +1,106 @@
+{
+  "id": "padstow-estuary",
+  "name": "Padstow Estuary Monitoring System",
+  "shortName": "Padstow Estuary Monitoring",
+  "description": "A live monitoring platform for repeat Padstow estuary surveys, bringing together project context, imagery outputs, section profiles, and survey notes in one reporting interface.",
+  "status": "Live monitoring programme",
+  "selectorSummary": "Repeat survey monitoring across Padstow Harbour and the Camel Estuary.",
+  "singleScanMessage": "Change monitoring will become available after the second comparable survey.",
+  "site": {
+    "name": "Padstow Harbour / Camel Estuary",
+    "county": "Cornwall",
+    "country": "England",
+    "context": "This platform brings the Padstow survey record together in one place so survey rounds, mapped outputs, and area notes can be reviewed consistently over time."
+  },
+  "programme": {
+    "cadence": "Repeat survey programme",
+    "objectiveShort": "Track estuary change over time",
+    "operationalLesson": "Repeated surveys are easiest to review when imagery, profiles, notes, and comparisons are held together in one monitoring system.",
+    "consolidationGoal": "Keep each survey round easy to review while building a consistent long-term monitoring record for the estuary."
+  },
+  "environment": {
+    "defaultLocationName": "Padstow Harbour / Camel Estuary",
+    "fallbackSurveyEndDate": "2026-03-23",
+    "weatherWindowMonths": 1,
+    "timezone": "Europe/London",
+    "tide": {
+      "latitude": "50.5400",
+      "longitude": "-4.9400",
+      "datum": "CD"
+    }
+  },
+  "branding": {
+    "overviewHeroImagePath": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary.png",
+    "overviewHeroImagePathBySurvey": {
+      "2026-07-15": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary-2026-07-15.png",
+      "2026-06-16": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/whole-estuary.png"
+    },
+    "areaHeroImagesBySurvey": {
+      "2026-06-16": {
+        "area1": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-1.png",
+        "area2": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-2.png",
+        "area3": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-3.png",
+        "area4": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-4.png",
+        "area5": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-5.png",
+        "area6": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-6.png",
+        "area7": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-7.png",
+        "area8": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/area-8.png"
+      },
+      "2026-04-18": {
+        "area1": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area1.png",
+        "area2": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area2.png",
+        "area3": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area3.png",
+        "area4": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area4.png",
+        "area5": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area5.png",
+        "area6": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area6.png",
+        "area7": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area7.png",
+        "area8": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area8.png"
+      }
+    },
+    "areaHeroArtDirectionBySurvey": {
+      "2026-06-16": {
+        "area1": { "position": "62% 49%", "scale": 0.94, "backdropOpacity": 0.74, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area2": { "position": "60% 49%", "scale": 0.92, "backdropOpacity": 0.7, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area3": { "position": "59% 50%", "scale": 0.94, "backdropOpacity": 0.76, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area4": { "position": "60% 49%", "scale": 0.95, "backdropOpacity": 0.78, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area5": { "position": "60% 50%", "scale": 0.95, "backdropOpacity": 0.78, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area6": { "position": "58% 50%", "scale": 0.93, "backdropOpacity": 0.72, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area7": { "position": "60% 49%", "scale": 0.92, "backdropOpacity": 0.72, "backdropBlur": 6, "backdropScale": 1.08 }
+      },
+      "2026-04-18": {
+        "area1": { "position": "62% 48%", "scale": 0.98, "backdropOpacity": 0.98, "backdropBlur": 2, "backdropScale": 1.06 },
+        "area2": { "position": "68% 50%", "scale": 0.9, "backdropOpacity": 0, "backdropBlur": 0, "backdropScale": 1.02 },
+        "area3": { "position": "58% 52%", "scale": 0.96, "backdropOpacity": 0.76, "backdropBlur": 6, "backdropScale": 1.08 },
+        "area4": { "position": "60% 50%", "scale": 0.98, "backdropOpacity": 0.98, "backdropBlur": 2, "backdropScale": 1.06 },
+        "area5": { "position": "61% 51%", "scale": 0.99, "backdropOpacity": 0.98, "backdropBlur": 2, "backdropScale": 1.06 },
+        "area6": { "position": "57% 52%", "scale": 0.9, "backdropOpacity": 0, "backdropBlur": 0, "backdropScale": 1.02 },
+        "area7": { "position": "58% 51%", "scale": 0.93, "backdropOpacity": 0.66, "backdropBlur": 8, "backdropScale": 1.1 },
+        "area8": { "position": "62% 49%", "scale": 0.84, "backdropOpacity": 0, "backdropBlur": 0, "backdropScale": 1.02 }
+      }
+    },
+    "panoramaEmbedsBySurvey": {
+      "2026-06-16": {
+        "area1": "https://area-1-panos.netlify.app/",
+        "area2": "https://area-2-panos.netlify.app/",
+        "area3": "https://area-3-panos.netlify.app/",
+        "area4": "https://area-4-panos.netlify.app/",
+        "area5": "https://area-5-panos.netlify.app/",
+        "area6": "https://area-6-panos.netlify.app/",
+        "area7": "https://area-7-panos.netlify.app/",
+        "area8": "https://area-8-panos.netlify.app/"
+      }
+    },
+    "niraModelsBySurvey": {
+      "2026-03-22": "https://futurescaping.nira.app/a/35VOk9gRT5KFNQDIq54mSQ/1",
+      "2026-04-18": "https://futurescaping.nira.app/a/ZBURz7G_T8m2DdXuev7yiw/1",
+      "2026-06-16": "https://futurescaping.nira.app/a/Z8GYJffuRYaeoQVq1w6dUw/1",
+      "2026-07-15": "https://futurescaping.nira.app/a/eA4l3Fp8ROmAiVEHJK820A/1"
+    }
+  },
+  "workflow": [
+    { "stage": "1", "title": "Add the survey round once", "copy": "Create one survey entry with its date, status, and notes instead of cloning multiple apps." },
+    { "stage": "2", "title": "Attach outputs by area", "copy": "For each area, point the system at the new ortho, DSM, contour, and section outputs generated for that survey round." },
+    { "stage": "3", "title": "Keep the interface stable", "copy": "The viewer, section panel, and project context all reuse the same UI, so only the data changes." },
+    { "stage": "4", "title": "Add comparison later", "copy": "Once repeat-survey imagery is aligned per area, this same system can add true before-and-after viewers and change metrics without restructuring again." }
+  ]
+}

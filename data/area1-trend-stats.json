@@ -1,0 +1,267 @@
+{
+  "area_id": "area1",
+  "area_label": "Area 1",
+  "generated_at": "2026-07-09T13:37:18",
+  "classification_threshold_m": 0.05,
+  "grid": {
+    "resolution_m": 0.1,
+    "width": 8331,
+    "height": 6658,
+    "origin_x_min": 191144.146,
+    "origin_y_max": 77389.484,
+    "extent": {
+      "x_min": 191144.146,
+      "x_max": 191977.246,
+      "y_min": 76723.684,
+      "y_max": 77389.484
+    },
+    "cell_area_m2": 0.010000000000000002,
+    "crs": {
+      "epsg": 27700,
+      "name": "OSGB36 / British National Grid",
+      "vertical_datum": "ODN height",
+      "geoid": "uk_os_OSGM15_GB.tif",
+      "inferred": false
+    }
+  },
+  "boundary": {
+    "name": "Area1-Dunes",
+    "geojson": "data/areas/area1/boundary/boundary-dunes.geojson",
+    "role": "reporting_mask",
+    "masked_cell_count": 14101006,
+    "masked_area_m2": 141010.06000000003
+  },
+  "survey_rounds": [
+    {
+      "id": "A",
+      "label": "Survey Round 1",
+      "dates": [
+        "2026-03-22",
+        "2026-03-23"
+      ]
+    },
+    {
+      "id": "B",
+      "label": "Survey Round 2",
+      "dates": [
+        "2026-04-18",
+        "2026-04-19"
+      ]
+    },
+    {
+      "id": "C",
+      "label": "Survey Round 3",
+      "dates": [
+        "2026-06-16",
+        "2026-06-17"
+      ]
+    }
+  ],
+  "classification_inputs": {
+    "primary_pair_1": {
+      "pair": "A->B",
+      "from_round": "Survey Round 1",
+      "to_round": "Survey Round 2",
+      "date_range": "22 Mar 2026 to 19 Apr 2026",
+      "interval_days": 28,
+      "las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-B\\Section1_A_vs_B_Height_Difference_010m.las",
+      "volume_stats": {
+        "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-B\\Section1_A_vs_B_Volume_Stats.txt",
+        "net_volume_m3": 4320.475,
+        "surface_area_m2": 140244.337,
+        "added_volume_m3": 9019.068,
+        "removed_volume_m3": 4698.593,
+        "matching_cells_percent": 99.4,
+        "ground_non_matching_percent": 0.2,
+        "ceil_non_matching_percent": 0.4,
+        "average_neighbors_per_cell": 8.0
+      },
+      "state_counts": {
+        "erosion": 2955814,
+        "stable": 4430072,
+        "accretion": 6634906
+      },
+      "grid_mean_change_m": 0.030822331085801125,
+      "grid_min_change_m": -15.829000473022461,
+      "grid_max_change_m": 7.988999843597412
+    },
+    "primary_pair_2": {
+      "pair": "B->C",
+      "from_round": "Survey Round 2",
+      "to_round": "Survey Round 3",
+      "date_range": "18 Apr 2026 to 17 Jun 2026",
+      "interval_days": 60,
+      "las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\B-C\\Dunes\\Section1_B_vs_C_Dunes_Height_Difference_010m.las",
+      "volume_stats": {
+        "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\B-C\\Dunes\\Section1_B_vs_C_Dunes_Volume_Stats.txt",
+        "net_volume_m3": 3093.316,
+        "surface_area_m2": 140082.057,
+        "added_volume_m3": 6626.221,
+        "removed_volume_m3": 3532.905,
+        "matching_cells_percent": 99.3,
+        "ground_non_matching_percent": 0.5,
+        "ceil_non_matching_percent": 0.2,
+        "average_neighbors_per_cell": 7.9
+      },
+      "state_counts": {
+        "erosion": 2218225,
+        "stable": 7418779,
+        "accretion": 4367832
+      },
+      "grid_mean_change_m": 0.022072719410061836,
+      "grid_min_change_m": -1.1629999876022339,
+      "grid_max_change_m": 0.9300000071525574
+    },
+    "cumulative_pairs": [
+      {
+        "pair": "A->C",
+        "las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-C\\Section1_A_vs_C_Height_Difference_010m.las",
+        "volume_stats": {
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-C\\Section1_A_vs_C_Volume_Stats.txt",
+          "net_volume_m3": 7345.523,
+          "surface_area_m2": 139774.627,
+          "added_volume_m3": 12056.595,
+          "removed_volume_m3": 4711.072,
+          "matching_cells_percent": 99.1,
+          "ground_non_matching_percent": 0.5,
+          "ceil_non_matching_percent": 0.4,
+          "average_neighbors_per_cell": 7.9
+        }
+      }
+    ]
+  },
+  "classified_area": {
+    "valid_cell_count": 13935861,
+    "valid_area_m2": 139358.61000000002,
+    "nodata_cell_count": 41531937,
+    "coverage_percent_of_boundary": 98.82884242443411
+  },
+  "trend_classes": [
+    {
+      "class_id": 1,
+      "key": "consistent_accretion",
+      "label": "Consistent accretion",
+      "cell_count": 1453918,
+      "area_m2": 14539.180000000002,
+      "percent_of_classified_area": 10.432925529323233,
+      "color_rgba": [
+        34,
+        94,
+        168,
+        255
+      ]
+    },
+    {
+      "class_id": 2,
+      "key": "consistent_erosion",
+      "label": "Consistent erosion",
+      "cell_count": 548342,
+      "area_m2": 5483.420000000001,
+      "percent_of_classified_area": 3.934755089764457,
+      "color_rgba": [
+        183,
+        28,
+        28,
+        255
+      ]
+    },
+    {
+      "class_id": 3,
+      "key": "accretion_then_erosion",
+      "label": "Accretion then erosion",
+      "cell_count": 1105239,
+      "area_m2": 11052.390000000003,
+      "percent_of_classified_area": 7.9308985645020424,
+      "color_rgba": [
+        123,
+        31,
+        162,
+        255
+      ]
+    },
+    {
+      "class_id": 4,
+      "key": "erosion_then_accretion",
+      "label": "Erosion then accretion",
+      "cell_count": 1186494,
+      "area_m2": 11864.940000000002,
+      "percent_of_classified_area": 8.513962646441437,
+      "color_rgba": [
+        0,
+        121,
+        107,
+        255
+      ]
+    },
+    {
+      "class_id": 5,
+      "key": "stable",
+      "label": "Stable",
+      "cell_count": 2149100,
+      "area_m2": 21491.000000000004,
+      "percent_of_classified_area": 15.421365066715289,
+      "color_rgba": [
+        189,
+        189,
+        189,
+        255
+      ]
+    },
+    {
+      "class_id": 6,
+      "key": "new_latest_accretion",
+      "label": "New/latest accretion",
+      "cell_count": 1702869,
+      "area_m2": 17028.690000000002,
+      "percent_of_classified_area": 12.219331119907123,
+      "color_rgba": [
+        100,
+        181,
+        246,
+        255
+      ]
+    },
+    {
+      "class_id": 7,
+      "key": "new_latest_erosion",
+      "label": "New/latest erosion",
+      "cell_count": 556340,
+      "area_m2": 5563.4000000000015,
+      "percent_of_classified_area": 3.9921465921624795,
+      "color_rgba": [
+        239,
+        83,
+        80,
+        255
+      ]
+    },
+    {
+      "class_id": 8,
+      "key": "earlier_accretion_now_stable",
+      "label": "Earlier accretion, now stable",
+      "cell_count": 4017057,
+      "area_m2": 40170.57000000001,
+      "percent_of_classified_area": 28.825323386908064,
+      "color_rgba": [
+        144,
+        202,
+        249,
+        255
+      ]
+    },
+    {
+      "class_id": 9,
+      "key": "earlier_erosion_now_stable",
+      "label": "Earlier erosion, now stable",
+      "cell_count": 1216502,
+      "area_m2": 12165.020000000002,
+      "percent_of_classified_area": 8.729292004275875,
+      "color_rgba": [
+        255,
+        138,
+        128,
+        255
+      ]
+    }
+  ]
+}

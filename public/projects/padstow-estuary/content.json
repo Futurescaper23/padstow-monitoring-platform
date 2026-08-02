@@ -1,0 +1,593 @@
+{
+  "overviewModes": {
+    "information": {
+      "heroTitle": "Understanding how the Padstow Estuary changes over time",
+      "heroText": "This information page explains what the project is, why it is being carried out, how the surveys were undertaken, and what limits or practical realities shape the outputs.",
+      "storyTitle": "Project Information",
+      "contentsSubtext": "Use this index to move through the project story, survey method, operational context, and data limitations.",
+      "story": [
+        {
+          "id": "about",
+          "title": "About the Project",
+          "paragraphs": [
+            "The Padstow Estuary Monitoring Project is a structured drone survey programme commissioned by Padstow Harbour Commission and delivered by FutureScaping.",
+            "Its purpose is to monitor how the estuary changes over time, with particular focus on the movement of sandbanks, sandbars, and exposed intertidal sediment. By repeating surveys across the year, the project builds a clearer picture of where material is shifting, how quickly those changes are happening, and how the shape of the estuary is evolving.",
+            "This is not a one-off snapshot. It is designed as an ongoing monitoring programme, beginning with 14 surveys across a year, so that patterns can be tracked through time rather than guessed from isolated observations."
+          ]
+        },
+        {
+          "id": "why",
+          "title": "Why the Estuary is Being Monitored",
+          "paragraphs": [
+            "Padstow's estuary is a dynamic environment. Channels shift, sandbanks move, and the navigable routes into the harbour can change over time.",
+            "One of the main practical drivers is navigation. The harbour needs to remain accessible for the fishing community, tourism, commercial activity, and general harbour use. Sediment movement affects where channels remain open and where dredging may be needed.",
+            "The project is intended to help Padstow Harbour Commission understand where sandbars and sandbanks are moving, how quickly those changes are taking place, which areas appear more stable, and where dredging effort may need to be focused.",
+            "There is also an environmental benefit to better monitoring. If dredging can be guided by clearer evidence, it may help reduce unnecessary work and minimise avoidable disturbance within the estuary."
+          ]
+        },
+        {
+          "id": "process",
+          "title": "How the Survey Process Works",
+          "paragraphs": [
+            "The project uses drone photogrammetry to capture large numbers of overlapping aerial photographs across the estuary during low tide.",
+            "Those photographs are then processed to create outputs such as high-resolution aerial imagery, 3D surface models, elevation-based visualisations, and comparison material that can be reviewed over time.",
+            "By repeating this process on a regular basis, it becomes possible to compare one survey against another and identify movement, stability, erosion, accretion, and change."
+          ]
+        },
+        {
+          "id": "tide",
+          "title": "Why Low Tide Matters",
+          "paragraphs": [
+            "The project depends on surveying the estuary at low tide, because that is when the sandbanks, bars, and intertidal surfaces are most exposed.",
+            "At first, it seemed likely that the estuary could be covered within a single workable tide window. In reality, the first survey showed that the usable period is much tighter than it appears on paper once travel time, battery changes, launch positions, weather, and access are all factored in.",
+            "Although the project has generally worked around a period of roughly two to two and a half hours either side of low tide, the practical window for the best results can be much narrower depending on conditions and survey logistics."
+          ]
+        },
+        {
+          "id": "planning",
+          "title": "Planning the Survey Programme",
+          "paragraphs": [
+            "A lot of work went into testing the survey method before the first full scan was carried out.",
+            "This included trialling different side overlap settings, different flight heights, different flight speeds, and different assumptions about how the estuary could be divided into workable survey areas.",
+            "One of the key balances was between capture quality and survey efficiency. Higher side overlap means more flight lines, more passes, more time in the air, and a longer overall survey.",
+            "The first practical testing phase was crucial because it showed that the technical method would work, but it also revealed that real-world logistics across the estuary would be a much bigger challenge than first expected."
+          ]
+        },
+        {
+          "id": "evolved",
+          "title": "How the Workflow Evolved",
+          "paragraphs": [
+            "The original survey concept was simpler than the final version used on site.",
+            "At the start, the estuary had been divided into four larger areas. Once test flights and site experience were brought into the process, it became clear that this layout was not realistic.",
+            "The estuary is wide in places, and some areas cannot be surveyed properly from a single position while maintaining safe and compliant drone operations. This led to the survey structure being broken down into eight areas instead of four, particularly where wider sections needed to be split to preserve visual line of sight.",
+            "The project scope also extended further up the estuary, which added further operational complexity but gave a more complete picture of wider sediment movement."
+          ]
+        },
+        {
+          "id": "challenges",
+          "title": "Operational Challenges on Site",
+          "paragraphs": [
+            "The first full survey showed very clearly that the estuary is much harder to cover in reality than it appears on a map.",
+            "One of the biggest operational challenges was simply moving between areas. Every relocation between launch points took longer than expected, whether by car, bike, or on foot. Battery changes, setup time, and access delays all added pressure.",
+            "The survey became a constant balance between catching the tide at the right stage, reaching the next launch point in time, maintaining safe operations, and trying to maximise useful flying time before conditions changed again.",
+            "The upper estuary also brought different access issues from the lower sections, and some routes that looked straightforward on a map proved awkward, soft, or time-consuming on the ground."
+          ]
+        },
+        {
+          "id": "photogrammetry",
+          "title": "How Photogrammetry Works",
+          "paragraphs": [
+            "Photogrammetry is the process of building accurate mapped outputs from large numbers of overlapping photographs.",
+            "As the drone flies its survey pattern, it captures images with enough overlap for software to identify common visual points between them. Those shared points are then used to tie the imagery together into larger mapped surfaces and 3D reconstructions.",
+            "This works particularly well where the ground has visible texture, stable detail, and enough consistent surface information for the software to recognise."
+          ]
+        },
+        {
+          "id": "water",
+          "title": "Why Open Water Is Difficult",
+          "paragraphs": [
+            "One of the most important practical lessons from the first survey was the difference between exposed land and open water.",
+            "Photogrammetry relies on matching stable visual features from one image to the next. Water does not behave like that. It is constantly moving, reflecting light differently, and often presenting very little fixed detail for software to recognise.",
+            "As a result, open water areas can produce unreliable reconstruction if treated the same way as land. That is a normal limitation of photogrammetry in environments that include moving water.",
+            "For this monitoring programme, that limitation is manageable because the most important outputs come from the exposed intertidal ground and sediment visible around low tide."
+          ]
+        },
+        {
+          "id": "limits",
+          "title": "Understanding the Limits of the Data",
+          "paragraphs": [
+            "Like any monitoring method, drone photogrammetry has strengths and limitations.",
+            "The outputs are strongest where the survey surface is exposed, textured, stable, and clearly visible during low tide. The limitations become more obvious around moving water, water edges, reflective surfaces, and areas where the software cannot find stable visual reference points.",
+            "The project is not about claiming that every part of the estuary can be modelled equally well. It is about using the method intelligently to extract the most meaningful information from the areas where it is strongest."
+          ]
+        },
+        {
+          "id": "contours",
+          "title": "Why Some Contours and Elevation Outputs Are Filtered",
+          "paragraphs": [
+            "Where moving water is included in the captured imagery, the resulting height calculations can become highly unstable.",
+            "This can lead to false spikes or false depressions in the data, sometimes producing clearly unrealistic values that do not represent the true surface of the estuary. Because of that, some contour and elevation outputs have been filtered or clipped so that misleading artefacts do not dominate the final maps.",
+            "This is not about hiding data. It is about presenting terrain information in a way that is useful and honest, rather than allowing false artefacts to overwhelm the outputs."
+          ]
+        },
+        {
+          "id": "models",
+          "title": "Why Some 3D Models Are Simplified",
+          "paragraphs": [
+            "The original photogrammetry models are extremely large and detailed. While that is excellent for analysis, it is not always suitable for a smooth online viewing experience.",
+            "To make the project accessible through 3DVista, the models included within the tour have been reduced and simplified so that they load more reliably and perform better across devices.",
+            "This is a practical trade-off between detail and usability. The lighter models remain useful for interpretation and storytelling, while more detailed versions are available when closer inspection is needed."
+          ]
+        },
+        {
+          "id": "nira",
+          "title": "Why a High-Resolution Model Also Exists",
+          "paragraphs": [
+            "Alongside the lighter 3DVista models, a separate high-resolution model is available through Nira.",
+            "This version preserves far more of the original detail and is better suited to close inspection, detailed viewing, and more intensive exploration.",
+            "In simple terms, 3DVista is used for accessible, smooth, client-friendly viewing, while Nira provides a higher-detail companion model for more in-depth inspection."
+          ]
+        }
+      ]
+    },
+    "help": {
+      "heroTitle": "How to move around the monitoring system confidently",
+      "heroText": "This help page explains where to start, what each menu section does, how the area tools work, what each view shows, and the most common questions people are likely to have when using the project.",
+      "storyTitle": "Project Help",
+      "contentsSubtext": "Use this index to move through the navigation guide, area tools, quick-start advice, and common questions.",
+      "story": [
+        {
+          "id": "quick-start",
+          "title": "Quick Start",
+          "paragraphs": [
+            "If this is your first time using the project, start with Overview so you can understand the survey round, the monitored areas, and the main purpose of the work.",
+            "Then use Survey Areas to move into one part of the estuary, Compare to inspect imagery and change, Sections to read fixed profile lines, and Volume Change when measured sandbar results are available.",
+            "Open Information for the stable project story, Survey Notes for round-specific lessons from the field, and Help whenever you need guidance."
+          ]
+        },
+        {
+          "id": "main-menu",
+          "title": "Main Menu Guide",
+          "paragraphs": [
+            "Overview is the main starting point for the project. It gives you the broad survey picture, the current round, and the context for the monitoring work.",
+            "Survey Areas lets you move into one monitored location at a time. Weather shows tide and weather context for the selected survey round.",
+            "Compare, Sections, and Volume Change are the main interpretation tools. Information explains the wider project background, Survey Notes captures what was learned in each round, and Help explains how to use the system."
+          ]
+        },
+        {
+          "id": "areas",
+          "title": "Areas",
+          "paragraphs": [
+            "The Areas menu lets you jump directly into a monitored part of the estuary.",
+            "Current areas include A1 Hawker's Cove, A2 Daymer Bay, A3 Rock Beach, A4 Padstow Harbour, A5 Porthilly Cove, A6 Old Town Cove, A7 Slate Quarry, and A8 Wadebridge.",
+            "Use Areas when you want to focus on one location and use the detailed area tools."
+          ]
+        },
+        {
+          "id": "area-tools",
+          "title": "Area Tools Guide",
+          "paragraphs": [
+            "When you open an area, the main tools each answer a slightly different question.",
+            "Compare is best for visual before-and-after work using aerial imagery, colour elevation, contours, overlay, swipe, and highlight change. Sections is best for following one fixed line and seeing how ground height changes along it between survey rounds.",
+            "Volume Change is the place for measured sandbar gain and loss once those results have been prepared. It is normal to move between these tools when trying to understand one part of the estuary properly."
+          ]
+        },
+        {
+          "id": "sections",
+          "title": "How to Use Sections",
+          "paragraphs": [
+            "Open the Sections tab inside an area to view fixed section lines and their profile graphs.",
+            "Choose Section 1, 2, or 3, view where that line runs across the map, and then move across the chart to follow the same point on the section line. You can also tick more than one survey profile to compare the same fixed line between rounds.",
+            "Use Sections when you want a measured cross-section through the estuary surface rather than a broad visual overview."
+          ]
+        },
+        {
+          "id": "compare",
+          "title": "How to Use Compare and Highlight Change",
+          "paragraphs": [
+            "Use Compare when you want to place two survey rounds or two view types side by side in a single workspace.",
+            "Single View is the cleanest starting point. Overlay and Swipe are useful when you want to inspect one shoreline, sand edge, or channel boundary closely. Highlight Change is a guided view that helps draw attention to likely movement between the two rounds.",
+            "Use these tools when you want to focus on what has shifted or changed rather than just viewing one survey on its own."
+          ]
+        },
+        {
+          "id": "volume-change",
+          "title": "How to Use Volume Change",
+          "paragraphs": [
+            "Volume Change is designed to explain how much sand or sediment appears to have been added, removed, or left in overall balance within a monitored sandbar area.",
+            "It is best treated as a measured reporting tool rather than a general browsing view. The preview maps show where the monitored zone sits, while the figures explain the amount of material change in plain-English terms.",
+            "As more areas are processed, this section will become the clearest place to understand sandbar build-up, loss, and longer-term movement between survey rounds."
+          ]
+        },
+        {
+          "id": "mobile",
+          "title": "How to Navigate on Phone",
+          "paragraphs": [
+            "On mobile, use the menu button to open the main navigation.",
+            "Once inside an area, use the lower navigation bar to switch between the available tools such as Compare, Sections, and Volume Change.",
+            "If the screen feels crowded, close the main menu before exploring and focus on one tool at a time."
+          ]
+        },
+        {
+          "id": "important-notes",
+          "title": "Important Things to Understand",
+          "paragraphs": [
+            "Open water is not captured as reliably as exposed land or sand, so some outputs may be simplified or filtered where water creates misleading results.",
+            "Some models are lighter simplified versions to keep the project smooth and responsive, while the higher-resolution model is available when more detail is needed.",
+            "Different tools answer different questions, so it is normal for one view to be better suited to one task than another."
+          ]
+        },
+        {
+          "id": "common-questions",
+          "title": "Common Questions and Answers",
+          "paragraphs": [
+            "Where should I start? Start with Overview if you are new to the project.",
+            "How do I look at a specific part of the estuary? Open Survey Areas and choose the area you want.",
+            "How do I see a cross-section through the ground? Open an area and choose Sections.",
+            "How do I compare two views? Open Compare and then choose Single View, Overlay, Swipe, or Highlight Change.",
+            "How do I understand sandbar gain or loss? Open Volume Change when a measured comparison has been prepared.",
+            "Where do I learn about the project itself? Open Information for the stable story or Survey Notes for round-specific learning."
+          ]
+        }
+      ]
+    }
+  },
+  "surveySpecificOverview": {
+    "2026-03-22": {
+      "heroTitle": "What the first full scan taught us",
+      "heroText": "This survey-specific view turns the baseline scan into a lessons-learned record. It keeps the general project story separate from what the team discovered while running the first full estuary survey.",
+      "storyTitle": "Survey Round 1 Learnings",
+      "contentsSubtext": "Use this view to track what worked, what slowed the team down, and what changed in the field approach afterwards.",
+      "glance": [
+        ["High tide reference", "08:22 Day 1 - 7.45 m | 07:54 Day 2 - 7.35 m"],
+        ["Total mapped area", "7.25 km2"],
+        ["Survey dates", "22-23 March 2026"],
+        ["Low tide reference", "13:47 Day 1 - 0.53 m | 14:23 Day 2 - 0.95 m"],
+        ["Images captured", "6,210 photos"],
+        ["Air time overall", "338.86 minutes"]
+      ],
+      "story": [
+        {
+          "id": "round1-purpose",
+          "title": "What Survey Round 1 Proved",
+          "paragraphs": [
+            "The first full scan showed that the estuary could be surveyed as one joined-up monitoring programme rather than a set of disconnected experiments.",
+            "It also proved that the outputs were worth chasing. The imagery, sections, and repeat-survey comparisons all had real value once the areas had been processed and lined up properly."
+          ]
+        },
+        {
+          "id": "round1-what-worked",
+          "title": "What Worked Well",
+          "paragraphs": [
+            "The baseline round captured all eight monitored areas and created a proper starting point for repeat survey work.",
+            "It also highlighted which areas were strongest near low tide, which areas held water for longer, and where the sandbars and exposed surfaces were most useful for future change tracking."
+          ]
+        },
+        {
+          "id": "round1-what-did-not",
+          "title": "What Did Not Work So Well",
+          "paragraphs": [
+            "The first full scan took longer on the ground than expected. Access, parking, walking time, and moving between both sides of the estuary all had a bigger effect on the day than the desk planning suggested.",
+            "That meant some areas drifted away from their ideal tide windows, even though the technical flying itself was successful."
+          ]
+        },
+        {
+          "id": "round1-lessons",
+          "title": "What We Learned From The First Scan",
+          "paragraphs": [
+            "The biggest lesson was that route planning matters just as much as the flying settings. Tide timing, launch points, travel time, and safe access all needed to be treated as part of the survey method, not as side details.",
+            "That baseline experience is what shaped the much more deliberate April repeat route."
+          ]
+        },
+        {
+          "id": "round1-next-time",
+          "title": "What Could Be Improved Next Time",
+          "paragraphs": [
+            "Future rounds needed cleaner day planning, better grouping of nearby areas, and a more tactical approach to when each side of the estuary should be surveyed.",
+            "That is exactly what Survey Round 2 started testing."
+          ]
+        }
+      ]
+    },
+    "2026-04-18": {
+      "heroTitle": "What Survey Round 2 improved in the field",
+      "heroText": "This survey-specific view captures what the April repeat taught us. The permanent project story stays the same, but this round shows how the team refined access, route planning, and tide timing after learning from the first full scan.",
+      "storyTitle": "Survey Round 2 Learnings",
+      "contentsSubtext": "Use this view to see what went more smoothly, which tide windows were strongest, and how the route would be changed again for the next survey.",
+      "glance": [
+        ["High tide reference", "06:55 Day 1 - 7.53 m | 07:39 Day 2 - 7.53 m"],
+        ["Total mapped area", "7.25 km2"],
+        ["Survey dates", "18-19 April 2026"],
+        ["Low tide reference", "12:56 Day 1 - -0.15 m | 13:35 Day 2 - -0.09 m"],
+        ["Images captured", "6,102 photos"],
+        ["Air time overall", "320.80 minutes"]
+      ],
+      "story": [
+        {
+          "id": "round2-overview",
+          "title": "What Survey Round 2 Was Trying To Improve",
+          "paragraphs": [
+            "Survey Round 2 built directly on the first full scan. By April, the team already understood more about where to park, where to launch from, which parts of the estuary emptied first, and how long the travel links between areas really took.",
+            "The aim was not just to repeat March, but to improve the tide timing and make better use of the estuary-side access patterns that had become clearer after the baseline round."
+          ]
+        },
+        {
+          "id": "round2-day1",
+          "title": "Day 1 Worked Well Down The Estuary",
+          "paragraphs": [
+            "Day 1 started early at the Wadebridge end, which worked well because the water had already started draining and the sandbars were becoming visible. That let the team move through Areas 8 and 7 at a reasonable speed and get back to Area 4 close to low tide, which was one of the key goals for the day.",
+            "By the time the team reached Area 6, the water was still low enough to walk onto the central sandbar. That would have been impossible, or at least far less practical, during the first scan, so it was a clear sign that the repeat route and timing were already improving."
+          ]
+        },
+        {
+          "id": "round2-day2",
+          "title": "Day 2 Was More Experimental",
+          "paragraphs": [
+            "Day 2 tested a different movement pattern because the team needed to work across both sides of the estuary. The route still used driving, but also brought in the ferry crossing, which helped connect Hawker's Cove, Rock Beach, and the lower-estuary areas in a more flexible way.",
+            "Area 1 was still surveyed well before low tide because the water remained high for longer than hoped, even after waiting around to expose more of the Gimbob area. Rock Beach then worked better once the ferry crossing was used, and Porthilly Cove improved again because access from the small church avoided the worst of the squelchy mud."
+          ]
+        },
+        {
+          "id": "round2-what-worked",
+          "title": "What Worked Better Than The First Scan",
+          "paragraphs": [
+            "The second round was smoother because the team was no longer guessing the route. The practical knowledge from the first survey made the driving, stopping, launch planning, and area grouping much more efficient.",
+            "Area 4 on Day 1 and Area 3 on Day 2 were especially strong because they sat much closer to low water and gave cleaner exposed-ground comparison windows."
+          ]
+        },
+        {
+          "id": "round2-what-did-not",
+          "title": "What Still Did Not Land Perfectly",
+          "paragraphs": [
+            "The outer areas were still the hardest to line up perfectly with low tide. Daymer Bay ended up later than ideal, and by that point the water had already pushed back in enough to make the repeat window less useful than hoped.",
+            "Area 1 also stayed higher in the tide cycle than would be ideal for maximum exposure, which means some features would still be worth revisiting later in the tide if future logistics allow it."
+          ]
+        },
+        {
+          "id": "round2-next-time",
+          "title": "How The Route Would Change Next Time",
+          "paragraphs": [
+            "Looking back, the next repeat survey would probably split the estuary days more deliberately. One day would start at Daymer Bay, then move through Rock Beach and the ferry crossing, and then catch the Wadebridge / Camel Trail side later because Area 8 appears to stay exposed for longer.",
+            "The other day would begin on the Padstow side, aim to hit Area 4 shortly before low tide, and then work upriver through Areas 7 and 6 while the water is still well out. That should give a cleaner match between access logic and the tide window for each side of the estuary."
+          ]
+        }
+      ]
+    },
+    "2026-06-16": {
+      "heroTitle": "What Survey Round 3 proved about route planning",
+      "heroText": "This survey-specific view captures what the June repeat taught us after a longer-than-intended gap between rounds. More importantly, it shows that the route logic for future scans is now much clearer and more reliable.",
+      "storyTitle": "Survey Round 3 Learnings",
+      "contentsSubtext": "Use this view to see how the team handled the long wait for a weather window, what changed in the route planning, and why this round now feels like a turning point for future survey days.",
+      "glance": [
+        ["High tide reference", "Survey-specific high tide summary pending"],
+        ["Total mapped area", "7.25 km2"],
+        ["Survey dates", "16-17 June 2026"],
+        ["Low tide reference", "13:22 Day 1 (provisional) | 14:10 Day 2 (provisional)"],
+        ["Images captured", "6,405 photos"],
+        ["Air time overall", "321.22 minutes"]
+      ],
+      "story": [
+        {
+          "id": "round3-overview",
+          "title": "Why This Round Mattered So Much",
+          "paragraphs": [
+            "Survey Round 3 followed a much longer gap than originally intended. The aim had been to keep the repeat interval closer to around 30 days, but the tides and the weather did not align well enough for that to happen.",
+            "By the time the June survey went ahead, the gap had stretched to roughly 50 days. That made it important to return to the estuary and secure the next full dataset, even though the forecast window became less comfortable only a few days before the survey."
+          ]
+        },
+        {
+          "id": "round3-weather",
+          "title": "Weather Stayed Under Review The Whole Time",
+          "paragraphs": [
+            "The forecast had looked more favourable earlier on, but the workable window narrowed shortly before the survey. Even so, the decision was made to proceed, with the understanding that a third day would be used if necessary rather than lose the opportunity altogether.",
+            "In practice, both days remained workable. There were gusts, some very light rain, and a few moments where low cloud or mist triggered visibility warnings from the drone, but the aircraft performed well overall and the imagery stayed clear enough to keep the survey moving."
+          ]
+        },
+        {
+          "id": "round3-route",
+          "title": "The Route Was Reworked Around How The Estuary Fills",
+          "paragraphs": [
+            "One of the biggest changes in June was the route logic. In earlier rounds, some of the more seaward areas had often been left until later, but by that stage the lower estuary can refill quickly enough to weaken the comparison window.",
+            "For this round, Day 1 began at Tregirls Beach and then worked inland. Day 2 began at Daymer Bay and then also worked inland. That meant the more seaward blocks were captured earlier, around an hour and a half before low tide, giving a better chance of seeing more of Doom Bar, the beaches, and the outer exposed ground before the water pushed back in."
+          ]
+        },
+        {
+          "id": "round3-tide-window",
+          "title": "The Tide Strategy Was More Deliberate",
+          "paragraphs": [
+            "The normal target window still sits roughly around two hours before to two hours after low tide, but this round showed that the outer areas benefit from being flown earlier within that range. Starting them well before low water gave a stronger view of the sea-edge features than waiting until later in the cycle.",
+            "At the same time, the inland areas such as Areas 7 and 8 appear to remain usable for longer after low tide because the estuary refills there more slowly. That balance worked well across both June survey days and helped the team use the tide more effectively than in the earlier rounds."
+          ]
+        },
+        {
+          "id": "round3-access",
+          "title": "Access Planning Also Became Clearer",
+          "paragraphs": [
+            "The June round also helped confirm more of the on-the-ground access method. Some cycling was still used, but less than before, and the Wadebridge block was tested by parking in Wadebridge and walking down instead.",
+            "That worked, although the end of Day 2 showed that the walk was longer than it feels when moving by bike. Even so, the round added more confidence about where to leave the Camel Trail, where to drop onto the estuary, and how those access choices affect the timing of the day."
+          ]
+        },
+        {
+          "id": "round3-what-it-proved",
+          "title": "What Survey Round 3 Proved For Future Surveys",
+          "paragraphs": [
+            "The biggest success of this round is that the route planning now feels much more settled. It matters less which calendar day is called Day 1 or Day 2, because the team now understands the sequence that works best through the estuary.",
+            "The June survey showed that the outward-to-inland route is the stronger pattern, that the upper estuary often provides calmer flying conditions than the sea edge, and that the team now has a much clearer playbook for future repeat rounds. Completing the whole survey in two days, despite the uncertainty leading into it, was a strong result."
+          ]
+        }
+      ]
+    },
+    "2026-07-15": {
+      "heroTitle": "What Survey Round 4 added to the monitoring record",
+      "heroText": "This survey-specific view captures what the July repeat showed in the field, what changed operationally, and anything that needs to be carried forward into the next survey round.",
+      "storyTitle": "Survey Round 4 Learnings",
+      "contentsSubtext": "Use this view to record the key field notes, route lessons, survey conditions, and follow-up actions from the 15-16 July 2026 survey.",
+      "glance": [
+        ["High tide reference", "06:48 Day 1 - 7.23 m | 07:37 Day 2 - 7.32 m"],
+        ["Total mapped area", "7.25 km2"],
+        ["Survey dates", "15-16 July 2026"],
+        ["Low tide reference", "13:13 Day 1 - 0.86 m | 14:00 Day 2 - 0.75 m"],
+        ["Images captured", "6,489 photos"],
+        ["Air time overall", "322.57 minutes"]
+      ],
+      "story": [
+        {
+          "id": "round4-overview",
+          "title": "What This Survey Round Covered",
+          "paragraphs": [
+            "Survey Round 4 was designed to follow the route logic proven in Survey Round 3. By this point, the team had a much clearer understanding of how the estuary should be scanned if the aim is to maximise exposed ground rather than simply work through the areas in a convenient travel order.",
+            "The route again started in the outer estuary, where Doom Bar and the more seaward sand surfaces appear first, and then worked inland towards Wadebridge where the estuary tends to stay exposed for longer after low tide. In practical terms, that meant the round was trying to give every area the strongest possible exposure window rather than leaving a few sections feeling rushed or still too full of water."
+          ]
+        },
+        {
+          "id": "round4-conditions",
+          "title": "Survey Conditions",
+          "paragraphs": [
+            "Conditions across both survey days were very good, although exceptionally hot. Temperatures were around 30C at various points on both days, so the work was carried out in bright, hot weather with sun cream and light clothing very much needed.",
+            "From a surveying point of view, those conditions were a positive overall because the route could be followed cleanly and the team was not fighting poor weather while trying to hold the low-tide windows."
+          ]
+        },
+        {
+          "id": "round4-what-worked",
+          "title": "What Worked Well",
+          "paragraphs": [
+            "The biggest success in Round 4 was that the updated route logic worked again. Starting in the outer estuary and then finishing further inland is now proving to be the right pattern for this monitoring programme, because it gives the lower estuary the earlier exposure it needs while still leaving time to capture the upper estuary before it refills.",
+            "That matters because some areas in the first two survey rounds felt slightly neglected, with the water still too high to reveal exactly what was needed. Round 4 felt much stronger in that respect, with the overall sequence giving better exposure across the programme.",
+            "The round also added more useful access knowledge on the ground. In Area 7 especially, following the water edge turned out to be a much firmer and more reliable way to get out onto the sandbar than trying to cut back across the softer ground further inland."
+          ]
+        },
+        {
+          "id": "round4-what-did-not",
+          "title": "What Did Not Work So Well",
+          "paragraphs": [
+            "The main difficulty was not the route itself but the ground conditions underfoot once out on the bars. Soft sand remained a risk in places, and there was another near-miss where it became very easy to sink and get stuck while working out in the middle of the sandbar.",
+            "That is less a sign that the survey logic failed and more a reminder that even with the route now working well, access and exit lines across the estuary still need to be judged carefully in the field."
+          ]
+        },
+        {
+          "id": "round4-next-time",
+          "title": "What To Carry Forward",
+          "paragraphs": [
+            "The main lesson to carry forward is that the Round 3 route logic should remain the standard pattern for future scans. Whether the calendar days swap around slightly is less important than keeping the same tide-led sequence of outer estuary first and Wadebridge later.",
+            "The other practical lesson is to keep refining the safest and firmest walking lines across the sandbars. The firmer route found by following the water edge in Area 7 is exactly the kind of local access knowledge that will make future rounds smoother and safer."
+          ]
+        }
+      ]
+    }
+  },
+  "panoramaGuides": {
+    "area1": {
+      "summary": "Outer-estuary panorama focused on Hawker's Cove, Tregirls Beach, and the exposed Doom Bar edge.",
+      "stats": [
+        ["Main focus", "Outer beach and bar edge", "Use this view to read how the lower estuary opens out towards the sea."],
+        ["Best for", "Early exposure checks", "Helpful for seeing how much of the outer sand and beach face was visible during capture."]
+      ],
+      "details": [
+        ["What to look for", "Look across the outer bar, beach width, and the exposed edge of the lower estuary where tidal windows change quickly."],
+        ["Why it matters", "This is one of the clearest places to explain how survey timing affects visible sand extent, especially before low water."],
+        ["Client takeaway", "A wider exposed beach or bar here usually points to stronger low-tide access and a better view of outer-estuary change."]
+      ]
+    },
+    "area2": {
+      "summary": "Daymer Bay panorama showing the estuary entrance margin and the broad beach surface on the north side.",
+      "stats": [
+        ["Main focus", "Entrance beach surface", "Best used for reading broad beach shape and shoreline position."],
+        ["Best for", "Comparing sand spread", "Helpful for seeing whether sand is sitting higher, wider, or further seaward than before."]
+      ],
+      "details": [
+        ["What to look for", "Look at the width of exposed sand, the line of wet versus dry beach, and the overall shape of the entrance margin."],
+        ["Why it matters", "This area gives a strong visual read on how the entrance beach is presenting from one survey round to the next."],
+        ["Client takeaway", "If the exposed surface here appears broader or more continuous, it usually supports a build-up story rather than local erosion."]
+      ]
+    },
+    "area3": {
+      "summary": "Central entrance panorama around Doom Bar, useful for understanding bar shape, channel position, and change through time.",
+      "stats": [
+        ["Main focus", "Doom Bar form", "Use this area to read bar shape, crest position, and nearby channel behaviour."],
+        ["Best for", "Visible movement checks", "Helpful for spotting whether sand has shifted, stretched, or narrowed between rounds."]
+      ],
+      "details": [
+        ["What to look for", "Look for changes in the bar outline, the apparent high points, and how the channel edge sits against the sand body."],
+        ["Why it matters", "This is one of the most legible places for clients to see estuary movement without needing to read a graph first."],
+        ["Client takeaway", "A bar that looks fuller and more continuous over several rounds supports consistent build-up, while a broken or cut-back shape suggests redistribution or erosion."]
+      ]
+    },
+    "area4": {
+      "summary": "Harbour reach panorama covering the main low-tide central estuary view where exposed sandbars are easiest to compare.",
+      "stats": [
+        ["Main focus", "Central estuary bars", "Use this panorama to compare the main exposed sand surfaces around low water."],
+        ["Best for", "Core repeat comparisons", "This is one of the strongest client-facing views for explaining visible change over time."]
+      ],
+      "details": [
+        ["What to look for", "Look at bar width, exposed channel margins, and whether the central surfaces appear higher, flatter, or more cut through."],
+        ["Why it matters", "This area often sits in one of the cleanest low-tide windows, so the exposed landform is easier to compare round to round."],
+        ["Client takeaway", "If change is consistent here as well as in the section graphs, it gives stronger confidence that the broader central estuary is shifting rather than just one local patch."]
+      ]
+    },
+    "area5": {
+      "summary": "Porthilly Cove panorama focused on the quieter inner transition zone between beach edge, mudflat, and returning water.",
+      "stats": [
+        ["Main focus", "Cove edge and mudflat", "Useful for reading subtle shoreline adjustments in a more sheltered part of the estuary."],
+        ["Best for", "Quieter change signals", "This view helps show smaller shape changes that are easier to miss in the more dynamic outer areas."]
+      ],
+      "details": [
+        ["What to look for", "Look at the cove edge, the outline of exposed mud or sand, and how far the open surface reaches into the shelter of the cove."],
+        ["Why it matters", "Because this area is calmer, repeated change here can be a useful sign that the estuary is gradually reorganising rather than only reacting at the entrance."],
+        ["Client takeaway", "Subtle expansion or retreat in this cove can help explain whether material is settling into sheltered zones or being stripped back out."]
+      ]
+    },
+    "area6": {
+      "summary": "Central sandbar panorama showing one of the key comparison zones where flood water can quickly change access after low tide.",
+      "stats": [
+        ["Main focus", "Sandbar crest and cut-throughs", "Use this view to examine exposed bar shape and the low channels that begin to refill first."],
+        ["Best for", "Post-low-tide response", "Helpful for understanding how quickly the visible landform starts to change once water returns."]
+      ],
+      "details": [
+        ["What to look for", "Look for bar height, the position of shallow cut-throughs, and where returning water begins to break the exposed surface apart."],
+        ["Why it matters", "This is a strong area for explaining that apparent change can come from both real surface movement and the timing of flood water."],
+        ["Client takeaway", "If the bar stays broad and high across rounds, that suggests resilience or build-up; if channels open earlier or cut deeper, it can point to weakening or redistribution."]
+      ]
+    },
+    "area7": {
+      "summary": "Upper-inner estuary panorama showing a calmer reach where late-day survey windows still give useful comparisons as the tide returns.",
+      "stats": [
+        ["Main focus", "Inner-estuary margins", "Useful for reading how exposed edges and quieter sediment zones are holding their shape."],
+        ["Best for", "Settling-zone checks", "This area helps show whether material is accumulating further inland rather than only at the mouth."]
+      ],
+      "details": [
+        ["What to look for", "Look at the edge lines of exposed sediment, the width of the inner flats, and any signs that channels are tightening or spreading."],
+        ["Why it matters", "This reach often changes more gently than the entrance, so repeated patterns here can be especially informative."],
+        ["Client takeaway", "Steady build-up inland can suggest sediment is continuing to settle up-estuary, while retreating edges may point to reworking or wash-back."]
+      ]
+    },
+    "area8": {
+      "summary": "Wadebridge reach panorama covering the upper estuary where broad mudflat and channel-edge relationships are easiest to read.",
+      "stats": [
+        ["Main focus", "Upper-estuary flats", "Use this panorama to compare how much of the upper estuary is exposed and where water is still holding."],
+        ["Best for", "Upper-reach context", "Helpful for explaining how the inland end of the system behaves differently from the outer mouth."]
+      ],
+      "details": [
+        ["What to look for", "Look at the width of exposed upper flats, the channel edge position, and how much standing water remains across the reach."],
+        ["Why it matters", "This is a useful context view because the upper estuary often responds on a different timing and with different sediment behaviour than the outer sections."],
+        ["Client takeaway", "If the upper reach is staying wetter or narrower than expected, that can explain why some comparisons are weaker here than in the lower estuary."]
+      ]
+    }
+  },
+  "trendAssets": {
+    "area1": {
+      "manifest": "./data/area1-trend-manifest.json",
+      "stats": "./data/area1-trend-stats.json",
+      "image": "/public/projects/padstow-estuary/assets/stats/area1-trend-classification-panel.png"
+    },
+    "area3": {
+      "manifest": "./data/area3-trend-manifest.json",
+      "stats": "./data/area3-trend-stats.json",
+      "image": "/public/projects/padstow-estuary/assets/stats/area3-trend-classification-panel.png"
+    },
+    "area4": {
+      "manifest": "./data/area4-trend-manifest.json",
+      "stats": "./data/area4-trend-stats.json",
+      "image": "/public/projects/padstow-estuary/assets/stats/area4-trend-classification-panel.png"
+    }
+  }
+}

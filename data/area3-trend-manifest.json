@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "area_id": "area3",
+  "area_label": "Area 3",
+  "generated_at": "2026-07-30T20:07:18",
+  "files": {
+    "classification_geotiff": "Area3_Trend_Classification.tif",
+    "classification_png": "Area3_Trend_Classification.png",
+    "stats_json": "Area3_Trend_Stats.json"
+  },
+  "summary": {
+    "top_trend_class": "Earlier erosion, now stable",
+    "classified_area_m2": 131478.26000000004,
+    "coverage_percent_of_boundary": 96.90264876887123
+  }
+}

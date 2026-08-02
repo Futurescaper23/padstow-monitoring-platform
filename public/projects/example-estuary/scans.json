@@ -1,0 +1,17 @@
+{
+  "surveys": [
+    {
+      "id": "2026-07-21",
+      "label": "Survey Round 1 - 21 July 2026",
+      "shortDate": "21 Jul 2026",
+      "dateFrom": "2026-07-21",
+      "dateTo": "2026-07-21",
+      "status": "Starter survey loaded",
+      "readiness": "single scan only",
+      "assetFolder": "example-estuary/2026-07-21",
+      "dataFolder": "2026-07-21",
+      "comparisonBaseline": null,
+      "notes": "Placeholder single-scan project used to show the baseline multi-project behavior."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "hayle-estuary": {
+      "projectRoot": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\FutureScaping_Processing_Hub\\01_projects\\hayle-estuary",
+      "mapExportsRoot": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\FutureScaping_Processing_Hub\\01_projects\\hayle-estuary\\06_map_exports",
+      "sectionProfilesRoot": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\FutureScaping_Processing_Hub\\01_projects\\hayle-estuary\\02_processed_inputs\\section_profiles\\by_date"
+    },
+    "padstow-estuary": {
+      "projectRoot": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\FutureScaping_Processing_Hub\\01_projects\\padstow-estuary",
+      "mapExportsRoot": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\FutureScaping_Processing_Hub\\01_projects\\padstow-estuary\\06_map_exports",
+      "sectionProfilesRoot": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\FutureScaping_Processing_Hub\\01_projects\\padstow-estuary\\02_processed_inputs\\section_profiles\\by_date"
+    }
+  }
+}

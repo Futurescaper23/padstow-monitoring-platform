@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "area_id": "area1",
+  "area_label": "Area 1",
+  "generated_at": "2026-07-09T13:37:18",
+  "files": {
+    "classification_geotiff": "Area1_Trend_Classification.tif",
+    "classification_png": "Area1_Trend_Classification.png",
+    "stats_json": "Area1_Trend_Stats.json"
+  },
+  "summary": {
+    "top_trend_class": "Earlier accretion, now stable",
+    "classified_area_m2": 139358.61000000002,
+    "coverage_percent_of_boundary": 98.82884242443411
+  }
+}

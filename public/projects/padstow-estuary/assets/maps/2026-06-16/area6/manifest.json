@@ -1,0 +1,24 @@
+﻿{
+    "projectId":  "padstow-estuary",
+    "surveyId":  "2026-06-16",
+    "areaId":  "area6",
+    "expectedFiles":  [
+                          "ortho.jpg",
+                          "dsm.png",
+                          "contour.png",
+                          "section_lines.png",
+                          "section_profiles.csv"
+                      ],
+    "presentFiles":  [
+                         "ortho.jpg",
+                         "dsm.png",
+                         "contour.png",
+                         "section_lines.png",
+                         "section_profiles.csv"
+                     ],
+    "missingFiles":  [
+
+                     ],
+    "status":  "complete",
+    "lastUpdated":  "2026-06-23T14:02:22.1617981+01:00"
+}

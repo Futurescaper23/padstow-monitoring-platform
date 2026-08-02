@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Padstow Section Profile Workflow</title>
+    <style>
+      :root {
+        --bg: #0b1422;
+        --panel: #13233a;
+        --text: #edf5ff;
+        --muted: #bfd0e6;
+        --accent: #4cc5ff;
+        --line: rgba(255, 255, 255, 0.12);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 36px;
+        font-family: Montserrat, Arial, sans-serif;
+        background: linear-gradient(180deg, #07111f 0%, #10213a 100%);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      .page { max-width: 960px; margin: 0 auto; }
+      .hero, .panel, .card {
+        background: linear-gradient(180deg, rgba(56, 86, 132, 0.96), rgba(28, 47, 78, 0.98));
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+      .hero, .panel { padding: 28px 30px; }
+      .hero { margin-bottom: 22px; }
+      .panel { margin-bottom: 18px; }
+      .eyebrow {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 12px;
+        color: var(--accent);
+      }
+      h1 { margin: 0 0 14px; font-size: 40px; line-height: 1.08; }
+      h2 { margin: 0 0 12px; font-size: 24px; }
+      h3 { margin: 0 0 8px; font-size: 18px; }
+      p, li { color: var(--muted); font-size: 16px; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .card { padding: 18px; }
+      ol, ul { margin: 0; padding-left: 22px; }
+      code, pre { font-family: Consolas, "Courier New", monospace; }
+      pre {
+        margin: 10px 0 0;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(7, 17, 31, 0.76);
+        border: 1px solid var(--line);
+        color: #dff2ff;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      .step-list li { margin-bottom: 14px; }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Padstow Workflow Library</p>
+        <h1>Section Profile Workflow</h1>
+        <p>
+          A repeatable QGIS workflow for generating and cleaning section-profile CSVs for the monitoring app.
+          This guide follows the same logic we used to get the live section comparison view working.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Core Principle</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>What stays fixed</h3>
+            <p>The section lines. One fixed set of section lines per area.</p>
+          </div>
+          <div class="card">
+            <h3>What changes each survey</h3>
+            <p>The sampled profile CSV. One CSV per survey round per area.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Step-by-Step QGIS Workflow</h2>
+        <ol class="step-list">
+          <li>
+            <strong>Load the correct survey surface.</strong>
+            <p>Bring the survey surface for the round you want to sample into QGIS.</p>
+          </li>
+          <li>
+            <strong>Load the fixed section line layer.</strong>
+            <p>Do not redraw the lines for each survey if you want direct comparison through time.</p>
+          </li>
+          <li>
+            <strong>Create points along the geometry.</strong>
+            <p>Use <code>Points Along Geometry</code> on the section lines.</p>
+            <pre>Distance: 1 m
+Start offset: 0
+End offset: 0</pre>
+          </li>
+          <li>
+            <strong>Sample the survey surface.</strong>
+            <p>Use <code>Sample Raster Values</code> on the points layer and the current survey surface.</p>
+          </li>
+          <li>
+            <strong>Check the sampled field.</strong>
+            <p>The sampled values usually land in a field like <code>SRV1</code>.</p>
+          </li>
+          <li>
+            <strong>Convert no-data to 0 in the cleaned height field.</strong>
+            <p>This is the approach we used for the app so the section can flatline over no-data stretches.</p>
+            <pre>if(
+    "SRV1" IS NULL,
+    0,
+    round("SRV1", 2)
+)</pre>
+          </li>
+          <li>
+            <strong>Make sure the distance field is populated.</strong>
+            <p>If needed, create or update <code>distance_m</code> from the original distance field.</p>
+            <pre>"distance"</pre>
+          </li>
+          <li>
+            <strong>Export the table as CSV.</strong>
+            <p>Keep the key fields:</p>
+            <pre>section_id
+label
+sort_order
+height_m
+distance_m</pre>
+          </li>
+          <li>
+            <strong>Save one CSV per survey per area.</strong>
+            <p>Use the same filename each time, but place it in the relevant survey folder.</p>
+            <pre>survey-data/padstow-estuary/2026-03-22/area4/section_profiles.csv
+survey-data/padstow-estuary/2026-04-18/area4/section_profiles.csv</pre>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>How The App Uses It</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Single survey view</h3>
+            <p>The app shows one profile line for the selected survey round.</p>
+          </div>
+          <div class="card">
+            <h3>Overlay view</h3>
+            <p>When multiple survey rounds are ticked, the app overlays the lines in different colours.</p>
+          </div>
+          <div class="card">
+            <h3>Map tracking</h3>
+            <p>The red dot follows the fixed section line while you move across the profile graph.</p>
+          </div>
+          <div class="card">
+            <h3>Zero stretches</h3>
+            <p>Zero/no-data stretches are shown differently from the measured section surface.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Common Checks</h2>
+        <ul>
+          <li>Make sure the section line IDs match the CSV IDs.</li>
+          <li>Keep the section line geometry fixed between survey rounds.</li>
+          <li>Check that <code>height_m</code> has real values in the middle of the section, not just zeros.</li>
+          <li>Confirm the correct survey surface was used in <code>Sample Raster Values</code>.</li>
+          <li>Use the same rotated export frame for section-line PNGs if the app is using calibrated display positions.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

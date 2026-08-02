@@ -1,0 +1,15 @@
+{
+  "defaultProjectId": "padstow-estuary",
+  "projects": [
+    {
+      "id": "padstow-estuary",
+      "name": "Padstow Estuary Monitoring System",
+      "status": "Live monitoring programme",
+      "summary": "Repeat survey monitoring across Padstow Harbour and the Camel Estuary.",
+      "projectPath": "/public/projects/padstow-estuary/project.json",
+      "areasPath": "/public/projects/padstow-estuary/areas.json",
+      "scansPath": "/public/projects/padstow-estuary/scans.json",
+      "contentPath": "/public/projects/padstow-estuary/content.json"
+    }
+  ]
+}
