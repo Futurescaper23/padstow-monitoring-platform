@@ -1,7 +1,7 @@
 {
   "area_id": "area4",
   "area_label": "Area 4",
-  "generated_at": "2026-07-07T22:32:28",
+  "generated_at": "2026-08-05T10:00:00",
   "classification_threshold_m": 0.05,
   "grid": {
     "resolution_m": 0.1,
@@ -54,6 +54,13 @@
       "dates": [
         "2026-06-16",
         "2026-06-17"
+      ]
+    },
+    {
+      "id": "D",
+      "label": "Survey Round 4 - 15 July 2026",
+      "dates": [
+        "2026-07-15"
       ]
     }
   ],
@@ -126,6 +133,117 @@
           "ground_non_matching_percent": 0.3,
           "ceil_non_matching_percent": 0.9,
           "average_neighbors_per_cell": 7.9
+        }
+      },
+      {
+        "pair": "A->D",
+        "las": "G:\\My Drive\\Futurescaping\\CODEX\\Active Projects\\area3d-change-viewer\\output\\processed\\area4\\a-d\\result.las",
+        "volume_stats": {
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Active Projects\\area3d-change-viewer\\output\\processed\\area4\\a-d\\scene_metadata.json",
+          "net_volume_m3": -15432.893393999999,
+          "surface_area_m2": 674805.294917,
+          "added_volume_m3": 34035.862802,
+          "removed_volume_m3": 49468.756196,
+          "matching_cells_percent": 97.18382232795396,
+          "average_neighbors_per_cell": 7.8
+        }
+      }
+    ],
+    "comparison_pairs": [
+      {
+        "key": "ab",
+        "pair": "A->B",
+        "from_round_id": "A",
+        "to_round_id": "B",
+        "label": "Survey 1 vs Survey 2",
+        "date_range": "22 Mar 2026 to 19 Apr 2026",
+        "interval_days": 28,
+        "volume_stats": {
+          "net_volume_m3": -59338.201,
+          "surface_area_m2": 685882.435,
+          "added_volume_m3": 17081.032,
+          "removed_volume_m3": 76419.233,
+          "matching_cells_percent": 36.9
+        }
+      },
+      {
+        "key": "ac",
+        "pair": "A->C",
+        "from_round_id": "A",
+        "to_round_id": "C",
+        "label": "Survey 1 vs Survey 3",
+        "date_range": "22 Mar 2026 to 17 Jun 2026",
+        "interval_days": 87,
+        "volume_stats": {
+          "net_volume_m3": 19121.311,
+          "surface_area_m2": 686435.685,
+          "added_volume_m3": 47624.231,
+          "removed_volume_m3": 28502.92,
+          "matching_cells_percent": 37.0
+        }
+      },
+      {
+        "key": "ad",
+        "pair": "A->D",
+        "from_round_id": "A",
+        "to_round_id": "D",
+        "label": "Survey 1 vs Survey 4",
+        "date_range": "22 Mar 2026 to 15 Jul 2026",
+        "interval_days": 115,
+        "volume_stats": {
+          "net_volume_m3": -15432.893393999999,
+          "surface_area_m2": 674805.294917,
+          "added_volume_m3": 34035.862802,
+          "removed_volume_m3": 49468.756196,
+          "matching_cells_percent": 97.18382232795396
+        }
+      },
+      {
+        "key": "bc",
+        "pair": "B->C",
+        "from_round_id": "B",
+        "to_round_id": "C",
+        "label": "Survey 2 vs Survey 3",
+        "date_range": "18 Apr 2026 to 17 Jun 2026",
+        "interval_days": 60,
+        "volume_stats": {
+          "net_volume_m3": 78836.597,
+          "surface_area_m2": 690219.225,
+          "added_volume_m3": 99288.043,
+          "removed_volume_m3": 20451.446,
+          "matching_cells_percent": 37.5
+        }
+      },
+      {
+        "key": "bd",
+        "pair": "B->D",
+        "from_round_id": "B",
+        "to_round_id": "D",
+        "label": "Survey 2 vs Survey 4",
+        "date_range": "18 Apr 2026 to 15 Jul 2026",
+        "interval_days": 88,
+        "volume_stats": {
+          "net_volume_m3": 43074.553662,
+          "surface_area_m2": 678981.704824,
+          "added_volume_m3": 66218.346852,
+          "removed_volume_m3": 23143.793192,
+          "matching_cells_percent": 97.77113412125473
+        }
+      },
+      {
+        "key": "cd",
+        "pair": "C->D",
+        "from_round_id": "C",
+        "to_round_id": "D",
+        "label": "Survey 3 vs Survey 4",
+        "date_range": "16 Jun 2026 to 15 Jul 2026",
+        "interval_days": 29,
+        "volume_stats": {
+          "net_volume_m3": -34462.14968,
+          "surface_area_m2": 679537.384811,
+          "added_volume_m3": 16386.532593,
+          "removed_volume_m3": 50848.682274,
+          "matching_cells_percent": 97.84803278671679
         }
       }
     ]

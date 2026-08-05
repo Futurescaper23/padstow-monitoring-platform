@@ -206,6 +206,56 @@
       "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
       "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
       "areas": {
+        "area4": {
+          "method": "Later survey ground surface compared with the earlier survey across the fixed Area 4 monitoring footprint, with cumulative March-to-July and April-to-July reference exports available alongside the June-to-July comparison.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 4 now carries the July 2026 update set, with June-to-July as the lead comparison and cumulative March-to-July and April-to-July reference maps also loaded into the monitoring platform.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area4_C_vs_D_height_change_analysis.png",
+          "previewCurrentImage": "area4_C_vs_D_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 4 July Change Review",
+          "previewCaption": "This Area 4 setup uses the June-to-July change outputs as the lead comparison view, with the wider March-to-July and April-to-July references available in the same survey round.",
+          "viewerEmbedUrl": "https://area4-nine.vercel.app/?embed=1",
+          "viewerTitle": "Area 4 Change Analysis",
+          "viewerSummary": "Interactive change-analysis view for Area 4 between 16 and 17 June 2026 and 15 July 2026. Use it with the flat reference maps and the trend panel to inspect where the footprint lowered overall in July, while some local zones still built up.",
+          "viewerStats": {
+            "analysedArea": "679,537 m2",
+            "matchingCells": "97.8%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Beach",
+              "gainM3": 2709.35,
+              "lossM3": 11814.847,
+              "netM3": -9105.497,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Beach between Survey Round 3 - 16 and 17 June 2026 and Survey Round 4 - 15 July 2026, with some local accretion still present.",
+              "notes": "Beach subsection within the fixed Area 4 monitoring footprint."
+            },
+            {
+              "label": "Iron Bridge",
+              "gainM3": 3014.208,
+              "lossM3": 30999.931,
+              "netM3": -27985.723,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Iron Bridge between Survey Round 3 - 16 and 17 June 2026 and Survey Round 4 - 15 July 2026, with some local accretion still present.",
+              "notes": "Iron Bridge subsection within the fixed Area 4 monitoring footprint."
+            },
+            {
+              "label": "Padstow",
+              "gainM3": 10662.975,
+              "lossM3": 8033.904,
+              "netM3": 2629.071,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Padstow between Survey Round 3 - 16 and 17 June 2026 and Survey Round 4 - 15 July 2026, with local lowering still present in places.",
+              "notes": "Padstow subsection within the fixed Area 4 monitoring footprint."
+            }
+          ]
+        },
         "area3": {
           "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
           "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
