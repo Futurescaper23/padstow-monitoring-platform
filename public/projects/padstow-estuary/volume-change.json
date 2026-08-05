@@ -203,7 +203,7 @@
     },
     "2026-07-15": {
       "baselineSurveyId": "2026-06-16",
-      "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 3 change footprint",
+      "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 1 monitoring footprint, using the March-compatible top beach only for A-based references and the wider later footprint for B/C-to-D comparisons.",
       "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
       "areas": {
         "area4": {
@@ -285,6 +285,58 @@
               "confidence": "Measured review",
               "summary": "Slight net accretion across the current Area 3 footprint between June and July, with gains and losses both still active inside the same monitored zone.",
               "notes": "Aggregate Area 3 summary for the June-to-July change-analysis page."
+            }
+          ]
+        },
+        "area1": {
+          "method": "Later survey ground surface compared with the earlier survey across the July-ready Area 1 footprint. A-B, A-C, and A-D remain on the smaller March-compatible top beach, while B-C, B-D, and C-D use the wider later setup spanning dunes, Hawkers, and Tregirls.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 1 now carries the July 2026 update set. The newest live comparison is C-to-D across the wider later footprint, while the March-based A-to-B, A-to-C, and A-to-D references stay constrained to the top beach only so the early limited coverage is not overstated.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area1_C_vs_D_height_change_analysis.png",
+          "previewCurrentImage": "area1_C_vs_D_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 1 July Change Review",
+          "previewCaption": "This Area 1 setup uses the June-to-July outputs as the lead comparison view, while keeping all six survey-pair references available with the correct split between the smaller March-compatible footprint and the wider later footprint.",
+          "previewBaselineCaption": "Plan-view height change surface for Area 1 between the June and July surveys across the later three-section footprint.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same June-to-July Area 1 comparison, used as the newest flat-view July reference.",
+          "viewerEmbedUrl": "https://area1-lyart.vercel.app/",
+          "viewerTitle": "Area 1 Change Analysis",
+          "viewerSummary": "Interactive change-analysis view for Area 1 between 16-17 June 2026 and 15 July 2026. Use it with the supporting six comparison maps to inspect how the newest scan sits against both the smaller March-compatible top-beach references and the wider later footprint.",
+          "viewerStats": {
+            "analysedArea": "435,925 m2",
+            "matchingCells": "82.4%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Dunes",
+              "gainM3": 2143.196533,
+              "lossM3": 6078.798711,
+              "netM3": -3935.602179,
+              "confidence": "Measured review",
+              "summary": "Net lowering across the Dunes subsection between June and July, with local accretion still present in places.",
+              "notes": "Later-footprint C-to-D subsection. The March-based A-to-D reference remains limited to this top beach section only."
+            },
+            {
+              "label": "Hawkers",
+              "gainM3": 9536.04548,
+              "lossM3": 1031.600427,
+              "netM3": 8504.445053,
+              "confidence": "Measured review",
+              "summary": "Strong net accretion across the Hawkers subsection between June and July, with only limited local losses.",
+              "notes": "Later-footprint C-to-D subsection within the wider July-ready Area 1 comparison."
+            },
+            {
+              "label": "Tregirls",
+              "gainM3": 345.568002,
+              "lossM3": 5757.016643,
+              "netM3": -5411.448642,
+              "confidence": "Measured review",
+              "summary": "Net lowering across the Tregirls subsection between June and July, with losses outweighing the smaller local gains.",
+              "notes": "Later-footprint C-to-D subsection within the wider July-ready Area 1 comparison."
             }
           ]
         }
