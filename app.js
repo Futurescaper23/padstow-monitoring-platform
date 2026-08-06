@@ -5472,22 +5472,44 @@ function trendScopeNoteForArea(areaId, stats) {
 }
 
 function area2TrendPairSummaries(stats) {
-  const trebetherick = trendZoneInput(stats, "Trebetherick Point");
-  const volumeStats = trebetherick?.volume_stats;
-  if (!trebetherick || !volumeStats) {
+  const cumulativePairs = Array.isArray(stats?.classification_inputs?.cumulative_pairs)
+    ? stats.classification_inputs.cumulative_pairs
+    : [];
+  if (!cumulativePairs.length) {
     return [];
   }
-  const net = Number(volumeStats.net_volume_m3 || 0);
-  return [{
-    key: "cd-trebetherick",
-    label: "Survey 3 vs Survey 4",
-    added: Number(volumeStats.added_volume_m3 || 0),
-    removed: Number(volumeStats.removed_volume_m3 || 0),
-    net,
-    readoutTitle: net >= 0 ? "Trebetherick build-up" : "Trebetherick lowering",
-    readoutCopy: "Trebetherick Point is the only Area 2 zone with enough repeated survey coverage to carry the full trend story cleanly, so this panel now focuses on its measured June-to-July shift.",
-    supportingCopy: `16 Jun 2026 to 15 Jul 2026 at Trebetherick Point only â€¢ 29 day gap â€¢ ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
-  }];
+
+  const labelByPair = {
+    "A->C": "Survey 1 vs Survey 3",
+    "A->D": "Survey 1 vs Survey 4",
+    "C->D": "Survey 3 vs Survey 4"
+  };
+  const keyByPair = {
+    "A->C": "ac",
+    "A->D": "ad",
+    "C->D": "cd"
+  };
+  const copyByPair = {
+    "A->C": "Trebetherick Point is the carry-through reference for the earlier Area 2 comparison, so this card shows how that top beach footprint changed between the March and June surveys.",
+    "A->D": "This longer Trebetherick Point comparison shows how the usable top beach footprint shifted from the March baseline right through to the July round.",
+    "C->D": "This is the live Trebetherick Point June-to-July change, kept here because it is still the cleanest repeated Area 2 comparison."
+  };
+
+  return cumulativePairs.map((item) => {
+    const volumeStats = item.volume_stats || {};
+    const net = Number(volumeStats.net_volume_m3 || 0);
+    const pair = item.pair || "";
+    return {
+      key: keyByPair[pair] || pair.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      label: labelByPair[pair] || pair,
+      added: Number(volumeStats.added_volume_m3 || 0),
+      removed: Number(volumeStats.removed_volume_m3 || 0),
+      net,
+      readoutTitle: net >= 0 ? "Net build-up" : "Net lowering",
+      readoutCopy: copyByPair[pair] || `${pair} shows the measured Trebetherick Point shift for this Area 2 release.`,
+      supportingCopy: `${item.date_range || "--"} â€¢ ${item.interval_days ?? "--"} day gap â€¢ ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
+    };
+  });
 }
 
 function trendPairSummaries(stats, areaId = "") {
