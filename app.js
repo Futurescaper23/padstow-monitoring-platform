@@ -3419,10 +3419,11 @@ async function renderVolume() {
       return;
     }
 
-    const pairSummaries = trendPairSummaries(data.stats);
+    const pairSummaries = trendPairSummaries(data.stats, area.id);
     const trendClasses = sortedTrendClasses(data.stats.trend_classes || []);
     const topClass = trendClasses[0] || null;
     const roundCount = trendRoundCount(data.stats);
+    const trendScopeNote = trendScopeNoteForArea(area.id, data.stats);
     state.volumeLightboxLegendItems = trendClasses.map((item) => ({
       label: item.label,
       description: trendClassExplanation(item.key),
@@ -3440,8 +3441,9 @@ async function renderVolume() {
             <p class="volume-trend-meta">${escapeHtml(`${formatSquareMetres(data.stats.classified_area?.valid_area_m2 || 0)} reviewed | ${fixed(data.stats.classified_area?.coverage_percent_of_boundary || 0, 1)}% coverage | ${fixed(data.stats.classification_threshold_m || 0, 2)} m threshold`)}</p>
           </div>
           <p>${escapeHtml(trendHeadline(topClass))}</p>
+          ${trendScopeNote ? `<p class="volume-trend-note">${escapeHtml(trendScopeNote)}</p>` : ""}
         </div>
-        <div class="volume-trend-pairs">
+        <div class="volume-trend-pairs" data-card-count="${escapeAttr(String(pairSummaries.length))}">
           ${pairSummaries.map((item) => `
             <article class="volume-trend-pair-card">
               <p class="eyebrow">${escapeHtml(item.label)}</p>
@@ -5457,7 +5459,42 @@ function trendRoundCount(stats) {
   return stats?.survey_rounds?.length || 0;
 }
 
-function trendPairSummaries(stats) {
+function trendZoneInput(stats, label) {
+  return (stats?.classification_inputs?.zone_inputs || []).find((item) => item?.label === label) || null;
+}
+
+function trendScopeNoteForArea(areaId, stats) {
+  if (areaId !== "area2") {
+    return "";
+  }
+  return stats?.classification_inputs?.zone_strategy
+    || "Area 2 uses a Trebetherick-led trend stack. Scan B is treated as a washout here, so the wider Brea Hill and Estuary zones only feed the latest June-to-July release and are not shown as full long-run pair cards.";
+}
+
+function area2TrendPairSummaries(stats) {
+  const trebetherick = trendZoneInput(stats, "Trebetherick Point");
+  const volumeStats = trebetherick?.volume_stats;
+  if (!trebetherick || !volumeStats) {
+    return [];
+  }
+  const net = Number(volumeStats.net_volume_m3 || 0);
+  return [{
+    key: "cd-trebetherick",
+    label: "Survey 3 vs Survey 4",
+    added: Number(volumeStats.added_volume_m3 || 0),
+    removed: Number(volumeStats.removed_volume_m3 || 0),
+    net,
+    readoutTitle: net >= 0 ? "Trebetherick build-up" : "Trebetherick lowering",
+    readoutCopy: "Trebetherick Point is the only Area 2 zone with enough repeated survey coverage to carry the full trend story cleanly, so this panel now focuses on its measured June-to-July shift.",
+    supportingCopy: `16 Jun 2026 to 15 Jul 2026 at Trebetherick Point only â€¢ 29 day gap â€¢ ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
+  }];
+}
+
+function trendPairSummaries(stats, areaId = "") {
+  if (areaId === "area2") {
+    return area2TrendPairSummaries(stats);
+  }
+
   const comparisonPairs = Array.isArray(stats?.comparison_pairs) && stats.comparison_pairs.length
     ? stats.comparison_pairs
     : (Array.isArray(stats?.classification_inputs?.comparison_pairs) ? stats.classification_inputs.comparison_pairs : []);

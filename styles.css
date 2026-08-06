@@ -3804,6 +3804,30 @@ textarea {
   object-position: center center;
 }
 
+.volume-trend-map[data-area-id="area2"] .volume-trend-map__stage {
+  aspect-ratio: 2.35 / 1;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-trend-map[data-area-id="area2"] .volume-trend-map__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-trend-map[data-area-id="area2"] .volume-trend-map__stage img {
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center center;
+  transform: rotate(90deg) scale(0.92);
+  transform-origin: center center;
+}
+
 .volume-trend-map figcaption {
   margin-top: 10px;
 }
@@ -3881,6 +3905,11 @@ textarea {
   line-height: 1.62;
 }
 
+.volume-trend-note {
+  margin-top: 12px !important;
+  color: rgba(193, 214, 243, 0.92) !important;
+}
+
 .volume-trend-meta {
   max-width: 440px;
   text-align: right;
@@ -3897,6 +3926,10 @@ textarea {
 
 .volume-trend-pairs {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.volume-trend-pairs[data-card-count="1"] {
+  grid-template-columns: minmax(0, min(560px, 100%));
 }
 
 .volume-trend-classes {
