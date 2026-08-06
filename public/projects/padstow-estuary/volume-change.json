@@ -339,6 +339,57 @@
               "notes": "Later-footprint C-to-D subsection within the wider July-ready Area 1 comparison."
             }
           ]
+        },
+        "area2": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 2 monitoring zones, with Trebetherick Point carrying the A-based references and all three zones using the June-to-July live comparison.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 2 now uses three operational monitoring zones. Trebetherick Point carries the A-to-C, A-to-D, and C-to-D comparisons, while Brea Hill and Estuary only use C-to-D. Scan B was captured with the tide too far in, so it is treated as a washout for this area.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area2_C_vs_D_height_change_analysis.png",
+          "previewCurrentImage": "area2_C_vs_D_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area2 July Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area2 between the June and July surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area2 June-to-July comparison.",
+          "viewerEmbedUrl": "",
+          "viewerTitle": "Area2 3D Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area2 centred on the June-to-July update, with A-to-C and A-to-D Trebetherick references also available.",
+          "viewerStats": {
+            "analysedArea": "303,038 m2",
+            "matchingCells": "97.5%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Estuary",
+              "gainM3": 2855.2391,
+              "lossM3": 2742.603972,
+              "netM3": 112.635128,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Estuary between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+              "notes": "Area 2 operational monitoring zone."
+            },
+            {
+              "label": "Brea Hill",
+              "gainM3": 1003.091075,
+              "lossM3": 5591.229928,
+              "netM3": -4588.138852,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Brea Hill between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+              "notes": "Area 2 operational monitoring zone."
+            },
+            {
+              "label": "Trebetherick Point",
+              "gainM3": 164.673696,
+              "lossM3": 13454.801556,
+              "netM3": -13290.127859,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Trebetherick Point between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+              "notes": "Area 2 operational monitoring zone."
+            }
+          ]
         }
       }
     }

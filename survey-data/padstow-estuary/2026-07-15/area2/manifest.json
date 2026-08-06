@@ -3,20 +3,30 @@
   "surveyId": "2026-07-15",
   "areaId": "area2",
   "expectedFiles": [
-    "ortho.jpg",
+    "ortho.png",
     "dsm.png",
-    "contour.png",
-    "section_lines.png",
+    "contours.png",
     "section_profiles.csv"
   ],
   "presentFiles": [
-    "ortho.jpg",
+    "ortho.png",
     "dsm.png",
-    "contour.png",
-    "section_lines.png",
+    "contours.png",
     "section_profiles.csv"
   ],
   "missingFiles": [],
+  "sharedPresentFiles": [
+    "section_lines.png"
+  ],
+  "sharedMissingFiles": [],
+  "comparisonFiles": [
+    "area2_A_vs_C_gain_loss_classification.png",
+    "area2_A_vs_C_height_change_analysis.png",
+    "area2_A_vs_D_gain_loss_classification.png",
+    "area2_A_vs_D_height_change_analysis.png",
+    "area2_C_vs_D_gain_loss_classification.png",
+    "area2_C_vs_D_height_change_analysis.png"
+  ],
   "status": "complete",
-  "lastUpdated": "2026-07-22T21:23:04.380Z"
+  "lastUpdated": "2026-08-06T17:03:40.629Z"
 }
