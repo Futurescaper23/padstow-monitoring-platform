@@ -352,7 +352,7 @@
           "previewLabel": "Area2 July Change Review",
           "previewBaselineCaption": "Plan-view height change surface for Area2 between the June and July surveys across the current monitored setup.",
           "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area2 June-to-July comparison.",
-          "viewerEmbedUrl": "",
+          "viewerEmbedUrl": "https://area2-silk.vercel.app/",
           "viewerTitle": "Area2 3D Change Viewer",
           "viewerSummary": "Interactive terrain preview for Area2 centred on the June-to-July update, with A-to-C and A-to-D Trebetherick references also available.",
           "viewerStats": {
