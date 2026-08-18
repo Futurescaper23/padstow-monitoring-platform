@@ -3424,6 +3424,11 @@ async function renderVolume() {
     const topClass = trendClasses[0] || null;
     const roundCount = trendRoundCount(data.stats);
     const trendScopeNote = trendScopeNoteForArea(area.id, data.stats);
+    const trendMetaSummary = trendMetaSummaryForArea(area.id, data.stats)
+      || `${formatSquareMetres(data.stats.classified_area?.valid_area_m2 || 0)} reviewed | ${fixed(data.stats.classified_area?.coverage_percent_of_boundary || 0, 1)}% coverage | ${fixed(data.stats.classification_threshold_m || 0, 2)} m threshold`;
+    const trendImageSrc = trendImageSrcForArea(area.id, data.imageSrc);
+    const trendMapCaption = trendMapCaptionForArea(area.id, roundCount);
+    const showTrendClasses = shouldShowTrendClasses(area.id);
     state.volumeLightboxLegendItems = trendClasses.map((item) => ({
       label: item.label,
       description: trendClassExplanation(item.key),
@@ -3438,7 +3443,7 @@ async function renderVolume() {
               <span class="eyebrow">Plain-English takeaway</span>
               <h3>${escapeHtml(data.manifest.summary?.top_trend_class || topClass?.label || "Trend review")}</h3>
             </div>
-            <p class="volume-trend-meta">${escapeHtml(`${formatSquareMetres(data.stats.classified_area?.valid_area_m2 || 0)} reviewed | ${fixed(data.stats.classified_area?.coverage_percent_of_boundary || 0, 1)}% coverage | ${fixed(data.stats.classification_threshold_m || 0, 2)} m threshold`)}</p>
+            <p class="volume-trend-meta">${escapeHtml(trendMetaSummary)}</p>
           </div>
           <p>${escapeHtml(trendHeadline(topClass))}</p>
           ${trendScopeNote ? `<p class="volume-trend-note">${escapeHtml(trendScopeNote)}</p>` : ""}
@@ -3472,31 +3477,33 @@ async function renderVolume() {
         <button
           class="volume-trend-map__button"
           type="button"
-          data-volume-lightbox-src="${escapeAttr(data.imageSrc)}"
+          data-volume-lightbox-src="${escapeAttr(trendImageSrc)}"
           data-volume-lightbox-eyebrow="Trend analysis map"
-          data-volume-lightbox-title="${escapeAttr(area.label)} trend pattern"
-          data-volume-lightbox-caption="Expanded trend view with the class legend shown alongside it. Use the zoom controls to inspect the map in more detail."
-          data-volume-lightbox-alt="Trend classification map for ${escapeAttr(area.label)} across the full survey record"
+          data-volume-lightbox-title="${escapeAttr(trendLightboxTitleForArea(area.id, area.label))}"
+          data-volume-lightbox-caption="${escapeAttr(trendLightboxCaptionForArea(area.id))}"
+          data-volume-lightbox-alt="Trend classification map for ${escapeAttr(trendLightboxTitleForArea(area.id, area.label))}"
           data-volume-lightbox-legend="trend-map"
         >
           <div class="volume-trend-map__stage">
-            <img src="${escapeAttr(data.imageSrc)}" alt="Trend classification map for ${escapeAttr(area.label)} across the full survey record">
+            <img src="${escapeAttr(trendImageSrc)}" alt="Trend classification map for ${escapeAttr(trendLightboxTitleForArea(area.id, area.label))}">
           </div>
         </button>
-        <figcaption class="muted">Use this map as the long-term view. The 3D viewer shows one comparison at a time, while this shows the wider ${escapeHtml(String(roundCount || ""))}-round pattern in one place.</figcaption>
+        <figcaption class="muted">${escapeHtml(trendMapCaption)}</figcaption>
       </figure>
-      <div class="volume-trend-classes">
-        ${trendClasses.map((item) => `
-          <article class="volume-trend-class-card">
-            <div class="volume-trend-class-card__head">
-              <span class="volume-trend-swatch" style="background: rgb(${item.color_rgba.slice(0, 3).join(",")});"></span>
-              <strong>${escapeHtml(item.label)}</strong>
-            </div>
-            <p>${escapeHtml(trendClassExplanation(item.key))}</p>
-            <p class="muted">${escapeHtml(`${formatSquareMetres(item.area_m2)} | ${fixed(item.percent_of_classified_area, 1)}% of the classified area`)}</p>
-          </article>
-        `).join("")}
-      </div>
+      ${showTrendClasses ? `
+        <div class="volume-trend-classes">
+          ${trendClasses.map((item) => `
+            <article class="volume-trend-class-card">
+              <div class="volume-trend-class-card__head">
+                <span class="volume-trend-swatch" style="background: rgb(${item.color_rgba.slice(0, 3).join(",")});"></span>
+                <strong>${escapeHtml(item.label)}</strong>
+              </div>
+              <p>${escapeHtml(trendClassExplanation(item.key))}</p>
+              <p class="muted">${escapeHtml(`${formatSquareMetres(item.area_m2)} | ${fixed(item.percent_of_classified_area, 1)}% of the classified area`)}</p>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
     `;
   };
 
@@ -5463,12 +5470,59 @@ function trendZoneInput(stats, label) {
   return (stats?.classification_inputs?.zone_inputs || []).find((item) => item?.label === label) || null;
 }
 
+function area2TrebetherickZone(stats) {
+  return trendZoneInput(stats, "Trebetherick Point");
+}
+
 function trendScopeNoteForArea(areaId, stats) {
   if (areaId !== "area2") {
     return "";
   }
-  return stats?.classification_inputs?.zone_strategy
-    || "Area 2 uses a Trebetherick-led trend stack. Scan B is treated as a washout here, so the wider Brea Hill and Estuary zones only feed the latest June-to-July release and are not shown as full long-run pair cards.";
+  return "Trebetherick Point is the only Area 2 zone with enough repeated survey coverage for a proper multi-round trend view, so this panel is now limited to Trebetherick only.";
+}
+
+function trendMetaSummaryForArea(areaId, stats) {
+  if (areaId !== "area2") {
+    return "";
+  }
+  const trebetherick = area2TrebetherickZone(stats);
+  const summaryStats = trebetherick?.cumulative_volume_stats || trebetherick?.volume_stats || trebetherick?.first_volume_stats;
+  if (!summaryStats) {
+    return "";
+  }
+  return `${formatSquareMetres(summaryStats.surface_area_m2 || 0)} reviewed | ${fixed(summaryStats.matching_cells_percent || 0, 1)}% coverage | ${fixed(stats.classification_threshold_m || 0, 2)} m threshold`;
+}
+
+function trendImageSrcForArea(areaId, fallbackSrc) {
+  if (areaId !== "area2") {
+    return fallbackSrc;
+  }
+  return "/public/projects/padstow-estuary/assets/stats/area2-trend-classification-panel-trebetherick.svg";
+}
+
+function trendMapCaptionForArea(areaId, roundCount) {
+  if (areaId !== "area2") {
+    return `Use this map as the long-term view. The 3D viewer shows one comparison at a time, while this shows the wider ${String(roundCount || "")}-round pattern in one place.`;
+  }
+  return "This view now focuses on Trebetherick Point only, because Brea Hill and Estuary do not yet have enough repeat survey coverage for a true multi-round trend analysis.";
+}
+
+function trendLightboxTitleForArea(areaId, areaLabel) {
+  if (areaId !== "area2") {
+    return `${areaLabel} trend pattern`;
+  }
+  return "Trebetherick Point trend pattern";
+}
+
+function trendLightboxCaptionForArea(areaId) {
+  if (areaId !== "area2") {
+    return "Expanded trend view with the class legend shown alongside it. Use the zoom controls to inspect the map in more detail.";
+  }
+  return "Expanded Trebetherick Point trend view for Area 2. This panel excludes the two newer zones so the repeated trend footprint can be inspected clearly.";
+}
+
+function shouldShowTrendClasses(areaId) {
+  return areaId !== "area2";
 }
 
 function area2TrendPairSummaries(stats) {
@@ -5495,19 +5549,26 @@ function area2TrendPairSummaries(stats) {
     "C->D": "This is the live Trebetherick Point June-to-July change, kept here because it is still the cleanest repeated Area 2 comparison."
   };
 
-  return cumulativePairs.map((item) => {
+  const pairOrder = ["A->C", "A->D", "C->D"];
+
+  return cumulativePairs
+    .slice()
+    .sort((a, b) => pairOrder.indexOf(a.pair) - pairOrder.indexOf(b.pair))
+    .map((item) => {
     const volumeStats = item.volume_stats || {};
     const net = Number(volumeStats.net_volume_m3 || 0);
     const pair = item.pair || "";
+    const surveyLabel = labelByPair[pair] || pair;
+    const directionLabel = net >= 0 ? "Net build-up" : "Net lowering";
     return {
       key: keyByPair[pair] || pair.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-      label: labelByPair[pair] || pair,
+      label: "Trebetherick Point",
       added: Number(volumeStats.added_volume_m3 || 0),
       removed: Number(volumeStats.removed_volume_m3 || 0),
       net,
-      readoutTitle: net >= 0 ? "Net build-up" : "Net lowering",
-      readoutCopy: copyByPair[pair] || `${pair} shows the measured Trebetherick Point shift for this Area 2 release.`,
-      supportingCopy: `${item.date_range || "--"} â€¢ ${item.interval_days ?? "--"} day gap â€¢ ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
+      readoutTitle: surveyLabel,
+      readoutCopy: `${directionLabel}. ${copyByPair[pair] || `${pair} shows the measured Trebetherick Point shift for this Area 2 release.`}`,
+      supportingCopy: `${item.date_range || "--"} | ${item.interval_days ?? "--"} day gap | ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
     };
   });
 }
