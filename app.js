@@ -5649,7 +5649,7 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       ]
     },
     ac: {
-      surveyId: "2026-06-16",
+      surveyId: areaId === "area2" ? "2026-07-15" : "2026-06-16",
       height: [
         `${areaId}_s1_vs_s3_height_change_analysis.png`,
         `${areaId}_A_vs_C_height_change_analysis.png`
