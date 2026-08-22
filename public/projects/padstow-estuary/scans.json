@@ -45,12 +45,12 @@
       "shortDate": "15-16 Jul 2026",
       "dateFrom": "2026-07-15",
       "dateTo": "2026-07-16",
-      "status": "Scan 4 exports loading",
-      "readiness": "partial exports loaded",
+      "status": "Survey assets and live comparisons loaded",
+      "readiness": "imagery, reference maps, and live comparison files linked",
       "assetFolder": "padstow-estuary/2026-07-15",
       "dataFolder": "2026-07-15",
       "comparisonBaseline": "2026-06-16",
-      "notes": "Initial Scan 4 import for the 15-16 July 2026 survey round. Area 1 and Area 2 starter assets are linked already, and the remaining area exports are being pulled in from the Processing Hub as they land."
+      "notes": "Survey Round 4 imagery, DSM, contour, section-profile, and live comparison assets are now linked in the monitoring platform for the active Padstow comparison areas."
     }
   ]
 }

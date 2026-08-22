@@ -390,6 +390,57 @@
               "notes": "Area 2 operational monitoring zone."
             }
           ]
+        },
+        "area8": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 8 monitoring zones, with the June-to-July maps shown up front and the wider available survey-pair references kept underneath.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 8 now carries its full July comparison package in the monitoring platform, with the June-to-July view used as the lead comparison and the other available survey-pair maps kept in the same area for supporting reference.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area8_C_vs_D_height_change_analysis.png",
+          "previewCurrentImage": "area8_C_vs_D_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 8 July Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area 8 between the June and July surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 8 June-to-July comparison.",
+          "viewerEmbedUrl": "https://area8.vercel.app/",
+          "viewerTitle": "Area 8 3D Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 8 centred on the June-to-July comparison, with the other available survey-pair references now sitting alongside it in the same review flow.",
+          "viewerStats": {
+            "analysedArea": "606,347 m2",
+            "matchingCells": "95.7%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Monitored zone",
+              "gainM3": 30469.038796,
+              "lossM3": 1.594467,
+              "netM3": 30467.44433,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Monitored zone between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+              "notes": "Area 8 operational monitoring zone."
+            },
+            {
+              "label": "Central",
+              "gainM3": 43495.603015,
+              "lossM3": 1.646537,
+              "netM3": 43493.956477,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Central between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+              "notes": "Area 8 operational monitoring zone."
+            },
+            {
+              "label": "Wadebridge",
+              "gainM3": 6666.863341,
+              "lossM3": 3388.262514,
+              "netM3": 3278.600827,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Wadebridge between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+              "notes": "Area 8 operational monitoring zone."
+            }
+          ]
         }
       }
     }

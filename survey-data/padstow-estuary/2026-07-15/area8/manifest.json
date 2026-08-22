@@ -3,21 +3,36 @@
   "surveyId": "2026-07-15",
   "areaId": "area8",
   "expectedFiles": [
-    "ortho.jpg",
+    "ortho.png",
     "dsm.png",
-    "contour.png",
-    "section_lines.png",
+    "contours.png",
     "section_profiles.csv"
   ],
   "presentFiles": [
-    "section_lines.png",
+    "ortho.png",
+    "dsm.png",
+    "contours.png",
     "section_profiles.csv"
   ],
-  "missingFiles": [
-    "ortho.jpg",
-    "dsm.png",
-    "contour.png"
+  "missingFiles": [],
+  "sharedPresentFiles": [
+    "section_lines.png"
   ],
-  "status": "partial",
-  "lastUpdated": "2026-07-22T21:23:05.171Z"
+  "sharedMissingFiles": [],
+  "comparisonFiles": [
+    "area8_A_vs_B_gain_loss_classification.png",
+    "area8_A_vs_B_height_change_analysis.png",
+    "area8_A_vs_C_gain_loss_classification.png",
+    "area8_A_vs_C_height_change_analysis.png",
+    "area8_A_vs_D_gain_loss_classification.png",
+    "area8_A_vs_D_height_change_analysis.png",
+    "area8_B_vs_C_gain_loss_classification.png",
+    "area8_B_vs_C_height_change_analysis.png",
+    "area8_B_vs_D_gain_loss_classification.png",
+    "area8_B_vs_D_height_change_analysis.png",
+    "area8_C_vs_D_gain_loss_classification.png",
+    "area8_C_vs_D_height_change_analysis.png"
+  ],
+  "status": "complete",
+  "lastUpdated": "2026-08-22T15:40:36.344Z"
 }

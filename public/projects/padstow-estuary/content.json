@@ -593,6 +593,11 @@
       "manifest": "/data/area4-trend-manifest.json",
       "stats": "/data/area4-trend-stats.json",
       "image": "/public/projects/padstow-estuary/assets/stats/area4-trend-classification-panel.png"
+    },
+    "area8": {
+      "manifest": "/data/area8-trend-manifest.json",
+      "stats": "/data/area8-trend-stats.json",
+      "image": "/public/projects/padstow-estuary/assets/stats/area8-trend-classification-panel.png"
     }
   }
 }

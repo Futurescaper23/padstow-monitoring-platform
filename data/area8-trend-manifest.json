@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "area_id": "area8",
+  "area_label": "Area 8",
+  "generated_at": "2026-08-22T15:51:35",
+  "files": {
+    "classification_geotiff": "Area8_Trend_Classification.tif",
+    "classification_png": "Area8_Trend_Classification.png",
+    "stats_json": "Area8_Trend_Stats.json"
+  },
+  "summary": {
+    "top_trend_class": "Erosion then accretion",
+    "classified_area_m2": 371149.19000000006,
+    "coverage_percent_of_boundary": 82.22070557814264
+  }
+}

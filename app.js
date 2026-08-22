@@ -5615,9 +5615,73 @@ function area2TrendPairSummaries(stats) {
   });
 }
 
+function cumulativeTrendPairSummaries(stats, options = {}) {
+  const cumulativePairs = Array.isArray(stats?.classification_inputs?.cumulative_pairs)
+    ? stats.classification_inputs.cumulative_pairs
+    : [];
+  if (!cumulativePairs.length) {
+    return [];
+  }
+
+  const labelByPair = {
+    "A->B": "Survey 1 vs Survey 2",
+    "A->C": "Survey 1 vs Survey 3",
+    "A->D": "Survey 1 vs Survey 4",
+    "B->C": "Survey 2 vs Survey 3",
+    "B->D": "Survey 2 vs Survey 4",
+    "C->D": "Survey 3 vs Survey 4",
+    ...(options.labelByPair || {})
+  };
+  const keyByPair = {
+    "A->B": "ab",
+    "A->C": "ac",
+    "A->D": "ad",
+    "B->C": "bc",
+    "B->D": "bd",
+    "C->D": "cd",
+    ...(options.keyByPair || {})
+  };
+  const defaultPairOrder = ["A->B", "A->C", "A->D", "B->C", "B->D", "C->D"];
+  const pairOrder = options.pairOrder || defaultPairOrder;
+
+  return cumulativePairs
+    .filter((item) => keyByPair[item?.pair])
+    .slice()
+    .sort((a, b) => pairOrder.indexOf(a.pair) - pairOrder.indexOf(b.pair))
+    .map((item) => {
+      const volumeStats = item.volume_stats || {};
+      const net = Number(volumeStats.net_volume_m3 || 0);
+      const pair = item.pair || "";
+      const surveyLabel = labelByPair[pair] || pair;
+      const defaultCopy = net >= 0
+        ? `${surveyLabel} ends with more material in the later survey overall.`
+        : `${surveyLabel} ends with less material in the later survey overall.`;
+      return {
+        key: keyByPair[pair] || pair.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+        label: surveyLabel,
+        added: Number(volumeStats.added_volume_m3 || 0),
+        removed: Number(volumeStats.removed_volume_m3 || 0),
+        net,
+        readoutTitle: net >= 0 ? "Net build-up" : "Net lowering",
+        readoutCopy: (options.copyByPair || {})[pair] || defaultCopy,
+        supportingCopy: `${item.date_range || "--"} • ${item.interval_days ?? "--"} day gap • ${fixed(volumeStats.matching_cells_percent || 0, 1)}% of cells matched cleanly.`
+      };
+    });
+}
+
 function trendPairSummaries(stats, areaId = "") {
   if (areaId === "area2") {
     return area2TrendPairSummaries(stats);
+  }
+  if (areaId === "area8") {
+    return cumulativeTrendPairSummaries(stats, {
+      pairOrder: ["A->C", "A->D", "C->D"],
+      copyByPair: {
+        "A->C": "This earlier Area 8 comparison shows how the wider monitored reach changed between the March baseline and the June round before the latest update arrived.",
+        "A->D": "This longer Area 8 comparison carries the whole monitored reach from the March baseline through to the July round.",
+        "C->D": "This is the lead June-to-July Area 8 comparison used for the current live review, with the other survey-pair maps kept below as supporting reference."
+      }
+    });
   }
 
   const comparisonPairs = Array.isArray(stats?.comparison_pairs) && stats.comparison_pairs.length
@@ -5674,9 +5738,18 @@ function trendPairSummaries(stats, areaId = "") {
 }
 
 function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
+  const surveyIdOverrides = {
+    area8: {
+      ab: "2026-07-15",
+      ac: "2026-07-15",
+      bc: "2026-07-15"
+    }
+  };
+  const surveyIdFor = (defaultSurveyId) =>
+    surveyIdOverrides[areaId]?.[pairKey] || defaultSurveyId;
   const pairAssets = {
     ab: {
-      surveyId: "2026-04-18",
+      surveyId: surveyIdFor("2026-04-18"),
       height: [
         `${areaId}_s1_vs_s2_height_change_analysis.png`,
         `${areaId}_A_vs_B_height_change_analysis.png`,
@@ -5691,7 +5764,7 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       ]
     },
     ac: {
-      surveyId: areaId === "area2" ? "2026-07-15" : "2026-06-16",
+      surveyId: surveyIdFor(areaId === "area2" ? "2026-07-15" : "2026-06-16"),
       height: [
         `${areaId}_s1_vs_s3_height_change_analysis.png`,
         `${areaId}_A_vs_C_height_change_analysis.png`
