@@ -679,11 +679,11 @@ bootstrap().catch((error) => {
 });
 
 async function bootstrap() {
+  const siteSession = await ensureSiteSession();
   const { dataset, projectCatalog, requestedProjectId } = await loadProjectDataset();
   state.dataset = dataset;
   state.projectCatalog = projectCatalog;
   const requestedAdminMode = new URLSearchParams(window.location.search).get("admin") === "1" || window.localStorage.getItem("fsm-admin-mode") === "1";
-  const siteSession = await loadSiteSession();
   state.adminMode = adminToolsEnabled() && requestedAdminMode && Boolean(siteSession?.user?.isAdmin);
   if (!adminToolsEnabled() || !siteSession?.user?.isAdmin) {
     window.localStorage.removeItem("fsm-admin-mode");
@@ -699,6 +699,18 @@ async function bootstrap() {
   applyUrlState();
   bindEvents();
   renderAll();
+}
+
+async function ensureSiteSession() {
+  if (window.location.protocol === "file:") {
+    return { authenticated: true, user: null };
+  }
+  const siteSession = await loadSiteSession();
+  if (!siteSession?.authenticated) {
+    redirectToLogin();
+    throw new Error("Your access session has ended. Please sign in again.");
+  }
+  return siteSession;
 }
 
 async function loadSiteSession() {
@@ -754,7 +766,17 @@ async function loadProjectDataset() {
 
 async function fetchJson(path, fallbackMessage) {
   const response = await fetch(path);
+  if (handleLoginRedirectResponse(response)) {
+    throw new Error("Your access session has ended. Please sign in again.");
+  }
   if (!response.ok) {
+    if (response.status === 401 || response.status === 403) {
+      redirectToLogin();
+      throw new Error("Your access session has ended. Please sign in again.");
+    }
+    throw new Error(fallbackMessage);
+  }
+  if (!response.headers.get("content-type")?.includes("application/json")) {
     throw new Error(fallbackMessage);
   }
   return response.json();
@@ -762,10 +784,30 @@ async function fetchJson(path, fallbackMessage) {
 
 async function fetchOptionalJson(path) {
   const response = await fetch(path);
+  if (handleLoginRedirectResponse(response)) {
+    return null;
+  }
   if (!response.ok) {
     return null;
   }
   return response.json().catch(() => null);
+}
+
+function handleLoginRedirectResponse(response) {
+  const redirectedUrl = response?.url ? new URL(response.url, window.location.origin) : null;
+  const redirectedToLogin = Boolean(response?.redirected && redirectedUrl?.pathname === "/login");
+  if (redirectedToLogin) {
+    redirectToLogin();
+    return true;
+  }
+  return false;
+}
+
+function redirectToLogin() {
+  if (window.location.pathname === "/login") {
+    return;
+  }
+  window.location.assign("/login");
 }
 
 function requestedProjectSlug() {
