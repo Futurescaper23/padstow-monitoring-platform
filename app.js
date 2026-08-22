@@ -5539,7 +5539,7 @@ function trendImageSrcForArea(areaId, fallbackSrc) {
   if (areaId !== "area2") {
     return fallbackSrc;
   }
-  return "/public/projects/padstow-estuary/assets/stats/area2-trend-classification-panel-trebetherick.svg";
+  return "/public/projects/padstow-estuary/assets/stats/area2-trend-classification-panel.png";
 }
 
 function trendMapCaptionForArea(areaId, roundCount) {
