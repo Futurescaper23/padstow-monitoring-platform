@@ -5775,7 +5775,7 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       ]
     },
     bc: {
-      surveyId: "2026-06-16",
+      surveyId: surveyIdFor("2026-06-16"),
       height: [
         `${areaId}_s2_vs_s3_height_change_analysis.png`,
         `${areaId}_B_vs_C_height_change_analysis.png`
