@@ -1,7 +1,7 @@
 {
   "area_id": "area8",
   "area_label": "Area 8",
-  "generated_at": "2026-08-22T15:51:35",
+  "generated_at": "2026-08-23T20:12:48",
   "classification_threshold_m": 0.05,
   "grid": {
     "resolution_m": 0.1,
@@ -28,8 +28,8 @@
     "name": "Area8-Boundary",
     "geojson": "data/areas/area8/boundary/boundary.geojson",
     "role": "reporting_mask",
-    "masked_cell_count": 45140599,
-    "masked_area_m2": 451405.9900000001
+    "masked_cell_count": 63367311,
+    "masked_area_m2": 633673.1100000001
   },
   "survey_rounds": [
     {
@@ -42,11 +42,10 @@
     },
     {
       "id": "B",
-      "label": "Survey Round 2 - 15 July 2026",
+      "label": "Survey Round 2 - 18 and 19 April 2026",
       "dates": [
         "2026-04-18",
-        "2026-04-19",
-        "2026-07-15"
+        "2026-04-19"
       ]
     },
     {
@@ -197,7 +196,7 @@
           "ceil_non_matching_percent": 1.5,
           "average_neighbors_per_cell": 7.8
         },
-        "masked_cell_count": 23888339
+        "masked_cell_count": 18231504
       },
       {
         "zone_id": "padstow_estuary_central_boundary",
@@ -300,35 +299,35 @@
     ],
     "overall_state_counts": {
       "first_interval": {
-        "erosion": 22825688,
-        "stable": 13667140,
-        "accretion": 2142273
+        "erosion": 40507640,
+        "stable": 13670187,
+        "accretion": 2143359
       },
       "second_interval": {
-        "erosion": 2099450,
-        "stable": 13670499,
-        "accretion": 22847053
+        "erosion": 2100326,
+        "stable": 13672917,
+        "accretion": 37123778
       }
     },
     "overall_grid_mean_change_m": {
-      "first_interval": -0.09913770854473114,
-      "second_interval": 0.0996483564376831
+      "first_interval": -0.12209434807300568,
+      "second_interval": 0.11921916157007217
     }
   },
   "classified_area": {
-    "valid_cell_count": 37114919,
-    "valid_area_m2": 371149.19000000006,
-    "nodata_cell_count": 110571001,
-    "coverage_percent_of_boundary": 82.22070557814264
+    "valid_cell_count": 51013555,
+    "valid_area_m2": 510135.5500000001,
+    "nodata_cell_count": 96672365,
+    "coverage_percent_of_boundary": 80.50452858888079
   },
   "trend_classes": [
     {
       "class_id": 1,
       "key": "consistent_accretion",
       "label": "Consistent accretion",
-      "cell_count": 9994,
-      "area_m2": 99.94000000000003,
-      "percent_of_classified_area": 0.02692717718176887,
+      "cell_count": 10055,
+      "area_m2": 100.55000000000003,
+      "percent_of_classified_area": 0.01971044754673537,
       "color_rgba": [
         34,
         94,
@@ -340,9 +339,9 @@
       "class_id": 2,
       "key": "consistent_erosion",
       "label": "Consistent erosion",
-      "cell_count": 8792,
-      "area_m2": 87.92000000000002,
-      "percent_of_classified_area": 0.023688587330609558,
+      "cell_count": 8856,
+      "area_m2": 88.56000000000002,
+      "percent_of_classified_area": 0.017360091842256436,
       "color_rgba": [
         183,
         28,
@@ -354,9 +353,9 @@
       "class_id": 3,
       "key": "accretion_then_erosion",
       "label": "Accretion then erosion",
-      "cell_count": 1671619,
-      "area_m2": 16716.190000000002,
-      "percent_of_classified_area": 4.503900439604893,
+      "cell_count": 1672239,
+      "area_m2": 16722.390000000003,
+      "percent_of_classified_area": 3.278028751377943,
       "color_rgba": [
         123,
         31,
@@ -368,9 +367,9 @@
       "class_id": 4,
       "key": "erosion_then_accretion",
       "label": "Erosion then accretion",
-      "cell_count": 21504596,
-      "area_m2": 215045.96000000005,
-      "percent_of_classified_area": 57.94057101404424,
+      "cell_count": 35399236,
+      "area_m2": 353992.36000000004,
+      "percent_of_classified_area": 69.39182340850387,
       "color_rgba": [
         0,
         121,
@@ -382,9 +381,9 @@
       "class_id": 5,
       "key": "stable",
       "label": "Stable",
-      "cell_count": 12281210,
-      "area_m2": 122812.10000000002,
-      "percent_of_classified_area": 33.08968557899857,
+      "cell_count": 12282750,
+      "area_m2": 122827.50000000003,
+      "percent_of_classified_area": 24.07742412776369,
       "color_rgba": [
         189,
         189,
@@ -396,9 +395,9 @@
       "class_id": 6,
       "key": "new_latest_accretion",
       "label": "New/latest accretion",
-      "cell_count": 464220,
-      "area_m2": 4642.200000000001,
-      "percent_of_classified_area": 1.2507638774585499,
+      "cell_count": 464947,
+      "area_m2": 4649.470000000001,
+      "percent_of_classified_area": 0.9114185435616083,
       "color_rgba": [
         100,
         181,
@@ -410,9 +409,9 @@
       "class_id": 7,
       "key": "new_latest_erosion",
       "label": "New/latest erosion",
-      "cell_count": 346509,
-      "area_m2": 3465.0900000000006,
-      "percent_of_classified_area": 0.9336110904620323,
+      "cell_count": 346659,
+      "area_m2": 3466.5900000000006,
+      "percent_of_classified_area": 0.6795429175637729,
       "color_rgba": [
         239,
         83,
@@ -424,9 +423,9 @@
       "class_id": 8,
       "key": "earlier_accretion_now_stable",
       "label": "Earlier accretion, now stable",
-      "cell_count": 384109,
-      "area_m2": 3841.0900000000006,
-      "percent_of_classified_area": 1.0349180608477146,
+      "cell_count": 384235,
+      "area_m2": 3842.350000000001,
+      "percent_of_classified_area": 0.7532017715683607,
       "color_rgba": [
         144,
         202,
@@ -438,9 +437,9 @@
       "class_id": 9,
       "key": "earlier_erosion_now_stable",
       "label": "Earlier erosion, now stable",
-      "cell_count": 443870,
-      "area_m2": 4438.700000000001,
-      "percent_of_classified_area": 1.1959341740716178,
+      "cell_count": 444578,
+      "area_m2": 4445.780000000001,
+      "percent_of_classified_area": 0.8714899402717571,
       "color_rgba": [
         255,
         138,
