@@ -99,6 +99,19 @@
           "dataFolder": "2026-06-16",
           "comparisonBaseline": "2026-04-18",
           "notes": "Survey Round 3 created for the 16-17 June 2026 drone survey."
+        },
+        {
+          "id": "2026-07-15",
+          "label": "Survey Round 4 - 15 and 16 July 2026",
+          "shortDate": "15-16 Jul 2026",
+          "dateFrom": "2026-07-15",
+          "dateTo": "2026-07-16",
+          "status": "Survey assets and live comparisons loaded",
+          "readiness": "imagery, reference maps, and live comparison files linked",
+          "assetFolder": "padstow-estuary/2026-07-15",
+          "dataFolder": "2026-07-15",
+          "comparisonBaseline": "2026-06-16",
+          "notes": "Survey Round 4 imagery, DSM, contour, section-profile, and live comparison assets are now linked in the monitoring platform for the active Padstow comparison areas."
         }
       ],
         "surveyAreaOverrides": {
@@ -453,6 +466,34 @@
               "weatherNotes": "Day 2, 17 June 2026. Rain threatened this block more than the earlier Day 2 areas, with two short periods of spitting rain around launch, but it never developed into a heavier shower and the drone was able to stay up safely.",
               "surveyNotes": "This area used the seventh, eighth, and ninth flight records on 17 June 2026. The grouped block ran from 16:40 to 17:22, placing it around 150 minutes after the provisional low tide reference. The first of the three records was only a very short positioning hop, followed by the two main survey flights."
             }
+          },
+          "2026-07-15": {
+            "area8": {
+              "statusLabel": "Later flood tide",
+              "statusTone": "rose",
+              "start": "15:55",
+              "finish": "16:36",
+              "lowTide": "13:13",
+              "lowTideHeight": "0.86 m",
+              "launchOffset": "162 mins after low tide",
+              "midOffset": 184,
+              "estimatedDuration": "39m 34s",
+              "actualDuration": "41m 12s",
+              "tideWindow": "Later flood tide well after low water",
+              "tideScore": 41,
+              "missionRole": "Closed Day 1 by finishing inland towards Wadebridge, where exposure holds longer after low tide.",
+              "operationalNote": "This was the last grouped area on 15 July and reflects the logic of ending further inland where the estuary has not filled as quickly after low tide. The team went down into Wadebridge and then cycled in from there, which worked well for reaching this upper section.",
+              "weatherNotes": "Day 1, 15 July 2026. Very hot, settled conditions continued into the afternoon. Low tide reference for the day was 13:13 BST at 0.86 m, but this inland block was intentionally left until later because the estuary here holds exposure for longer. By this stage of the day the Camel Trail was quiet and there was very little going on around the area.",
+              "surveyNotes": "This area used the seventh and eighth flight records on 15 July 2026. Using the DJI source-file timestamps, the grouped block ran from 15:55 to 16:36, placing it about 162 minutes after low tide at launch. It should be read as a later-tide upper-estuary block rather than a low-water maximum, but the route logic makes that acceptable here because Wadebridge stays open longer than the outer estuary. The access in from Wadebridge by bike kept this section calm and straightforward late in the day.",
+              "tags": [
+                "Day 1 July repeat",
+                "Upper estuary",
+                "Later flood tide",
+                "Flight logs grouped"
+              ],
+              "cardNote": "Late-session upper-estuary block",
+              "purpose": "Shows the Wadebridge end late in the day, where exposure still holds after low water and makes a later-tide upper-estuary repeat useful."
+            }
           }
         },
       "volumeChangeComparisons": {
@@ -653,6 +694,64 @@
                   "confidence": "Measured review",
                   "summary": "Net lowering across the current Area 3 test footprint between April and June, with the later survey ending up lower overall.",
                   "notes": "Aggregate Area 3 summary for the April-to-June change-analysis page."
+                }
+              ]
+            }
+          }
+        },
+        "2026-07-15": {
+          "baselineSurveyId": "2026-06-16",
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 8 monitoring zones, with the June-to-July maps shown up front and the wider available survey-pair references kept underneath.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "areas": {
+            "area8": {
+              "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 8 monitoring zones, with the June-to-July maps shown up front and the wider available survey-pair references kept underneath.",
+              "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+              "notes": "Area 8 now carries its full July comparison package in the monitoring platform, with the June-to-July view used as the lead comparison and the other available survey-pair maps kept in the same area for supporting reference.",
+              "previewMode": "pair",
+              "previewBaselineImage": "area8_C_vs_D_height_change_analysis.png",
+              "previewCurrentImage": "area8_C_vs_D_gain_loss_classification.png",
+              "previewBaselineLabel": "Height change analysis",
+              "previewCurrentLabel": "Gain and loss classification",
+              "previewLabel": "Area 8 July Change Review",
+              "previewBaselineCaption": "Plan-view height change surface for Area 8 between the June and July surveys across the current monitored setup.",
+              "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 8 June-to-July comparison.",
+              "viewerEmbedUrl": "https://area8.vercel.app/",
+              "viewerTitle": "Area 8 3D Change Viewer",
+              "viewerSummary": "Interactive terrain preview for Area 8 centred on the June-to-July comparison, with the other available survey-pair references now sitting alongside it in the same review flow.",
+              "viewerStats": {
+                "analysedArea": "606,347 m2",
+                "matchingCells": "95.7%",
+                "gridSize": "0.10 m",
+                "threshold": "+/-0.05 m"
+              },
+              "polygons": [
+                {
+                  "label": "Monitored zone",
+                  "gainM3": 30469.038796,
+                  "lossM3": 1.594467,
+                  "netM3": 30467.44433,
+                  "confidence": "Measured review",
+                  "summary": "Net accretion across Monitored zone between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+                  "notes": "Area 8 operational monitoring zone."
+                },
+                {
+                  "label": "Central",
+                  "gainM3": 43495.603015,
+                  "lossM3": 1.646537,
+                  "netM3": 43493.956477,
+                  "confidence": "Measured review",
+                  "summary": "Net accretion across Central between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+                  "notes": "Area 8 operational monitoring zone."
+                },
+                {
+                  "label": "Wadebridge",
+                  "gainM3": 6666.863341,
+                  "lossM3": 3388.262514,
+                  "netM3": 3278.600827,
+                  "confidence": "Measured review",
+                  "summary": "Net accretion across Wadebridge between Survey Round 3 - 16 June 2026 and Survey Round 4 - 15 July 2026.",
+                  "notes": "Area 8 operational monitoring zone."
                 }
               ]
             }

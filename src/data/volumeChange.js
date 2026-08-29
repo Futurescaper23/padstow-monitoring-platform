@@ -5,5 +5,5 @@ export const volumeChangeSettings = {
   defaultConfidence: "Pending review",
   defaultSummary: "No summary added yet.",
   defaultMethod: "DSM difference raster clipped to fixed monitored polygons.",
-  sandboxAreaId: "area3"
+  sandboxAreaId: "area8"
 };
