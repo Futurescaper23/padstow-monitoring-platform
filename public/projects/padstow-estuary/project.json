@@ -33,7 +33,8 @@
     "overviewHeroImagePath": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary.png",
     "overviewHeroImagePathBySurvey": {
       "2026-07-15": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary-2026-07-15.png",
-      "2026-06-16": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/whole-estuary.png"
+      "2026-06-16": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/whole-estuary.png",
+      "2026-09-10": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary-2026-09-10.png"
     },
     "areaHeroImagesBySurvey": {
       "2026-06-16": {
@@ -55,6 +56,16 @@
         "area6": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area6.png",
         "area7": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area7.png",
         "area8": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-04-18/area8.png"
+      },
+      "2026-09-10": {
+        "area1": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-1.png",
+        "area2": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-2.png",
+        "area3": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-3.png",
+        "area4": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-4.png",
+        "area5": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-5.png",
+        "area6": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-6.png",
+        "area7": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-7.png",
+        "area8": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-8.png"
       }
     },
     "areaHeroArtDirectionBySurvey": {
@@ -76,6 +87,16 @@
         "area6": { "position": "57% 52%", "scale": 0.9, "backdropOpacity": 0, "backdropBlur": 0, "backdropScale": 1.02 },
         "area7": { "position": "58% 51%", "scale": 0.93, "backdropOpacity": 0.66, "backdropBlur": 8, "backdropScale": 1.1 },
         "area8": { "position": "62% 49%", "scale": 0.84, "backdropOpacity": 0, "backdropBlur": 0, "backdropScale": 1.02 }
+      },
+      "2026-09-10": {
+        "area1": { "position": "50% 50%", "scale": 1.24 },
+        "area2": { "position": "50% 50%", "scale": 1.24 },
+        "area3": { "position": "50% 50%", "scale": 1.24 },
+        "area4": { "position": "50% 50%", "scale": 1.24 },
+        "area5": { "position": "50% 50%", "scale": 1.24 },
+        "area6": { "position": "50% 50%", "scale": 1.24 },
+        "area7": { "position": "50% 50%", "scale": 1.24 },
+        "area8": { "position": "50% 50%", "scale": 1.24 }
       }
     },
     "panoramaEmbedsBySurvey": {
@@ -92,9 +113,8 @@
     },
     "niraModelsBySurvey": {
       "2026-03-22": "https://futurescaping.nira.app/a/35VOk9gRT5KFNQDIq54mSQ/1",
-      "2026-04-18": "https://futurescaping.nira.app/a/ZBURz7G_T8m2DdXuev7yiw/1",
-      "2026-06-16": "https://futurescaping.nira.app/a/Z8GYJffuRYaeoQVq1w6dUw/1",
-      "2026-07-15": "https://futurescaping.nira.app/a/eA4l3Fp8ROmAiVEHJK820A/1"
+      "2026-07-15": "https://futurescaping.nira.app/a/eA4l3Fp8ROmAiVEHJK820A/1",
+      "2026-09-10": "https://futurescaping.nira.app/a/ckEmXJjpS2q4FpKbWTIj8A/1"
     }
   },
   "workflow": [

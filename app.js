@@ -1632,32 +1632,23 @@ function renderShellStageAction(survey) {
   }
   const shouldShowAction = SURVEY_MODEL_TABS.has(state.activeTab);
   const modelUrl = configuredSurveyModelUrl(survey?.id);
-  if (!shouldShowAction) {
+  if (!shouldShowAction || !modelUrl) {
     els.shellStageAction.innerHTML = "";
     els.shellStageAction.classList.add("hidden");
     els.shellStageAction.setAttribute("aria-hidden", "true");
     return;
   }
-  if (modelUrl) {
-    els.shellStageAction.innerHTML = `
-      <a
-        class="shell-stage-action-link"
-        href="${escapeAttr(modelUrl)}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="shell-stage-action-link__label">Open 3D Model</span>
-        <span class="shell-stage-action-link__sub">${escapeHtml(`Open the DJI Terra model for ${survey.shortDate || survey.label} in Nira.`)}</span>
-      </a>
-    `;
-  } else {
-    els.shellStageAction.innerHTML = `
-      <div class="shell-stage-action-link shell-stage-action-link--disabled" aria-disabled="true">
-        <span class="shell-stage-action-link__label">3D Model Coming Soon</span>
-        <span class="shell-stage-action-link__sub">${escapeHtml(`The 3D model for ${survey.shortDate || survey.label} is not available here yet.`)}</span>
-      </div>
-    `;
-  }
+  els.shellStageAction.innerHTML = `
+    <a
+      class="shell-stage-action-link"
+      href="${escapeAttr(modelUrl)}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="shell-stage-action-link__label">Open 3D Model</span>
+      <span class="shell-stage-action-link__sub">${escapeHtml(`Open the DJI Terra model for ${survey.shortDate || survey.label} in Nira.`)}</span>
+    </a>
+  `;
   els.shellStageAction.classList.remove("hidden");
   els.shellStageAction.setAttribute("aria-hidden", "false");
 }
@@ -2791,7 +2782,8 @@ function renderWeather() {
   const survey = currentSurvey();
   const projectEnvironment = currentProjectEnvironment();
   const windowRange = weatherWindowForSurvey(project.surveys, survey.id);
-  const surveyDates = [survey.dateFrom, survey.dateTo]
+  const surveyDateRange = surveyDateKeys(survey);
+  const surveyDates = (surveyDateRange.length ? surveyDateRange : [survey.dateFrom, survey.dateTo])
     .filter(Boolean)
     .filter((value, index, array) => array.indexOf(value) === index);
 
@@ -2811,7 +2803,7 @@ function renderWeather() {
   if (projectEnvironment.tide?.latitude) params.set("lat", projectEnvironment.tide.latitude);
   if (projectEnvironment.tide?.longitude) params.set("lon", projectEnvironment.tide.longitude);
   if (projectEnvironment.tide?.datum) params.set("datum", projectEnvironment.tide.datum);
-  const src = `./weather-dashboard.html?${params.toString()}`;
+  const src = `/weather-dashboard.html?${params.toString()}`;
   if (state.weatherFrameSrc !== src) {
     state.weatherFrameSrc = src;
     els.weatherFrame.src = src;
@@ -3527,7 +3519,7 @@ async function renderVolume() {
           data-volume-lightbox-legend="trend-map"
         >
           <div class="volume-trend-map__stage">
-            <img src="${escapeAttr(trendImageSrc)}" alt="Trend classification map for ${escapeAttr(trendLightboxTitleForArea(area.id, area.label))}">
+            <img data-trend-map-image src="${escapeAttr(trendImageSrc)}" alt="Trend classification map for ${escapeAttr(trendLightboxTitleForArea(area.id, area.label))}">
           </div>
         </button>
         <figcaption class="muted">${escapeHtml(trendMapCaption)}</figcaption>
@@ -3547,6 +3539,7 @@ async function renderVolume() {
         </div>
       ` : ""}
     `;
+    prepareTrendMapImages(els.volumeTrendBody);
   };
 
   setTrendState(trendData);
@@ -5376,8 +5369,9 @@ function weatherWindowForSurvey(surveys, surveyId) {
   const current = surveys.find((item) => item.id === surveyId) || surveys[0];
   const fallbackSurveyEndDate = projectEnvironment.fallbackSurveyEndDate || environmentalContext.fallbackSurveyEndDate;
   const weatherWindowMonths = projectEnvironment.weatherWindowMonths || environmentalContext.weatherWindowMonths;
+  const explicitWindow = current?.weatherWindow || {};
   const anchor = current?.dateFrom || current?.dateTo || fallbackSurveyEndDate;
-  const end = current?.dateTo || current?.dateFrom || fallbackSurveyEndDate;
+  const end = explicitWindow.end || current?.dateTo || current?.dateFrom || fallbackSurveyEndDate;
   return {
     start: subtractMonths(anchor, weatherWindowMonths),
     end
@@ -5491,9 +5485,13 @@ const VOLUME_COMPARISON_DEFINITIONS = [
   { key: "ab", fromRoundId: "A", toRoundId: "B", surveyId: "2026-04-18", label: "Survey 1 vs Survey 2" },
   { key: "ac", fromRoundId: "A", toRoundId: "C", surveyId: "2026-06-16", label: "Survey 1 vs Survey 3" },
   { key: "ad", fromRoundId: "A", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 1 vs Survey 4" },
+  { key: "ae", fromRoundId: "A", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 1 vs Survey 5" },
   { key: "bc", fromRoundId: "B", toRoundId: "C", surveyId: "2026-06-16", label: "Survey 2 vs Survey 3" },
   { key: "bd", fromRoundId: "B", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 2 vs Survey 4" },
-  { key: "cd", fromRoundId: "C", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 3 vs Survey 4" }
+  { key: "be", fromRoundId: "B", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 2 vs Survey 5" },
+  { key: "cd", fromRoundId: "C", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 3 vs Survey 4" },
+  { key: "ce", fromRoundId: "C", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 3 vs Survey 5" },
+  { key: "de", fromRoundId: "D", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 4 vs Survey 5" }
 ];
 
 function volumeComparisonDefinitions(stats) {
@@ -5517,54 +5515,54 @@ function area2TrebetherickZone(stats) {
 }
 
 function trendScopeNoteForArea(areaId, stats) {
-  if (areaId !== "area2") {
-    return "";
+  const zoneStrategy = stats?.classification_inputs?.zone_strategy || "";
+  if (zoneStrategy && ["area1", "area2"].includes(areaId)) {
+    return zoneStrategy;
   }
-  return "Trebetherick Point is the only Area 2 zone with enough repeated survey coverage for a proper multi-round trend view, so this panel is now limited to Trebetherick only.";
+  return "";
 }
 
 function trendMetaSummaryForArea(areaId, stats) {
-  if (areaId !== "area2") {
+  if (!["area1", "area2"].includes(areaId)) {
     return "";
   }
-  const trebetherick = area2TrebetherickZone(stats);
-  const summaryStats = trebetherick?.cumulative_volume_stats || trebetherick?.volume_stats || trebetherick?.first_volume_stats;
+  const summaryStats = stats?.classified_area;
   if (!summaryStats) {
     return "";
   }
-  return `${formatSquareMetres(summaryStats.surface_area_m2 || 0)} reviewed | ${fixed(summaryStats.matching_cells_percent || 0, 1)}% coverage | ${fixed(stats.classification_threshold_m || 0, 2)} m threshold`;
+  return `${formatSquareMetres(summaryStats.area_m2 || summaryStats.classified_area_m2 || 0)} classified | ${fixed(stats.classification_threshold_m || 0, 2)} m threshold`;
 }
 
 function trendImageSrcForArea(areaId, fallbackSrc) {
-  if (areaId !== "area2") {
-    return fallbackSrc;
-  }
-  return "/public/projects/padstow-estuary/assets/stats/area2-trend-classification-panel.png";
+  return fallbackSrc;
 }
 
 function trendMapCaptionForArea(areaId, roundCount) {
-  if (areaId !== "area2") {
-    return `Use this map as the long-term view. The 3D viewer shows one comparison at a time, while this shows the wider ${String(roundCount || "")}-round pattern in one place.`;
+  if (areaId === "area1") {
+    return "Dunes use the full A->D then D->E trend window. Hawkers and Tregirls are shown as latest-change-only zones until matching A->D surfaces exist.";
   }
-  return "This view now focuses on Trebetherick Point only, because Brea Hill and Estuary do not yet have enough repeat survey coverage for a true multi-round trend analysis.";
+  if (areaId === "area2") {
+    return "Trebetherick Point uses the full A->D then D->E trend window. Brea Hill and Estuary are shown as latest-change-only zones until matching A->D surfaces exist.";
+  }
+  return `Use this map as the long-term view. The 3D viewer shows one comparison at a time, while this shows the wider ${String(roundCount || "")}-round pattern in one place.`;
 }
 
 function trendLightboxTitleForArea(areaId, areaLabel) {
-  if (areaId !== "area2") {
-    return `${areaLabel} trend pattern`;
-  }
-  return "Trebetherick Point trend pattern";
+  return `${areaLabel} trend pattern`;
 }
 
 function trendLightboxCaptionForArea(areaId) {
-  if (areaId !== "area2") {
-    return "Expanded trend view with the class legend shown alongside it. Use the zoom controls to inspect the map in more detail.";
+  if (areaId === "area1") {
+    return "Expanded Area 1 trend view. Dunes carry the full three-scan trend window; Hawkers and Tregirls currently show the latest D->E interval only.";
   }
-  return "Expanded Trebetherick Point trend view for Area 2. This panel excludes the two newer zones so the repeated trend footprint can be inspected clearly.";
+  if (areaId === "area2") {
+    return "Expanded Area 2 trend view. Trebetherick Point carries the full three-scan trend window; Brea Hill and Estuary currently show the latest D->E interval only.";
+  }
+  return "Expanded trend view with the class legend shown alongside it. Use the zoom controls to inspect the map in more detail.";
 }
 
 function shouldShowTrendClasses(areaId) {
-  return areaId !== "area2";
+  return true;
 }
 
 function area2TrendPairSummaries(stats) {
@@ -5578,20 +5576,26 @@ function area2TrendPairSummaries(stats) {
   const labelByPair = {
     "A->C": "Survey 1 vs Survey 3",
     "A->D": "Survey 1 vs Survey 4",
-    "C->D": "Survey 3 vs Survey 4"
+    "A->E": "Survey 1 vs Survey 5",
+    "C->D": "Survey 3 vs Survey 4",
+    "D->E": "Survey 4 vs Survey 5"
   };
   const keyByPair = {
     "A->C": "ac",
     "A->D": "ad",
-    "C->D": "cd"
+    "A->E": "ae",
+    "C->D": "cd",
+    "D->E": "de"
   };
   const copyByPair = {
     "A->C": "Trebetherick Point is the carry-through reference for the earlier Area 2 comparison, so this card shows how that top beach footprint changed between the March and June surveys.",
     "A->D": "This longer Trebetherick Point comparison shows how the usable top beach footprint shifted from the March baseline right through to the July round.",
-    "C->D": "This is the live Trebetherick Point June-to-July change, kept here because it is still the cleanest repeated Area 2 comparison."
+    "A->E": "This full-span Trebetherick Point context carries the March baseline through to the September survey.",
+    "C->D": "This is the live Trebetherick Point June-to-July change, kept here because it is still the cleanest repeated Area 2 comparison.",
+    "D->E": "This latest interval covers Trebetherick Point, Brea Hill, and Estuary, with the latter two treated as latest-change-only until matching earlier surfaces exist."
   };
 
-  const pairOrder = ["A->C", "A->D", "C->D"];
+  const pairOrder = ["A->D", "D->E", "A->E", "A->C", "C->D"];
 
   return cumulativePairs
     .slice()
@@ -5604,7 +5608,7 @@ function area2TrendPairSummaries(stats) {
     const directionLabel = net >= 0 ? "Net build-up" : "Net lowering";
     return {
       key: keyByPair[pair] || pair.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-      label: "Trebetherick Point",
+      label: pair === "D->E" ? "Area 2 latest interval" : "Trebetherick Point",
       added: Number(volumeStats.added_volume_m3 || 0),
       removed: Number(volumeStats.removed_volume_m3 || 0),
       net,
@@ -5627,21 +5631,29 @@ function cumulativeTrendPairSummaries(stats, options = {}) {
     "A->B": "Survey 1 vs Survey 2",
     "A->C": "Survey 1 vs Survey 3",
     "A->D": "Survey 1 vs Survey 4",
+    "A->E": "Survey 1 vs Survey 5",
     "B->C": "Survey 2 vs Survey 3",
     "B->D": "Survey 2 vs Survey 4",
+    "B->E": "Survey 2 vs Survey 5",
     "C->D": "Survey 3 vs Survey 4",
+    "C->E": "Survey 3 vs Survey 5",
+    "D->E": "Survey 4 vs Survey 5",
     ...(options.labelByPair || {})
   };
   const keyByPair = {
     "A->B": "ab",
     "A->C": "ac",
     "A->D": "ad",
+    "A->E": "ae",
     "B->C": "bc",
     "B->D": "bd",
+    "B->E": "be",
     "C->D": "cd",
+    "C->E": "ce",
+    "D->E": "de",
     ...(options.keyByPair || {})
   };
-  const defaultPairOrder = ["A->B", "A->C", "A->D", "B->C", "B->D", "C->D"];
+  const defaultPairOrder = ["A->B", "A->C", "A->D", "A->E", "B->C", "B->D", "B->E", "C->D", "C->E", "D->E"];
   const pairOrder = options.pairOrder || defaultPairOrder;
 
   return cumulativePairs
@@ -5669,17 +5681,48 @@ function cumulativeTrendPairSummaries(stats, options = {}) {
     });
 }
 
+function trendPairDisplayLabel(pair, fallbackLabel = "") {
+  const value = String(pair || "");
+  if (value.includes("A->D")) {
+    return value.includes("only") || value.includes("no earlier")
+      ? "Survey 1 vs Survey 4 where available"
+      : "Survey 1 vs Survey 4";
+  }
+  if (value.includes("D->E")) {
+    return "Survey 4 vs Survey 5";
+  }
+  if (value.includes("A->E")) {
+    return "Survey 1 vs Survey 5";
+  }
+  if (value.includes("A->C")) {
+    return "Survey 1 vs Survey 3";
+  }
+  if (value.includes("C->D")) {
+    return "Survey 3 vs Survey 4";
+  }
+  return fallbackLabel || value || "Survey comparison";
+}
+
+function trendVolumeStatsForPair(pair) {
+  return pair?.volume_stats || pair?.cumulative_volume_stats || pair?.first_volume_stats || {};
+}
+
+function hasTrendVolumeStats(item) {
+  return ["net_volume_m3", "added_volume_m3", "removed_volume_m3", "surface_area_m2", "matching_cells_percent"]
+    .some((key) => item?.[key] !== undefined && item?.[key] !== null);
+}
+
 function trendPairSummaries(stats, areaId = "") {
   if (areaId === "area2") {
     return area2TrendPairSummaries(stats);
   }
-  if (areaId === "area8") {
+  if (stats?.classification_inputs?.cumulative_pairs?.length) {
     return cumulativeTrendPairSummaries(stats, {
-      pairOrder: ["A->C", "A->D", "C->D"],
+      pairOrder: ["A->D", "D->E", "A->E", "A->C", "C->D", "C->E"],
       copyByPair: {
-        "A->C": "This earlier Area 8 comparison shows how the wider monitored reach changed between the March baseline and the June round before the latest update arrived.",
-        "A->D": "This longer Area 8 comparison carries the whole monitored reach from the March baseline through to the July round.",
-        "C->D": "This is the lead June-to-July Area 8 comparison used for the current live review, with the other survey-pair maps kept below as supporting reference."
+        "A->D": "This primary earlier comparison carries the March baseline through to the July round before the latest update arrived.",
+        "D->E": "This primary latest comparison shows the July-to-September interval used with A->D to classify the current trend pattern.",
+        "A->E": "This full-span context carries the March baseline through to the September survey, useful as supporting context rather than the main trend-classification pair."
       }
     });
   }
@@ -5711,16 +5754,28 @@ function trendPairSummaries(stats, areaId = "") {
   const pairBC = stats?.classification_inputs?.primary_pair_2;
   const pairAC = stats?.classification_inputs?.cumulative_pairs?.[0];
   return [
-    pairAB ? { key: "ab", label: "Survey 1 vs Survey 2", dateRange: pairAB.date_range, intervalDays: pairAB.interval_days, ...pairAB.volume_stats } : null,
-    pairAC ? {
-      key: "ac",
-      label: "Survey 1 vs Survey 3",
-      dateRange: trendRoundDateRange(stats, "A", "C"),
-      intervalDays: trendRoundIntervalDays(stats, "A", "C"),
-      ...pairAC.volume_stats
+    pairAB ? {
+      key: "primary-earlier",
+      label: trendPairDisplayLabel(pairAB.pair, "Primary earlier comparison"),
+      dateRange: pairAB.date_range,
+      intervalDays: pairAB.interval_days,
+      ...trendVolumeStatsForPair(pairAB)
     } : null,
-    pairBC ? { key: "bc", label: "Survey 2 vs Survey 3", dateRange: pairBC.date_range, intervalDays: pairBC.interval_days, ...pairBC.volume_stats } : null
-  ].filter(Boolean).map((item) => {
+    pairAC ? {
+      key: String(pairAC.pair || "context").toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      label: trendPairDisplayLabel(pairAC.pair, "Full-span context"),
+      dateRange: pairAC.date_range || trendRoundDateRange(stats, "A", "E"),
+      intervalDays: pairAC.interval_days ?? trendRoundIntervalDays(stats, "A", "E"),
+      ...trendVolumeStatsForPair(pairAC)
+    } : null,
+    pairBC ? {
+      key: "primary-latest",
+      label: trendPairDisplayLabel(pairBC.pair, "Primary latest comparison"),
+      dateRange: pairBC.date_range,
+      intervalDays: pairBC.interval_days,
+      ...trendVolumeStatsForPair(pairBC)
+    } : null
+  ].filter(Boolean).filter(hasTrendVolumeStats).map((item) => {
     const net = Number(item.net_volume_m3 || 0);
     return {
       key: item.key,
@@ -5794,6 +5849,15 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
         `${areaId}_A_vs_D_gain_loss_classification.png`
       ]
     },
+    ae: {
+      surveyId: "2026-09-10",
+      height: [
+        `${areaId}_A_vs_E_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_A_vs_E_gain_loss_classification.png`
+      ]
+    },
     bd: {
       surveyId: "2026-07-15",
       height: [
@@ -5803,6 +5867,15 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
         `${areaId}_B_vs_D_gain_loss_classification.png`
       ]
     },
+    be: {
+      surveyId: "2026-09-10",
+      height: [
+        `${areaId}_B_vs_E_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_B_vs_E_gain_loss_classification.png`
+      ]
+    },
     cd: {
       surveyId: "2026-07-15",
       height: [
@@ -5810,6 +5883,24 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       ],
       classification: [
         `${areaId}_C_vs_D_gain_loss_classification.png`
+      ]
+    },
+    ce: {
+      surveyId: "2026-09-10",
+      height: [
+        `${areaId}_C_vs_E_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_C_vs_E_gain_loss_classification.png`
+      ]
+    },
+    de: {
+      surveyId: "2026-09-10",
+      height: [
+        `${areaId}_D_vs_E_height_change_analysis.png`
+      ],
+      classification: [
+        `${areaId}_D_vs_E_gain_loss_classification.png`
       ]
     }
   }[pairKey];
@@ -6742,7 +6833,9 @@ function activeSectionComparisonSurveyIds() {
 }
 
 function updateSectionFullscreenButton() {
-  const isFullscreen = document.fullscreenElement === els.sectionWorkspace;
+  const isFullscreen = document.fullscreenElement === els.sectionWorkspace
+    || els.sectionWorkspace.classList.contains("section-workspace--fullscreen");
+  els.sectionWorkspace.classList.toggle("section-workspace--fullscreen", isFullscreen);
   els.sectionFullscreenBtn.textContent = isFullscreen ? "Exit Fullscreen" : "Fullscreen";
 }
 
@@ -6752,11 +6845,25 @@ function updateViewerFullscreenButton() {
 }
 
 async function toggleSectionFullscreen() {
-  if (document.fullscreenElement === els.sectionWorkspace) {
-    await document.exitFullscreen();
+  if (document.fullscreenElement === els.sectionWorkspace || els.sectionWorkspace.classList.contains("section-workspace--fullscreen")) {
+    els.sectionWorkspace.classList.remove("section-workspace--fullscreen");
+    if (document.fullscreenElement) {
+      try {
+        await document.exitFullscreen();
+      } catch (error) {
+        console.warn("Unable to exit section fullscreen cleanly.", error);
+      }
+    }
+    updateSectionFullscreenButton();
     return;
   }
-  await els.sectionWorkspace.requestFullscreen();
+  els.sectionWorkspace.classList.add("section-workspace--fullscreen");
+  try {
+    await els.sectionWorkspace.requestFullscreen();
+  } catch (error) {
+    console.warn("Using section fullscreen layout without native fullscreen.", error);
+  }
+  updateSectionFullscreenButton();
 }
 
 async function toggleViewerFullscreen() {
@@ -8057,6 +8164,85 @@ function renderVolumeImageLightboxCompareGrid(items = []) {
   `).join("");
 }
 
+let trendMapResizeHandlerAttached = false;
+
+const TREND_MAP_PANEL_OFFSETS = {
+  area1: -0.16,
+  area2: -0.32,
+  area3: -0.50,
+  area4: -0.19
+};
+
+function prepareTrendMapImages(root = document) {
+  const maps = [...root.querySelectorAll(".volume-trend-map")];
+  maps.forEach((figure) => {
+    const image = figure.querySelector("[data-trend-map-image]");
+    const apply = () => {
+      layoutTrendMapImage(figure);
+    };
+    if (!image) {
+      return;
+    }
+    if (image.complete && image.naturalWidth && image.naturalHeight) {
+      apply();
+    } else {
+      image.addEventListener("load", apply, { once: true });
+    }
+  });
+
+  if (!trendMapResizeHandlerAttached) {
+    window.addEventListener("resize", () => {
+      document.querySelectorAll(".volume-trend-map").forEach(layoutTrendMapImage);
+      applyVolumeImageLightboxTransform();
+    });
+    trendMapResizeHandlerAttached = true;
+  }
+}
+
+function layoutTrendMapImage(figure) {
+  const image = figure?.querySelector?.("[data-trend-map-image]");
+  const stage = figure?.querySelector?.(".volume-trend-map__stage");
+  if (!image || !stage || !image.naturalWidth || !image.naturalHeight) {
+    return;
+  }
+
+  const shouldRotate = image.naturalHeight > image.naturalWidth;
+  const displayWidth = shouldRotate ? image.naturalHeight : image.naturalWidth;
+  const displayHeight = shouldRotate ? image.naturalWidth : image.naturalHeight;
+  figure.classList.toggle("volume-trend-map--rotated", shouldRotate);
+  figure.style.setProperty("--trend-map-ratio", `${displayWidth} / ${displayHeight}`);
+
+  if (shouldRotate) {
+    const verticalOffset = stage.clientHeight * (TREND_MAP_PANEL_OFFSETS[figure.dataset.areaId] || 0);
+    image.style.width = `${stage.clientHeight}px`;
+    image.style.height = `${stage.clientWidth}px`;
+    image.style.maxWidth = "none";
+    image.style.maxHeight = "none";
+    image.style.position = "relative";
+    image.style.top = `${verticalOffset}px`;
+    image.style.transform = "rotate(90deg)";
+    image.style.transformOrigin = "center center";
+    const trigger = figure.querySelector("[data-volume-lightbox-src]");
+    if (trigger) {
+      trigger.dataset.volumeLightboxRotation = "90";
+    }
+    return;
+  }
+
+  image.style.width = "100%";
+  image.style.height = "100%";
+  image.style.maxWidth = "100%";
+  image.style.maxHeight = "100%";
+  image.style.position = "";
+  image.style.top = "";
+  image.style.transform = "";
+  image.style.transformOrigin = "";
+  const trigger = figure.querySelector("[data-volume-lightbox-src]");
+  if (trigger) {
+    trigger.dataset.volumeLightboxRotation = "0";
+  }
+}
+
 function openVolumeImageLightbox(eyebrow, title, caption, src, alt, legendItems = [], rotation = 0) {
   if (!src || !els.volumeImageLightbox) {
     return;
@@ -8187,9 +8373,20 @@ function applyVolumeImageLightboxTransform() {
   if (!els.volumeImageLightboxImage) {
     return;
   }
-  els.volumeImageLightboxImage.style.width = "100%";
-  els.volumeImageLightboxImage.style.maxWidth = "100%";
-  els.volumeImageLightboxImage.style.maxHeight = "100%";
+  const isSideways = Math.abs(state.volumeLightboxRotation % 180) === 90;
+  if (isSideways && els.volumeImageLightboxViewport) {
+    const viewportWidth = Math.max(1, els.volumeImageLightboxViewport.clientWidth - 28);
+    const viewportHeight = Math.max(1, els.volumeImageLightboxViewport.clientHeight - 28);
+    els.volumeImageLightboxImage.style.width = `${viewportHeight}px`;
+    els.volumeImageLightboxImage.style.height = `${viewportWidth}px`;
+    els.volumeImageLightboxImage.style.maxWidth = "none";
+    els.volumeImageLightboxImage.style.maxHeight = "none";
+  } else {
+    els.volumeImageLightboxImage.style.width = "100%";
+    els.volumeImageLightboxImage.style.height = "auto";
+    els.volumeImageLightboxImage.style.maxWidth = "100%";
+    els.volumeImageLightboxImage.style.maxHeight = "100%";
+  }
   els.volumeImageLightboxImage.style.transform = `${state.volumeLightboxRotation ? `rotate(${state.volumeLightboxRotation}deg) ` : ""}translate(${state.volumeLightboxPanX}px, ${state.volumeLightboxPanY}px) scale(${state.volumeLightboxZoom})`.trim();
   els.volumeImageLightboxImage.style.transformOrigin = "center center";
   if (els.volumeImageLightboxViewport) {

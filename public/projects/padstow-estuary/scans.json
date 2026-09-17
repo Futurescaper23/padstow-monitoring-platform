@@ -51,6 +51,23 @@
       "dataFolder": "2026-07-15",
       "comparisonBaseline": "2026-06-16",
       "notes": "Survey Round 4 imagery, DSM, contour, section-profile, and live comparison assets are now linked in the monitoring platform for the active Padstow comparison areas."
+    },
+    {
+      "id": "2026-09-10",
+      "label": "Survey Round 5 - 9-11 September 2026",
+      "shortDate": "9-11 Sep 2026",
+      "dateFrom": "2026-09-09",
+      "dateTo": "2026-09-11",
+      "status": "Scan 5 imagery loaded for all areas; sections and comparisons partially linked",
+      "readiness": "ortho, DSM, contours, hero imagery, and section profiles linked for Areas 1-8; available volumetric comparison maps linked for Areas 1, 2, 3, 4, and 8",
+      "assetFolder": "padstow-estuary/2026-09-10",
+      "dataFolder": "2026-09-10",
+      "comparisonBaseline": "2026-07-15",
+      "weatherWindow": {
+        "start": "2026-08-09",
+        "end": "2026-09-12"
+      },
+      "notes": "Survey Round 5 created for the 9-11 September 2026 repeat survey. Day 1 covered Areas 2, 3, 5, and 8; Day 2 covered Areas 7 and 6; Day 3 covered Areas 1 and 4. Padstow tide-table lows were 11:12, 11:58, and 12:40 BST respectively. Areas 1-8 now have downstreamed ortho, DSM, contours, area hero imagery, and section-profile CSVs connected in the monitoring page. Available volumetric comparison maps are connected for Areas 1, 2, 3, 4, and 8."
     }
   ]
 }

@@ -443,6 +443,250 @@
           ]
         }
       }
+    },
+    "2026-09-10": {
+      "baselineSurveyId": "2026-07-15",
+      "method": "Later survey ground surface compared with earlier survey rounds inside fixed monitored zones, with available Scan 5 map pairs linked from the September output folders.",
+      "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+      "areas": {
+        "area2": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area 2 monitoring zones, with Trebetherick Point carrying the A-based references and all three zones using the June-to-July live comparison.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 2 now has Scan 5 outputs linked in the monitoring platform. The lead preview uses the June-to-September comparison, with the other available E-round map pairs kept alongside it.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area2_C_vs_E_height_change_analysis.png",
+          "previewCurrentImage": "area2_C_vs_E_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 2 Scan 5 Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area 2 between the June and September surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 2 June-to-September comparison.",
+          "viewerEmbedUrl": "https://area2-silk.vercel.app/",
+          "viewerTitle": "Area 2 Scan 5 Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 2 centred on the available Scan 5 monitored comparisons, with the exported A/C/D-to-E map pairs now available as supporting references.",
+          "viewerStats": {
+            "analysedArea": "296,777 m2",
+            "matchingCells": "95.7%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Monitored zone",
+              "gainM3": 5319.335708,
+              "lossM3": 3687.725644,
+              "netM3": 1631.610064,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Monitored zone between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area2 operational monitoring zone."
+            },
+            {
+              "label": "Brea Hill",
+              "gainM3": 1892.040991,
+              "lossM3": 11530.298822,
+              "netM3": -9638.257832,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Brea Hill between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area2 operational monitoring zone."
+            },
+            {
+              "label": "Trebetherick",
+              "gainM3": 3821.270543,
+              "lossM3": 4835.553913,
+              "netM3": -1014.28337,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Trebetherick between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area2 operational monitoring zone."
+            }
+          ]
+        },
+        "area1": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area1 monitoring zones.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 1 now has Scan 5 outputs linked in the monitoring platform. The lead preview uses the June-to-September comparison, with the other available E-round map pairs kept alongside it.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area1_C_vs_E_height_change_analysis.png",
+          "previewCurrentImage": "area1_C_vs_E_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 1 Scan 5 Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area 1 between the June and September surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 1 June-to-September comparison.",
+          "viewerEmbedUrl": "https://area1-lyart.vercel.app/",
+          "viewerTitle": "Area 1 Scan 5 Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 1 centred on the available Scan 5 monitored comparisons, with the exported A/B/C/D-to-E map pairs now available as supporting references.",
+          "viewerStats": {
+            "analysedArea": "422,275 m2",
+            "matchingCells": "95.0%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Dunes",
+              "gainM3": 9488.324376,
+              "lossM3": 7910.89832,
+              "netM3": 1577.426056,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Dunes between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area1 operational monitoring zone."
+            },
+            {
+              "label": "Hawkers",
+              "gainM3": 11431.603142,
+              "lossM3": 638.698648,
+              "netM3": 10792.904494,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Hawkers between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area1 operational monitoring zone."
+            },
+            {
+              "label": "Tregirls",
+              "gainM3": 6254.751282,
+              "lossM3": 3978.743333,
+              "netM3": 2276.007949,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Tregirls between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area1 operational monitoring zone."
+            }
+          ]
+        },
+        "area3": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area3 monitoring zones.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 3 now has Scan 5 outputs linked in the monitoring platform. The lead preview uses the June-to-September comparison, with the other available E-round map pairs kept alongside it.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area3_C_vs_E_height_change_analysis.png",
+          "previewCurrentImage": "area3_C_vs_E_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 3 Scan 5 Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area 3 between the June and September surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 3 June-to-September comparison.",
+          "viewerEmbedUrl": "https://hostedsite.vercel.app/?embed=1",
+          "viewerTitle": "Area 3 Scan 5 Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 3 centred on the available Scan 5 monitored comparisons, with the exported A/B/C/D-to-E map pairs now available as supporting references.",
+          "viewerStats": {
+            "analysedArea": "133,185 m2",
+            "matchingCells": "98.2%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Monitored zone",
+              "gainM3": 8455.306106,
+              "lossM3": 5140.590005,
+              "netM3": 3314.7161,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Monitored zone between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area3 operational monitoring zone."
+            }
+          ]
+        },
+        "area4": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area4 monitoring zones.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 4 now has Scan 5 outputs linked in the monitoring platform. The lead preview uses the July-to-September comparison, with the other available E-round map pairs kept alongside it.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area4_D_vs_E_height_change_analysis.png",
+          "previewCurrentImage": "area4_D_vs_E_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 4 Scan 5 Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area 4 between the July and September surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 4 July-to-September comparison.",
+          "viewerEmbedUrl": "https://area4-nine.vercel.app/?embed=1",
+          "viewerTitle": "Area 4 Scan 5 Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 4 centred on the available Scan 5 monitored comparisons, with the exported A/B/C/D-to-E map pairs now available as supporting references.",
+          "viewerStats": {
+            "analysedArea": "678,026 m2",
+            "matchingCells": "97.6%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Beach",
+              "gainM3": 5611.418354,
+              "lossM3": 13168.875564,
+              "netM3": -7557.45721,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Beach between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area4 operational monitoring zone."
+            },
+            {
+              "label": "Iron Bridge",
+              "gainM3": 7900.47199,
+              "lossM3": 30570.006549,
+              "netM3": -22669.534559,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Iron Bridge between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area4 operational monitoring zone."
+            },
+            {
+              "label": "Monitored zone",
+              "gainM3": 20975.859021,
+              "lossM3": 18276.528545,
+              "netM3": 2699.330476,
+              "confidence": "Measured review",
+              "summary": "Net accretion across Monitored zone between Survey Round 3 - 16 June 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area4 operational monitoring zone."
+            }
+          ]
+        },
+        "area8": {
+          "method": "Later survey ground surface compared with the earlier survey inside the fixed Area8 monitoring zones.",
+          "cellSize": "Survey grid size 0.10 m with a reporting threshold of +/-0.05 m",
+          "notes": "Area 8 now has Scan 5 outputs linked in the monitoring platform. The lead preview uses the July-to-September comparison, with the other available E-round map pairs kept alongside it.",
+          "previewMode": "pair",
+          "previewBaselineImage": "area8_D_vs_E_height_change_analysis.png",
+          "previewCurrentImage": "area8_D_vs_E_gain_loss_classification.png",
+          "previewBaselineLabel": "Height change analysis",
+          "previewCurrentLabel": "Gain and loss classification",
+          "previewLabel": "Area 8 Scan 5 Change Review",
+          "previewBaselineCaption": "Plan-view height change surface for Area 8 between the July and September surveys across the current monitored setup.",
+          "previewCurrentCaption": "Simplified gain-and-loss classification for the same Area 8 July-to-September comparison.",
+          "viewerEmbedUrl": "https://area8.vercel.app/",
+          "viewerTitle": "Area 8 Scan 5 Change Viewer",
+          "viewerSummary": "Interactive terrain preview for Area 8 centred on the available Scan 5 monitored comparisons, with the exported A/B/C/D-to-E map pairs now available as supporting references.",
+          "viewerStats": {
+            "analysedArea": "609,384 m2",
+            "matchingCells": "96.2%",
+            "gridSize": "0.10 m",
+            "threshold": "+/-0.05 m"
+          },
+          "polygons": [
+            {
+              "label": "Monitored zone",
+              "gainM3": 19.220632,
+              "lossM3": 22223.794975,
+              "netM3": -22204.574344,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Monitored zone between Survey Round 4 - 15 July 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area8 operational monitoring zone."
+            },
+            {
+              "label": "Central",
+              "gainM3": 93.906634,
+              "lossM3": 24606.511891,
+              "netM3": -24512.605258,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Central between Survey Round 4 - 15 July 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area8 operational monitoring zone."
+            },
+            {
+              "label": "Wadebridge",
+              "gainM3": 1659.884933,
+              "lossM3": 7866.212399,
+              "netM3": -6206.327466,
+              "confidence": "Measured review",
+              "summary": "Net lowering across Wadebridge between Survey Round 4 - 15 July 2026 and Survey Round 5 - 10 September 2026.",
+              "notes": "Area8 operational monitoring zone."
+            }
+          ]
+        }
+      }
     }
   }
 }

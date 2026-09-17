@@ -239,12 +239,30 @@
       "storyTitle": "Survey Round 1 Learnings",
       "contentsSubtext": "Use this view to track what worked, what slowed the team down, and what changed in the field approach afterwards.",
       "glance": [
-        ["High tide reference", "08:22 Day 1 - 7.45 m | 07:54 Day 2 - 7.35 m"],
-        ["Total mapped area", "7.25 km2"],
-        ["Survey dates", "22-23 March 2026"],
-        ["Low tide reference", "13:47 Day 1 - 0.53 m | 14:23 Day 2 - 0.95 m"],
-        ["Images captured", "6,210 photos"],
-        ["Air time overall", "338.86 minutes"]
+        [
+          "High tide reference",
+          "08:22 Day 1 - 7.45 m | 07:54 Day 2 - 7.35 m"
+        ],
+        [
+          "Total mapped area",
+          "7.25 km2"
+        ],
+        [
+          "Survey dates",
+          "22-23 March 2026"
+        ],
+        [
+          "Low tide reference",
+          "13:47 Day 1 - 0.53 m | 14:23 Day 2 - 0.95 m"
+        ],
+        [
+          "Images captured",
+          "6,210 photos"
+        ],
+        [
+          "Air time overall",
+          "338.86 minutes"
+        ]
       ],
       "story": [
         {
@@ -295,12 +313,30 @@
       "storyTitle": "Survey Round 2 Learnings",
       "contentsSubtext": "Use this view to see what went more smoothly, which tide windows were strongest, and how the route would be changed again for the next survey.",
       "glance": [
-        ["High tide reference", "06:55 Day 1 - 7.53 m | 07:39 Day 2 - 7.53 m"],
-        ["Total mapped area", "7.25 km2"],
-        ["Survey dates", "18-19 April 2026"],
-        ["Low tide reference", "12:56 Day 1 - -0.15 m | 13:35 Day 2 - -0.09 m"],
-        ["Images captured", "6,102 photos"],
-        ["Air time overall", "320.80 minutes"]
+        [
+          "High tide reference",
+          "06:55 Day 1 - 7.53 m | 07:39 Day 2 - 7.53 m"
+        ],
+        [
+          "Total mapped area",
+          "7.25 km2"
+        ],
+        [
+          "Survey dates",
+          "18-19 April 2026"
+        ],
+        [
+          "Low tide reference",
+          "13:10 Day 1 - 0.26 m | 13:50 Day 2 - 0.34 m"
+        ],
+        [
+          "Images captured",
+          "6,102 photos"
+        ],
+        [
+          "Air time overall",
+          "320.80 minutes"
+        ]
       ],
       "story": [
         {
@@ -359,12 +395,30 @@
       "storyTitle": "Survey Round 3 Learnings",
       "contentsSubtext": "Use this view to see how the team handled the long wait for a weather window, what changed in the route planning, and why this round now feels like a turning point for future survey days.",
       "glance": [
-        ["High tide reference", "Survey-specific high tide summary pending"],
-        ["Total mapped area", "7.25 km2"],
-        ["Survey dates", "16-17 June 2026"],
-        ["Low tide reference", "13:22 Day 1 (provisional) | 14:10 Day 2 (provisional)"],
-        ["Images captured", "6,405 photos"],
-        ["Air time overall", "321.22 minutes"]
+        [
+          "High tide reference",
+          "Survey-specific high tide summary pending"
+        ],
+        [
+          "Total mapped area",
+          "7.25 km2"
+        ],
+        [
+          "Survey dates",
+          "16-17 June 2026"
+        ],
+        [
+          "Low tide reference",
+          "13:22 Day 1 - 0.84 m | 14:10 Day 2 - 0.89 m"
+        ],
+        [
+          "Images captured",
+          "6,405 photos"
+        ],
+        [
+          "Air time overall",
+          "321.22 minutes"
+        ]
       ],
       "story": [
         {
@@ -423,12 +477,30 @@
       "storyTitle": "Survey Round 4 Learnings",
       "contentsSubtext": "Use this view to record the key field notes, route lessons, survey conditions, and follow-up actions from the 15-16 July 2026 survey.",
       "glance": [
-        ["High tide reference", "06:48 Day 1 - 7.23 m | 07:37 Day 2 - 7.32 m"],
-        ["Total mapped area", "7.25 km2"],
-        ["Survey dates", "15-16 July 2026"],
-        ["Low tide reference", "13:13 Day 1 - 0.86 m | 14:00 Day 2 - 0.75 m"],
-        ["Images captured", "6,489 photos"],
-        ["Air time overall", "322.57 minutes"]
+        [
+          "High tide reference",
+          "06:48 Day 1 - 7.23 m | 07:37 Day 2 - 7.32 m"
+        ],
+        [
+          "Total mapped area",
+          "7.25 km2"
+        ],
+        [
+          "Survey dates",
+          "15-16 July 2026"
+        ],
+        [
+          "Low tide reference",
+          "13:13 Day 1 - 0.86 m | 14:00 Day 2 - 0.75 m"
+        ],
+        [
+          "Images captured",
+          "6,489 photos"
+        ],
+        [
+          "Air time overall",
+          "322.57 minutes"
+        ]
       ],
       "story": [
         {
@@ -473,103 +545,327 @@
           ]
         }
       ]
+    },
+    "2026-09-10": {
+      "heroTitle": "What Survey Round 5 proved about adaptability",
+      "heroText": "This survey-specific view captures how the September repeat was completed across a three-day weather window, with the route adjusted around wind, tide height, access, and field conditions.",
+      "storyTitle": "Survey Round 5 Learnings",
+      "contentsSubtext": "Use this view to see how the team adapted the established survey method around a shorter weather window while still completing all eight monitoring areas.",
+      "glance": [
+        [
+          "High tide reference",
+          "04:48 Day 1 - 6.59 m | 05:35 Day 2 - 7.06 m | 06:17 Day 3 - 7.36 m"
+        ],
+        [
+          "Total mapped area",
+          "7.25 km2"
+        ],
+        [
+          "Survey dates",
+          "9-11 September 2026"
+        ],
+        [
+          "Low tide reference",
+          "11:12 Day 1 - 1.38 m | 11:58 Day 2 - 0.91 m | 12:40 Day 3 - 0.63 m"
+        ],
+        [
+          "Images captured",
+          "6,673 photos"
+        ],
+        [
+          "Air time overall",
+          "340.05 minutes"
+        ]
+      ],
+      "story": [
+        {
+          "id": "round5-three-day-window",
+          "title": "A Complete Survey Across A Three-Day Weather Window",
+          "paragraphs": [
+            "Survey Round 5 was completed successfully across all eight monitoring areas, but for the first time the work was spread across three days rather than the usual two.",
+            "The main reason was wind. The forecast had indicated that conditions would deteriorate during the middle survey day, and that proved correct. Rather than forcing the remaining flights into increasingly unsuitable conditions, the survey was paused after completing Areas 7 and 6 and resumed the following morning.",
+            "The result was still a complete repeat dataset, with the additional day demonstrating that the programme can adapt around shorter weather windows without compromising the overall survey."
+          ]
+        },
+        {
+          "id": "round5-higher-tides",
+          "title": "Higher Tides Are Becoming Part Of The Planning",
+          "paragraphs": [
+            "The first survey day coincided with a low tide of approximately 1.3 m, higher than the lower spring tides preferred during earlier rounds.",
+            "As the monitoring programme moves towards autumn and winter, the opportunity to combine exceptionally low tides with suitable wind and weather becomes more limited. Survey Round 5 therefore required a more pragmatic balance between tidal level, weather, and site accessibility.",
+            "The outer areas were again approached around an hour and a half before low water where possible, allowing useful exposed ground to be captured before the estuary began refilling."
+          ]
+        },
+        {
+          "id": "round5-day1-strategy",
+          "title": "Day 1 Used The Established Battery And Access Strategy",
+          "paragraphs": [
+            "Day 1 began at Daymer Bay before progressing through Rock Beach and Porthilly Cove, with Wadebridge completing the day's flying.",
+            "The established three-flight battery rotation worked well. Groups of flights could be completed before returning to the vehicle to recharge equipment and prepare for the next area. Known walking routes and the bicycle access to Wadebridge also helped keep the day moving efficiently.",
+            "Access around Porthilly Cove remains physically challenging because of the soft mud, but the area continues to have the operational advantage of very low public activity."
+          ]
+        },
+        {
+          "id": "round5-weather-routing",
+          "title": "The Route Changed With The Wind",
+          "paragraphs": [
+            "With stronger winds forecast for Day 2, the normal sequence was deliberately changed. Rather than starting on the more exposed outer estuary, the survey began further inland at Areas 7 and 6.",
+            "Conditions were initially very calm, allowing both areas to be completed successfully. The wind then strengthened noticeably as the morning progressed, particularly when moving around the more exposed headland.",
+            "The planned continuation towards Area 4 was therefore abandoned. This was a useful demonstration of the value of treating the eight areas as a flexible survey programme rather than following a fixed route regardless of conditions."
+          ]
+        },
+        {
+          "id": "round5-field-observations",
+          "title": "Field Observations Highlighted Areas For Analysis",
+          "paragraphs": [
+            "Several areas looked noticeably different on the ground during this round. Daymer Bay appeared to contain areas of both sediment gain and loss, while changes in the dune and sand formations were visible around Rock.",
+            "At Tregirls Beach, pronounced ridges appeared to have developed across parts of the exposed surface. These observations are useful indicators of where the subsequent comparison work should concentrate, but they remain visual field observations rather than measured change.",
+            "The photogrammetry, surface comparisons, and volumetric analysis will determine whether these apparent changes represent significant erosion, accretion, or redistribution between rounds."
+          ]
+        },
+        {
+          "id": "round5-method-maturity",
+          "title": "Familiarity With The Estuary Is Now Improving The Survey",
+          "paragraphs": [
+            "By Round 5, repeated visits are producing a much clearer understanding of how each part of the estuary behaves operationally.",
+            "Known take-off locations, battery planning, parking, walking and cycling routes, tidal access, and local ground conditions all allowed decisions to be made quickly when circumstances changed. At Padstow, the exposed tide also allowed access onto one of the large sandbars wrapping around towards the Iron Bridge for the first time during the programme.",
+            "Survey Round 5 showed that the repeat method is now sufficiently established to cope with imperfect weather and tide combinations while still producing a complete monitoring dataset."
+          ]
+        }
+      ]
     }
   },
   "panoramaGuides": {
     "area1": {
       "summary": "Outer-estuary panorama focused on Hawker's Cove, Tregirls Beach, and the exposed Doom Bar edge.",
       "stats": [
-        ["Main focus", "Outer beach and bar edge", "Use this view to read how the lower estuary opens out towards the sea."],
-        ["Best for", "Early exposure checks", "Helpful for seeing how much of the outer sand and beach face was visible during capture."]
+        [
+          "Main focus",
+          "Outer beach and bar edge",
+          "Use this view to read how the lower estuary opens out towards the sea."
+        ],
+        [
+          "Best for",
+          "Early exposure checks",
+          "Helpful for seeing how much of the outer sand and beach face was visible during capture."
+        ]
       ],
       "details": [
-        ["What to look for", "Look across the outer bar, beach width, and the exposed edge of the lower estuary where tidal windows change quickly."],
-        ["Why it matters", "This is one of the clearest places to explain how survey timing affects visible sand extent, especially before low water."],
-        ["Client takeaway", "A wider exposed beach or bar here usually points to stronger low-tide access and a better view of outer-estuary change."]
+        [
+          "What to look for",
+          "Look across the outer bar, beach width, and the exposed edge of the lower estuary where tidal windows change quickly."
+        ],
+        [
+          "Why it matters",
+          "This is one of the clearest places to explain how survey timing affects visible sand extent, especially before low water."
+        ],
+        [
+          "Client takeaway",
+          "A wider exposed beach or bar here usually points to stronger low-tide access and a better view of outer-estuary change."
+        ]
       ]
     },
     "area2": {
       "summary": "Daymer Bay panorama showing the estuary entrance margin and the broad beach surface on the north side.",
       "stats": [
-        ["Main focus", "Entrance beach surface", "Best used for reading broad beach shape and shoreline position."],
-        ["Best for", "Comparing sand spread", "Helpful for seeing whether sand is sitting higher, wider, or further seaward than before."]
+        [
+          "Main focus",
+          "Entrance beach surface",
+          "Best used for reading broad beach shape and shoreline position."
+        ],
+        [
+          "Best for",
+          "Comparing sand spread",
+          "Helpful for seeing whether sand is sitting higher, wider, or further seaward than before."
+        ]
       ],
       "details": [
-        ["What to look for", "Look at the width of exposed sand, the line of wet versus dry beach, and the overall shape of the entrance margin."],
-        ["Why it matters", "This area gives a strong visual read on how the entrance beach is presenting from one survey round to the next."],
-        ["Client takeaway", "If the exposed surface here appears broader or more continuous, it usually supports a build-up story rather than local erosion."]
+        [
+          "What to look for",
+          "Look at the width of exposed sand, the line of wet versus dry beach, and the overall shape of the entrance margin."
+        ],
+        [
+          "Why it matters",
+          "This area gives a strong visual read on how the entrance beach is presenting from one survey round to the next."
+        ],
+        [
+          "Client takeaway",
+          "If the exposed surface here appears broader or more continuous, it usually supports a build-up story rather than local erosion."
+        ]
       ]
     },
     "area3": {
       "summary": "Central entrance panorama around Doom Bar, useful for understanding bar shape, channel position, and change through time.",
       "stats": [
-        ["Main focus", "Doom Bar form", "Use this area to read bar shape, crest position, and nearby channel behaviour."],
-        ["Best for", "Visible movement checks", "Helpful for spotting whether sand has shifted, stretched, or narrowed between rounds."]
+        [
+          "Main focus",
+          "Doom Bar form",
+          "Use this area to read bar shape, crest position, and nearby channel behaviour."
+        ],
+        [
+          "Best for",
+          "Visible movement checks",
+          "Helpful for spotting whether sand has shifted, stretched, or narrowed between rounds."
+        ]
       ],
       "details": [
-        ["What to look for", "Look for changes in the bar outline, the apparent high points, and how the channel edge sits against the sand body."],
-        ["Why it matters", "This is one of the most legible places for clients to see estuary movement without needing to read a graph first."],
-        ["Client takeaway", "A bar that looks fuller and more continuous over several rounds supports consistent build-up, while a broken or cut-back shape suggests redistribution or erosion."]
+        [
+          "What to look for",
+          "Look for changes in the bar outline, the apparent high points, and how the channel edge sits against the sand body."
+        ],
+        [
+          "Why it matters",
+          "This is one of the most legible places for clients to see estuary movement without needing to read a graph first."
+        ],
+        [
+          "Client takeaway",
+          "A bar that looks fuller and more continuous over several rounds supports consistent build-up, while a broken or cut-back shape suggests redistribution or erosion."
+        ]
       ]
     },
     "area4": {
       "summary": "Harbour reach panorama covering the main low-tide central estuary view where exposed sandbars are easiest to compare.",
       "stats": [
-        ["Main focus", "Central estuary bars", "Use this panorama to compare the main exposed sand surfaces around low water."],
-        ["Best for", "Core repeat comparisons", "This is one of the strongest client-facing views for explaining visible change over time."]
+        [
+          "Main focus",
+          "Central estuary bars",
+          "Use this panorama to compare the main exposed sand surfaces around low water."
+        ],
+        [
+          "Best for",
+          "Core repeat comparisons",
+          "This is one of the strongest client-facing views for explaining visible change over time."
+        ]
       ],
       "details": [
-        ["What to look for", "Look at bar width, exposed channel margins, and whether the central surfaces appear higher, flatter, or more cut through."],
-        ["Why it matters", "This area often sits in one of the cleanest low-tide windows, so the exposed landform is easier to compare round to round."],
-        ["Client takeaway", "If change is consistent here as well as in the section graphs, it gives stronger confidence that the broader central estuary is shifting rather than just one local patch."]
+        [
+          "What to look for",
+          "Look at bar width, exposed channel margins, and whether the central surfaces appear higher, flatter, or more cut through."
+        ],
+        [
+          "Why it matters",
+          "This area often sits in one of the cleanest low-tide windows, so the exposed landform is easier to compare round to round."
+        ],
+        [
+          "Client takeaway",
+          "If change is consistent here as well as in the section graphs, it gives stronger confidence that the broader central estuary is shifting rather than just one local patch."
+        ]
       ]
     },
     "area5": {
       "summary": "Porthilly Cove panorama focused on the quieter inner transition zone between beach edge, mudflat, and returning water.",
       "stats": [
-        ["Main focus", "Cove edge and mudflat", "Useful for reading subtle shoreline adjustments in a more sheltered part of the estuary."],
-        ["Best for", "Quieter change signals", "This view helps show smaller shape changes that are easier to miss in the more dynamic outer areas."]
+        [
+          "Main focus",
+          "Cove edge and mudflat",
+          "Useful for reading subtle shoreline adjustments in a more sheltered part of the estuary."
+        ],
+        [
+          "Best for",
+          "Quieter change signals",
+          "This view helps show smaller shape changes that are easier to miss in the more dynamic outer areas."
+        ]
       ],
       "details": [
-        ["What to look for", "Look at the cove edge, the outline of exposed mud or sand, and how far the open surface reaches into the shelter of the cove."],
-        ["Why it matters", "Because this area is calmer, repeated change here can be a useful sign that the estuary is gradually reorganising rather than only reacting at the entrance."],
-        ["Client takeaway", "Subtle expansion or retreat in this cove can help explain whether material is settling into sheltered zones or being stripped back out."]
+        [
+          "What to look for",
+          "Look at the cove edge, the outline of exposed mud or sand, and how far the open surface reaches into the shelter of the cove."
+        ],
+        [
+          "Why it matters",
+          "Because this area is calmer, repeated change here can be a useful sign that the estuary is gradually reorganising rather than only reacting at the entrance."
+        ],
+        [
+          "Client takeaway",
+          "Subtle expansion or retreat in this cove can help explain whether material is settling into sheltered zones or being stripped back out."
+        ]
       ]
     },
     "area6": {
       "summary": "Central sandbar panorama showing one of the key comparison zones where flood water can quickly change access after low tide.",
       "stats": [
-        ["Main focus", "Sandbar crest and cut-throughs", "Use this view to examine exposed bar shape and the low channels that begin to refill first."],
-        ["Best for", "Post-low-tide response", "Helpful for understanding how quickly the visible landform starts to change once water returns."]
+        [
+          "Main focus",
+          "Sandbar crest and cut-throughs",
+          "Use this view to examine exposed bar shape and the low channels that begin to refill first."
+        ],
+        [
+          "Best for",
+          "Post-low-tide response",
+          "Helpful for understanding how quickly the visible landform starts to change once water returns."
+        ]
       ],
       "details": [
-        ["What to look for", "Look for bar height, the position of shallow cut-throughs, and where returning water begins to break the exposed surface apart."],
-        ["Why it matters", "This is a strong area for explaining that apparent change can come from both real surface movement and the timing of flood water."],
-        ["Client takeaway", "If the bar stays broad and high across rounds, that suggests resilience or build-up; if channels open earlier or cut deeper, it can point to weakening or redistribution."]
+        [
+          "What to look for",
+          "Look for bar height, the position of shallow cut-throughs, and where returning water begins to break the exposed surface apart."
+        ],
+        [
+          "Why it matters",
+          "This is a strong area for explaining that apparent change can come from both real surface movement and the timing of flood water."
+        ],
+        [
+          "Client takeaway",
+          "If the bar stays broad and high across rounds, that suggests resilience or build-up; if channels open earlier or cut deeper, it can point to weakening or redistribution."
+        ]
       ]
     },
     "area7": {
       "summary": "Upper-inner estuary panorama showing a calmer reach where late-day survey windows still give useful comparisons as the tide returns.",
       "stats": [
-        ["Main focus", "Inner-estuary margins", "Useful for reading how exposed edges and quieter sediment zones are holding their shape."],
-        ["Best for", "Settling-zone checks", "This area helps show whether material is accumulating further inland rather than only at the mouth."]
+        [
+          "Main focus",
+          "Inner-estuary margins",
+          "Useful for reading how exposed edges and quieter sediment zones are holding their shape."
+        ],
+        [
+          "Best for",
+          "Settling-zone checks",
+          "This area helps show whether material is accumulating further inland rather than only at the mouth."
+        ]
       ],
       "details": [
-        ["What to look for", "Look at the edge lines of exposed sediment, the width of the inner flats, and any signs that channels are tightening or spreading."],
-        ["Why it matters", "This reach often changes more gently than the entrance, so repeated patterns here can be especially informative."],
-        ["Client takeaway", "Steady build-up inland can suggest sediment is continuing to settle up-estuary, while retreating edges may point to reworking or wash-back."]
+        [
+          "What to look for",
+          "Look at the edge lines of exposed sediment, the width of the inner flats, and any signs that channels are tightening or spreading."
+        ],
+        [
+          "Why it matters",
+          "This reach often changes more gently than the entrance, so repeated patterns here can be especially informative."
+        ],
+        [
+          "Client takeaway",
+          "Steady build-up inland can suggest sediment is continuing to settle up-estuary, while retreating edges may point to reworking or wash-back."
+        ]
       ]
     },
     "area8": {
       "summary": "Wadebridge reach panorama covering the upper estuary where broad mudflat and channel-edge relationships are easiest to read.",
       "stats": [
-        ["Main focus", "Upper-estuary flats", "Use this panorama to compare how much of the upper estuary is exposed and where water is still holding."],
-        ["Best for", "Upper-reach context", "Helpful for explaining how the inland end of the system behaves differently from the outer mouth."]
+        [
+          "Main focus",
+          "Upper-estuary flats",
+          "Use this panorama to compare how much of the upper estuary is exposed and where water is still holding."
+        ],
+        [
+          "Best for",
+          "Upper-reach context",
+          "Helpful for explaining how the inland end of the system behaves differently from the outer mouth."
+        ]
       ],
       "details": [
-        ["What to look for", "Look at the width of exposed upper flats, the channel edge position, and how much standing water remains across the reach."],
-        ["Why it matters", "This is a useful context view because the upper estuary often responds on a different timing and with different sediment behaviour than the outer sections."],
-        ["Client takeaway", "If the upper reach is staying wetter or narrower than expected, that can explain why some comparisons are weaker here than in the lower estuary."]
+        [
+          "What to look for",
+          "Look at the width of exposed upper flats, the channel edge position, and how much standing water remains across the reach."
+        ],
+        [
+          "Why it matters",
+          "This is a useful context view because the upper estuary often responds on a different timing and with different sediment behaviour than the outer sections."
+        ],
+        [
+          "Client takeaway",
+          "If the upper reach is staying wetter or narrower than expected, that can explain why some comparisons are weaker here than in the lower estuary."
+        ]
       ]
     }
   },
