@@ -922,7 +922,7 @@ h1 {
 
 .shell[data-stage-visual="overview-hero"] .shell-topbar {
   position: absolute;
-  top: 352px;
+  top: 308px;
   left: 22px;
   z-index: 3;
   width: 86px;
@@ -2672,7 +2672,7 @@ textarea {
 
 .shell[data-stage-visual="area-hero"] .shell-topbar {
   position: absolute;
-  top: 388px;
+  top: 352px;
   left: 22px;
   z-index: 3;
   width: 86px;
@@ -4544,7 +4544,7 @@ a { color: var(--accent); }
   }
 
   .shell[data-stage-visual="overview-hero"] .shell-topbar {
-    top: 310px;
+    top: 258px;
     left: 16px;
     width: 80px;
   }
@@ -5329,4 +5329,17 @@ a { color: var(--accent); }
 
 body.volume-lightbox-open {
   overflow: hidden;
+}
+
+/* Preserve the demo-sized rail without letting it extend beyond the hero. */
+@media (min-width: 721px) {
+  .shell[data-stage-visual="overview-hero"] .shell-stagebar,
+  .shell[data-stage-visual="overview-hero"] .shell-stagebar__visual {
+    min-height: max(min(78vh, 920px), 840px);
+  }
+
+  .shell[data-stage-visual="area-hero"] .shell-stagebar,
+  .shell[data-stage-visual="area-hero"] .shell-stagebar__visual {
+    min-height: max(min(78vh, 920px), 890px);
+  }
 }
