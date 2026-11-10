@@ -2028,6 +2028,9 @@ function summariseSurveyTideExtremes(survey, extremes = []) {
 }
 
 function surveyDateKeys(survey) {
+  if (Array.isArray(survey?.surveyDates) && survey.surveyDates.length) {
+    return [...new Set(survey.surveyDates.filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date)))].sort();
+  }
   const start = new Date(`${survey?.dateFrom}T12:00:00`);
   const end = new Date(`${survey?.dateTo || survey?.dateFrom}T12:00:00`);
   if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end < start) {
