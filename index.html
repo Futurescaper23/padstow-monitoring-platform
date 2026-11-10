@@ -242,7 +242,7 @@ html[data-local-volume-safety="area8"] #local-area8-safety-notice {display:block
             <div>
               <p class="eyebrow">Immersive Area Tour</p>
               <h2>Area Panorama</h2>
-              <p id="panoramaSummary" class="muted">Panorama guidance for the selected area will appear here.</p><p id="local-pano-review-notice" class="notice-banner" hidden>Scan 6 panorama content is not verified; this existing tour may be from an earlier survey.</p>
+              <p id="panoramaSummary" class="muted">Panorama guidance for the selected area will appear here.</p>
             </div>
             <div id="panoramaStats" class="stats-grid panorama-shell__stats"></div>
           </div>
@@ -336,15 +336,7 @@ html[data-local-volume-safety="area8"] #local-area8-safety-notice {display:block
           </article>
         </div>
 
-        <article id="volumeRolloutPanel" class="panel section-gap">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Comparison Rollout</p>
-              <h2>What Is Ready</h2>
-            </div>
-          </div>
-          <div id="volumeAreaGrid" class="card-grid section-gap"></div>
-        </article>
+        <div id="volumeAreaGrid" hidden></div>
       </section>
 
       <section class="tab-panel" data-panel="layers">
@@ -778,7 +770,7 @@ html[data-local-volume-safety="area8"] #local-area8-safety-notice {display:block
         });
       }());
     </script>
-  <script>(function(){function u(){let n=document.getElementById('local-contour-review-notice'),a=document.getElementById('areaSelect'),s=document.getElementById('surveySelect');if(n)n.hidden=!(a?.value==='area3'&&s?.value==='scan_06');let p=document.getElementById('local-pano-review-notice');if(p)p.hidden=s?.value!=='scan_06'}document.addEventListener('change',u);document.addEventListener('DOMContentLoaded',u);new MutationObserver(u).observe(document.documentElement,{childList:true,subtree:true});})();</script><script type="module" src="/public/projects/padstow-estuary/trend-animation/animation-component.mjs"></script></body>
+  <script>(function(){function u(){let n=document.getElementById('local-contour-review-notice'),a=document.getElementById('areaSelect'),s=document.getElementById('surveySelect');if(n)n.hidden=!(a?.value==='area3'&&s?.value==='scan_06');}document.addEventListener('change',u);document.addEventListener('DOMContentLoaded',u);new MutationObserver(u).observe(document.documentElement,{childList:true,subtree:true});})();</script><script type="module" src="/public/projects/padstow-estuary/trend-animation/animation-component.mjs"></script></body>
 </html>
 
 
