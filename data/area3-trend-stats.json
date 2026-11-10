@@ -1,7 +1,7 @@
 {
   "area_id": "area3",
   "area_label": "Area 3",
-  "generated_at": "2026-09-15T17:33:18",
+  "generated_at": "2026-11-03T21:21:30",
   "classification_threshold_m": 0.05,
   "grid": {
     "resolution_m": 0.1,
@@ -68,6 +68,13 @@
       "label": "Survey Round 5 - 10 September 2026",
       "dates": [
         "2026-09-10"
+      ]
+    },
+    {
+      "id": "F",
+      "label": "Survey Round 6 - 12 October 2026",
+      "dates": [
+        "2026-10-12"
       ]
     }
   ],

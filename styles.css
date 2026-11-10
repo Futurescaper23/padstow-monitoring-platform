@@ -922,7 +922,7 @@ h1 {
 
 .shell[data-stage-visual="overview-hero"] .shell-topbar {
   position: absolute;
-  top: 308px;
+  top: 352px;
   left: 22px;
   z-index: 3;
   width: 86px;
@@ -1778,8 +1778,11 @@ textarea {
 }
 
 .tab-panel[data-panel="areas"] .two-col {
-  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  align-items: start;
 }
+
+.survey-compare-grid[tabindex] { scrollbar-width: thin; scrollbar-color: #6ba8d6 #1c3557; padding-bottom: 8px; }
 
 .area-card__toggle {
   width: 100%;
@@ -2014,12 +2017,24 @@ textarea {
 }
 
 .panorama-frame-wrap {
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(7, 17, 31, 0.88);
 }
 
+.panorama-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #dce7f7;
+  background: #07111f;
+  text-align: center;
+  padding: 20px;
+}
+.panorama-loading[hidden] { display: none; }
 .panorama-frame {
   display: block;
   width: 100%;
@@ -2672,7 +2687,7 @@ textarea {
 
 .shell[data-stage-visual="area-hero"] .shell-topbar {
   position: absolute;
-  top: 352px;
+  top: 388px;
   left: 22px;
   z-index: 3;
   width: 86px;
@@ -3574,23 +3589,30 @@ textarea {
 
 .volume-reference-group__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .volume-reference-group__compare {
   white-space: nowrap;
   align-self: flex-start;
+  min-height: 42px;
+  padding: 0 16px;
+  border-color: rgba(86, 210, 255, 0.68);
+  background: linear-gradient(135deg, #3cc5f3, #3276d9);
+  box-shadow: 0 10px 22px rgba(23, 132, 220, 0.28);
+  color: #071b39;
+  font-weight: 800;
 }
 
 .volume-reference-card {
   margin: 0;
-  padding: 14px;
-  border-radius: 20px;
+  padding: 8px;
+  border-radius: 14px;
   border: 1px solid rgba(133, 179, 255, 0.14);
   background: linear-gradient(180deg, rgba(58, 84, 126, 0.28), rgba(27, 43, 70, 0.46));
   display: grid;
-  gap: 12px;
+  gap: 7px;
 }
 
 .volume-reference-card__button {
@@ -3608,8 +3630,8 @@ textarea {
 }
 
 .volume-reference-stage {
-  min-height: 220px;
-  border-radius: 18px;
+  min-height: 98px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(120, 168, 245, 0.16);
   background: linear-gradient(180deg, #eef2f7 0%, #dbe3ee 100%);
@@ -3625,27 +3647,36 @@ textarea {
 }
 
 .volume-reference-card__meta {
-  display: grid;
-  gap: 10px;
+  min-height: 36px;
+  display: block;
 }
 
 .volume-reference-card__copy {
-  display: grid;
-  gap: 6px;
+  display: block;
 }
 
 .volume-reference-card__copy strong {
-  font-size: 1rem;
+  display: block;
+  overflow: hidden;
+  color: #f1f7ff;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .volume-reference-card__copy p {
   margin: 0;
 }
 
+.volume-reference-card__copy .eyebrow,
+.volume-reference-card__copy .muted,
 .volume-reference-card__badges {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  display: none;
+}
+
+.volume-reference-card__badges {
+  display: none;
 }
 
 .volume-rollout-status {
@@ -4058,15 +4089,15 @@ textarea {
 
 .volume-compare-picker__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .volume-compare-picker__card {
   display: grid;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 18px;
+  gap: 5px;
+  padding: 6px;
+  border-radius: 11px;
   border: 1px solid rgba(133, 179, 255, 0.16);
   background: linear-gradient(180deg, rgba(58, 84, 126, 0.22), rgba(27, 43, 70, 0.38));
   text-align: left;
@@ -4088,15 +4119,15 @@ textarea {
 }
 
 .volume-compare-picker__thumb {
-  min-height: 220px;
+  min-height: 84px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 9px;
   border: 1px solid rgba(124, 170, 245, 0.16);
   background: linear-gradient(180deg, #eef2f7 0%, #dbe3ee 100%);
-  padding: 8px;
+  padding: 5px;
 }
 
 .volume-compare-picker__thumb img {
@@ -4111,12 +4142,39 @@ textarea {
 
 .volume-compare-picker__meta {
   display: grid;
-  gap: 4px;
+  gap: 2px;
+}
+
+.volume-compare-picker__meta-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.volume-compare-picker__selection {
+  flex: 0 0 auto;
+  padding: 3px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(135, 188, 255, 0.22);
+  background: rgba(12, 28, 52, 0.78);
+  color: rgba(212, 231, 255, 0.84);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.volume-compare-picker__card.is-selected .volume-compare-picker__selection {
+  border-color: rgba(94, 203, 255, 0.66);
+  background: rgba(50, 142, 221, 0.32);
+  color: #e8f8ff;
 }
 
 .volume-compare-picker__meta span {
   color: rgba(208, 223, 244, 0.8);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
+  line-height: 1.18;
 }
 
 .volume-compare-picker__actions {
@@ -4215,6 +4273,10 @@ textarea {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   align-items: start;
+}
+
+.volume-image-lightbox__compare-grid:has(.volume-image-lightbox__compare-item:nth-child(3):last-child) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .volume-image-lightbox__compare-grid.hidden,
@@ -4544,7 +4606,7 @@ a { color: var(--accent); }
   }
 
   .shell[data-stage-visual="overview-hero"] .shell-topbar {
-    top: 258px;
+    top: 310px;
     left: 16px;
     width: 80px;
   }
@@ -5331,15 +5393,70 @@ body.volume-lightbox-open {
   overflow: hidden;
 }
 
-/* Preserve the demo-sized rail without letting it extend beyond the hero. */
-@media (min-width: 721px) {
-  .shell[data-stage-visual="overview-hero"] .shell-stagebar,
-  .shell[data-stage-visual="overview-hero"] .shell-stagebar__visual {
-    min-height: max(min(78vh, 920px), 840px);
-  }
 
-  .shell[data-stage-visual="area-hero"] .shell-stagebar,
-  .shell[data-stage-visual="area-hero"] .shell-stagebar__visual {
-    min-height: max(min(78vh, 920px), 890px);
+/* Tablet: keep the area navigation in the page flow so it cannot cover map and status content. */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .shell[data-stage-visual="overview-hero"] .shell-topbar,
+  .shell[data-stage-visual="area-hero"] .shell-topbar {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    margin: 0 0 12px;
   }
+  .shell[data-stage-visual="overview-hero"] .tabs,
+  .shell[data-stage-visual="area-hero"] .tabs {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    overflow-x: auto;
+  }
+  .shell[data-stage-visual="overview-hero"] .tab,
+  .shell[data-stage-visual="area-hero"] .tab {
+    flex: 0 0 92px;
+    min-height: 64px;
+  }
+}
+
+/* Keep the navigation inside the hero at normal desktop zoom. */
+@media (min-width: 1101px) {
+  .shell[data-stage-visual="overview-hero"] .shell-topbar,
+  .shell[data-stage-visual="area-hero"] .shell-topbar { top: max(100px, min(388px, calc(min(78vh, 920px) - 490px))); }
+  .shell[data-stage-visual="overview-hero"] .tabs,
+  .shell[data-stage-visual="area-hero"] .tabs { gap: clamp(3px, .7vh, 10px); padding: 6px; }
+  .shell[data-stage-visual="overview-hero"] .tab,
+  .shell[data-stage-visual="area-hero"] .tab { min-height: clamp(42px, 6.5vh, 62px); gap: 2px; padding: 4px 6px; }
+}
+
+/* FutureScaping branding in the monitoring header. */
+.futurescaping-brand-logo { display: block; width: min(210px, 100%); height: auto; object-fit: contain; }
+.shell-stagebar__brandword { gap: 5px; justify-items: start; }
+.shell-stagebar__brandname { font-size: 0.65rem; letter-spacing: 0.16em; }
+.shell-brand__wordmark .futurescaping-brand-logo { width: min(190px, 100%); }
+
+/* Keep navigation icons and labels on distinct rows. */
+@media (min-width: 1101px) {
+  .shell[data-stage-visual="overview-hero"] .tab,
+  .shell[data-stage-visual="area-hero"] .tab { grid-template-columns: 1fr; grid-template-rows: 20px auto; row-gap: 3px; min-height: clamp(54px, 7vh, 62px); }
+  .shell[data-stage-visual="overview-hero"] .tab .tab__label,
+  .shell[data-stage-visual="area-hero"] .tab .tab__label { transform: none; }
+}
+
+/* Fit all selected comparison maps inside the available window. */
+.volume-image-lightbox__dialog:has(.volume-image-lightbox__compare-grid:not(.hidden)) { height: calc(100dvh - 48px); overflow: hidden; }
+.volume-image-lightbox__viewport:has(.volume-image-lightbox__compare-grid:not(.hidden)) { display: block; padding: 10px; }
+.volume-image-lightbox__compare-grid:not(.hidden) { height: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); align-items: stretch; gap: 8px; }
+.volume-image-lightbox__compare-grid:not(.hidden):has(.volume-image-lightbox__compare-item:nth-child(3)) { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.volume-image-lightbox__compare-item { min-width: 0; min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 5px; }
+.volume-image-lightbox__compare-frame { min-height: 0; height: 100%; padding: 0; box-sizing: border-box; }
+.volume-image-lightbox__compare-frame img { width: 100%; height: 100%; max-height: 100%; object-fit: contain; object-position: center; }
+@media (max-width: 600px) { .volume-image-lightbox__dialog:has(.volume-image-lightbox__compare-grid:not(.hidden)) { height: calc(100dvh - 24px); } }
+
+/* Allow the hero to grow when both its copy and navigation need more room. */
+@media (min-width: 1101px) {
+  .shell[data-stage-visual="overview-hero"] .shell-stagebar,
+  .shell[data-stage-visual="area-hero"] .shell-stagebar { min-height: max(min(78vh, 920px), var(--hero-nav-min-height, 0px)); }
+  .shell[data-stage-visual="area-hero"] .shell-stagebar { height: max(min(78vh, 920px), var(--hero-nav-min-height, 0px)); }
+  .shell[data-stage-visual="overview-hero"] .shell-stagebar__visual,
+  .shell[data-stage-visual="area-hero"] .shell-stagebar__visual { height: max(min(78vh, 920px), var(--hero-nav-min-height, 0px)); min-height: max(min(78vh, 920px), var(--hero-nav-min-height, 0px)); }
 }

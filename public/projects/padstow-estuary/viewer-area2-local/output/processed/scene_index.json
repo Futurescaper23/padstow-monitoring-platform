@@ -1,0 +1,384 @@
+{
+  "title": "Sediment Change Viewer",
+  "default_area_id": "area2",
+  "areas": [
+    {
+      "id": "area2",
+      "label": "Area 2",
+      "terrain_label": "Survey Round 3 base terrain",
+      "survey_labels": {
+        "A": "Survey Round 1 - 22 and 23 March 2026",
+        "B": "Survey Round 2 - 18 and 19 April 2026",
+        "C": "Survey Round 3 - 16 and 17 June 2026",
+        "D": "Survey Round 4 - 15 and 16 July 2026",
+        "E": "Survey Round 5 - 10 September 2026",
+        "F": "Survey Round 6 - 12 October 2026"
+      },
+      "default_dataset_id": "c-f",
+      "datasets": [
+        {
+          "id": "a-c",
+          "label": "A-C",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -24500.07598,
+            "surface_m2": 141566.206836,
+            "added_volume_m3": 477.031208,
+            "removed_volume_m3": 24977.107188,
+            "matching_cells_pct": 98.6,
+            "raw": "Volume: -24,500.075980\nSurface: 141,566.206836\n----------------------\nAdded volume: (+)477.031208\nRemoved volume: (-)24,977.107188\n----------------------\nMatching cells: 98.6%\nNon-matching cells:\n    ground = 0.4%\n    ceil = 1.0%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "padstow estuary terra trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/a-c/scene_metadata.json",
+            "draped": "area2/a-c/change_overlay_draped.ply",
+            "true_z": "area2/a-c/change_overlay_true_z.ply",
+            "site_map": "area2/a-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-d",
+          "label": "A-D",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -37313.276485,
+            "surface_m2": 139248.296888,
+            "added_volume_m3": 238.859254,
+            "removed_volume_m3": 37552.135739,
+            "matching_cells_pct": 97.0,
+            "raw": "Volume: -37,313.276485\nSurface: 139,248.296888\n----------------------\nAdded volume: (+)238.859254\nRemoved volume: (-)37,552.135739\n----------------------\nMatching cells: 97.0%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 1.0%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary terra trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/a-d/scene_metadata.json",
+            "draped": "area2/a-d/change_overlay_draped.ply",
+            "true_z": "area2/a-d/change_overlay_true_z.ply",
+            "site_map": "area2/a-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-e",
+          "label": "A-E",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -25011.960942,
+            "surface_m2": 138427.956906,
+            "added_volume_m3": 1036.36065,
+            "removed_volume_m3": 26048.321591,
+            "matching_cells_pct": 96.4,
+            "raw": "Volume: -25,011.960942\nSurface: 138,427.956906\n----------------------\nAdded volume: (+)1,036.360650\nRemoved volume: (-)26,048.321591\n----------------------\nMatching cells: 96.4%\nNon-matching cells:\n    ground = 2.6%\n    ceil = 1.0%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/a-e/scene_metadata.json",
+            "draped": "area2/a-e/change_overlay_draped.ply",
+            "true_z": "area2/a-e/change_overlay_true_z.ply",
+            "site_map": "area2/a-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-f",
+          "label": "A-F",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -29813.909627,
+            "surface_m2": 139763.766876,
+            "added_volume_m3": 1634.825068,
+            "removed_volume_m3": 31448.734694,
+            "matching_cells_pct": 97.3,
+            "raw": "Volume: -29,813.909627\nSurface: 139,763.766876\n----------------------\nAdded volume: (+)1,634.825068\nRemoved volume: (-)31,448.734694\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 1.0%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/a-f/scene_metadata.json",
+            "draped": "area2/a-f/change_overlay_draped.ply",
+            "true_z": "area2/a-f/change_overlay_true_z.ply",
+            "site_map": "area2/a-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-d",
+          "label": "C-D",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -17765.631583,
+            "surface_m2": 303038.093227,
+            "added_volume_m3": 4023.003871,
+            "removed_volume_m3": 21788.635456,
+            "matching_cells_pct": 97.52990924243512,
+            "raw": "Area2_Padstow_Estuary_Terra_Boundary_C_vs_D_volume_stats\nVolume: 112.635128\nSurface: 49,542.378893\n----------------------\nAdded volume: (+)2,855.239100\nRemoved volume: (-)2,742.603972\n----------------------\nMatching cells: 97.4%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea2_Padstow_Estuary_Terra_Brea_Hill_Boundary_C_vs_D_volume_stats\nVolume: -4,588.138852\nSurface: 113,316.937467\n----------------------\nAdded volume: (+)1,003.091075\nRemoved volume: (-)5,591.229928\n----------------------\nMatching cells: 97.5%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 0.8%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea2_Padstow_Estuary_Terra_Trebetherick_Boundary_C_vs_D_volume_stats\nVolume: -13,290.127859\nSurface: 140,178.776867\n----------------------\nAdded volume: (+)164.673696\nRemoved volume: (-)13,454.801556\n----------------------\nMatching cells: 97.6%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary terra boundary",
+            "padstow estuary terra brea hill boundary",
+            "padstow estuary terra trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/c-d/scene_metadata.json",
+            "draped": "area2/c-d/change_overlay_draped.ply",
+            "true_z": "area2/c-d/change_overlay_true_z.ply",
+            "site_map": "area2/c-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-e",
+          "label": "C-E",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -9020.931138,
+            "surface_m2": 296776.64336600003,
+            "added_volume_m3": 11032.647242,
+            "removed_volume_m3": 20053.578379,
+            "matching_cells_pct": 95.65816693126422,
+            "raw": "Area2_Padstow_Estuary_Boundary_C_vs_E_volume_stats\nVolume: 1,631.610064\nSurface: 45,844.318975\n----------------------\nAdded volume: (+)5,319.335708\nRemoved volume: (-)3,687.725644\n----------------------\nMatching cells: 90.2%\nNon-matching cells:\n    ground = 9.5%\n    ceil = 0.3%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea2_Padstow_Estuary_Brea_Hill_Boundary_C_vs_E_volume_stats\nVolume: -9,638.257832\nSurface: 111,576.577506\n----------------------\nAdded volume: (+)1,892.040991\nRemoved volume: (-)11,530.298822\n----------------------\nMatching cells: 96.1%\nNon-matching cells:\n    ground = 3.2%\n    ceil = 0.8%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea2_Padstow_Estuary_Trebetherick_Boundary_C_vs_E_volume_stats\nVolume: -1,014.283370\nSurface: 139,355.746885\n----------------------\nAdded volume: (+)3,821.270543\nRemoved volume: (-)4,835.553913\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 2.6%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary brea hill boundary",
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/c-e/scene_metadata.json",
+            "draped": "area2/c-e/change_overlay_draped.ply",
+            "true_z": "area2/c-e/change_overlay_true_z.ply",
+            "site_map": "area2/c-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-f",
+          "label": "C-F",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -7459.142528,
+            "surface_m2": 303286.91322,
+            "added_volume_m3": 17710.444607,
+            "removed_volume_m3": 25169.587135,
+            "matching_cells_pct": 97.62472535577908,
+            "raw": "Area2_Padstow_Estuary_Boundary_C_vs_F_volume_stats\nVolume: 3,955.643611\nSurface: 49,510.708893\n----------------------\nAdded volume: (+)8,632.476420\nRemoved volume: (-)4,676.832809\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea2_Padstow_Estuary_Brea_Hill_Boundary_C_vs_F_volume_stats\nVolume: -5,754.696619\nSurface: 113,083.417472\n----------------------\nAdded volume: (+)4,730.360842\nRemoved volume: (-)10,485.057461\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 1.9%\n    ceil = 0.8%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea2_Padstow_Estuary_Trebetherick_Boundary_C_vs_F_volume_stats\nVolume: -5,660.089520\nSurface: 140,692.786855\n----------------------\nAdded volume: (+)4,347.607345\nRemoved volume: (-)10,007.696865\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary brea hill boundary",
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/c-f/scene_metadata.json",
+            "draped": "area2/c-f/change_overlay_draped.ply",
+            "true_z": "area2/c-f/change_overlay_true_z.ply",
+            "site_map": "area2/c-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-e",
+          "label": "D-E",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 8129.043406999999,
+            "surface_m2": 292690.233458,
+            "added_volume_m3": 19522.818188,
+            "removed_volume_m3": 11393.774781,
+            "matching_cells_pct": 94.39388771213694,
+            "raw": "Area2_Padstow_Estuary_Boundary_D_vs_E_volume_stats\nVolume: 1,275.978600\nSurface: 45,019.048994\n----------------------\nAdded volume: (+)4,656.776688\nRemoved volume: (-)3,380.798088\n----------------------\nMatching cells: 88.8%\nNon-matching cells:\n    ground = 9.3%\n    ceil = 1.9%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea2_Padstow_Estuary_Brea_Hill_Boundary_D_vs_E_volume_stats\nVolume: -5,121.087009\nSurface: 110,603.177528\n----------------------\nAdded volume: (+)1,916.074938\nRemoved volume: (-)7,037.161947\n----------------------\nMatching cells: 95.3%\nNon-matching cells:\n    ground = 3.1%\n    ceil = 1.6%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea2_Padstow_Estuary_Trebetherick_Boundary_D_vs_E_volume_stats\nVolume: 11,974.151816\nSurface: 137,068.006936\n----------------------\nAdded volume: (+)12,949.966562\nRemoved volume: (-)975.814746\n----------------------\nMatching cells: 95.5%\nNon-matching cells:\n    ground = 2.5%\n    ceil = 2.0%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary brea hill boundary",
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/d-e/scene_metadata.json",
+            "draped": "area2/d-e/change_overlay_draped.ply",
+            "true_z": "area2/d-e/change_overlay_true_z.ply",
+            "site_map": "area2/d-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-f",
+          "label": "D-F",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 10147.661847,
+            "surface_m2": 299097.843315,
+            "added_volume_m3": 25379.813841,
+            "removed_volume_m3": 15232.151993,
+            "matching_cells_pct": 96.30742636231001,
+            "raw": "Area2_Padstow_Estuary_Boundary_D_vs_F_volume_stats\nVolume: 3,814.522424\nSurface: 48,622.068913\n----------------------\nAdded volume: (+)8,031.857703\nRemoved volume: (-)4,217.335279\n----------------------\nMatching cells: 95.6%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 2.2%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea2_Padstow_Estuary_Brea_Hill_Boundary_D_vs_F_volume_stats\nVolume: -1,211.700633\nSurface: 112,090.797495\n----------------------\nAdded volume: (+)6,072.192724\nRemoved volume: (-)7,283.893356\n----------------------\nMatching cells: 96.5%\nNon-matching cells:\n    ground = 1.8%\n    ceil = 1.6%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea2_Padstow_Estuary_Trebetherick_Boundary_D_vs_F_volume_stats\nVolume: 7,544.840056\nSurface: 138,384.976907\n----------------------\nAdded volume: (+)11,275.763414\nRemoved volume: (-)3,730.923358\n----------------------\nMatching cells: 96.4%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 2.0%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary brea hill boundary",
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/d-f/scene_metadata.json",
+            "draped": "area2/d-f/change_overlay_draped.ply",
+            "true_z": "area2/d-f/change_overlay_true_z.ply",
+            "site_map": "area2/d-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "e-f",
+          "label": "E-F",
+          "display_label": "Survey Round 5 - 10 September 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area2",
+          "area_label": "Area 2",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 5 - 10 September 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 2.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 1984.4357760000007,
+            "surface_m2": 293024.173451,
+            "added_volume_m3": 17251.05975,
+            "removed_volume_m3": 15266.623974,
+            "matching_cells_pct": 94.53762332173302,
+            "raw": "Area2_Padstow_Estuary_Boundary_E_vs_F_volume_stats\nVolume: 2,574.602104\nSurface: 45,058.568993\n----------------------\nAdded volume: (+)4,937.371146\nRemoved volume: (-)2,362.769041\n----------------------\nMatching cells: 89.0%\nNon-matching cells:\n    ground = 1.8%\n    ceil = 9.2%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea2_Padstow_Estuary_Brea_Hill_Boundary_E_vs_F_volume_stats\nVolume: 3,863.070340\nSurface: 110,381.467533\n----------------------\nAdded volume: (+)8,388.020019\nRemoved volume: (-)4,524.949680\n----------------------\nMatching cells: 95.1%\nNon-matching cells:\n    ground = 1.8%\n    ceil = 3.1%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea2_Padstow_Estuary_Trebetherick_Boundary_E_vs_F_volume_stats\nVolume: -4,453.236668\nSurface: 137,584.136925\n----------------------\nAdded volume: (+)3,925.668585\nRemoved volume: (-)8,378.905253\n----------------------\nMatching cells: 95.9%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 2.5%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary brea hill boundary",
+            "padstow estuary trebetherick boundary"
+          ],
+          "paths": {
+            "metadata": "area2/e-f/scene_metadata.json",
+            "draped": "area2/e-f/change_overlay_draped.ply",
+            "true_z": "area2/e-f/change_overlay_true_z.ply",
+            "site_map": "area2/e-f/site_underlay.png"
+          }
+        }
+      ]
+    }
+  ]
+}

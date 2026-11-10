@@ -68,6 +68,18 @@
         "end": "2026-09-12"
       },
       "notes": "Survey Round 5 created for the 9-11 September 2026 repeat survey. Day 1 covered Areas 2, 3, 5, and 8; Day 2 covered Areas 7 and 6; Day 3 covered Areas 1 and 4. Padstow tide-table lows were 11:12, 11:58, and 12:40 BST respectively. Areas 1-8 now have downstreamed ortho, DSM, contours, area hero imagery, and section-profile CSVs connected in the monitoring page. Available volumetric comparison maps are connected for Areas 1, 2, 3, 4, and 8."
+    },    {
+      "id": "scan_06",
+      "label": "Survey Round 6 - 12 and 29 October 2026",
+      "shortDate": "12 & 29 Oct 2026",
+      "dateFrom": "2026-10-12",
+      "dateTo": "2026-10-29",
+      "status": "Survey Round 6 assets linked",
+      "readiness": "Area-specific dates recorded; imagery and profiles linked where available. Area 3 Survey 6 contours are connected; comparisons are tracked separately by area.",
+      "assetFolder": "padstow-estuary/scan_06",
+      "dataFolder": "mixed-by-area",
+      "comparisonBaseline": "2026-09-10",
+      "notes": "Survey Round 6 has two acquisition dates. Areas 2, 3, 5 and 8 were acquired on 12 October 2026. Areas 1, 4, 6 and 7 were acquired on 29 October 2026. Each area resolves to its own recorded source folder; this combined survey record does not imply that all areas were captured on one day."
     }
   ]
 }

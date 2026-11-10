@@ -1,0 +1,591 @@
+:root {
+  color-scheme: dark;
+  --fs-bg: #07111f;
+  --fs-panel: rgba(9, 19, 35, 0.78);
+  --fs-panel-strong: rgba(7, 16, 29, 0.9);
+  --fs-line: rgba(122, 171, 255, 0.18);
+  --fs-text: #edf4ff;
+  --fs-muted: rgba(217, 230, 252, 0.78);
+  --fs-accent: #79a7ff;
+  --fs-cyan: #4ad8ff;
+  --fs-shadow: 0 22px 48px rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Montserrat", "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--fs-text);
+  background: radial-gradient(circle at top, #173155 0%, #0b1730 48%, #06111d 100%);
+}
+
+body {
+  overflow: hidden;
+}
+
+body.is-embedded {
+  background: transparent;
+}
+
+.fs-stage {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(47, 103, 216, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(74, 216, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, #0b1a31 0%, #07111f 100%);
+}
+
+.fs-stage__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8, 18, 34, 0.84) 0%, rgba(8, 18, 34, 0.34) 32%, rgba(8, 18, 34, 0.12) 62%, rgba(8, 18, 34, 0.08) 100%),
+    linear-gradient(180deg, rgba(8, 18, 34, 0.05), rgba(8, 18, 34, 0.32));
+  z-index: 0;
+}
+
+.viewport-wrap,
+#viewer {
+  position: absolute;
+  inset: 0;
+}
+
+#viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-block,
+.pill-stack,
+.panel,
+.dock {
+  position: absolute;
+  z-index: 2;
+}
+
+.brand-block {
+  top: 34px;
+  left: 42px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  max-width: min(330px, calc(100% - 84px));
+  padding: 16px 18px;
+  border-radius: 26px;
+  border: 1px solid rgba(122, 171, 255, 0.12);
+  background: linear-gradient(180deg, rgba(8, 18, 34, 0.56), rgba(8, 18, 34, 0.22));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.22);
+}
+
+.brand-mark {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  padding-top: 3px;
+}
+
+.brand-mark span {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--fs-cyan), #8e82ff);
+  box-shadow: 0 0 16px rgba(74, 216, 255, 0.22);
+}
+
+.brand-mark span:nth-child(1) {
+  width: 38px;
+}
+
+.brand-mark span:nth-child(2) {
+  width: 28px;
+  margin-left: 8px;
+}
+
+.brand-mark span:nth-child(3) {
+  width: 22px;
+}
+
+.eyebrow,
+.subeyebrow,
+h1,
+.intro,
+.panel__title,
+.legend h2,
+.pill__label,
+.pill__value,
+.pill__subtext,
+.status {
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--fs-text);
+  font: 600 0.76rem/1.1 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.subeyebrow {
+  margin-top: 0.35rem;
+  color: rgba(185, 203, 234, 0.9);
+  font: 500 0.62rem/1.1 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  margin-top: 0.8rem;
+  color: var(--fs-text);
+  font: 800 clamp(1.5rem, 2.4vw, 2.45rem)/0.94 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  max-width: 10ch;
+  text-shadow: 0 6px 22px rgba(0, 0, 0, 0.38);
+}
+
+.intro {
+  margin-top: 0.7rem;
+  color: var(--fs-muted);
+  font: 500 0.84rem/1.5 "Montserrat", "Avenir Next", sans-serif;
+  max-width: 28ch;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.32);
+}
+
+.pill-stack {
+  top: 34px;
+  right: 42px;
+  display: grid;
+  gap: 14px;
+  width: min(300px, calc(100% - 84px));
+}
+
+.pill,
+.panel,
+.dock,
+.legend {
+  border: 1px solid var(--fs-line);
+  background: var(--fs-panel);
+  box-shadow: var(--fs-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.pill {
+  padding: 15px 18px;
+  border-radius: 22px;
+}
+
+.pill__label {
+  color: rgba(151, 190, 255, 0.9);
+  font: 500 0.76rem/1.2 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.pill__value {
+  margin-top: 0.45rem;
+  color: var(--fs-text);
+  font: 700 1rem/1.2 "Montserrat", "Avenir Next", sans-serif;
+}
+
+.pill__subtext {
+  margin-top: 0.42rem;
+  color: var(--fs-muted);
+  font: 500 0.84rem/1.45 "Montserrat", "Avenir Next", sans-serif;
+}
+
+.panel {
+  left: 24px;
+  top: 332px;
+  width: min(330px, calc(100% - 48px));
+  max-height: none;
+  padding: 16px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(9, 20, 36, 0.92), rgba(7, 16, 29, 0.84));
+  display: grid;
+  gap: 1rem;
+  overflow: visible;
+}
+
+.panel__section {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.panel__title {
+  color: rgba(151, 190, 255, 0.92);
+  font: 600 0.75rem/1.2 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.controls,
+.actions,
+.legend {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.comparison-shelf {
+  display: grid;
+  gap: 0.46rem;
+  padding-top: 0.15rem;
+}
+
+.comparison-shelf__title,
+.comparison-shelf__hint {
+  margin: 0;
+}
+
+.comparison-shelf__title {
+  color: rgba(151, 190, 255, 0.92);
+  font: 600 0.68rem/1.2 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.comparison-shelf__hint {
+  color: var(--fs-muted);
+  font-size: 0.74rem;
+  line-height: 1.35;
+}
+
+.pair-picker {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.38rem;
+  max-height: 12rem;
+  overflow-y: auto;
+  padding-right: 0.15rem;
+}
+
+.pair-picker__item {
+  min-width: 0;
+  border-radius: 12px;
+  padding: 0.48rem 0.42rem;
+  text-align: left;
+  background: rgba(17, 36, 65, 0.92);
+}
+
+.pair-picker__item[aria-pressed="true"] {
+  border-color: var(--fs-cyan);
+  background: linear-gradient(180deg, rgba(48, 127, 216, 0.98), rgba(36, 81, 169, 0.98));
+  box-shadow: 0 0 0 1px rgba(74, 216, 255, 0.2);
+}
+
+.pair-picker__item strong,
+.pair-picker__item span {
+  display: block;
+}
+
+.pair-picker__item strong {
+  font-size: 0.76rem;
+}
+
+.pair-picker__item span {
+  margin-top: 0.18rem;
+  overflow: hidden;
+  color: var(--fs-muted);
+  font-size: 0.56rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.controls label,
+.toggle {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--fs-text);
+}
+
+.toggle {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--fs-accent);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--fs-accent);
+}
+
+select {
+  width: 100%;
+  border: 1px solid rgba(120, 168, 243, 0.22);
+  border-radius: 14px;
+  padding: 0.72rem 0.82rem;
+  font: inherit;
+  color: var(--fs-text);
+  background: rgba(10, 21, 38, 0.92);
+}
+
+button {
+  border: 1px solid rgba(120, 168, 243, 0.18);
+  border-radius: 999px;
+  padding: 0.88rem 1rem;
+  font: 700 0.95rem/1 "Montserrat", "Avenir Next", sans-serif;
+  color: var(--fs-text);
+  background: linear-gradient(180deg, rgba(59, 103, 211, 0.95), rgba(39, 73, 164, 0.95));
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(18, 39, 86, 0.34);
+}
+
+button:active {
+  transform: translateY(0);
+  opacity: 0.94;
+}
+
+.dock {
+  right: 34px;
+  top: 288px;
+  width: min(360px, calc(100% - 84px));
+  max-height: none;
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(7, 16, 29, 0.74);
+  display: grid;
+  gap: 0.75rem;
+  overflow: visible;
+}
+
+.legend {
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(10, 21, 38, 0.72);
+}
+
+.legend h2 {
+  color: var(--fs-text);
+  font: 700 0.92rem/1.2 "Montserrat", "Avenir Next", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legend p,
+.status {
+  margin-top: 0.45rem;
+  color: var(--fs-muted);
+  font: 500 0.84rem/1.42 "Montserrat", "Avenir Next", sans-serif;
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.82rem;
+  height: 0.82rem;
+  border-radius: 999px;
+  margin-right: 0.46rem;
+  vertical-align: -0.05rem;
+}
+
+.gain {
+  background: #3f97ff;
+}
+
+.loss {
+  background: #ff6158;
+}
+
+.status {
+  padding: 0 0.1rem;
+}
+
+@media (max-width: 1120px) {
+  body {
+    overflow: auto;
+  }
+
+  .fs-stage {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto minmax(56vh, 1fr);
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .viewport-wrap,
+  #viewer,
+  .brand-block,
+  .pill-stack,
+  .panel,
+  .dock {
+    position: relative;
+    inset: auto;
+  }
+
+  .viewport-wrap {
+    min-height: 62vh;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid var(--fs-line);
+    box-shadow: var(--fs-shadow);
+  }
+
+  .brand-block,
+  .pill-stack,
+  .panel,
+  .dock {
+    width: 100%;
+    max-width: none;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .brand-block {
+    padding-right: 0;
+  }
+
+  h1 {
+    max-width: none;
+  }
+
+  .panel,
+  .dock {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+body.is-embedded .fs-stage {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(47, 103, 216, 0.08), transparent 18%),
+    linear-gradient(180deg, #0a1830 0%, #07111f 100%);
+}
+
+body.is-embedded .brand-block {
+  display: none;
+}
+
+body.is-embedded .pill-stack {
+  display: none;
+}
+
+body.is-embedded .panel {
+  top: 14px;
+  right: 14px;
+  left: auto;
+  bottom: calc(43% + 8px);
+  width: min(258px, calc(100% - 28px));
+  max-height: none;
+  padding: 9px 10px;
+  gap: 0.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body.is-embedded .panel__section {
+  gap: 0.4rem;
+}
+
+body.is-embedded .panel__title {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+}
+
+body.is-embedded .controls,
+body.is-embedded .actions,
+body.is-embedded .legend {
+  gap: 0.38rem;
+}
+
+body.is-embedded .controls label,
+body.is-embedded .toggle {
+  font-size: 0.74rem;
+  line-height: 1.2;
+}
+
+body.is-embedded .toggle {
+  gap: 0.38rem;
+}
+
+body.is-embedded select {
+  padding: 0.48rem 0.6rem;
+  border-radius: 11px;
+  font-size: 0.76rem;
+}
+
+body.is-embedded input[type="range"] {
+  margin: 0;
+}
+
+body.is-embedded button {
+  padding: 0.58rem 0.74rem;
+  font-size: 0.75rem;
+}
+
+body.is-embedded #fullscreen {
+  display: none;
+}
+
+body.is-embedded .dock {
+  right: 14px;
+  top: calc(57% + 8px);
+  bottom: 14px;
+  width: min(258px, calc(100% - 28px));
+  max-height: none;
+  padding: 9px 10px;
+  gap: 0.38rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body.is-embedded .pill,
+body.is-embedded .legend,
+body.is-embedded .panel,
+body.is-embedded .dock {
+  backdrop-filter: blur(18px);
+}
+
+body.is-embedded .legend {
+  padding: 9px 10px;
+  border-radius: 15px;
+}
+
+body.is-embedded .legend h2 {
+  font-size: 0.7rem;
+}
+
+body.is-embedded .legend p,
+body.is-embedded .status {
+  margin-top: 0.34rem;
+  font-size: 0.72rem;
+  line-height: 1.24;
+}
+
+/* Local embedded review: keep the dropdown and show all controls without nested scrollbars. */
+body.is-embedded {overflow:hidden}
+body.is-embedded .fs-stage {display:block;position:relative;height:100vh;min-height:0;padding:0;overflow:hidden}
+body.is-embedded .viewport-wrap,body.is-embedded #viewer {position:absolute;inset:0;width:100%;height:100%;min-height:0;border:0;border-radius:0}
+body.is-embedded .comparison-shelf {display:none}
+body.is-embedded .panel {position:absolute;inset:12px 12px auto auto;width:min(258px,calc(100% - 24px));max-height:none;overflow:visible}
+body.is-embedded .dock {position:absolute;left:auto;right:12px;bottom:auto;width:min(258px,calc(100% - 24px));max-height:none;overflow:visible}
+
+/* Compact nested controls for the embedded monitoring view. */
+body.is-embedded .panel {background:rgba(37,50,66,.96);gap:6px;padding:10px}
+body.is-embedded .panel__section {padding:9px;border:1px solid rgba(122,171,255,.12);border-radius:14px;background:rgba(7,16,29,.88)}
+body.is-embedded .actions {padding:0 3px 2px}
+

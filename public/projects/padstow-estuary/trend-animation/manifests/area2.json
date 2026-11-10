@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "areaId": "area2",
+  "label": "Area 2 — Daymer Bay",
+  "initialIndex": 2,
+  "colourEncoding": "blue-positive",
+  "grid": {
+    "width": 850,
+    "height": 1350,
+    "origin": [
+      192100,
+      76650
+    ],
+    "crs": "EPSG:27700",
+    "resolutionM": 1,
+    "thresholdM": 0.05,
+    "limitM": 0.5
+  },
+  "warning": "PRELIMINARY ANALYSIS — EXPERIMENTAL — registration, datum, surface classification and reporting boundaries require review. Not a validated scientific conclusion.",
+  "evidence": "The older source LAS headers examined declare EPSG:27700, while the historical Area 2 QGIS project assigns EPSG:7405 (British National Grid and ODN) to historical clipped layers. That project assignment is a configuration declaration, not independently verified datum lineage. Candidate polygons match the current QGIS boundary files; clip-time versions were not hash-pinned. Earlier survey is recorded as ground and later as ceiling. Exposed sediment, tide, registration and uncertainty require independent review.",
+  "frames": [
+    {
+      "pair": "A-B",
+      "label": "Survey 1 → 2",
+      "status": "unavailable",
+      "reason": "Survey B is unusable due to high tide."
+    },
+    {
+      "pair": "B-C",
+      "label": "Survey 2 → 3",
+      "status": "unavailable",
+      "reason": "Survey B is unusable due to high tide."
+    },
+    {
+      "pair": "A-C",
+      "label": "Survey 1 → 3",
+      "fromDate": "2026-03-22",
+      "toDate": "2026-06-16",
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment. Trebetherick only; Brea Hill and Estuary are unavailable for A→C.",
+      "summary": {
+        "occupiedCells": 143540,
+        "increaseCells": 3555,
+        "decreaseCells": 128931
+      },
+      "skippedSurveys": [
+        {
+          "survey": "Survey 2",
+          "status": "unusable"
+        }
+      ],
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area2/a-c.png",
+      "sha256": "4b21c279089fefc0b332892c85acf193282f2e259e88d9c0c4ef1fcb22b49427",
+      "zoneImages": [
+        {
+          "label": "Trebetherick",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/a-c/trebetherick.png"
+        }
+      ]
+    },
+    {
+      "pair": "C-D",
+      "label": "Survey 3 → 4",
+      "fromDate": "2026-06-16",
+      "toDate": "2026-07-15",
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment. ",
+      "summary": {
+        "occupiedCells": 310502,
+        "increaseCells": 25040,
+        "decreaseCells": 190123
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area2/c-d.png",
+      "sha256": "60c26f82bf5bb61b069faa1891c59ff4f9a1be7a8e4404160ff05eb2296554cb",
+      "zoneImages": [
+        {
+          "label": "Estuary",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/c-d/estuary.png"
+        },
+        {
+          "label": "Brea Hill",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/c-d/brea-hill.png"
+        },
+        {
+          "label": "Trebetherick",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/c-d/trebetherick.png"
+        }
+      ]
+    },
+    {
+      "pair": "D-E",
+      "label": "Survey 4 → 5",
+      "fromDate": "2026-07-15",
+      "toDate": "2026-09-10",
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment. ",
+      "summary": {
+        "occupiedCells": 307097,
+        "increaseCells": 144729,
+        "decreaseCells": 75475
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area2/d-e.png",
+      "sha256": "ab1d7d6d97d872e615461cbec95a7b46ac8782d4f2947126dc6768cafc28e567",
+      "zoneImages": [
+        {
+          "label": "Estuary",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/d-e/estuary.png"
+        },
+        {
+          "label": "Brea Hill",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/d-e/brea-hill.png"
+        },
+        {
+          "label": "Trebetherick",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/d-e/trebetherick.png"
+        }
+      ]
+    },
+    {
+      "pair": "E-F",
+      "label": "Survey 5 → 6",
+      "fromDate": "2026-09-10",
+      "toDate": "2026-10-12",
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment. ",
+      "summary": {
+        "occupiedCells": 307081,
+        "increaseCells": 89236,
+        "decreaseCells": 94818
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area2/e-f.png",
+      "sha256": "de492d60b15b69b26356fb59e93781cca83d3325716268aca583b4902e243d40",
+      "zoneImages": [
+        {
+          "label": "Estuary",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/e-f/estuary.png"
+        },
+        {
+          "label": "Brea Hill",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/e-f/brea-hill.png"
+        },
+        {
+          "label": "Trebetherick",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area2/e-f/trebetherick.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "areaId": "area8",
+  "label": "Area 8",
+  "initialIndex": 4,
+  "colourEncoding": "blue-positive",
+  "grid": {
+    "width": 1745,
+    "height": 1150,
+    "crs": "EPSG:27700",
+    "resolutionM": 1,
+    "thresholdM": 0.05,
+    "limitM": 0.5,
+    "origin": [
+      196560,
+      73520
+    ]
+  },
+  "warning": "PRELIMINARY ANALYSIS — EXPERIMENTAL — registration, datum, surface classification and reporting boundaries require review. Not a validated scientific conclusion.",
+  "evidence": "Historical LAS headers declare EPSG:27700; the QGIS project assigns EPSG:7405 (ODN) to earlier clouds, but datum and registration are not independently verified. Old records called padstow_estuary_boundary refer to Padstow-named clipped clouds and the Padstow polygon in the QGIS project; they are not evidence of an estuary-wide footprint. Candidate polygons match current QGIS-referenced files, but clip-time versions were not hash-pinned. Tide and surface classification are unverified.",
+  "frames": [
+    {
+      "pair": "A-B",
+      "label": "Survey 1 → 2",
+      "fromDate": "2026-03-23",
+      "toDate": "2026-04-18",
+      "status": "experimental",
+      "coverageNote": "Experimental only. Dates from processing records; datum, registration, tide, boundaries and exposed sediment remain unverified.",
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area8/a-b.png",
+      "sha256": "3059c8898f5e9930fb4662734476a7d03d3272a3780a1484001d3bcc659eacc3",
+      "summary": {
+        "increaseCells": 34407,
+        "decreaseCells": 198079,
+        "occupiedCells": 633533
+      }
+    },
+    {
+      "pair": "B-C",
+      "label": "Survey 2 → 3",
+      "fromDate": "2026-04-18",
+      "toDate": "2026-06-16",
+      "status": "experimental",
+      "coverageNote": "Experimental only. Dates from processing records; datum, registration, tide, boundaries and exposed sediment remain unverified.",
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area8/b-c.png",
+      "sha256": "edb64abf8dcda977bf056ed187608b340e108a2c9c42fd4ff61114428a40b451",
+      "summary": {
+        "increaseCells": 52908,
+        "decreaseCells": 442627,
+        "occupiedCells": 633537
+      }
+    },
+    {
+      "pair": "C-D",
+      "label": "Survey 3 → 4",
+      "fromDate": "2026-06-16",
+      "toDate": "2026-07-15",
+      "status": "experimental",
+      "coverageNote": "Experimental only. Dates from processing records; datum, registration, tide, boundaries and exposed sediment remain unverified.",
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area8/c-d.png",
+      "sha256": "1332d508eb636b005f2243c96a9d8b9ce76852cbb984b3f50843ff8ce79ed8b8",
+      "summary": {
+        "increaseCells": 469049,
+        "decreaseCells": 15411,
+        "occupiedCells": 633601
+      }
+    },
+    {
+      "pair": "D-E",
+      "label": "Survey 4 → 5",
+      "fromDate": "2026-07-15",
+      "toDate": "2026-09-10",
+      "status": "experimental",
+      "coverageNote": "Experimental only. Dates from processing records; datum, registration, tide, boundaries and exposed sediment remain unverified.",
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area8/d-e.png",
+      "sha256": "c0d642a81912790781042e7aa6872ed59e0794dc2cfa3e661c208912e6b86c80",
+      "summary": {
+        "increaseCells": 8223,
+        "decreaseCells": 457525,
+        "occupiedCells": 633601
+      }
+    },
+    {
+      "pair": "E-F",
+      "label": "Survey 5 → 6",
+      "fromDate": "2026-09-10",
+      "toDate": "2026-10-12",
+      "status": "experimental",
+      "coverageNote": "Experimental matched cells only; cloud registration, water, datum and candidate boundaries are unverified.",
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area8/e-f.png",
+      "sha256": "fac1f8d57ac3c7fe23df72ce25710e63504fbcc6a9f287655fc65274f3038559",
+      "zoneImages": [
+        {
+          "label": "central",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area8/e-f/central.png"
+        },
+        {
+          "label": "padstow",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area8/e-f/padstow.png"
+        },
+        {
+          "label": "wadebridge",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area8/e-f/wadebridge.png"
+        }
+      ],
+      "summary": {
+        "increaseCells": 20886,
+        "decreaseCells": 290693,
+        "occupiedCells": 633599
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "areas": {
+    "area1": "/public/projects/padstow-estuary/trend-animation/manifests/area1.json",
+    "area2": "/public/projects/padstow-estuary/trend-animation/manifests/area2.json",
+    "area3": "/public/projects/padstow-estuary/trend-animation/manifests/area3.json",
+    "area4": "/public/projects/padstow-estuary/trend-animation/manifests/area4.json",
+    "area8": "/public/projects/padstow-estuary/trend-animation/manifests/area8.json"
+  }
+}

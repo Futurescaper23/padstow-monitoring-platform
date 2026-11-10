@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "areaId": "area4",
+  "label": "Area 4 — Padstow Harbour",
+  "initialIndex": 3,
+  "colourEncoding": "blue-positive",
+  "grid": {
+    "width": 1300,
+    "height": 1700,
+    "origin": [
+      192000,
+      73900
+    ],
+    "crs": "EPSG:27700",
+    "resolutionM": 1,
+    "thresholdM": 0.05,
+    "limitM": 0.5
+  },
+  "warning": "PRELIMINARY ANALYSIS — EXPERIMENTAL — registration, datum, surface classification and reporting boundaries require review. Not a validated scientific conclusion.",
+  "evidence": "Historical comparison source identities are supported by processing logs and sample consistency but are not independently proven; early survey dates conflict. The September–October source and processing outputs match recorded hashes. Registration, datum, tidal effects, exposed-surface classification and boundary suitability require review. Shadows are not sediment transport.",
+  "frames": [
+    {
+      "pair": "A-B",
+      "label": "Survey 1 → 2",
+      "fromDate": null,
+      "toDate": null,
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment.  Experimental only: candidate A/B source identities are corroborated by samples and logs but not independently proven; acquisition dates conflict between records. Footprints and surface classification require review.",
+      "summary": {
+        "occupiedCells": 694241,
+        "increaseCells": 104735,
+        "decreaseCells": 459529
+      },
+      "zoneImages": [
+        {
+          "label": "Beach",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/a-b/beach.png"
+        },
+        {
+          "label": "Iron Bridge",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/a-b/iron-bridge.png"
+        },
+        {
+          "label": "Padstow",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/a-b/padstow.png"
+        }
+      ],
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area4/a-b.png",
+      "sha256": "e1631d63c8db4f806ce2c04f89697397659cdbc29c900568504314170fe80b4e"
+    },
+    {
+      "pair": "B-C",
+      "label": "Survey 2 → 3",
+      "fromDate": null,
+      "toDate": null,
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment.  All three candidate zones are included. Experimental only: candidate historical source identities are corroborated by samples and logs but not independently proven; acquisition dates conflict between records. Footprints and surface classification require review.",
+      "summary": {
+        "occupiedCells": 694284,
+        "increaseCells": 490211,
+        "decreaseCells": 102968
+      },
+      "zoneImages": [
+        {
+          "label": "Beach",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/b-c/beach.png"
+        },
+        {
+          "label": "Iron Bridge",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/b-c/iron-bridge.png"
+        },
+        {
+          "label": "Padstow",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/b-c/padstow.png"
+        }
+      ],
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area4/b-c.png",
+      "sha256": "2b844d079f21b214e8c674a034543ec328a7edccfd6c0fd90293eeb1881ff5f0"
+    },
+    {
+      "pair": "C-D",
+      "label": "Survey 3 → 4",
+      "fromDate": null,
+      "toDate": null,
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment.  All three candidate zones are included. Experimental only: candidate historical source identities are corroborated by samples and logs but not independently proven; acquisition dates conflict between records. Footprints and surface classification require review.",
+      "summary": {
+        "occupiedCells": 694283,
+        "increaseCells": 110349,
+        "decreaseCells": 423622
+      },
+      "zoneImages": [
+        {
+          "label": "Beach",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/c-d/beach.png"
+        },
+        {
+          "label": "Iron Bridge",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/c-d/iron-bridge.png"
+        },
+        {
+          "label": "Padstow",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/c-d/padstow.png"
+        }
+      ],
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area4/c-d.png",
+      "sha256": "db3f10dff0dfe06d78160fbc65bba164ce7e5fe56a31d4b479cff1e45d801fa3"
+    },
+    {
+      "pair": "D-E",
+      "label": "Survey 4 → 5",
+      "fromDate": "2026-07-15",
+      "toDate": "2026-09-10",
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment. The historical Section4 polygon matches the Padstow candidate; both dated D/E input clouds are contained within it. Original clip-time geometry and scientific suitability are not independently verified.",
+      "summary": {
+        "occupiedCells": 693253,
+        "increaseCells": 197687,
+        "decreaseCells": 121166
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area4/d-e.png",
+      "sha256": "983faa73097f138cb8566757bc649c9f67eaa57687ea59e7394071ad342067a9",
+      "zoneImages": [
+        {
+          "label": "Beach",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/d-e/beach.png"
+        },
+        {
+          "label": "Iron Bridge",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/d-e/iron-bridge.png"
+        },
+        {
+          "label": "Padstow",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/d-e/padstow.png"
+        }
+      ]
+    },
+    {
+      "pair": "E-F",
+      "label": "Survey 5 → 6",
+      "fromDate": "2026-09-10",
+      "toDate": "2026-10-29",
+      "status": "experimental",
+      "coverageNote": "Only matched measurements inside candidate zones shown; unclassified surfaces are not confirmed exposed sediment. ",
+      "summary": {
+        "occupiedCells": 689283,
+        "increaseCells": 391590,
+        "decreaseCells": 203590
+      },
+      "zoneImages": [
+        {
+          "label": "Beach",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/e-f/beach.png"
+        },
+        {
+          "label": "Iron Bridge",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/e-f/iron-bridge.png"
+        },
+        {
+          "label": "Padstow",
+          "url": "/public/projects/padstow-estuary/trend-animation/zones/area4/e-f/padstow.png"
+        }
+      ],
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area4/e-f.png",
+      "sha256": "584f86defdb30e945bb222c74e2418739b62f0bfdaf5f9729ec6def84fe75fc6"
+    }
+  ]
+}

@@ -34,7 +34,8 @@
     "overviewHeroImagePathBySurvey": {
       "2026-07-15": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary-2026-07-15.png",
       "2026-06-16": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-06-16/whole-estuary.png",
-      "2026-09-10": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary-2026-09-10.png"
+      "2026-09-10": "/public/projects/padstow-estuary/assets/maps/branding/overview-hero-estuary-2026-09-10.png",
+      "scan_06": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/whole-estuary.png"
     },
     "areaHeroImagesBySurvey": {
       "2026-06-16": {
@@ -66,6 +67,16 @@
         "area6": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-6.png",
         "area7": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-7.png",
         "area8": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/2026-09-10/area-8.png"
+      },
+      "scan_06": {
+        "area1": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-1.png",
+        "area2": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-2.png",
+        "area3": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-3.png",
+        "area4": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-4.png",
+        "area5": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-5.png",
+        "area6": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-6.png",
+        "area7": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-7.png",
+        "area8": "/public/projects/padstow-estuary/assets/maps/branding/area-heroes/scan_06/area-8.png"
       }
     },
     "areaHeroArtDirectionBySurvey": {
@@ -113,8 +124,8 @@
     },
     "niraModelsBySurvey": {
       "2026-03-22": "https://futurescaping.nira.app/a/35VOk9gRT5KFNQDIq54mSQ/1",
-      "2026-07-15": "https://futurescaping.nira.app/a/eA4l3Fp8ROmAiVEHJK820A/1",
-      "2026-09-10": "https://futurescaping.nira.app/a/ckEmXJjpS2q4FpKbWTIj8A/1"
+      "2026-09-10": "https://futurescaping.nira.app/a/ckEmXJjpS2q4FpKbWTIj8A/1",
+      "scan_06": "https://futurescaping.nira.app/a/vAyORbH6ROm7-WxUOXzhVQ/1"
     }
   },
   "workflow": [

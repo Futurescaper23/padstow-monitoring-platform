@@ -1,0 +1,544 @@
+{
+  "title": "Sediment Change Viewer",
+  "default_area_id": "area4",
+  "areas": [
+    {
+      "id": "area4",
+      "label": "Area 4",
+      "terrain_label": "Survey Round 3 base terrain",
+      "survey_labels": {
+        "A": "Survey Round 1 - 22 and 23 March 2026",
+        "B": "Survey Round 2 - 18 and 19 April 2026",
+        "C": "Survey Round 3 - 16 and 17 June 2026",
+        "D": "Survey Round 4 - 15 and 16 July 2026",
+        "E": "Survey Round 5 - 10 September 2026",
+        "F": "Survey Round 6 - 29 October 2026"
+      },
+      "default_dataset_id": "c-f",
+      "datasets": [
+        {
+          "id": "a-b",
+          "label": "A-B",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -59274.210034,
+            "surface_m2": 685071.034688,
+            "added_volume_m3": 17059.583602,
+            "removed_volume_m3": 76333.793635,
+            "matching_cells_pct": 98.62524307953171,
+            "raw": "Area4_Beach_A_vs_B_volume_stats\nVolume: -11,521.965544\nSurface: 155,871.296516\n----------------------\nAdded volume: (+)1,792.539466\nRemoved volume: (-)13,314.505010\n----------------------\nMatching cells: 98.5%\nNon-matching cells:\n    ground = 0.1%\n    ceil = 1.4%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_A_vs_B_volume_stats\nVolume: -51,833.553097\nSurface: 328,804.322651\n----------------------\nAdded volume: (+)1,926.342056\nRemoved volume: (-)53,759.895153\n----------------------\nMatching cells: 98.7%\nNon-matching cells:\n    ground = 0.5%\n    ceil = 0.8%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Padstow_A_vs_B_volume_stats\nVolume: 4,081.308607\nSurface: 200,395.415521\n----------------------\nAdded volume: (+)13,340.702080\nRemoved volume: (-)9,259.393472\n----------------------\nMatching cells: 98.6%\nNon-matching cells:\n    ground = 0.4%\n    ceil = 1.0%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/a-b/scene_metadata.json",
+            "draped": "area4/a-b/change_overlay_draped.ply",
+            "true_z": "area4/a-b/change_overlay_true_z.ply",
+            "site_map": "area4/a-b/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-c",
+          "label": "A-C",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 19097.850853,
+            "surface_m2": 685646.944675,
+            "added_volume_m3": 47568.663631,
+            "removed_volume_m3": 28470.812778,
+            "matching_cells_pct": 98.7505982116511,
+            "raw": "Area4_Beach_A_vs_C_volume_stats\nVolume: 5,477.579682\nSurface: 155,867.706516\n----------------------\nAdded volume: (+)7,721.291503\nRemoved volume: (-)2,243.711821\n----------------------\nMatching cells: 98.5%\nNon-matching cells:\n    ground = 0.1%\n    ceil = 1.4%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_A_vs_C_volume_stats\nVolume: 19,300.198115\nSurface: 329,330.252639\n----------------------\nAdded volume: (+)27,603.426751\nRemoved volume: (-)8,303.228636\n----------------------\nMatching cells: 98.9%\nNon-matching cells:\n    ground = 0.3%\n    ceil = 0.8%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Padstow_A_vs_C_volume_stats\nVolume: -5,679.926944\nSurface: 200,448.985520\n----------------------\nAdded volume: (+)12,243.945377\nRemoved volume: (-)17,923.872321\n----------------------\nMatching cells: 98.7%\nNon-matching cells:\n    ground = 0.4%\n    ceil = 1.0%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/a-c/scene_metadata.json",
+            "draped": "area4/a-c/change_overlay_draped.ply",
+            "true_z": "area4/a-c/change_overlay_true_z.ply",
+            "site_map": "area4/a-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-d",
+          "label": "A-D",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -15432.893393999999,
+            "surface_m2": 674805.294917,
+            "added_volume_m3": 34035.862802,
+            "removed_volume_m3": 49468.756196,
+            "matching_cells_pct": 97.18382232795396,
+            "raw": "Area4_Beach_A_vs_D_volume_stats\nVolume: -3,575.285127\nSurface: 153,430.846571\n----------------------\nAdded volume: (+)4,914.327665\nRemoved volume: (-)8,489.612792\n----------------------\nMatching cells: 97.0%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 1.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Iron_Bridge_A_vs_D_volume_stats\nVolume: -8,895.834238\nSurface: 323,680.542765\n----------------------\nAdded volume: (+)13,357.798199\nRemoved volume: (-)22,253.632437\n----------------------\nMatching cells: 97.2%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.8%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_A_vs_D_volume_stats\nVolume: -2,961.774029\nSurface: 197,693.905581\n----------------------\nAdded volume: (+)15,763.736938\nRemoved volume: (-)18,725.510967\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 0.9%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/a-d/scene_metadata.json",
+            "draped": "area4/a-d/change_overlay_draped.ply",
+            "true_z": "area4/a-d/change_overlay_true_z.ply",
+            "site_map": "area4/a-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-e",
+          "label": "A-E",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -8584.153107,
+            "surface_m2": 869988.090553,
+            "added_volume_m3": 76420.66754699999,
+            "removed_volume_m3": 85004.820653,
+            "matching_cells_pct": 96.93123301995483,
+            "raw": "Area4_Beach_A_vs_E_volume_stats\nVolume: -2,016.054464\nSurface: 153,001.446580\n----------------------\nAdded volume: (+)7,577.304386\nRemoved volume: (-)9,593.358850\n----------------------\nMatching cells: 96.7%\nNon-matching cells:\n    ground = 1.9%\n    ceil = 1.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Iron_Bridge_A_vs_E_volume_stats\nVolume: -3,607.755341\nSurface: 323,678.272765\n----------------------\nAdded volume: (+)19,388.604287\nRemoved volume: (-)22,996.359627\n----------------------\nMatching cells: 97.2%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.8%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_A_vs_E_volume_stats\nVolume: -1,480.171651\nSurface: 196,654.185604\n----------------------\nAdded volume: (+)24,727.379437\nRemoved volume: (-)26,207.551088\n----------------------\nMatching cells: 96.8%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.9%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_Estuary_Boundary_A_vs_E_volume_stats\nVolume: -1,480.171651\nSurface: 196,654.185604\n----------------------\nAdded volume: (+)24,727.379437\nRemoved volume: (-)26,207.551088\n----------------------\nMatching cells: 96.8%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.9%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow",
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area4/a-e/scene_metadata.json",
+            "draped": "area4/a-e/change_overlay_draped.ply",
+            "true_z": "area4/a-e/change_overlay_true_z.ply",
+            "site_map": "area4/a-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-f",
+          "label": "A-F",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 13424.873483000005,
+            "surface_m2": 670492.8750130001,
+            "added_volume_m3": 79388.929853,
+            "removed_volume_m3": 65964.05637,
+            "matching_cells_pct": 96.55452814719752,
+            "raw": "Area4_Beach_A_vs_F_volume_stats\nVolume: 10,815.729663\nSurface: 152,105.386600\n----------------------\nAdded volume: (+)14,869.005555\nRemoved volume: (-)4,053.275892\n----------------------\nMatching cells: 96.2%\nNon-matching cells:\n    ground = 2.4%\n    ceil = 1.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Iron_Bridge_A_vs_F_volume_stats\nVolume: 34,146.148200\nSurface: 325,575.832723\n----------------------\nAdded volume: (+)45,317.137783\nRemoved volume: (-)11,170.989583\n----------------------\nMatching cells: 97.7%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.8%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_A_vs_F_volume_stats\nVolume: -31,537.004380\nSurface: 192,811.655690\n----------------------\nAdded volume: (+)19,202.786515\nRemoved volume: (-)50,739.790895\n----------------------\nMatching cells: 94.9%\nNon-matching cells:\n    ground = 4.1%\n    ceil = 0.9%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/a-f/scene_metadata.json",
+            "draped": "area4/a-f/change_overlay_draped.ply",
+            "true_z": "area4/a-f/change_overlay_true_z.ply",
+            "site_map": "area4/a-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-c",
+          "label": "B-C",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 78808.444204,
+            "surface_m2": 689924.914579,
+            "added_volume_m3": 99247.004972,
+            "removed_volume_m3": 20438.560769,
+            "matching_cells_pct": 99.36037638036949,
+            "raw": "Area4_Beach_B_vs_C_volume_stats\nVolume: 17,230.956346\nSurface: 158,068.086467\n----------------------\nAdded volume: (+)18,447.047970\nRemoved volume: (-)1,216.091625\n----------------------\nMatching cells: 99.9%\nNon-matching cells:\n    ground = 0.1%\n    ceil = 0.1%\nAverage neighbors per cell: 8.0 / 8.0\n\nArea4_Iron_Bridge_B_vs_C_volume_stats\nVolume: 71,419.243361\nSurface: 330,299.712617\n----------------------\nAdded volume: (+)72,580.972025\nRemoved volume: (-)1,161.728664\n----------------------\nMatching cells: 99.2%\nNon-matching cells:\n    ground = 0.3%\n    ceil = 0.5%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Padstow_B_vs_C_volume_stats\nVolume: -9,841.755503\nSurface: 201,557.115495\n----------------------\nAdded volume: (+)8,218.984977\nRemoved volume: (-)18,060.740480\n----------------------\nMatching cells: 99.2%\nNon-matching cells:\n    ground = 0.4%\n    ceil = 0.4%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/b-c/scene_metadata.json",
+            "draped": "area4/b-c/change_overlay_draped.ply",
+            "true_z": "area4/b-c/change_overlay_true_z.ply",
+            "site_map": "area4/b-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-d",
+          "label": "B-D",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 43074.553662,
+            "surface_m2": 678981.704824,
+            "added_volume_m3": 66218.346852,
+            "removed_volume_m3": 23143.793192,
+            "matching_cells_pct": 97.77113412125473,
+            "raw": "Area4_Beach_B_vs_D_volume_stats\nVolume: 7,932.640348\nSurface: 155,576.086523\n----------------------\nAdded volume: (+)9,793.388685\nRemoved volume: (-)1,860.748338\n----------------------\nMatching cells: 98.3%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_B_vs_D_volume_stats\nVolume: 42,197.421739\nSurface: 324,624.822744\n----------------------\nAdded volume: (+)45,209.952653\nRemoved volume: (-)3,012.530915\n----------------------\nMatching cells: 97.5%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_B_vs_D_volume_stats\nVolume: -7,055.508425\nSurface: 198,780.795557\n----------------------\nAdded volume: (+)11,215.005514\nRemoved volume: (-)18,270.513939\n----------------------\nMatching cells: 97.8%\nNon-matching cells:\n    ground = 1.8%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/b-d/scene_metadata.json",
+            "draped": "area4/b-d/change_overlay_draped.ply",
+            "true_z": "area4/b-d/change_overlay_true_z.ply",
+            "site_map": "area4/b-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-e",
+          "label": "B-E",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 45269.783428,
+            "surface_m2": 875219.170437,
+            "added_volume_m3": 106974.338785,
+            "removed_volume_m3": 61704.555357,
+            "matching_cells_pct": 97.49824318523012,
+            "raw": "Area4_Beach_B_vs_E_volume_stats\nVolume: 9,455.756539\nSurface: 155,113.496533\n----------------------\nAdded volume: (+)12,155.282307\nRemoved volume: (-)2,699.525768\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.9%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_B_vs_E_volume_stats\nVolume: 47,514.908229\nSurface: 324,633.942744\n----------------------\nAdded volume: (+)51,717.903194\nRemoved volume: (-)4,202.994965\n----------------------\nMatching cells: 97.5%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_B_vs_E_volume_stats\nVolume: -5,850.440670\nSurface: 197,735.865580\n----------------------\nAdded volume: (+)21,550.576642\nRemoved volume: (-)27,401.017312\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_Estuary_Boundary_B_vs_E_volume_stats\nVolume: -5,850.440670\nSurface: 197,735.865580\n----------------------\nAdded volume: (+)21,550.576642\nRemoved volume: (-)27,401.017312\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow",
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area4/b-e/scene_metadata.json",
+            "draped": "area4/b-e/change_overlay_draped.ply",
+            "true_z": "area4/b-e/change_overlay_true_z.ply",
+            "site_map": "area4/b-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-f",
+          "label": "B-F",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 72224.677993,
+            "surface_m2": 674625.134921,
+            "added_volume_m3": 132760.506594,
+            "removed_volume_m3": 60535.828601,
+            "matching_cells_pct": 97.13857616040536,
+            "raw": "Area4_Beach_B_vs_F_volume_stats\nVolume: 22,521.538639\nSurface: 154,223.766553\n----------------------\nAdded volume: (+)25,755.263082\nRemoved volume: (-)3,233.724443\n----------------------\nMatching cells: 97.5%\nNon-matching cells:\n    ground = 2.5%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_B_vs_F_volume_stats\nVolume: 85,729.353568\nSurface: 326,545.102701\n----------------------\nAdded volume: (+)88,420.051075\nRemoved volume: (-)2,690.697507\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_B_vs_F_volume_stats\nVolume: -36,026.214214\nSurface: 193,856.265667\n----------------------\nAdded volume: (+)18,585.192437\nRemoved volume: (-)54,611.406651\n----------------------\nMatching cells: 95.4%\nNon-matching cells:\n    ground = 4.2%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/b-f/scene_metadata.json",
+            "draped": "area4/b-f/change_overlay_draped.ply",
+            "true_z": "area4/b-f/change_overlay_true_z.ply",
+            "site_map": "area4/b-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-d",
+          "label": "C-D",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -34462.14968,
+            "surface_m2": 679537.384811,
+            "added_volume_m3": 16386.532593,
+            "removed_volume_m3": 50848.682274,
+            "matching_cells_pct": 97.84803278671679,
+            "raw": "Area4_Beach_C_vs_D_volume_stats\nVolume: -9,105.497451\nSurface: 155,574.546523\n----------------------\nAdded volume: (+)2,709.349583\nRemoved volume: (-)11,814.847034\n----------------------\nMatching cells: 98.3%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_C_vs_D_volume_stats\nVolume: -27,985.722995\nSurface: 325,144.942732\n----------------------\nAdded volume: (+)3,014.208377\nRemoved volume: (-)30,999.931373\n----------------------\nMatching cells: 97.6%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.3%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_C_vs_D_volume_stats\nVolume: 2,629.070766\nSurface: 198,817.895556\n----------------------\nAdded volume: (+)10,662.974633\nRemoved volume: (-)8,033.903867\n----------------------\nMatching cells: 97.9%\nNon-matching cells:\n    ground = 1.8%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/c-d/scene_metadata.json",
+            "draped": "area4/c-d/change_overlay_draped.ply",
+            "true_z": "area4/c-d/change_overlay_true_z.ply",
+            "site_map": "area4/c-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-e",
+          "label": "C-E",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -24828.330817,
+            "surface_m2": 875801.490423,
+            "added_volume_m3": 55463.608386,
+            "removed_volume_m3": 80291.939203,
+            "matching_cells_pct": 97.53534486826821,
+            "raw": "Area4_Beach_C_vs_E_volume_stats\nVolume: -7,557.457210\nSurface: 155,101.116533\n----------------------\nAdded volume: (+)5,611.418354\nRemoved volume: (-)13,168.875564\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.9%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_C_vs_E_volume_stats\nVolume: -22,669.534559\nSurface: 325,148.682732\n----------------------\nAdded volume: (+)7,900.471990\nRemoved volume: (-)30,570.006549\n----------------------\nMatching cells: 97.6%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 0.3%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_C_vs_E_volume_stats\nVolume: 2,699.330476\nSurface: 197,775.845579\n----------------------\nAdded volume: (+)20,975.859021\nRemoved volume: (-)18,276.528545\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Padstow_Estuary_Boundary_C_vs_E_volume_stats\nVolume: 2,699.330476\nSurface: 197,775.845579\n----------------------\nAdded volume: (+)20,975.859021\nRemoved volume: (-)18,276.528545\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow",
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area4/c-e/scene_metadata.json",
+            "draped": "area4/c-e/change_overlay_draped.ply",
+            "true_z": "area4/c-e/change_overlay_true_z.ply",
+            "site_map": "area4/c-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-f",
+          "label": "C-F",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -8181.349488,
+            "surface_m2": 675144.994909,
+            "added_volume_m3": 53811.476422,
+            "removed_volume_m3": 61992.825912,
+            "matching_cells_pct": 97.23600159468025,
+            "raw": "Area4_Beach_C_vs_F_volume_stats\nVolume: 5,445.693592\nSurface: 154,223.786553\n----------------------\nAdded volume: (+)9,878.417488\nRemoved volume: (-)4,432.723897\n----------------------\nMatching cells: 97.5%\nNon-matching cells:\n    ground = 2.5%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Iron_Bridge_C_vs_F_volume_stats\nVolume: 15,154.055946\nSurface: 327,034.762690\n----------------------\nAdded volume: (+)26,350.521740\nRemoved volume: (-)11,196.465795\n----------------------\nMatching cells: 98.2%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.3%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea4_Padstow_C_vs_F_volume_stats\nVolume: -28,781.099026\nSurface: 193,886.445666\n----------------------\nAdded volume: (+)17,582.537194\nRemoved volume: (-)46,363.636220\n----------------------\nMatching cells: 95.4%\nNon-matching cells:\n    ground = 4.2%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/c-f/scene_metadata.json",
+            "draped": "area4/c-f/change_overlay_draped.ply",
+            "true_z": "area4/c-f/change_overlay_true_z.ply",
+            "site_map": "area4/c-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-e",
+          "label": "D-E",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 5303.046923,
+            "surface_m2": 862548.990721,
+            "added_volume_m3": 52821.782043,
+            "removed_volume_m3": 47518.73512,
+            "matching_cells_pct": 96.16923453080094,
+            "raw": "Area4_Beach_D_vs_E_volume_stats\nVolume: 1,466.685024\nSurface: 152,798.186585\n----------------------\nAdded volume: (+)4,134.993795\nRemoved volume: (-)2,668.308771\n----------------------\nMatching cells: 96.7%\nNon-matching cells:\n    ground = 1.8%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea4_Iron_Bridge_D_vs_E_volume_stats\nVolume: 5,209.448691\nSurface: 319,607.372856\n----------------------\nAdded volume: (+)15,109.704798\nRemoved volume: (-)9,900.256107\n----------------------\nMatching cells: 96.0%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 2.0%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea4_Padstow_D_vs_E_volume_stats\nVolume: -686.543396\nSurface: 195,071.715640\n----------------------\nAdded volume: (+)16,788.541725\nRemoved volume: (-)17,475.085121\n----------------------\nMatching cells: 96.1%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea4_Padstow_Estuary_Boundary_D_vs_E_volume_stats\nVolume: -686.543396\nSurface: 195,071.715640\n----------------------\nAdded volume: (+)16,788.541725\nRemoved volume: (-)17,475.085121\n----------------------\nMatching cells: 96.1%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow",
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area4/d-e/scene_metadata.json",
+            "draped": "area4/d-e/change_overlay_draped.ply",
+            "true_z": "area4/d-e/change_overlay_true_z.ply",
+            "site_map": "area4/d-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-f",
+          "label": "D-F",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area4",
+          "area_label": "Area 4",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 4.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 24943.240367999995,
+            "surface_m2": 664580.935145,
+            "added_volume_m3": 81777.55845,
+            "removed_volume_m3": 56834.318082,
+            "matching_cells_pct": 95.74666749024291,
+            "raw": "Area4_Beach_D_vs_F_volume_stats\nVolume: 14,611.282690\nSurface: 151,874.126605\n----------------------\nAdded volume: (+)19,062.199849\nRemoved volume: (-)4,450.917159\n----------------------\nMatching cells: 96.1%\nNon-matching cells:\n    ground = 2.4%\n    ceil = 1.5%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea4_Iron_Bridge_D_vs_F_volume_stats\nVolume: 42,516.212851\nSurface: 321,445.602815\n----------------------\nAdded volume: (+)47,362.600050\nRemoved volume: (-)4,846.387199\n----------------------\nMatching cells: 96.5%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 2.0%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea4_Padstow_D_vs_F_volume_stats\nVolume: -32,184.255173\nSurface: 191,261.205725\n----------------------\nAdded volume: (+)15,352.758551\nRemoved volume: (-)47,537.013724\n----------------------\nMatching cells: 94.2%\nNon-matching cells:\n    ground = 4.1%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "beach",
+            "iron bridge",
+            "padstow"
+          ],
+          "paths": {
+            "metadata": "area4/d-f/scene_metadata.json",
+            "draped": "area4/d-f/change_overlay_draped.ply",
+            "true_z": "area4/d-f/change_overlay_true_z.ply",
+            "site_map": "area4/d-f/site_underlay.png"
+          }
+        }
+      ]
+    }
+  ]
+}

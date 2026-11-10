@@ -2,15 +2,15 @@
   "schema_version": "1.0",
   "area_id": "area2",
   "area_label": "Area 2",
-  "generated_at": "2026-09-15T17:32:32",
+  "generated_at": "2026-11-04T13:33:41",
   "files": {
     "classification_geotiff": "Area2_Trend_Classification.tif",
     "classification_png": "Area2_Trend_Classification.png",
     "stats_json": "Area2_Trend_Stats.json"
   },
   "summary": {
-    "top_trend_class": "Erosion then accretion",
-    "classified_area_m2": 263445.5200000001,
-    "coverage_percent_of_boundary": 84.81094901089983
+    "top_trend_class": "New/latest erosion",
+    "classified_area_m2": 247351.11000000004,
+    "coverage_percent_of_boundary": 79.61793028300981
   }
 }

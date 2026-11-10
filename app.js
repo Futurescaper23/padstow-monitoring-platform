@@ -680,6 +680,7 @@ bootstrap().catch((error) => {
 
 async function bootstrap() {
   const siteSession = await ensureSiteSession();
+  state.siteIsAdmin = Boolean(siteSession?.user?.isAdmin);
   const { dataset, projectCatalog, requestedProjectId } = await loadProjectDataset();
   state.dataset = dataset;
   state.projectCatalog = projectCatalog;
@@ -1555,6 +1556,7 @@ async function renderShellStage() {
     els.shellStageSummaryDock.setAttribute("aria-hidden", String(!useSummaryDock));
   }
   els.shellStageSummary.classList.toggle("hidden", useSummaryDock);
+  scheduleHeroNavigationLayout();
   els.shellStageSurvey.innerHTML = `
       <span class="shell-stage-pill__label">Survey Dates</span>
       <strong class="shell-stage-pill__value">${escapeHtml(shellStageSurveyLabel(project, stageSurvey, state.activeTab))}</strong>
@@ -1593,6 +1595,48 @@ async function renderShellStage() {
     els.shellStageVisual.style.removeProperty("--shell-stage-visual-bg");
     els.shellStageVisual.classList.add("hidden");
     els.shellStageVisual.setAttribute("aria-hidden", "true");
+  }
+}
+
+
+// Keep the desktop navigation anchored to the hero, below its visible copy.
+let heroNavigationFrame = 0;
+function scheduleHeroNavigationLayout() {
+  cancelAnimationFrame(heroNavigationFrame);
+  heroNavigationFrame = requestAnimationFrame(() => {
+    const shell = document.querySelector('.shell');
+    const hero = document.querySelector('.shell-stagebar');
+    const copy = document.querySelector('.shell-stagebar__copy');
+    const bar = document.querySelector('.shell-topbar');
+    const tabs = document.querySelector('#tabs');
+    if (!shell || !hero || !copy || !bar || !tabs) return;
+    if (window.innerWidth <= 1100 || !['overview-hero', 'area-hero'].includes(shell.dataset.stageVisual)) {
+      bar.style.removeProperty('top');
+      shell.style.removeProperty('--hero-nav-min-height');
+      return;
+    }
+    const heroBox = hero.getBoundingClientRect();
+    const copyBox = copy.getBoundingClientRect();
+    const navBox = tabs.getBoundingClientRect();
+    const barBox = bar.getBoundingClientRect();
+    const required = Math.ceil(copyBox.bottom - heroBox.top + navBox.height + 40);
+    const requiredValue = `${required}px`;
+    if (shell.style.getPropertyValue('--hero-nav-min-height') !== requiredValue) {
+      shell.style.setProperty('--hero-nav-min-height', requiredValue);
+    }
+    const adjustedHeroBox = hero.getBoundingClientRect();
+    const navOffset = navBox.top - barBox.top;
+    const anchoredTop = Math.round(adjustedHeroBox.bottom - navBox.height - 20 - navOffset - shell.getBoundingClientRect().top);
+    const anchoredValue = `${anchoredTop}px`;
+    if (bar.style.top !== anchoredValue) bar.style.top = anchoredValue;
+  });
+}
+window.addEventListener('resize', scheduleHeroNavigationLayout);
+if (typeof ResizeObserver !== 'undefined') {
+  const heroNavigationObserver = new ResizeObserver(scheduleHeroNavigationLayout);
+  for (const selector of ['.shell-stagebar', '.shell-stagebar__copy', '#tabs']) {
+    const element = document.querySelector(selector);
+    if (element) heroNavigationObserver.observe(element);
   }
 }
 
@@ -1848,9 +1892,9 @@ async function renderOverview() {
           <span>Later</span>
         </div>
         <div class="overview-area-timeline__track">
-          <div class="overview-area-timeline__marker" style="left:${timelineMarkerPosition(area.midOffsetMinutes)}%"></div>
+          ${area.midOffsetMinutes == null ? "" : `<div class="overview-area-timeline__marker" style="left:${timelineMarkerPosition(area.midOffsetMinutes)}%"></div>`}
         </div>
-        <p class="overview-area-timeline__caption">Marker based on mid-flight position in relation to the low-tide window.</p>
+        <p class="overview-area-timeline__caption">${area.midOffsetMinutes == null ? "Mid-flight position not recorded for this survey." : state.surveyId === "scan_06" ? "Marker shows the midpoint from first launch to last landing relative to predicted low water; not airtime-weighted." : "Marker based on mid-flight position in relation to the low-tide window."}</p>
       </div>
       <div class="overview-area-tags">
         ${area.tags.map((tag) => `<span class="overview-tag">${escapeHtml(tag)}</span>`).join("")}
@@ -2046,7 +2090,7 @@ function overviewGlanceForSurvey(surveyId) {
     ["Survey window", survey.shortDate || survey.label || survey.id],
     ["Status", survey.status || "Survey loaded"],
     ["Readiness", survey.readiness || "Assets linked"],
-    ["Comparison baseline", survey.comparisonBaseline || "Baseline round"],
+    [survey.id === "scan_06" ? "Default imagery comparison" : "Comparison baseline", survey.comparisonBaseline || "Baseline round"],
     ["Asset folder", survey.assetFolder || "n/a"],
     ["Data folder", survey.dataFolder || "n/a"]
   ];
@@ -2209,7 +2253,9 @@ function timelineMarkerPosition(offsetMinutes) {
 }
 
 function midOffsetLabel(offsetMinutes) {
-  const value = Number(offsetMinutes || 0);
+  if (offsetMinutes == null || offsetMinutes === "") return "Not recorded";
+  const value = Number(offsetMinutes);
+  if (!Number.isFinite(value)) return "Not recorded";
   if (value === 0) return "At low tide";
   return `${Math.abs(value)} mins ${value < 0 ? "before" : "after"} low tide`;
 }
@@ -2241,18 +2287,22 @@ function surveyComparisonMarkup(areaId) {
     return {
       survey,
       overview,
-      midOffset: overview.midOffset ?? overview.midOffsetMinutes ?? 0
+      midOffset: overview.midOffset ?? overview.midOffsetMinutes ?? null
     };
   });
-  const gridStyle = `grid-template-columns: minmax(170px, 1.1fr) repeat(${surveyAreas.length}, minmax(0, 1fr));`;
+  const scan6Comparison = state.surveyId === "scan_06";
+  const gridStyle = scan6Comparison
+    ? `grid-template-columns: minmax(150px, 1.1fr) repeat(${surveyAreas.length}, minmax(110px, 1fr)); overflow-x: auto;`
+    : `grid-template-columns: minmax(170px, 1.1fr) repeat(${surveyAreas.length}, minmax(0, 1fr));`;
 
   return `
-    <article class="selected-detail-panel selected-detail-panel--comparison">
+    <article class="selected-detail-panel selected-detail-panel--comparison" ${scan6Comparison ? `style="min-width: 0"` : ""}>
       <div class="selected-detail-panel__intro">
         <h3>Survey-round comparison</h3>
         <p class="selected-notes">This gives a quick same-area comparison across all saved survey rounds, so you can see how the timing and tide window shifted without hopping between screens.</p>
+        ${scan6Comparison ? `<p class="selected-notes">Scroll sideways to view all survey rounds.</p>` : ""}
       </div>
-      <div class="survey-compare-grid" style="${escapeAttr(gridStyle)}">
+      <div class="survey-compare-grid" style="${escapeAttr(gridStyle)}" ${scan6Comparison ? `tabindex="0" aria-label="Survey-round comparison; scroll sideways to view all columns"` : ""}>
         <div class="survey-compare-grid__head"></div>
         ${surveyAreas.map(({ survey }) => `<div class="survey-compare-grid__head">${escapeHtml(survey.shortDate || survey.label)}</div>`).join("")}
         ${surveyComparisonDetailRow("Survey day", surveyAreas.map(({ overview }) => overview.day || "--"))}
@@ -2260,9 +2310,9 @@ function surveyComparisonMarkup(areaId) {
         ${surveyComparisonDetailRow("Actual duration", surveyAreas.map(({ overview }) => overview.actualDuration || "--"))}
         ${surveyComparisonDetailRow("Low tide reference", surveyAreas.map(({ overview }) => `${overview.lowTide || "--"} - ${overview.lowTideHeight || "--"}`))}
         ${surveyComparisonDetailRow("Launch offset", surveyAreas.map(({ overview }) => overview.launchOffset || "--"))}
-        ${surveyComparisonDetailRow("Mid-flight tide marker", surveyAreas.map(({ midOffset }) => midOffsetLabel(midOffset)))}
+        ${surveyComparisonDetailRow(state.surveyId === "scan_06" ? "Flight-window midpoint / predicted low water" : "Mid-flight tide marker", surveyAreas.map(({ midOffset }) => midOffsetLabel(midOffset)))}
         ${surveyComparisonDetailRow("Tidal window", surveyAreas.map(({ overview }) => overview.tideWindow || "--"))}
-        ${surveyComparisonDetailRow("Low-tide alignment", surveyAreas.map(({ overview }) => `${overview.tideScore || "--"}/100`))}
+        ${surveyComparisonDetailRow("Low-tide alignment", surveyAreas.map(({ overview }) => `${overview.tideScore == null ? "Not recorded" : `${overview.tideScore}/100`}`))}
       </div>
     </article>
   `;
@@ -2304,8 +2354,8 @@ function renderAreasLegacy() {
   els.selectedAreaAssets.innerHTML = `
     <article class="selected-score-card">
       <span class="selected-score-card__label">Low-tide alignment</span>
-      <strong class="selected-score-card__value">${escapeHtml(String(area.tideScore))}/100</strong>
-      <span class="selected-score-card__sub">Low tide at ${escapeHtml(area.lowTide)} - ${escapeHtml(area.lowTideHeight)}</span>
+      <strong class="selected-score-card__value">${area.tideScore == null ? "Not recorded" : `${escapeHtml(String(area.tideScore))}/100`}</strong>
+      <span class="selected-score-card__sub">${state.surveyId === "scan_06" ? "Reference:" : "Low tide at"} ${escapeHtml(area.lowTide)} - ${escapeHtml(area.lowTideHeight)}</span>
     </article>
     ${surveyComparisonMarkup(area.id)}
     <article class="selected-detail-panel">
@@ -2318,7 +2368,7 @@ function renderAreasLegacy() {
         ${selectedDetailRow("Estimated duration", area.estimatedDuration)}
         ${selectedDetailRow("Actual duration", area.actualDuration)}
         ${selectedDetailRow("Launch offset from low tide", area.launchOffset)}
-        ${selectedDetailRow("Mid-flight tide marker", midOffsetLabel(area.midOffsetMinutes))}
+        ${selectedDetailRow(state.surveyId === "scan_06" ? "Flight-window midpoint / predicted low water" : "Mid-flight tide marker", midOffsetLabel(area.midOffsetMinutes))}
         ${selectedDetailRow("Tidal window", area.tideWindow)}
       </div>
     </article>
@@ -2385,8 +2435,8 @@ function renderAreas() {
   els.selectedAreaAssets.innerHTML = `
     <article class="selected-score-card">
       <span class="selected-score-card__label">Low-tide alignment</span>
-      <strong class="selected-score-card__value">${escapeHtml(String(area.tideScore))}/100</strong>
-      <span class="selected-score-card__sub">Low tide at ${escapeHtml(area.lowTide)} - ${escapeHtml(area.lowTideHeight)}</span>
+      <strong class="selected-score-card__value">${area.tideScore == null ? "Not recorded" : `${escapeHtml(String(area.tideScore))}/100`}</strong>
+      <span class="selected-score-card__sub">${state.surveyId === "scan_06" ? "Reference:" : "Low tide at"} ${escapeHtml(area.lowTide)} - ${escapeHtml(area.lowTideHeight)}</span>
     </article>
     ${surveyComparisonMarkup(area.id)}
     <article class="selected-detail-panel">
@@ -2399,7 +2449,7 @@ function renderAreas() {
         ${selectedDetailRow("Estimated duration", area.estimatedDuration)}
         ${selectedDetailRow("Actual duration", area.actualDuration)}
         ${selectedDetailRow("Launch offset from low tide", area.launchOffset)}
-        ${selectedDetailRow("Mid-flight tide marker", midOffsetLabel(area.midOffsetMinutes))}
+        ${selectedDetailRow(state.surveyId === "scan_06" ? "Flight-window midpoint / predicted low water" : "Mid-flight tide marker", midOffsetLabel(area.midOffsetMinutes))}
         ${selectedDetailRow("Tidal window", area.tideWindow)}
       </div>
     </article>
@@ -2420,6 +2470,8 @@ function renderAreas() {
 }
 
 async function renderLayers() {
+  const localLayerToken=window.__localLayerToken=(window.__localLayerToken||0)+1;const localLayerArea=state.areaId,localLayerSurvey=state.surveyId;
+  els.viewerTitle.textContent='Loading the selected survey and area…';for(const image of [els.viewerBaseImage,els.viewerGuideDsmImage,els.viewerGuideContourImage,els.viewerOverlayImage,els.viewerHighlightImage,els.viewerSliderImage])image?.removeAttribute('src');
   const area = currentArea();
   const project = currentProject();
   const layerDefinitions = imageryLayers(area);
@@ -2471,6 +2523,7 @@ async function renderLayers() {
     prepareSectionDisplayAsset(primaryGuideContourSrc),
     prepareSectionDisplayAsset(secondaryGuideContourSrc)
   ]);
+  if(window.__localLayerToken!==localLayerToken || state.areaId!==localLayerArea || state.surveyId!==localLayerSurvey)return;
   const primaryExists = Boolean(primarySrc);
   const secondaryExists = Boolean(secondarySrc);
   const guideDsmExists = Boolean(guideDsmSrc);
@@ -2501,7 +2554,7 @@ async function renderLayers() {
 
   const sameSurvey = primarySurvey.id === secondarySurvey.id;
   const sameLayer = primaryLayer.fileName === secondaryLayer.fileName;
-  const canCompare = secondaryExists && !(sameSurvey && sameLayer);
+  const canCompare = primaryExists && secondaryExists && !(sameSurvey && sameLayer);
   const canHighlight = canCompare && primaryLayer.fileName === secondaryLayer.fileName;
   const highlightActive = state.showChangeHighlight && canHighlight;
 
@@ -2652,10 +2705,21 @@ async function renderLayers() {
 }
 
 async function renderSections() {
+  const localSectionToken=window.__localSectionToken=(window.__localSectionToken||0)+1;const localSectionArea=state.areaId,localSectionSurvey=state.surveyId;els.sectionPanelTitle.textContent='Loading selected section…';
+  // Keep previous maps and measurements hidden until the selected section is ready.
+  const sectionResults = els.sectionWorkspace.querySelectorAll('.section-map-panel, .section-profile-panel');
+  sectionResults.forEach((element) => { element.style.visibility = 'hidden'; });
+  els.sectionStatusText.textContent = 'Loading the selected survey and section…';
+  const revealSectionResults = () => {
+    if (window.__localSectionToken === localSectionToken && state.areaId === localSectionArea && state.surveyId === localSectionSurvey) {
+      sectionResults.forEach((element) => { element.style.visibility = ''; });
+    }
+  };
   const baseArea = currentArea();
   const survey = currentSurvey();
   const project = currentProject();
   const geometryMap = await loadSharedSectionGeometry(currentProject().id, baseArea.id);
+  if(window.__localSectionToken!==localSectionToken || state.areaId!==localSectionArea || state.surveyId!==localSectionSurvey)return;
   const area = applySharedSectionGeometry(baseArea, geometryMap);
   state.sectionArea = area;
   const section = area.sections.find((item) => item.id === state.sectionId) || area.sections[0];
@@ -2691,6 +2755,7 @@ async function renderSections() {
     resolveExistingAsset(overlayCandidates)
   ]);
   const basemapDisplayPath = await prepareSectionDisplayAsset(basemapPath);
+  if(window.__localSectionToken!==localSectionToken || state.areaId!==localSectionArea || state.surveyId!==localSectionSurvey)return;
   const basemapExists = Boolean(basemapPath);
   const overlayExists = Boolean(overlayPath);
   const surveyProfiles = project.surveys.map((profileSurvey, index) => {
@@ -2713,14 +2778,17 @@ async function renderSections() {
   els.sectionMetrics.innerHTML = sectionMetrics(anchorRows, area, survey, section).map((item) => metric(item.label, item.value, item.subtext)).join("");
   if (!anchorRows.length) {
     els.sectionDetails.innerHTML = [
-      assetCard("Section data missing", `No section profile CSV is available yet for ${survey.label} in either the survey folder or the shared area assets.`),
+      state.areaId === "area2" && survey.id === "2026-04-18" && currentProject().id === "padstow-estuary"
+        ? assetCard("Section data withheld", "Area 2 Survey B is unavailable for sediment analysis because of high tide.")
+        : assetCard("Section data missing", `No section profile CSV is available yet for ${survey.label} in the selected survey assets.`),
       assetCard("What this area shows", area.summary),
       assetCard("Survey context", area.surveyNotes),
       assetCard("Map alignment note", geometryMap?.size ? "This area is already using the exported QGIS section geometry, so the line tracking should now follow the real section direction." : "The section guide is still using the fallback line positions. Exporting the QGIS section lines will tighten this further.")
       ].join("");
-        drawSectionChart(activeProfiles, section, survey.id);
-        renderSectionComparisonSummary(activeProfiles, survey.id);
-        updateSectionHoverFeedback(activeProfiles, section, survey);
+        drawSectionChart(surveyProfiles, section, survey.id);
+        renderSectionComparisonSummary(surveyProfiles, survey.id);
+        updateSectionHoverFeedback(surveyProfiles, section, survey);
+        revealSectionResults();
         return;
     }
   const minHeight = Math.min(...anchorRows.map((row) => row.height));
@@ -2758,13 +2826,14 @@ async function renderSections() {
     sectionInsightCard({
       eyebrow: "Survey Context",
       title: "Survey context",
-      summary: `${survey.shortDate} around low tide at ${area.lowTide}.`,
-      body: `${survey.label} captured this area around low tide at ${area.lowTide}. ${activeProfiles.length > 1 ? "Use the survey profile toggles above the chart to compare up to three rounds along the same fixed line. " : ""}${area.surveyNotes}`
+      summary: area.lowTide === "Not recorded" ? `${areaSpecificSurveyDate(survey, area)}; tide timing not recorded.` : `${areaSpecificSurveyDate(survey, area)} around low tide at ${area.lowTide}.`,
+      body: `${area.lowTide === "Not recorded" ? `${survey.label}: tide timing has not been recorded for this area.` : `${survey.label} captured this area around low tide at ${area.lowTide}.`} ${activeProfiles.length > 1 ? "Use the survey profile toggles above the chart to compare up to three rounds along the same fixed line. " : ""}${area.surveyNotes}`
     })
   ].join("");
-  drawSectionChart(activeProfiles, section, survey.id);
-  renderSectionComparisonSummary(activeProfiles, survey.id);
-  updateSectionHoverFeedback(activeProfiles, section, survey);
+  drawSectionChart(surveyProfiles, section, survey.id);
+  renderSectionComparisonSummary(surveyProfiles, survey.id);
+  updateSectionHoverFeedback(surveyProfiles, section, survey);
+  revealSectionResults();
 }
 
 function renderWorkflow() {
@@ -2822,6 +2891,41 @@ function configuredPanoramaEmbed(surveyId, areaId) {
   return fallbackMatch || "";
 }
 
+function updatePanoramaFrame(areaId, surveyId, embedUrl) {
+  const previous = els.panoramaFrame;
+  const key = JSON.stringify([areaId, surveyId, embedUrl]);
+  if (previous.dataset.panoramaKey === key) return;
+
+  const container = previous.parentElement;
+  let status = container.querySelector(".panorama-loading");
+  if (!status) {
+    status = document.createElement("div");
+    status.className = "panorama-loading";
+    status.setAttribute("role", "status");
+    container.appendChild(status);
+  }
+  status.textContent = embedUrl ? "Loading panorama…" : "No panorama is available for this selection.";
+  status.hidden = false;
+  container.setAttribute("aria-busy", embedUrl ? "true" : "false");
+
+  // Give each navigation a fresh iframe: a delayed load from a removed iframe
+  // must never reveal a previous area's tour under the current heading.
+  const frame = previous.cloneNode(false);
+  frame.removeAttribute("src");
+  frame.dataset.panoramaKey = key;
+  frame.style.visibility = "hidden";
+  if (embedUrl) {
+    frame.addEventListener("load", () => {
+      if (els.panoramaFrame !== frame || frame.dataset.panoramaKey !== key) return;
+      frame.style.visibility = "";
+      status.hidden = true;
+      container.setAttribute("aria-busy", "false");
+    }, { once: true });
+    frame.src = embedUrl;
+  }
+  els.panoramaFrame = frame;
+  previous.replaceWith(frame);
+}
 function renderPanorama() {
   const survey = currentSurvey();
   const area = currentArea();
@@ -2843,11 +2947,7 @@ function renderPanorama() {
     ? guide.summary
     : `${guide.summary} Hosted tour link still to be added.`;
 
-  if (hasEmbed) {
-    els.panoramaFrame.src = embedUrl;
-  } else {
-    els.panoramaFrame.removeAttribute("src");
-  }
+  updatePanoramaFrame(area.id, survey.id, hasEmbed ? embedUrl : "");
 
   els.panoramaStats.innerHTML = guide.stats
     .map(([label, value, hint]) => metric(label, value, hint))
@@ -3212,6 +3312,41 @@ async function renderVolumePrevious() {
 async function renderVolume() {
   const project = currentProject();
   const currentAreaSelection = currentArea();
+  // Local review: never silently substitute an older area volume dataset for Scan 6.
+  const reviewKey = state.surveyId + ':' + currentAreaSelection?.id;
+  const reviewToken = window.__localVolumeToken = (window.__localVolumeToken || 0) + 1;
+  const stillCurrent = () => window.__localVolumeToken === reviewToken && state.surveyId + ':' + currentArea()?.id === reviewKey;
+  if(window.__localVolumeKey !== reviewKey){window.__localVolumeKey=reviewKey;renderVolumeReferenceGallery([]);document.getElementById('volumeViewerFrame')?.removeAttribute('src');const v=document.getElementById('volumeViewerPanel');if(v)v.style.visibility='hidden';const summary=document.getElementById('volumeSummary');if(summary)summary.textContent='Loading the selected survey and area…';}
+  const area8Blocked = currentAreaSelection?.id === "area8";
+  document.documentElement.dataset.localVolumeSafety = area8Blocked ? "area8" : "clear";
+  const reviewMissingScan6 = state.surveyId === 'scan_06' && ['area1','area2','area3','area4','area5','area6','area7'].includes(currentAreaSelection?.id) && !project.volumeChangeComparisons?.scan_06?.areas?.[currentAreaSelection.id];
+  for(const id of ['volumeViewerPanel','volumeTrendPanel','volumeReferencePanel','volumeGuidancePanels','volumeRolloutPanel','volumeMetricGrid']) { const el=document.getElementById(id);if(el)el.style.display=reviewMissingScan6?'none':''; }
+  const notice=document.getElementById('local-scan6-review-notice');
+  if(notice){notice.hidden=state.surveyId!=='scan_06';notice.textContent=reviewMissingScan6?'Survey 6 volume comparison unavailable or pending source review for this area. Standard survey imagery remains available.':'Local review: shown figures use the explicitly named comparison interval. Area 1 and Area 2 Survey 5-to-6 maps are available; other Survey 5-to-6 maps remain under review. Area 2 Survey B is unavailable; Area 1 A-to-B covers Dunes only. The hosted 3D viewer is unchanged.';}
+  if(reviewMissingScan6){document.getElementById('volumeViewerFrame')?.removeAttribute('src');document.getElementById('volumeSummary').textContent='Survey 6 comparison unavailable or pending review.';try{renderVolumeQuickAreas(liveVolumeAreaIds(project),currentAreaSelection.id)}catch(_){}return;}
+
+  // Withhold the entire Area 8 volume panel while the historical E-F provenance is unsafe.
+  if (area8Blocked) {
+    document.getElementById("volumeViewerFrame")?.removeAttribute("src");
+    try { renderVolumeQuickAreas(liveVolumeAreaIds(project), currentAreaSelection.id); } catch (_) {}
+    // Clear the prior area immediately while these reference maps load.
+    renderVolumeReferenceGallery([]);
+    // The disputed E-F exports are not displayed in the reference gallery.
+    const area8ReferencePairs = VOLUME_COMPARISON_DEFINITIONS.filter(item => ["ab", "ac", "ad", "ae", "af", "bc", "bd", "be", "bf", "cd", "ce", "cf", "de", "df"].includes(item.key));
+    const area8ReferenceAssets = await Promise.all(area8ReferencePairs.flatMap(item => [
+      resolveExistingAsset(comparisonAssetCandidates(project.id, "area8", item.key, "height")),
+      resolveExistingAsset(comparisonAssetCandidates(project.id, "area8", item.key, "classification"))
+    ]));
+    if (!stillCurrent()) return;
+    const area8Cards = area8ReferencePairs.flatMap((item, index) => [
+      { comparisonKey: item.key, group: "height", eyebrow: "Height change analysis", title: item.label, src: area8ReferenceAssets[index * 2], alt: item.label + " height change map" },
+      { comparisonKey: item.key, group: "classification", eyebrow: "Gain and loss classes", title: item.label, src: area8ReferenceAssets[index * 2 + 1], alt: item.label + " gain and loss map" }
+    ]);
+    els.volumeImageSummary.textContent = "Historical reference maps are preliminary: survey registration, surface classification and reporting boundaries remain under review.";
+    renderVolumeReferenceGallery(area8Cards, { grouped: true });
+    return;
+  }
+
   const singleScanOnly = (project.surveys || []).length < 2;
   const liveAreaIds = liveVolumeAreaIds(project);
   const currentAreaComparisonEntries = Object.entries(project.volumeChangeComparisons || {})
@@ -3231,11 +3366,14 @@ async function renderVolume() {
     ? (project.surveys.find((item) => item.id === comparisonEntry[0]) || currentSurvey())
     : currentSurvey();
   const volumeDataset = comparisonEntry ? comparisonEntry[1] : currentVolumeDataset();
-  const baselineSurvey = volumeDataset?.baselineSurveyId
-    ? (project.surveys.find((item) => item.id === volumeDataset.baselineSurveyId) || activeComparisonSurvey(project, survey))
+  const effectiveVolumeBaseline = volumeDataset?.areas?.[area.id]?.baselineSurveyId || volumeDataset?.baselineSurveyId;
+  const baselineSurvey = effectiveVolumeBaseline
+    ? (project.surveys.find((item) => item.id === effectiveVolumeBaseline) || activeComparisonSurvey(project, survey))
     : activeComparisonSurvey(project, survey);
   const areaDataset = volumeDataset?.areas?.[area.id] || null;
+  const localSurveyShortDate = survey.id === 'scan_06' ? (['area2','area3','area5','area8'].includes(area.id) ? '12 Oct 2026' : '29 Oct 2026') : survey.shortDate;
   const sharedPolygons = await loadSharedAreaPolygons(project.id, area.id);
+  if(!stillCurrent())return;
   const configuredPolygons = areaDataset?.polygons || [];
   const polygons = mergeVolumePolygons(configuredPolygons, sharedPolygons);
   const hasConfiguredRows = configuredPolygons.length > 0;
@@ -3248,9 +3386,12 @@ async function renderVolume() {
   const previewBaselineCaption = areaDataset?.previewBaselineCaption || "";
   const previewCurrentCaption = areaDataset?.previewCurrentCaption || "";
   const previewLabel = areaDataset?.previewLabel || "Sandbar Volume Change Preview";
+  const referenceGallery = areaDataset?.referenceGallery || "all-available";
+  const isConfiguredComparison = referenceGallery === "configured-pair";
   const previewCaption = areaDataset?.previewCaption
     || "This first preview places the measured change map over the latest aerial image so people can see where the monitored sandbar appears to be building up or wearing away inside the measured zone.";
-  const viewerEmbedUrl = areaDataset?.viewerEmbedUrl || "";
+  const hostedViewerUrl = areaDataset?.viewerEmbedUrl || "";
+  const viewerEmbedUrl = hostedViewerUrl && ["area1", "area2", "area3", "area4"].includes(area.id) ? `/public/projects/padstow-estuary/viewer-${area.id}-local/index.html?embed=1` : hostedViewerUrl;
   const viewerTitle = areaDataset?.viewerTitle || "Area Change Viewer";
   const viewerSummary = areaDataset?.viewerSummary
     || "Explore the tested area in 3D, then use the figures and supporting maps alongside it to interpret where material appears to have been gained or lost.";
@@ -3264,6 +3405,7 @@ async function renderVolume() {
     || "Start by turning the model around and zooming into the area you care about. If the view feels too busy, switch off Show base terrain to focus on the colour change only. If the model looks too thin or patchy, increase point size. If it looks too chunky, reduce point size for a cleaner look.";
   trendAreaCachePromises.delete(area.id);
   const trendData = await loadTrendData(area.id);
+  if(!stillCurrent())return;
 
   if (singleScanOnly) {
     els.volumeSandboxBanner.innerHTML = `
@@ -3332,23 +3474,24 @@ async function renderVolume() {
       : Promise.resolve(""),
     previewBaselineImageFile
       ? resolveExistingAsset([
-        baselineSurvey ? surveyAssetPath(project.id, baselineSurvey.id, area.id, previewBaselineImageFile) : "",
-        surveyAssetPath(project.id, survey.id, area.id, previewBaselineImageFile)
+        ...surveyAssetCandidates(project.id, survey.id, area.id, previewBaselineImageFile),
+        ...(baselineSurvey ? surveyAssetCandidates(project.id, baselineSurvey.id, area.id, previewBaselineImageFile) : [])
       ])
       : Promise.resolve(""),
     previewCurrentImageFile
       ? resolveExistingAsset([
-        surveyAssetPath(project.id, survey.id, area.id, previewCurrentImageFile),
-        baselineSurvey ? surveyAssetPath(project.id, baselineSurvey.id, area.id, previewCurrentImageFile) : ""
+        ...surveyAssetCandidates(project.id, survey.id, area.id, previewCurrentImageFile),
+        ...(baselineSurvey ? surveyAssetCandidates(project.id, baselineSurvey.id, area.id, previewCurrentImageFile) : [])
       ])
       : Promise.resolve(""),
-    ...volumeComparisonDefinitions(trendData?.stats).flatMap((item) => ([
+    ...volumeComparisonDefinitions(trendData?.stats, survey.id).flatMap((item) => ([
       resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, item.key, "height")),
       resolveExistingAsset(comparisonAssetCandidates(project.id, area.id, item.key, "classification"))
     ]))
   ]);
 
-  const comparisonDefinitions = volumeComparisonDefinitions(trendData?.stats);
+  const comparisonDefinitions = volumeComparisonDefinitions(trendData?.stats, survey.id);
+  if(!stillCurrent())return; const reviewViewer=document.getElementById('volumeViewerPanel');if(reviewViewer)reviewViewer.style.visibility='';
   const comparisonAssetsByKey = {};
   comparisonDefinitions.forEach((item, index) => {
     comparisonAssetsByKey[item.key] = {
@@ -3368,23 +3511,23 @@ async function renderVolume() {
         comparisonKey: item.key,
         group: "height",
         eyebrow: "Height change analysis",
-        title: item.label,
+        title: area.id === "area1" && item.key === "ab" ? `${item.label} — Dunes only` : item.label,
         badge: `Comparison ${index + 1}`,
         label: "Measured surface difference",
         src: assets.height,
         alt: `${area.label} ${item.label} height change analysis`,
-        caption: `${item.label} height change map. Use this to see where the later survey sits higher or lower across the measured footprint.`
+        caption: `${item.label} height change map. Use this to see where the later survey sits higher or lower across the measured footprint.${area.id === "area1" && item.fromRoundId === "A" ? " Survey A coverage is limited to Dunes." : area.id === "area2" && item.fromRoundId === "A" ? " This comparison covers Trebetherick only." : ""}`
       } : null,
       assets.classification ? {
         comparisonKey: item.key,
         group: "classification",
         eyebrow: "Gain and loss classes",
-        title: item.label,
+        title: area.id === "area1" && item.key === "ab" ? `${item.label} — Dunes only` : item.label,
         badge: `Comparison ${index + 1}`,
         label: "Simplified class view",
         src: assets.classification,
         alt: `${area.label} ${item.label} gain and loss classification`,
-        caption: `${item.label} class map. This is the simpler flat-view version for quick client-facing reading.`
+        caption: `${item.label} class map. This is the simpler flat-view version for quick client-facing reading.${area.id === "area1" && item.fromRoundId === "A" ? " Survey A coverage is limited to Dunes." : area.id === "area2" && item.fromRoundId === "A" ? " This comparison covers Trebetherick only." : ""}`
       } : null
     ].filter(Boolean);
   });
@@ -3414,6 +3557,7 @@ async function renderVolume() {
     els.volumeViewerTitle.textContent = viewerTitle;
     els.volumeViewerSummary.textContent = viewerSummary;
     els.volumeViewerGuide.innerHTML = `
+      ${area.id === "area1" ? `<div class="notice-banner" role="note"><strong>Survey A→B: Dunes only.</strong> Hawker's Cove and Tregirls Beach were submerged during the baseline survey.</div>` : ""}
       <div class="volume-viewer-guide__head">
         <p class="eyebrow">Before you start</p>
         <h3>${escapeHtml(viewerGuideTitle)}</h3>
@@ -3433,6 +3577,8 @@ async function renderVolume() {
         </article>
       </div>
     `;
+    els.volumeViewerFrame.style.minHeight = "820px";
+    els.volumeViewerFrame.parentElement.style.minHeight = "820px";
     els.volumeViewerFrame.src = viewerEmbedUrl;
     els.volumeViewerStats.innerHTML = "";
     els.volumeViewerStats.classList.add("is-hidden");
@@ -3542,18 +3688,23 @@ async function renderVolume() {
     prepareTrendMapImages(els.volumeTrendBody);
   };
 
-  setTrendState(trendData);
-  els.volumeMetricGrid.classList.add("is-hidden");
+  setTrendState(isConfiguredComparison ? null : trendData);
+  els.volumeMetricGrid.classList.toggle("is-hidden", !isConfiguredComparison);
 
-  els.volumeSandboxBanner.innerHTML = trendData
+  els.volumeSandboxBanner.innerHTML = isConfiguredComparison
     ? `
-      <strong>Longer-term trend view available</strong>
-      <p>${escapeHtml(area.label)} includes a trend panel here so the longer survey-round pattern can be viewed alongside the comparison imagery.</p>
+      <strong>Survey Round 6 comparison</strong>
+      <p>${escapeHtml(area.label)} shows the registered Scan 6 height-change and gain/loss maps. A Scan 6 3D viewer is not published yet.</p>
     `
-    : `
-      <strong>Standard comparison view</strong>
-      <p>${escapeHtml(area.label)} is currently shown with the standard comparison layout. A longer-term trend panel can be added here later if needed.</p>
-    `;
+    : trendData
+      ? `
+        <strong>Longer-term trend view available</strong>
+        <p>${escapeHtml(area.label)} includes a trend panel here so the longer survey-round pattern can be viewed alongside the comparison imagery.</p>
+      `
+      : `
+        <strong>Standard comparison view</strong>
+        <p>${escapeHtml(area.label)} is currently shown with the standard comparison layout. A longer-term trend panel can be added here later if needed.</p>
+      `;
 
   if (!baselineSurvey && !volumeDataset) {
     setViewerState(false);
@@ -3561,7 +3712,7 @@ async function renderVolume() {
     els.volumeImageSummary.textContent = "The image panel will show the first before-and-after sandbar preview once a later survey round exists.";
     renderVolumeReferenceGallery(currentImageExists ? [{
       eyebrow: "Current aerial view",
-      title: survey.shortDate,
+      title: localSurveyShortDate,
       badge: area.overviewCode,
       label: area.label,
       src: currentImageSrc,
@@ -3569,7 +3720,7 @@ async function renderVolume() {
       caption: `${area.label} in ${survey.label}. This acts as the visual starting point for later sandbar change reporting.`
     }] : []);
     els.volumeMetricGrid.innerHTML = [
-      metric("Selected survey", survey.shortDate, "Current round"),
+      metric("Selected survey", localSurveyShortDate, "Current round"),
       metric("Comparison status", "Baseline only", "Change reporting starts on repeat rounds"),
       metric("Current area", area.label, area.overviewCode),
       metric("Next stage", "Awaiting repeat comparison", "Volume change reporting begins once a later survey round has been compared")
@@ -3612,7 +3763,7 @@ async function renderVolume() {
       previewFallbackCards.push({
         eyebrow: "Preview coming soon",
         title: `${area.label} test area`,
-        badge: survey.shortDate,
+        badge: localSurveyShortDate,
         label: "Latest aerial context",
         src: currentImageSrc,
         alt: `${area.label} ${survey.label} aerial view`,
@@ -3637,20 +3788,20 @@ async function renderVolume() {
       renderVolumeReferenceGallery([{
         eyebrow: "Preview change map",
         title: previewLabel,
-        badge: `${baselineSurvey?.shortDate || baselineLabel} to ${survey.shortDate}`,
+        badge: `${baselineSurvey?.shortDate || baselineLabel} to ${localSurveyShortDate}`,
         label: area.label,
         src: previewImageSrc,
         alt: `${area.label} sandbar change preview`,
         caption: previewCaption
       }], { single: true });
-    els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This first preview shows where the monitored sandbar appears to have built up or worn away over the short gap between surveys.`;
+    els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${localSurveyShortDate}. This first preview shows where the monitored sandbar appears to have built up or worn away over the short gap between surveys.`;
     els.volumeImageSummary.textContent = "The preview map keeps things simple: it shows the measured sandbar, where the change is concentrated, and how the later survey compares with the earlier one.";
     } else if (usePairedPreview) {
-      renderVolumeReferenceGallery(allReferenceMaps.length ? allReferenceMaps : [
+      renderVolumeReferenceGallery(referenceGallery !== "configured-pair" && allReferenceMaps.length ? allReferenceMaps : [
         {
           eyebrow: previewBaselineLabel || "Height change analysis",
-          title: "Survey 1 vs Survey 2",
-          badge: "Comparison 1",
+          title: `${baselineLabel} to ${survey.label}`,
+          badge: "Scan 6 comparison",
           label: "Measured surface difference",
           src: previewBaselineImageSrc,
           alt: `${area.label} ${baselineLabel} volume change context`,
@@ -3658,19 +3809,23 @@ async function renderVolume() {
         },
         {
           eyebrow: previewCurrentLabel || "Gain and loss classification",
-          title: "Survey 1 vs Survey 2",
-          badge: "Comparison 1",
+          title: `${baselineLabel} to ${survey.label}`,
+          badge: "Scan 6 comparison",
           label: "Simplified class view",
           src: previewCurrentImageSrc,
           alt: `${area.label} ${survey.label} volume change context`,
           caption: previewCurrentCaption || `${area.label} with the measured change overlay shown against the later survey context.`
         }
-      ], { grouped: allReferenceMaps.length > 2 });
-      els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
-      els.volumeImageSummary.textContent = "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
+      ], { grouped: referenceGallery !== "configured-pair" && allReferenceMaps.length > 2 });
+      els.volumeSummary.textContent = isConfiguredComparison
+        ? `${area.label}: registered Survey Round 6 comparison maps for ${baselineLabel} to ${survey.label}.`
+        : `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${localSurveyShortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
+      els.volumeImageSummary.textContent = isConfiguredComparison
+        ? "The two cards below are the registered Scan 6 height-change and gain/loss outputs. The interactive 3D viewer is not published yet."
+        : "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
     } else if (allReferenceMaps.length) {
       renderVolumeReferenceGallery(allReferenceMaps, { grouped: true });
-      els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${survey.shortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
+      els.volumeSummary.textContent = `${area.label} is being compared between ${baselineSurvey?.shortDate || baselineLabel} and ${localSurveyShortDate}. This setup now pairs the live change viewer with every flat comparison set that is currently available for this area.`;
       els.volumeImageSummary.textContent = "The available survey comparisons are shown together here. Click any one to open it full screen and zoom in.";
     } else {
       const beforeAfterCards = [];
@@ -3688,7 +3843,7 @@ async function renderVolume() {
       if (currentImageExists) {
         beforeAfterCards.push({
           eyebrow: "Later aerial view",
-          title: survey.shortDate,
+          title: localSurveyShortDate,
           badge: "After",
           label: area.label,
           src: currentImageSrc,
@@ -3705,6 +3860,8 @@ async function renderVolume() {
     }
   }
 
+  if (area.id === "area4") els.volumeImageSummary.textContent = "Preliminary reference maps: historical survey identities, registration and boundaries have not all been independently verified.";
+
   els.volumeMetricGrid.innerHTML = hasConfiguredRows
     ? [
       metric("Measured sandbar zones", String(polygons.length), area.overviewCode),
@@ -3714,11 +3871,31 @@ async function renderVolume() {
     ].join("")
     : [
       metric("Measured sandbar zones", String(polygons.length), area.overviewCode),
-      metric("Comparison pair", `${baselineSurvey?.shortDate || "Baseline"} to ${survey.shortDate}`, "Imagery ready"),
+      metric("Comparison pair", `${baselineSurvey?.shortDate || "Baseline"} to ${localSurveyShortDate}`, "Imagery ready"),
       metric("Monitoring zones", polygons.length ? "Available" : "Pending", polygons.length ? "Fixed monitoring zones are in place" : "Monitoring zones have not been added to this view yet"),
       metric("Reported figures", "Awaiting values", "Measured gain, loss, and net figures will appear here once they are available")
     ].join("");
 
+  if (isConfiguredComparison) {
+    els.volumeMethod.innerHTML = [
+      detail("Comparison pair", `${baselineLabel} to ${survey.label}.`),
+      detail("Map evidence", "Registered Scan 6 height-change and gain/loss exports are shown above."),
+      detail("3D viewer", "Not yet published. No viewer link is presented until a separately packaged Scan 6 scene has been reviewed and hosted.")
+    ].join("");
+    els.volumeNarrative.innerHTML = [
+      detail("What is ready", "The registered Scan 6 comparison maps and the area-level measured figures shown above."),
+      detail("What is not ready", "Interactive Scan 6 3D viewing remains unavailable until its hosted package is qualified."),
+      detail("Interpretation boundary", "The map display does not regenerate or alter the original QGIS or CloudCompare outputs.")
+    ].join("");
+    els.volumeAreaGrid.innerHTML = `
+      <article class="card">
+        <p class="muted">${escapeHtml(area.overviewCode)} - Scan 6</p>
+        <h3>3D viewer publishing status</h3>
+        <p>The local processed scene may be prepared separately. It will be linked here only after a hosted viewer package and its published URL have been verified.</p>
+      </article>
+    `;
+    return;
+  }
   els.volumeMethod.innerHTML = `
     <div class="volume-explainer">
       <div class="volume-explainer__block">
@@ -3879,9 +4056,17 @@ function updateArea(areaId) {
   syncUrlState();
 }
 
+function areaSpecificSurveyDate(survey, area = currentArea()) {
+  if (survey?.id === "scan_06" && area?.id) {
+    if (["area2", "area3", "area5", "area8"].includes(area.id)) return "12 Oct 2026";
+    if (["area1", "area4", "area6", "area7"].includes(area.id)) return "29 Oct 2026";
+  }
+  return survey?.shortDate || survey?.label || "";
+}
+
 function renderSectionHero(area, section, survey, activeProfiles, rows) {
   const comparisonLabel = activeProfiles
-    .map((profile) => profile.survey.shortDate || profile.survey.label)
+    .map((profile) => areaSpecificSurveyDate(profile.survey))
     .filter(Boolean)
     .join(" vs ");
 
@@ -3889,7 +4074,7 @@ function renderSectionHero(area, section, survey, activeProfiles, rows) {
   els.sectionHeroSummary.textContent = `${section.label} is a fixed section through ${area.label}, making it easier to read change along one consistent line without losing the wider aerial context.`;
   els.sectionSurveyPill.innerHTML = `
     <span class="section-survey-pill__label">Survey Dates</span>
-    <strong class="section-survey-pill__value">${escapeHtml(comparisonLabel || survey.shortDate || survey.label)}</strong>
+    <strong class="section-survey-pill__value">${escapeHtml(comparisonLabel || areaSpecificSurveyDate(survey, area))}</strong>
   `;
   els.sectionHeroStats.innerHTML = "";
 }
@@ -4003,10 +4188,10 @@ async function loadSectionRowsFromCandidates(candidates, sectionId) {
 }
 
 async function loadSectionRowsForSurvey(projectId, survey, areaId, sectionId) {
-  const csvCandidates = [
-    ...surveyAssetCandidates(projectId, survey.id, areaId, "section_profiles.csv"),
-    ...sharedAreaAssetCandidates(projectId, areaId, "section_profiles.csv")
-  ];
+  // Survey B remains unsuitable for sediment analysis; its profile is available for review.
+  const highTideProfile = projectId === "padstow-estuary" && areaId === "area2" && survey.id === "2026-04-18";
+  // Profiles must be tied to the selected survey; an undated shared CSV could belong to another round.
+  const csvCandidates = surveyAssetCandidates(projectId, survey.id, areaId, highTideProfile ? "section_profiles_survey2_review.csv" : "section_profiles.csv");
   const rows = await loadSectionRowsFromCandidates(csvCandidates, sectionId);
   return normaliseSectionRows(rows);
 }
@@ -4207,7 +4392,7 @@ function renderSectionTrendMini(steps, orderedProfiles) {
     return `
       <div class="section-trend-mini__step">
         <div class="section-trend-mini__bar" style="height:${fixed(barHeight, 1)}px;background:${profile.color}"></div>
-        <span class="section-trend-mini__label">${escapeHtml(profile.survey.shortDate || profile.survey.label)}</span>
+        <span class="section-trend-mini__label">${escapeHtml(areaSpecificSurveyDate(profile.survey))}</span>
       </div>
     `;
   }).join("");
@@ -4292,10 +4477,10 @@ function renderSectionComparisonSummary(profiles, anchorSurveyId = state.surveyI
         ? pair.fromProfile.color
         : "#eef4ff";
     const directionText = delta > 0.005
-      ? `${pair.toProfile.survey.shortDate || pair.toProfile.survey.label} is above ${pair.fromProfile.survey.shortDate || pair.fromProfile.survey.label}`
+      ? `${areaSpecificSurveyDate(pair.toProfile.survey)} is above ${areaSpecificSurveyDate(pair.fromProfile.survey)}`
       : delta < -0.005
-        ? `${pair.fromProfile.survey.shortDate || pair.fromProfile.survey.label} is above ${pair.toProfile.survey.shortDate || pair.toProfile.survey.label}`
-        : `${pair.toProfile.survey.shortDate || pair.toProfile.survey.label} matches ${pair.fromProfile.survey.shortDate || pair.fromProfile.survey.label}`;
+        ? `${areaSpecificSurveyDate(pair.fromProfile.survey)} is above ${areaSpecificSurveyDate(pair.toProfile.survey)}`
+        : `${areaSpecificSurveyDate(pair.toProfile.survey)} matches ${areaSpecificSurveyDate(pair.fromProfile.survey)}`;
     return [{
       ...pair,
       fromRow,
@@ -4336,7 +4521,7 @@ function renderSectionComparisonSummary(profiles, anchorSurveyId = state.surveyI
   els.sectionDifferenceSurveyLabel.textContent = "";
   els.sectionDifferenceValue.innerHTML = focusedPairs.map((pair) => `
     <div class="section-difference-card__row">
-      <span class="section-difference-card__row-label">${escapeHtml(`${pair.fromProfile.survey.shortDate || pair.fromProfile.survey.label} to ${pair.toProfile.survey.shortDate || pair.toProfile.survey.label}`)}</span>
+      <span class="section-difference-card__row-label">${escapeHtml(`${areaSpecificSurveyDate(pair.fromProfile.survey)} to ${areaSpecificSurveyDate(pair.toProfile.survey)}`)}</span>
       <p class="section-difference-card__value" style="color:${pair.leadingColor}">${pair.delta >= 0 ? "+" : ""}${fixed(pair.delta, 2)} m</p>
     </div>
   `).join("");
@@ -4386,7 +4571,7 @@ function renderSectionComparisonSummary(profiles, anchorSurveyId = state.surveyI
       <div class="detail-list">
         ${focusedPairs.map((pair) => `
           <div class="detail-item">
-            <strong>${escapeHtml(`${pair.fromProfile.survey.shortDate || pair.fromProfile.survey.label} to ${pair.toProfile.survey.shortDate || pair.toProfile.survey.label}`)}</strong>
+            <strong>${escapeHtml(`${areaSpecificSurveyDate(pair.fromProfile.survey)} to ${areaSpecificSurveyDate(pair.toProfile.survey)}`)}</strong>
             <p>${escapeHtml(`${pair.delta >= 0 ? "+" : ""}${fixed(pair.delta, 2)} m. ${pair.directionText}.`)}</p>
           </div>
         `).join("")}
@@ -4513,10 +4698,17 @@ function renderSectionProfileControls(profiles) {
     <label class="section-profile-toggle ${profile.rows.length ? "" : "section-profile-toggle--disabled"}">
       <input type="checkbox" data-section-profile-survey="${escapeAttr(profile.survey.id)}" ${profile.selected ? "checked" : ""}>
       <span class="section-profile-toggle__swatch" style="background:${profile.color}"></span>
-      <span class="section-profile-toggle__label">${escapeHtml(profile.survey.shortDate || profile.survey.label)}</span>
+      <span class="section-profile-toggle__label">${escapeHtml(areaSpecificSurveyDate(profile.survey))}</span>
     </label>
   `).join("");
 
+  const areaId = currentArea()?.id;
+  if (currentProject()?.id === "padstow-estuary" && areaId === "area2" && profiles.some((p) => p.survey.id === "2026-04-18" && p.rows.length)) {
+    els.sectionProfileControls.insertAdjacentHTML("beforeend", '<p role="note" style="flex-basis:100%;margin:0">Survey 2: high tide affected coverage; this profile is for review, not a validated sediment comparison.</p>');
+  }
+  if (currentProject()?.id === "padstow-estuary" && ["area7", "area8"].includes(areaId) && profiles.some((p) => p.survey.id === "2026-09-10" && p.rows.length)) {
+    els.sectionProfileControls.insertAdjacentHTML("beforeend", '<p role="note" style="flex-basis:100%;margin:0">Survey 5 profile recovered from historical files; source and survey provenance remain under review.</p>');
+  }
   els.sectionProfileControls.querySelectorAll("[data-section-profile-survey]").forEach((input) => {
     input.addEventListener("change", () => {
       const next = Array.from(els.sectionProfileControls.querySelectorAll("[data-section-profile-survey]:checked"))
@@ -4531,7 +4723,7 @@ function renderSectionProfileControls(profiles) {
   els.sectionProfileLegend.innerHTML = activeProfiles.map((profile) => `
     <span class="section-profile-legend__item">
       <span class="section-profile-legend__swatch" style="background:${profile.color}"></span>
-      <span>${escapeHtml(profile.survey.shortDate || profile.survey.label)}</span>
+      <span>${escapeHtml(areaSpecificSurveyDate(profile.survey))}</span>
     </span>
   `).join("");
 }
@@ -4926,29 +5118,36 @@ function drawSectionDifferenceInset(profiles, centerDistance) {
 }
 
 function updateSectionHoverFeedback(profiles, section, survey) {
-  const currentProfile = profiles.find((profile) => profile.survey.id === survey.id) || profiles[0];
+  const currentProfile = profiles.find((profile) => profile.survey.id === survey.id);
   const currentRows = currentProfile?.rows || [];
   if (!currentRows.length) {
-    els.sectionStatusText.textContent = `No profile rows are available yet for ${section.label} in ${survey.shortDate}.`;
+    els.sectionStatusText.textContent = state.areaId === "area2" && survey.id === "2026-04-18" && currentProject().id === "padstow-estuary"
+      ? "Area 2 Survey B is unavailable for sediment analysis because of high tide."
+      : `No profile rows are available yet for ${section.label} in ${survey.shortDate}.`;
     updateSectionMapMarker(currentRows, section, state.sectionHoverDistance);
     return;
   }
   const hoverRow = nearestSectionRow(currentRows, state.sectionHoverDistance);
   const comparedProfiles = profiles.filter((profile) => profile.selected && profile.rows.length);
+  if (!currentProfile.selected) {
+    els.sectionStatusText.textContent = `Profile for ${areaSpecificSurveyDate(survey)} is available but not selected in the chart. Use the survey profile controls to display it.`;
+    updateSectionMapMarker(currentRows, section, state.sectionHoverDistance);
+    return;
+  }
   if (hoverRow) {
     const comparisonText = comparedProfiles.length > 1
       ? ` ${comparedProfiles.map((profile) => {
         const comparisonRow = nearestSectionRow(profile.rows, state.sectionHoverDistance);
         return comparisonRow
-          ? `${profile.survey.shortDate}: ${fixed(comparisonRow.height, 2)} m`
-          : `${profile.survey.shortDate}: no data`;
+          ? `${areaSpecificSurveyDate(profile.survey)}: ${fixed(comparisonRow.height, 2)} m`
+          : `${areaSpecificSurveyDate(profile.survey)}: no data`;
       }).join(" | ")}`
       : "";
-    els.sectionStatusText.textContent = `${section.label} at ${fixed(hoverRow.distance, 1)} m along the section line, height ${fixed(hoverRow.height, 2)} m in ${survey.shortDate}.${comparisonText}`;
+    els.sectionStatusText.textContent = `${section.label} at ${fixed(hoverRow.distance, 1)} m along the section line, height ${fixed(hoverRow.height, 2)} m in ${areaSpecificSurveyDate(survey)}.${comparisonText}`;
   } else {
     els.sectionStatusText.textContent = comparedProfiles.length > 1
-      ? `${section.label} loaded for ${survey.shortDate}. ${comparedProfiles.length} survey profiles are overlaid. Move across the profile to inspect the section location.`
-      : `${section.label} loaded for ${survey.shortDate}. Move across the profile to inspect the section location.`;
+      ? `${section.label} loaded for ${areaSpecificSurveyDate(survey)}. ${comparedProfiles.length} survey profiles are overlaid. Move across the profile to inspect the section location.`
+      : `${section.label} loaded for ${areaSpecificSurveyDate(survey)}. Move across the profile to inspect the section location.`;
   }
   updateSectionMapMarker(currentRows, section, state.sectionHoverDistance);
 }
@@ -5047,7 +5246,7 @@ function sectionMetrics(rows, area, survey, section) {
       { label: "Section", value: section.label, subtext: "No sampled heights found yet" },
       { label: "Ground range", value: "n/a", subtext: "Waiting for CSV data" },
       { label: "Distance covered", value: "n/a", subtext: "Waiting for CSV data" },
-      { label: "Survey timing", value: survey.shortDate, subtext: area.launchOffset }
+      { label: "Survey timing", value: areaSpecificSurveyDate(survey, area), subtext: area.launchOffset }
     ];
   }
   const minY = Math.min(...rows.map((row) => row.height));
@@ -5058,7 +5257,7 @@ function sectionMetrics(rows, area, survey, section) {
     { label: "Section", value: section.label, subtext: `${rows.length} sampled profile points` },
     { label: "Ground range", value: `${fixed(minY, 2)} m to ${fixed(maxY, 2)} m`, subtext: "Lowest to highest sampled ground" },
     { label: "Distance covered", value: `${fixed(maxX - minX, 1)} m`, subtext: "Length of this fixed section line" },
-    { label: "Survey timing", value: survey.shortDate, subtext: area.launchOffset }
+    { label: "Survey timing", value: areaSpecificSurveyDate(survey, area), subtext: area.launchOffset }
   ];
 }
 
@@ -5154,11 +5353,46 @@ function effectiveAreaOverview(areaId, surveyId = state.surveyId) {
   };
   const inheritedOverride = nearestPreviousAreaOverride(project, surveyId, areaId);
   const override = areaOverride(project, surveyId, areaId);
+  // Timing, tide and weather observations are specific to each survey. Never
+  // carry a previous survey's values into Round 6 when its record omits them.
+  const surveySpecific = {};
+  if (surveyId === "scan_06") {
+    for (const key of ["start", "finish", "lowTide", "lowTideHeight", "estimatedDuration", "actualDuration", "launchOffset", "tideWindow", "weatherNotes"]) {
+      surveySpecific[key] = override[key] || "Not recorded";
+    }
+    surveySpecific.midOffset = override.midOffset ?? null;
+    // Illustrative timing score, not a measured tide height or survey-quality rating.
+    const midpoint = override.midOffset;
+    const hasMidpoint = midpoint !== null && midpoint !== undefined && midpoint !== "" && Number.isFinite(Number(midpoint));
+    surveySpecific.tideScore = override.tideScore ?? (hasMidpoint ? Math.max(0, Math.round(100 - Math.abs(Number(midpoint)) / 3)) : null);
+    surveySpecific.tideScoreEstimated = override.tideScore == null && hasMidpoint;
+    // Round-specific narrative and status must not be inherited from older surveys.
+    for (const key of ["missionRole", "operationalNote", "purpose"]) {
+      surveySpecific[key] = override[key] || "Not recorded for this survey.";
+    }
+    // Presentation only: keep the original survey records and their provenance intact.
+    for (const key of ["start", "finish", "lowTide"]) surveySpecific[key] = String(surveySpecific[key]).replace(/\s+\b(?:GMT|BST)\b/g, "");
+    const tideWindow = String(override.tideWindow || "");
+    const timing = tideWindow.startsWith("Before ") ? { label: "Before low tide", tone: "amber" }
+      : tideWindow.startsWith("Across ") ? { label: "Around low tide", tone: "green" }
+      : tideWindow.startsWith("After ") ? { label: "After low tide", tone: "amber" }
+      : { label: "Not recorded", tone: "neutral" };
+    surveySpecific.statusLabel = timing.label;
+    surveySpecific.statusTone = timing.tone;
+    surveySpecific.actualDuration = String(surveySpecific.actualDuration).replace(/\s*\(sum of transcribed times; unverified\)/i, "");
+    surveySpecific.lowTide = String(surveySpecific.lowTide).replace(/\s*\(predicted\)/i, "");
+    surveySpecific.lowTideHeight = String(surveySpecific.lowTideHeight).replace(/\s*\(datum unverified\)/i, "");
+    surveySpecific.launchOffset = String(surveySpecific.launchOffset).replace(/ predicted low water/i, " low tide");
+    surveySpecific.tideWindow = timing.label;
+    surveySpecific.filterKey = override.filterKey || "all";
+    surveySpecific.tags = Array.isArray(override.tags) ? override.tags.filter(tag => !["Transcribed flight times", "Tide datum unverified"].includes(tag)) : [];
+  }
   return {
     ...baseline,
     ...inheritedOverride,
     ...override,
-    tags: Array.isArray(override.tags)
+    ...surveySpecific,
+    tags: surveyId === "scan_06" ? surveySpecific.tags : Array.isArray(override.tags)
       ? override.tags
       : Array.isArray(inheritedOverride.tags)
         ? inheritedOverride.tags
@@ -5268,9 +5502,10 @@ function buildAreaLayers(areaLabel) {
     lowTideHeight: overview?.lowTideHeight || "n/a",
     estimatedDuration: overview?.estimatedDuration || "n/a",
     actualDuration: overview?.actualDuration || "n/a",
-    tideScore: overview?.tideScore ?? 0,
+    tideScore: overview?.tideScore ?? null,
+    tideScoreEstimated: overview?.tideScoreEstimated === true,
     launchOffset: overview?.launchOffset || "n/a",
-    midOffsetMinutes: overview?.midOffset ?? 0,
+    midOffsetMinutes: overview?.midOffset ?? null,
     tideWindow: overview?.tideWindow || "n/a",
     missionRole: overview?.missionRole || "Monitoring area within the shared programme.",
     operationalNote: overview?.operationalNote || "Operational notes will be added as survey rounds are documented.",
@@ -5307,6 +5542,8 @@ function areaById(areaId) {
 
 function liveVolumeAreaIds(project = currentProject()) {
   const liveAreaIds = new Set();
+  // Area 8 has a corrected viewer and review maps even when unsafe volume records are removed.
+  if (project?.id === "padstow-estuary") liveAreaIds.add("area8");
   Object.values(project.volumeChangeComparisons || {}).forEach((entry) => {
     Object.keys(entry?.areas || {}).forEach((areaId) => {
       liveAreaIds.add(areaId);
@@ -5486,20 +5723,29 @@ const VOLUME_COMPARISON_DEFINITIONS = [
   { key: "ac", fromRoundId: "A", toRoundId: "C", surveyId: "2026-06-16", label: "Survey 1 vs Survey 3" },
   { key: "ad", fromRoundId: "A", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 1 vs Survey 4" },
   { key: "ae", fromRoundId: "A", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 1 vs Survey 5" },
+  { key: "af", fromRoundId: "A", toRoundId: "F", surveyId: "scan_06", label: "Survey 1 vs Survey 6" },
   { key: "bc", fromRoundId: "B", toRoundId: "C", surveyId: "2026-06-16", label: "Survey 2 vs Survey 3" },
   { key: "bd", fromRoundId: "B", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 2 vs Survey 4" },
   { key: "be", fromRoundId: "B", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 2 vs Survey 5" },
+  { key: "bf", fromRoundId: "B", toRoundId: "F", surveyId: "scan_06", label: "Survey 2 vs Survey 6" },
   { key: "cd", fromRoundId: "C", toRoundId: "D", surveyId: "2026-07-15", label: "Survey 3 vs Survey 4" },
   { key: "ce", fromRoundId: "C", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 3 vs Survey 5" },
-  { key: "de", fromRoundId: "D", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 4 vs Survey 5" }
+  { key: "cf", fromRoundId: "C", toRoundId: "F", surveyId: "scan_06", label: "Survey 3 vs Survey 6" },
+  { key: "de", fromRoundId: "D", toRoundId: "E", surveyId: "2026-09-10", label: "Survey 4 vs Survey 5" },
+  { key: "df", fromRoundId: "D", toRoundId: "F", surveyId: "scan_06", label: "Survey 4 vs Survey 6" },
+  { key: "ef", fromRoundId: "E", toRoundId: "F", surveyId: "scan_06", label: "Survey 5 vs Survey 6" }
 ];
 
-function volumeComparisonDefinitions(stats) {
+function volumeComparisonDefinitions(stats, selectedSurveyId = "") {
+  if (currentArea()?.id === "area4") return VOLUME_COMPARISON_DEFINITIONS;
   if (!stats?.survey_rounds?.length) {
-    return VOLUME_COMPARISON_DEFINITIONS.filter((item) => ["ab", "ac", "bc"].includes(item.key));
+    return VOLUME_COMPARISON_DEFINITIONS.filter((item) => ['ab', 'ac', 'bc'].includes(item.key)).filter(item => !(currentArea()?.id === 'area2' && (item.fromRoundId === 'B' || item.toRoundId === 'B')));
   }
   const roundIds = new Set(stats.survey_rounds.map((item) => item.id));
-  return VOLUME_COMPARISON_DEFINITIONS.filter((item) => roundIds.has(item.fromRoundId) && roundIds.has(item.toRoundId));
+  if (selectedSurveyId === "scan_06") {
+    roundIds.add("F");
+  }
+  return VOLUME_COMPARISON_DEFINITIONS.filter((item) => roundIds.has(item.fromRoundId) && roundIds.has(item.toRoundId)).filter(item => !(state.surveyId === 'scan_06' && item.key === 'ef' && !['area1','area2','area3'].includes(currentArea()?.id)) && !(currentArea()?.id === 'area2' && (item.fromRoundId === 'B' || item.toRoundId === 'B')));
 }
 
 function trendRoundCount(stats) {
@@ -5793,7 +6039,26 @@ function trendPairSummaries(stats, areaId = "") {
 }
 
 function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
+  if (areaId === "area3" && ["ab", "ac", "bc", "ae", "af", "ef"].includes(pairKey)) {
+    if (!["height", "classification"].includes(assetType)) return [];
+    if (pairKey === "af" && assetType === "classification") return [];
+    const pair = pairKey.toUpperCase();
+    return [projectAssetPath(projectId, "maps", "area3-review", `area3_${pair[0]}_vs_${pair[1]}_${assetType}.png`)];
+  }
+  if (areaId === "area4") {
+    if (!["ab","ac","ad","ae","af","bc","bd","be","bf","cd","ce","cf","de","df","ef"].includes(pairKey) || !["height","classification"].includes(assetType)) return [];
+    const pair = pairKey.toUpperCase();
+    return [projectAssetPath(projectId, "maps", "area4-review", areaId, `area4_${pair[0]}_vs_${pair[1]}_${assetType}.png`)];
+  }
+  const scan6SurveyIds = {
+    area1: "2026-10-29",
+    area2: "2026-10-12",
+    area3: "2026-10-12",
+    area4: "2026-10-29",
+    area8: "2026-10-12"
+  };
   const surveyIdOverrides = {
+    area1: { ab: "2026-07-15" },
     area8: {
       ab: "2026-07-15",
       ac: "2026-07-15",
@@ -5858,6 +6123,11 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
         `${areaId}_A_vs_E_gain_loss_classification.png`
       ]
     },
+    af: {
+      surveyId: scan6SurveyIds[areaId],
+      height: [`${areaId}_A_vs_F_height_change_analysis.png`],
+      classification: [`${areaId}_A_vs_F_gain_loss_classification.png`]
+    },
     bd: {
       surveyId: "2026-07-15",
       height: [
@@ -5875,6 +6145,11 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       classification: [
         `${areaId}_B_vs_E_gain_loss_classification.png`
       ]
+    },
+    bf: {
+      surveyId: scan6SurveyIds[areaId],
+      height: [`${areaId}_B_vs_F_height_change_analysis.png`],
+      classification: [`${areaId}_B_vs_F_gain_loss_classification.png`]
     },
     cd: {
       surveyId: "2026-07-15",
@@ -5894,6 +6169,11 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
         `${areaId}_C_vs_E_gain_loss_classification.png`
       ]
     },
+    cf: {
+      surveyId: scan6SurveyIds[areaId],
+      height: [`${areaId}_C_vs_F_height_change_analysis.png`],
+      classification: [`${areaId}_C_vs_F_gain_loss_classification.png`]
+    },
     de: {
       surveyId: "2026-09-10",
       height: [
@@ -5902,6 +6182,16 @@ function comparisonAssetCandidates(projectId, areaId, pairKey, assetType) {
       classification: [
         `${areaId}_D_vs_E_gain_loss_classification.png`
       ]
+    },
+    df: {
+      surveyId: scan6SurveyIds[areaId],
+      height: [`${areaId}_D_vs_F_height_change_analysis.png`],
+      classification: [`${areaId}_D_vs_F_gain_loss_classification.png`]
+    },
+    ef: {
+      surveyId: scan6SurveyIds[areaId],
+      height: [`${areaId}_E_vs_F_height_change_analysis.png`],
+      classification: [`${areaId}_E_vs_F_gain_loss_classification.png`]
     }
   }[pairKey];
 
@@ -5946,7 +6236,7 @@ function renderVolumeReferenceGallery(cards, options = {}) {
         data-volume-lightbox-alt="${escapeAttr(item.alt || item.title || "Reference image")}"
       >
         <div class="volume-reference-stage">
-          <img src="${escapeAttr(item.src)}" alt="${escapeAttr(item.alt || item.title || "Reference image")}">
+          <img loading="lazy" decoding="async" src="${escapeAttr(item.src)}" alt="${escapeAttr(item.alt || item.title || "Reference image")}">
         </div>
       </button>
       <figcaption class="volume-reference-card__meta">
@@ -5993,7 +6283,7 @@ function renderVolumeReferenceGallery(cards, options = {}) {
             type="button"
             data-volume-compare-eyebrow="${escapeAttr(group.title)}"
             data-volume-compare-title="${escapeAttr(`${group.title} - ${currentArea()?.label || "Area"}`)}"
-            data-volume-compare-caption="${escapeAttr(`Open ${group.items.length} ${group.title.toLowerCase()} maps together for side-by-side review.`)}"
+            data-volume-compare-caption="${escapeAttr(`Choose any two to four of the ${group.items.length} ${group.title.toLowerCase()} thumbnail maps for side-by-side review.`)}"
             data-volume-compare-items="${escapeAttr(JSON.stringify(group.items.map((item) => ({
               src: item.src,
               title: item.title || "Reference image",
@@ -6001,7 +6291,7 @@ function renderVolumeReferenceGallery(cards, options = {}) {
               label: item.label || item.badge || item.title || "Reference image"
             }))))}"
           >
-            Compare This Set
+            Select 2–4 Maps to Compare
           </button>
         </div>
         <div class="volume-reference-group__grid">
@@ -6048,7 +6338,7 @@ function comparisonReadinessCards(trendData, areaLabel, availableKeys = []) {
       detail: isLive
         ? `${item.label} is now available for ${areaLabel}, so this survey pair can be checked directly against the wider trend story and flat reference imagery.`
         : `${item.label} still needs its exported flat maps added before it can sit beside the trend panel cleanly for ${areaLabel}.`,
-      note: summaryByKey.get(item.key)?.supportingCopy || "Reference maps loaded."
+      note: summaryByKey.get(item.key)?.supportingCopy || (isLive ? "Reference maps loaded." : "Reference maps not yet available.")
     };
   });
   return rollout.map((item) => `
@@ -6159,8 +6449,9 @@ function currentArea() {
 }
 
 function surveyAssetPath(projectId, surveyId, areaId, fileName) {
-  const survey = currentProject().surveys.find((item) => item.id === surveyId);
-  const folder = survey?.dataFolder || surveyId;
+  const project = currentProject();
+  const survey = project.surveys.find((item) => item.id === surveyId);
+  const folder = areaOverride(project, surveyId, areaId).dataFolder || survey?.dataFolder || surveyId;
   return `/${assetSettings.surveyRoot}/${projectId}/${folder}/${areaId}/${fileName}`;
 }
 
@@ -6244,6 +6535,7 @@ async function fetchJsonAsset(candidates) {
 }
 
 async function prepareSectionDisplayAsset(assetPath) {
+  if (assetPath && /\/2026-10-29\/area1\/(?:ortho|dsm|contours)\.png(?:\?.*)?$/i.test(assetPath)) return assetPath.replace(/(ortho|dsm|contours)\.png(?=\?|$)/i, "$1-display-transparent.png");
   if (!assetPath) {
     return "";
   }
@@ -7615,7 +7907,7 @@ function syncAdminVisibility() {
 }
 
 function adminToolsEnabled() {
-  return projectConfig.showAdminTools === true;
+  return projectConfig.showAdminTools === true && state.siteIsAdmin === true;
 }
 
 function isLocalHost() {
@@ -8047,6 +8339,7 @@ function renderVolumeComparePicker() {
   const selected = new Set(state.volumeComparePickerSelected);
   els.volumeComparePickerGrid.innerHTML = state.volumeComparePickerItems.map((item, index) => {
     const isSelected = selected.has(index);
+    const selectionOrder = state.volumeComparePickerSelected.indexOf(index) + 1;
     return `
       <button
         class="volume-compare-picker__card ${isSelected ? "is-selected" : ""}"
@@ -8058,7 +8351,10 @@ function renderVolumeComparePicker() {
           <img src="${escapeAttr(item.src)}" alt="${escapeAttr(item.alt)}">
         </div>
         <div class="volume-compare-picker__meta">
-          <strong>${escapeHtml(item.label)}</strong>
+          <div class="volume-compare-picker__meta-head">
+            <strong>${escapeHtml(item.label)}</strong>
+            <span class="volume-compare-picker__selection">${isSelected ? `Selected ${selectionOrder}` : "Select"}</span>
+          </div>
           <span>${escapeHtml(item.title)}</span>
         </div>
       </button>
@@ -8067,8 +8363,8 @@ function renderVolumeComparePicker() {
 
   const count = state.volumeComparePickerSelected.length;
   if (count < 2) {
-    els.volumeComparePickerStatus.textContent = "Choose at least two maps.";
-  } else if (count >= 4) {
+    els.volumeComparePickerStatus.textContent = "Choose two to four thumbnail maps to compare.";
+  } else if (count === 4) {
     els.volumeComparePickerStatus.textContent = "Four maps selected. Compare is ready.";
   } else {
     els.volumeComparePickerStatus.textContent = `${count} maps selected. You can add up to ${4 - count} more.`;
@@ -8080,11 +8376,11 @@ function openVolumeComparePicker(eyebrow, title, caption, items = []) {
   if (!items.length || !els.volumeComparePicker) {
     return;
   }
-  state.volumeComparePickerItems = items.slice(0, 6);
-  state.volumeComparePickerSelected = state.volumeComparePickerItems.slice(0, Math.min(4, state.volumeComparePickerItems.length)).map((_, index) => index);
+  state.volumeComparePickerItems = items;
+  state.volumeComparePickerSelected = [];
   els.volumeComparePickerEyebrow.textContent = eyebrow;
   els.volumeComparePickerTitle.textContent = title;
-  els.volumeComparePickerCaption.textContent = caption || "Pick between two and four maps, then open them together.";
+  els.volumeComparePickerCaption.textContent = caption || "Choose two to four thumbnail maps from the full set, then open them together.";
   renderVolumeComparePicker();
   els.volumeComparePicker.classList.remove("hidden");
   els.volumeComparePicker.setAttribute("aria-hidden", "false");
@@ -8106,7 +8402,7 @@ function closeVolumeComparePicker() {
 }
 
 function resetVolumeComparePickerSelection() {
-  state.volumeComparePickerSelected = state.volumeComparePickerItems.slice(0, Math.min(4, state.volumeComparePickerItems.length)).map((_, index) => index);
+  state.volumeComparePickerSelected = [];
   renderVolumeComparePicker();
 }
 

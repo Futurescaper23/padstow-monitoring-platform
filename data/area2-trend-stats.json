@@ -1,19 +1,19 @@
 {
   "area_id": "area2",
   "area_label": "Area 2",
-  "generated_at": "2026-09-15T17:32:32",
+  "generated_at": "2026-11-04T13:33:41",
   "classification_threshold_m": 0.05,
   "grid": {
     "resolution_m": 0.1,
-    "width": 7244,
+    "width": 7246,
     "height": 11929,
-    "origin_x_min": 192155.203125,
-    "origin_y_max": 77919.1641875,
+    "origin_x_min": 192154.890625,
+    "origin_y_max": 77919.156375,
     "extent": {
-      "x_min": 192155.203125,
-      "x_max": 192879.603125,
-      "y_min": 76726.26418750001,
-      "y_max": 77919.1641875
+      "x_min": 192154.890625,
+      "x_max": 192879.490625,
+      "y_min": 76726.25637500001,
+      "y_max": 77919.156375
     },
     "cell_area_m2": 0.010000000000000002,
     "crs": {
@@ -28,8 +28,8 @@
     "name": "Area2-Boundary",
     "geojson": "data/areas/area2/boundary/boundary.geojson",
     "role": "reporting_mask",
-    "masked_cell_count": 31062678,
-    "masked_area_m2": 310626.7800000001
+    "masked_cell_count": 31067262,
+    "masked_area_m2": 310672.62000000005
   },
   "survey_rounds": [
     {
@@ -69,88 +69,76 @@
       "dates": [
         "2026-09-10"
       ]
+    },
+    {
+      "id": "F",
+      "label": "Survey Round 6 - 12 October 2026",
+      "dates": [
+        "2026-10-12"
+      ]
     }
   ],
   "classification_inputs": {
     "primary_pair_1": {
-      "pair": "A->D at Trebetherick Point; no earlier interval for Brea Hill or Estuary",
-      "from_round": "Survey Round 1 at Trebetherick Point; no earlier interval elsewhere",
-      "to_round": "Survey Round 4 - 15 July 2026",
-      "date_range": "22 Mar 2026 to 15 Jul 2026 at Trebetherick Point only",
-      "interval_days": 115
+      "pair": "A->C at Trebetherick; no earlier interval for Brea Hill or Estuary",
+      "from_round": "Survey Round 1 at Trebetherick; no earlier interval elsewhere",
+      "to_round": "Survey Round 3",
+      "date_range": "22 Mar 2026 to 17 Jun 2026 at Trebetherick only",
+      "interval_days": 87
     },
     "primary_pair_2": {
-      "pair": "D->E across Trebetherick Point, Brea Hill, and Estuary",
-      "from_round": "Survey Round 4 - 15 July 2026",
-      "to_round": "Survey Round 5 - 10 September 2026",
-      "date_range": "15 Jul 2026 to 10 Sep 2026",
-      "interval_days": 57
+      "pair": "C->D across Trebetherick Point, Brea Hill, and Estuary",
+      "from_round": "Survey Round 3",
+      "to_round": "Survey Round 4 - 15 July 2026",
+      "date_range": "16 Jun 2026 to 15 Jul 2026",
+      "interval_days": 29
     },
     "cumulative_pairs": [
       {
-        "pair": "D->E",
-        "from_round": "Survey Round 4 - 15 July 2026",
-        "to_round": "Survey Round 5 - 10 September 2026",
-        "date_range": "15 Jul 2026 to 10 Sep 2026",
-        "interval_days": 57,
+        "pair": "C->F",
+        "from_round": "Survey Round 3",
+        "to_round": "Survey Round 6 - 12 October 2026",
+        "date_range": "16 Jun 2026 to 12 Oct 2026",
+        "interval_days": 118,
         "volume_stats": {
           "source_files": [
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_boundary\\Area2_Padstow_Estuary_Boundary_D_vs_E_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_brea_hill_boundary\\Area2_Padstow_Estuary_Brea_Hill_Boundary_D_vs_E_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_D_vs_E_volume_stats.txt"
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_boundary\\Area2_Padstow_Estuary_Boundary_C_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_brea_hill_boundary\\Area2_Padstow_Estuary_Brea_Hill_Boundary_C_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_C_vs_F_volume_stats.txt"
           ],
-          "net_volume_m3": 8129.043406999999,
-          "surface_area_m2": 292690.233458,
-          "added_volume_m3": 19522.818188,
-          "removed_volume_m3": 11393.774781,
-          "matching_cells_percent": 94.39388771213694,
-          "ground_non_matching_percent": 3.772647314791428,
-          "ceil_non_matching_percent": 1.8334649730716264,
-          "average_neighbors_per_cell": 7.684618875572949
-        }
-      },
-      {
-        "pair": "A->D",
-        "from_round": "Survey Round 1",
-        "to_round": "Survey Round 4 - 15 July 2026",
-        "date_range": "22 Mar 2026 to 15 Jul 2026",
-        "interval_days": 115,
-        "volume_stats": {
-          "source_files": [
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-D\\padstow_estuary_terra_trebetherick_boundary\\Area2_Padstow_Estuary_Terra_Trebetherick_Boundary_A_vs_D_volume_stats.txt"
-          ],
-          "net_volume_m3": -37313.276485,
-          "surface_area_m2": 139248.296888,
-          "added_volume_m3": 238.859254,
-          "removed_volume_m3": 37552.135739,
-          "matching_cells_percent": 97.0,
-          "ground_non_matching_percent": 2.0,
-          "ceil_non_matching_percent": 1.0,
+          "net_volume_m3": -7459.142528,
+          "surface_area_m2": 303286.91322,
+          "added_volume_m3": 17710.444607,
+          "removed_volume_m3": 25169.587135,
+          "matching_cells_percent": 97.62472535577908,
+          "ground_non_matching_percent": 1.8261308301718617,
+          "ceil_non_matching_percent": 0.5491438140490696,
           "average_neighbors_per_cell": 7.8
         }
       },
       {
-        "pair": "A->E",
+        "pair": "A->F",
         "from_round": "Survey Round 1",
-        "to_round": "Survey Round 5 - 10 September 2026",
-        "date_range": "22 Mar 2026 to 10 Sep 2026",
-        "interval_days": 172,
+        "to_round": "Survey Round 6 - 12 October 2026",
+        "date_range": "22 Mar 2026 to 12 Oct 2026",
+        "interval_days": 204,
         "volume_stats": {
           "source_files": [
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-E\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_E_volume_stats.txt"
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_F_volume_stats.txt"
           ],
-          "net_volume_m3": -25011.960942,
-          "surface_area_m2": 138427.956906,
-          "added_volume_m3": 1036.36065,
-          "removed_volume_m3": 26048.321591,
-          "matching_cells_percent": 96.4,
-          "ground_non_matching_percent": 2.6,
+          "net_volume_m3": -59627.819254,
+          "surface_area_m2": 279527.533752,
+          "added_volume_m3": 3269.650136,
+          "removed_volume_m3": 62897.469388,
+          "matching_cells_percent": 97.3,
+          "ground_non_matching_percent": 1.6,
           "ceil_non_matching_percent": 1.0,
           "average_neighbors_per_cell": 7.799999999999999
         }
       }
     ],
-    "zone_strategy": "Composite area: Trebetherick Point uses the requested three-scan trend window from March to July and July to September. Brea Hill and Estuary only contribute their available July-to-September latest-interval surfaces, so those zones are latest-change-only until matching March-to-July surfaces are available.",
+    "zone_strategy": "Composite area: Trebetherick uses the earlier A->C interval and the later C->D interval. Brea Hill and Estuary only contribute their available C->D latest-interval surfaces because the intermediate Scan B coverage was a washout and no reliable earlier interval is being used there.",
     "zone_inputs": [
       {
         "zone_id": "padstow_estuary_boundary",
@@ -162,24 +150,24 @@
         "first_las_minus": null,
         "first_pair": null,
         "first_volume_stats": null,
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_boundary\\Area2_Padstow_Estuary_Boundary_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_boundary\\Area2_Padstow_Estuary_Boundary_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
-        "second_pair": "D->E",
+        "second_pair": "C->F",
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_boundary\\Area2_Padstow_Estuary_Boundary_D_vs_E_volume_stats.txt",
-          "net_volume_m3": 1275.9786,
-          "surface_area_m2": 45019.048994,
-          "added_volume_m3": 4656.776688,
-          "removed_volume_m3": 3380.798088,
-          "matching_cells_percent": 88.8,
-          "ground_non_matching_percent": 9.3,
-          "ceil_non_matching_percent": 1.9,
-          "average_neighbors_per_cell": 7.6
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_boundary\\Area2_Padstow_Estuary_Boundary_C_vs_F_volume_stats.txt",
+          "net_volume_m3": 3955.643611,
+          "surface_area_m2": 49510.708893,
+          "added_volume_m3": 8632.47642,
+          "removed_volume_m3": 4676.832809,
+          "matching_cells_percent": 97.3,
+          "ground_non_matching_percent": 2.3,
+          "ceil_non_matching_percent": 0.4,
+          "average_neighbors_per_cell": 7.8
         },
         "cumulative_las": null,
         "cumulative_pair": null,
         "cumulative_volume_stats": null,
-        "masked_cell_count": 5086230
+        "masked_cell_count": 5088649
       },
       {
         "zone_id": "padstow_estuary_brea_hill_boundary",
@@ -191,24 +179,24 @@
         "first_las_minus": null,
         "first_pair": null,
         "first_volume_stats": null,
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_brea_hill_boundary\\Area2_Padstow_Estuary_Brea_Hill_Boundary_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_brea_hill_boundary\\Area2_Padstow_Estuary_Brea_Hill_Boundary_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
-        "second_pair": "D->E",
+        "second_pair": "C->F",
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_brea_hill_boundary\\Area2_Padstow_Estuary_Brea_Hill_Boundary_D_vs_E_volume_stats.txt",
-          "net_volume_m3": -5121.087009,
-          "surface_area_m2": 110603.177528,
-          "added_volume_m3": 1916.074938,
-          "removed_volume_m3": 7037.161947,
-          "matching_cells_percent": 95.3,
-          "ground_non_matching_percent": 3.1,
-          "ceil_non_matching_percent": 1.6,
-          "average_neighbors_per_cell": 7.7
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_brea_hill_boundary\\Area2_Padstow_Estuary_Brea_Hill_Boundary_C_vs_F_volume_stats.txt",
+          "net_volume_m3": -5754.696619,
+          "surface_area_m2": 113083.417472,
+          "added_volume_m3": 4730.360842,
+          "removed_volume_m3": 10485.057461,
+          "matching_cells_percent": 97.3,
+          "ground_non_matching_percent": 1.9,
+          "ceil_non_matching_percent": 0.8,
+          "average_neighbors_per_cell": 7.8
         },
         "cumulative_las": null,
         "cumulative_pair": null,
         "cumulative_volume_stats": null,
-        "masked_cell_count": 11618384
+        "masked_cell_count": 11619791
       },
       {
         "zone_id": "padstow_estuary_trebetherick_boundary",
@@ -216,81 +204,81 @@
         "mode": "trend",
         "comparison_scope": "padstow_estuary_trebetherick_boundary",
         "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\boundary\\boundary-padstow_estuary_trebetherick_boundary.geojson",
-        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-D\\padstow_estuary_terra_trebetherick_boundary\\Area2_Padstow_Estuary_Terra_Trebetherick_Boundary_A_vs_D_Height_Difference_010m.las",
+        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_F_Height_Difference_010m.las",
         "first_las_minus": null,
-        "first_pair": "A->D",
+        "first_pair": "A->F",
         "first_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-D\\padstow_estuary_terra_trebetherick_boundary\\Area2_Padstow_Estuary_Terra_Trebetherick_Boundary_A_vs_D_volume_stats.txt",
-          "net_volume_m3": -37313.276485,
-          "surface_area_m2": 139248.296888,
-          "added_volume_m3": 238.859254,
-          "removed_volume_m3": 37552.135739,
-          "matching_cells_percent": 97.0,
-          "ground_non_matching_percent": 2.0,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_F_volume_stats.txt",
+          "net_volume_m3": -29813.909627,
+          "surface_area_m2": 139763.766876,
+          "added_volume_m3": 1634.825068,
+          "removed_volume_m3": 31448.734694,
+          "matching_cells_percent": 97.3,
+          "ground_non_matching_percent": 1.6,
           "ceil_non_matching_percent": 1.0,
           "average_neighbors_per_cell": 7.8
         },
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
-        "second_pair": "D->E",
+        "second_pair": "C->F",
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\D-E\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_D_vs_E_volume_stats.txt",
-          "net_volume_m3": 11974.151816,
-          "surface_area_m2": 137068.006936,
-          "added_volume_m3": 12949.966562,
-          "removed_volume_m3": 975.814746,
-          "matching_cells_percent": 95.5,
-          "ground_non_matching_percent": 2.5,
-          "ceil_non_matching_percent": 2.0,
-          "average_neighbors_per_cell": 7.7
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\C-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_C_vs_F_volume_stats.txt",
+          "net_volume_m3": -5660.08952,
+          "surface_area_m2": 140692.786855,
+          "added_volume_m3": 4347.607345,
+          "removed_volume_m3": 10007.696865,
+          "matching_cells_percent": 98.0,
+          "ground_non_matching_percent": 1.6,
+          "ceil_non_matching_percent": 0.4,
+          "average_neighbors_per_cell": 7.8
         },
-        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-E\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_E_Height_Difference_010m.las",
-        "cumulative_pair": "A->E",
+        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_F_Height_Difference_010m.las",
+        "cumulative_pair": "A->F",
         "cumulative_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-E\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_E_volume_stats.txt",
-          "net_volume_m3": -25011.960942,
-          "surface_area_m2": 138427.956906,
-          "added_volume_m3": 1036.36065,
-          "removed_volume_m3": 26048.321591,
-          "matching_cells_percent": 96.4,
-          "ground_non_matching_percent": 2.6,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area2\\differences\\A-F\\padstow_estuary_trebetherick_boundary\\Area2_Padstow_Estuary_Trebetherick_Boundary_A_vs_F_volume_stats.txt",
+          "net_volume_m3": -29813.909627,
+          "surface_area_m2": 139763.766876,
+          "added_volume_m3": 1634.825068,
+          "removed_volume_m3": 31448.734694,
+          "matching_cells_percent": 97.3,
+          "ground_non_matching_percent": 1.6,
           "ceil_non_matching_percent": 1.0,
           "average_neighbors_per_cell": 7.8
         },
-        "masked_cell_count": 14358064
+        "masked_cell_count": 14358822
       }
     ],
     "overall_state_counts": {
       "first_interval": {
-        "erosion": 10792242,
-        "stable": 15824519,
-        "accretion": 149299
+        "erosion": 7210879,
+        "stable": 16996771,
+        "accretion": 559563
       },
       "second_interval": {
-        "erosion": 7175384,
-        "stable": 8266608,
-        "accretion": 13817555
+        "erosion": 10677228,
+        "stable": 8280386,
+        "accretion": 5835608
       }
     },
     "overall_grid_mean_change_m": {
-      "first_interval": -0.11221027374267578,
-      "second_interval": 0.02778809517621994
+      "first_interval": -0.07327406853437424,
+      "second_interval": -0.021069929003715515
     }
   },
   "classified_area": {
-    "valid_cell_count": 26344552,
-    "valid_area_m2": 263445.5200000001,
-    "nodata_cell_count": 60069124,
-    "coverage_percent_of_boundary": 84.81094901089983
+    "valid_cell_count": 24735111,
+    "valid_area_m2": 247351.11000000004,
+    "nodata_cell_count": 61702423,
+    "coverage_percent_of_boundary": 79.61793028300981
   },
   "trend_classes": [
     {
       "class_id": 1,
       "key": "consistent_accretion",
       "label": "Consistent accretion",
-      "cell_count": 122661,
-      "area_m2": 1226.6100000000001,
-      "percent_of_classified_area": 0.46560290719690356,
+      "cell_count": 470614,
+      "area_m2": 4706.140000000001,
+      "percent_of_classified_area": 1.9026152742957165,
       "color_rgba": [
         34,
         94,
@@ -302,9 +290,9 @@
       "class_id": 2,
       "key": "consistent_erosion",
       "label": "Consistent erosion",
-      "cell_count": 540384,
-      "area_m2": 5403.840000000001,
-      "percent_of_classified_area": 2.051217268754466,
+      "cell_count": 3570265,
+      "area_m2": 35702.65000000001,
+      "percent_of_classified_area": 14.433996273556241,
       "color_rgba": [
         183,
         28,
@@ -316,9 +304,9 @@
       "class_id": 3,
       "key": "accretion_then_erosion",
       "label": "Accretion then erosion",
-      "cell_count": 796,
-      "area_m2": 7.960000000000002,
-      "percent_of_classified_area": 0.003021497575665739,
+      "cell_count": 7468,
+      "area_m2": 74.68000000000002,
+      "percent_of_classified_area": 0.030191900088906008,
       "color_rgba": [
         123,
         31,
@@ -330,9 +318,9 @@
       "class_id": 4,
       "key": "erosion_then_accretion",
       "label": "Erosion then accretion",
-      "cell_count": 8244966,
-      "area_m2": 82449.66000000002,
-      "percent_of_classified_area": 31.296664297043275,
+      "cell_count": 679319,
+      "area_m2": 6793.190000000001,
+      "percent_of_classified_area": 2.746375385176157,
       "color_rgba": [
         0,
         121,
@@ -344,9 +332,9 @@
       "class_id": 5,
       "key": "stable",
       "label": "Stable",
-      "cell_count": 6197922,
-      "area_m2": 61979.22000000001,
-      "percent_of_classified_area": 23.526389820559483,
+      "cell_count": 5244485,
+      "area_m2": 52444.85000000001,
+      "percent_of_classified_area": 21.202593349995478,
       "color_rgba": [
         189,
         189,
@@ -358,9 +346,9 @@
       "class_id": 6,
       "key": "new_latest_accretion",
       "label": "New/latest accretion",
-      "cell_count": 3128365,
-      "area_m2": 31283.650000000005,
-      "percent_of_classified_area": 11.87480811972054,
+      "cell_count": 4675081,
+      "area_m2": 46750.81000000001,
+      "percent_of_classified_area": 18.900586296135884,
       "color_rgba": [
         100,
         181,
@@ -372,9 +360,9 @@
       "class_id": 7,
       "key": "new_latest_erosion",
       "label": "New/latest erosion",
-      "cell_count": 6489436,
-      "area_m2": 64894.360000000015,
-      "percent_of_classified_area": 24.632933594771323,
+      "cell_count": 7075093,
+      "area_m2": 70750.93000000001,
+      "percent_of_classified_area": 28.603441480412194,
       "color_rgba": [
         239,
         83,
@@ -386,9 +374,9 @@
       "class_id": 8,
       "key": "earlier_accretion_now_stable",
       "label": "Earlier accretion, now stable",
-      "cell_count": 21620,
-      "area_m2": 216.20000000000005,
-      "percent_of_classified_area": 0.08206630349986592,
+      "cell_count": 79597,
+      "area_m2": 795.9700000000001,
+      "percent_of_classified_area": 0.32179762605472034,
       "color_rgba": [
         144,
         202,
@@ -400,9 +388,9 @@
       "class_id": 9,
       "key": "earlier_erosion_now_stable",
       "label": "Earlier erosion, now stable",
-      "cell_count": 1598402,
-      "area_m2": 15984.020000000002,
-      "percent_of_classified_area": 6.067296190878478,
+      "cell_count": 2933189,
+      "area_m2": 29331.890000000007,
+      "percent_of_classified_area": 11.858402414284699,
       "color_rgba": [
         255,
         138,

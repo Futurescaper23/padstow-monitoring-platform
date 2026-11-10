@@ -7,6 +7,9 @@ import { areaSettings, assetSettings } from "./src/data/areas.js";
 import { environmentalContext } from "./src/data/environmentalContext.js";
 import { surveySettings } from "./src/data/surveys.js";
 import { volumeChangeSettings } from "./src/data/volumeChange.js";
+import { redactComparisons } from "./tools/area8-display-gate.mjs";
+import { isPrivateRequest, redactMachinePaths } from "./tools/customer-response-safety.mjs";
+import { correctScan6Catalogue, withheldScan6Asset } from "./tools/scan6-comparison-safety.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,6 +41,7 @@ const mimeTypes = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".js": "application/javascript; charset=utf-8",
+  ".mjs": "application/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
@@ -147,12 +151,40 @@ http.createServer(async (request, response) => {
     return;
   }
 
+  // Internal reports, development scripts and local access stores are never customer assets.
+  if (isPrivateRequest(url.pathname)) { response.writeHead(404); response.end("Not found"); return; }
+
+  // Guard ambiguous Scan 6 contour exports and known unsafe comparisons after session authentication.
+  if (withheldScan6Asset(url.pathname)) {
+    response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+    response.end("This asset is withheld pending verification."); return;
+  }
+  if (["GET", "HEAD"].includes(request.method) && ["/public/projects/padstow-estuary/volume-change.json", "/data/projects.json"].includes(url.pathname)) {
+    try {
+      const file = path.join(__dirname, resolveAppRequestPath(url.pathname));
+      const payload = correctScan6Catalogue(redactComparisons(JSON.parse(fs.readFileSync(file, "utf8"))));
+      const body = JSON.stringify(redactMachinePaths(payload));
+      response.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+      response.end(request.method === "HEAD" ? undefined : body);
+    } catch { response.writeHead(503, { "Content-Type": "text/plain; charset=utf-8" }); response.end("Comparison catalogue unavailable pending review."); }
+    return;
+  }
+
   const requestPath = resolveAppRequestPath(url.pathname);
   const filePath = path.normalize(path.join(__dirname, requestPath));
 
   if (!filePath.startsWith(__dirname) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
     response.end("Not found");
+    return;
+  }
+
+  if (["GET", "HEAD"].includes(request.method) && path.extname(filePath).toLowerCase() === ".json") {
+    try {
+      const body = JSON.stringify(redactMachinePaths(JSON.parse(fs.readFileSync(filePath, "utf8"))));
+      response.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+      response.end(request.method === "HEAD" ? undefined : body);
+    } catch { response.writeHead(503); response.end("Data unavailable"); }
     return;
   }
 
@@ -922,11 +954,9 @@ function getSessionFromRequest(request) {
 }
 
 function isLocalAuthBypassRequest(request) {
-  if (LOCAL_AUTH_BYPASS) {
-    return true;
-  }
-  const host = String(request?.headers?.host || "").toLowerCase();
-  return host.startsWith("localhost:") || host === "localhost" || host.startsWith("127.0.0.1:") || host === "127.0.0.1";
+  // Never infer trust from the client-controlled Host header.
+  if (!LOCAL_AUTH_BYPASS || process.env.NODE_ENV === "production") return false;
+  return ["127.0.0.1", "::1", "::ffff:127.0.0.1"].includes(request?.socket?.remoteAddress);
 }
 
 function cleanupExpiredSessions() {
@@ -1075,7 +1105,7 @@ function sendJson(response, statusCode, payload, headers = {}) {
     "Content-Type": "application/json; charset=utf-8",
     ...headers
   });
-  response.end(JSON.stringify(payload));
+  response.end(JSON.stringify(redactMachinePaths(payload)));
 }
 
 function formatDateRangeLabel(dateFrom, dateTo) {

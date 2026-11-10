@@ -1,0 +1,535 @@
+{
+  "title": "Sediment Change Viewer",
+  "default_area_id": "area3",
+  "areas": [
+    {
+      "id": "area3",
+      "label": "Area 3",
+      "terrain_label": "Survey Round 2 base terrain",
+      "survey_labels": {
+        "A": "Survey Round 1 - 22 and 23 March 2026",
+        "B": "Survey Round 2 - 18 and 19 April 2026",
+        "C": "Survey Round 3 - 16 and 17 June 2026",
+        "D": "Survey Round 4 - 15 and 16 July 2026",
+        "E": "Survey Round 5 - 10 September 2026",
+        "F": "Survey Round 6 - 12 October 2026"
+      },
+      "default_dataset_id": "c-f",
+      "datasets": [
+        {
+          "id": "a-b",
+          "label": "A-B",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 9529.03,
+            "surface_m2": 134609.997,
+            "added_volume_m3": 12116.791,
+            "removed_volume_m3": 2587.761,
+            "matching_cells_pct": 99.2,
+            "raw": "Volume: 9,529.030\nSurface: 134,609.997\n----------------------\nAdded volume: (+)12,116.791\nRemoved volume: (-)2,587.761\n----------------------\nMatching cells: 99.2%\nNon-matching cells:\n    ground = 0.1%\n    ceil = 0.7%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": null,
+          "paths": {
+            "metadata": "area3/a-b/scene_metadata.json",
+            "draped": "area3/a-b/change_overlay_draped.ply",
+            "true_z": "area3/a-b/change_overlay_true_z.ply",
+            "site_map": "area3/a-b/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-c",
+          "label": "A-C",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 6262.219,
+            "surface_m2": 134123.227,
+            "added_volume_m3": 13072.162,
+            "removed_volume_m3": 6809.943,
+            "matching_cells_pct": 98.8,
+            "raw": "Volume: 6,262.219\nSurface: 134,123.227\n----------------------\nAdded volume: (+)13,072.162\nRemoved volume: (-)6,809.943\n----------------------\nMatching cells: 98.8%\nNon-matching cells:\n    ground = 0.5%\n    ceil = 0.7%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": null,
+          "paths": {
+            "metadata": "area3/a-c/scene_metadata.json",
+            "draped": "area3/a-c/change_overlay_draped.ply",
+            "true_z": "area3/a-c/change_overlay_true_z.ply",
+            "site_map": "area3/a-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-d",
+          "label": "A-D",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 6571.277475,
+            "surface_m2": 131683.207057,
+            "added_volume_m3": 14487.846846,
+            "removed_volume_m3": 7916.569371,
+            "matching_cells_pct": 97.1,
+            "raw": "Volume: 6,571.277475\nSurface: 131,683.207057\n----------------------\nAdded volume: (+)14,487.846846\nRemoved volume: (-)7,916.569371\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": null,
+          "paths": {
+            "metadata": "area3/a-d/scene_metadata.json",
+            "draped": "area3/a-d/change_overlay_draped.ply",
+            "true_z": "area3/a-d/change_overlay_true_z.ply",
+            "site_map": "area3/a-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-e",
+          "label": "A-E",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 9490.740271,
+            "surface_m2": 132954.947028,
+            "added_volume_m3": 18656.573574,
+            "removed_volume_m3": 9165.833303,
+            "matching_cells_pct": 98.0,
+            "raw": "Volume: 9,490.740271\nSurface: 132,954.947028\n----------------------\nAdded volume: (+)18,656.573574\nRemoved volume: (-)9,165.833303\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/a-e/scene_metadata.json",
+            "draped": "area3/a-e/change_overlay_draped.ply",
+            "true_z": "area3/a-e/change_overlay_true_z.ply",
+            "site_map": "area3/a-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-f",
+          "label": "A-F",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 18599.329184,
+            "surface_m2": 132721.507033,
+            "added_volume_m3": 26639.400616,
+            "removed_volume_m3": 8040.071432,
+            "matching_cells_pct": 97.8,
+            "raw": "Volume: 18,599.329184\nSurface: 132,721.507033\n----------------------\nAdded volume: (+)26,639.400616\nRemoved volume: (-)8,040.071432\n----------------------\nMatching cells: 97.8%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/a-f/scene_metadata.json",
+            "draped": "area3/a-f/change_overlay_draped.ply",
+            "true_z": "area3/a-f/change_overlay_true_z.ply",
+            "site_map": "area3/a-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-c",
+          "label": "B-C",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -3223.576,
+            "surface_m2": 134812.417,
+            "added_volume_m3": 5109.668,
+            "removed_volume_m3": 8333.244,
+            "matching_cells_pct": 99.4,
+            "raw": "Volume: -3,223.576\nSurface: 134,812.417\n----------------------\nAdded volume: (+)5,109.668\nRemoved volume: (-)8,333.244\n----------------------\nMatching cells: 99.4%\nNon-matching cells:\n    ground = 0.5%\n    ceil = 0.1%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": null,
+          "paths": {
+            "metadata": "area3/b-c/scene_metadata.json",
+            "draped": "area3/b-c/change_overlay_draped.ply",
+            "true_z": "area3/b-c/change_overlay_true_z.ply",
+            "site_map": "area3/b-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-d",
+          "label": "B-D",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -2751.951734,
+            "surface_m2": 132423.90704,
+            "added_volume_m3": 6454.533137,
+            "removed_volume_m3": 9206.484871,
+            "matching_cells_pct": 97.6,
+            "raw": "Volume: -2,751.951734\nSurface: 132,423.907040\n----------------------\nAdded volume: (+)6,454.533137\nRemoved volume: (-)9,206.484871\n----------------------\nMatching cells: 97.6%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 0.2%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": null,
+          "paths": {
+            "metadata": "area3/b-d/scene_metadata.json",
+            "draped": "area3/b-d/change_overlay_draped.ply",
+            "true_z": "area3/b-d/change_overlay_true_z.ply",
+            "site_map": "area3/b-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-e",
+          "label": "B-E",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 129.198635,
+            "surface_m2": 133696.627012,
+            "added_volume_m3": 10162.410273,
+            "removed_volume_m3": 10033.211638,
+            "matching_cells_pct": 98.5,
+            "raw": "Volume: 129.198635\nSurface: 133,696.627012\n----------------------\nAdded volume: (+)10,162.410273\nRemoved volume: (-)10,033.211638\n----------------------\nMatching cells: 98.5%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 0.2%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/b-e/scene_metadata.json",
+            "draped": "area3/b-e/change_overlay_draped.ply",
+            "true_z": "area3/b-e/change_overlay_true_z.ply",
+            "site_map": "area3/b-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-f",
+          "label": "B-F",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 9299.012019,
+            "surface_m2": 133471.027017,
+            "added_volume_m3": 17687.332517,
+            "removed_volume_m3": 8388.320498,
+            "matching_cells_pct": 98.4,
+            "raw": "Volume: 9,299.012019\nSurface: 133,471.027017\n----------------------\nAdded volume: (+)17,687.332517\nRemoved volume: (-)8,388.320498\n----------------------\nMatching cells: 98.4%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.2%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/b-f/scene_metadata.json",
+            "draped": "area3/b-f/change_overlay_draped.ply",
+            "true_z": "area3/b-f/change_overlay_true_z.ply",
+            "site_map": "area3/b-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-d",
+          "label": "C-D",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 398.655237,
+            "surface_m2": 131926.447051,
+            "added_volume_m3": 3297.313348,
+            "removed_volume_m3": 2898.658112,
+            "matching_cells_pct": 97.2,
+            "raw": "Volume: 398.655237\nSurface: 131,926.447051\n----------------------\nAdded volume: (+)3,297.313348\nRemoved volume: (-)2,898.658112\n----------------------\nMatching cells: 97.2%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": null,
+          "paths": {
+            "metadata": "area3/c-d/scene_metadata.json",
+            "draped": "area3/c-d/change_overlay_draped.ply",
+            "true_z": "area3/c-d/change_overlay_true_z.ply",
+            "site_map": "area3/c-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-e",
+          "label": "C-E",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 3314.7161,
+            "surface_m2": 133185.167023,
+            "added_volume_m3": 8455.306106,
+            "removed_volume_m3": 5140.590005,
+            "matching_cells_pct": 98.2,
+            "raw": "Volume: 3,314.716100\nSurface: 133,185.167023\n----------------------\nAdded volume: (+)8,455.306106\nRemoved volume: (-)5,140.590005\n----------------------\nMatching cells: 98.2%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 0.5%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/c-e/scene_metadata.json",
+            "draped": "area3/c-e/change_overlay_draped.ply",
+            "true_z": "area3/c-e/change_overlay_true_z.ply",
+            "site_map": "area3/c-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-f",
+          "label": "C-F",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 12418.412487,
+            "surface_m2": 132967.837028,
+            "added_volume_m3": 18288.794623,
+            "removed_volume_m3": 5870.382136,
+            "matching_cells_pct": 98.0,
+            "raw": "Volume: 12,418.412487\nSurface: 132,967.837028\n----------------------\nAdded volume: (+)18,288.794623\nRemoved volume: (-)5,870.382136\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/c-f/scene_metadata.json",
+            "draped": "area3/c-f/change_overlay_draped.ply",
+            "true_z": "area3/c-f/change_overlay_true_z.ply",
+            "site_map": "area3/c-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-e",
+          "label": "D-E",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 2882.931175,
+            "surface_m2": 130925.817074,
+            "added_volume_m3": 7115.634458,
+            "removed_volume_m3": 4232.703283,
+            "matching_cells_pct": 16.2,
+            "raw": "Volume: 2,882.931175\nSurface: 130,925.817074\n----------------------\nAdded volume: (+)7,115.634458\nRemoved volume: (-)4,232.703283\n----------------------\nMatching cells: 16.2%\nNon-matching cells:\n    ground = 83.4%\n    ceil = 0.4%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary"
+          ],
+          "paths": {
+            "metadata": "area3/d-e/scene_metadata.json",
+            "draped": "area3/d-e/change_overlay_draped.ply",
+            "true_z": "area3/d-e/change_overlay_true_z.ply",
+            "site_map": "area3/d-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-f",
+          "label": "D-F",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 11858.670471,
+            "surface_m2": 130716.047078,
+            "added_volume_m3": 17175.447681,
+            "removed_volume_m3": 5316.77721,
+            "matching_cells_pct": 16.2,
+            "raw": "Volume: 11,858.670471\nSurface: 130,716.047078\n----------------------\nAdded volume: (+)17,175.447681\nRemoved volume: (-)5,316.777210\n----------------------\nMatching cells: 16.2%\nNon-matching cells:\n    ground = 83.4%\n    ceil = 0.4%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary"
+          ],
+          "paths": {
+            "metadata": "area3/d-f/scene_metadata.json",
+            "draped": "area3/d-f/change_overlay_draped.ply",
+            "true_z": "area3/d-f/change_overlay_true_z.ply",
+            "site_map": "area3/d-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "e-f",
+          "label": "E-F",
+          "display_label": "Survey Round 5 - 10 September 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area3",
+          "area_label": "Area 3",
+          "terrain_label": "Survey Round 2 base terrain",
+          "description": "Survey Round 5 - 10 September 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 3.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 9059.119809,
+            "surface_m2": 131938.987051,
+            "added_volume_m3": 12335.43091,
+            "removed_volume_m3": 3276.311101,
+            "matching_cells_pct": 97.3,
+            "raw": "Volume: 9,059.119809\nSurface: 131,938.987051\n----------------------\nAdded volume: (+)12,335.430910\nRemoved volume: (-)3,276.311101\n----------------------\nMatching cells: 97.3%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.3%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary"
+          ],
+          "paths": {
+            "metadata": "area3/e-f/scene_metadata.json",
+            "draped": "area3/e-f/change_overlay_draped.ply",
+            "true_z": "area3/e-f/change_overlay_true_z.ply",
+            "site_map": "area3/e-f/site_underlay.png"
+          }
+        }
+      ]
+    }
+  ]
+}

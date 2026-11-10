@@ -1,0 +1,567 @@
+{
+  "title": "Sediment Change Viewer",
+  "default_area_id": "area1",
+  "areas": [
+    {
+      "id": "area1",
+      "label": "Area 1",
+      "terrain_label": "Survey Round 3 base terrain",
+      "survey_labels": {
+        "A": "Survey Round 1 - 22 and 23 March 2026",
+        "B": "Survey Round 2 - 18 and 19 April 2026",
+        "C": "Survey Round 3 - 16 and 17 June 2026",
+        "D": "Survey Round 4 - 15 and 16 July 2026",
+        "E": "Survey Round 5 - 10 September 2026",
+        "F": "Survey Round 6 - 29 October 2026"
+      },
+      "default_dataset_id": "c-f",
+      "datasets": [
+        {
+          "id": "a-b",
+          "label": "A-B",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 4317.111354,
+            "surface_m2": 140155.366867,
+            "added_volume_m3": 9013.342061,
+            "removed_volume_m3": 4696.230707,
+            "matching_cells_pct": 99.4,
+            "raw": "Volume: 4,317.111354\nSurface: 140,155.366867\n----------------------\nAdded volume: (+)9,013.342061\nRemoved volume: (-)4,696.230707\n----------------------\nMatching cells: 99.4%\nNon-matching cells:\n    ground = 0.2%\n    ceil = 0.4%\nAverage neighbors per cell: 8.0 / 8.0"
+          },
+          "parts": [
+            "dunes"
+          ],
+          "paths": {
+            "metadata": "area1/a-b/scene_metadata.json",
+            "draped": "area1/a-b/change_overlay_draped.ply",
+            "true_z": "area1/a-b/change_overlay_true_z.ply",
+            "site_map": "area1/a-b/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-c",
+          "label": "A-C",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 7337.023076,
+            "surface_m2": 139667.656878,
+            "added_volume_m3": 12045.59001,
+            "removed_volume_m3": 4708.566934,
+            "matching_cells_pct": 99.0,
+            "raw": "Volume: 7,337.023076\nSurface: 139,667.656878\n----------------------\nAdded volume: (+)12,045.590010\nRemoved volume: (-)4,708.566934\n----------------------\nMatching cells: 99.0%\nNon-matching cells:\n    ground = 0.5%\n    ceil = 0.4%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "dunes"
+          ],
+          "paths": {
+            "metadata": "area1/a-c/scene_metadata.json",
+            "draped": "area1/a-c/change_overlay_draped.ply",
+            "true_z": "area1/a-c/change_overlay_true_z.ply",
+            "site_map": "area1/a-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-d",
+          "label": "A-D",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 3270.366877,
+            "surface_m2": 138005.286915,
+            "added_volume_m3": 9888.266339,
+            "removed_volume_m3": 6617.899462,
+            "matching_cells_pct": 97.9,
+            "raw": "Volume: 3,270.366877\nSurface: 138,005.286915\n----------------------\nAdded volume: (+)9,888.266339\nRemoved volume: (-)6,617.899462\n----------------------\nMatching cells: 97.9%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "dunes"
+          ],
+          "paths": {
+            "metadata": "area1/a-d/scene_metadata.json",
+            "draped": "area1/a-d/change_overlay_draped.ply",
+            "true_z": "area1/a-d/change_overlay_true_z.ply",
+            "site_map": "area1/a-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-e",
+          "label": "A-E",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 8784.31217,
+            "surface_m2": 138100.846913,
+            "added_volume_m3": 16817.672661,
+            "removed_volume_m3": 8033.360491,
+            "matching_cells_pct": 97.9,
+            "raw": "Volume: 8,784.312170\nSurface: 138,100.846913\n----------------------\nAdded volume: (+)16,817.672661\nRemoved volume: (-)8,033.360491\n----------------------\nMatching cells: 97.9%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "dunes"
+          ],
+          "paths": {
+            "metadata": "area1/a-e/scene_metadata.json",
+            "draped": "area1/a-e/change_overlay_draped.ply",
+            "true_z": "area1/a-e/change_overlay_true_z.ply",
+            "site_map": "area1/a-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-f",
+          "label": "A-F",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 15651.572179,
+            "surface_m2": 138345.366908,
+            "added_volume_m3": 22533.972292,
+            "removed_volume_m3": 6882.400113,
+            "matching_cells_pct": 98.1,
+            "raw": "Volume: 15,651.572179\nSurface: 138,345.366908\n----------------------\nAdded volume: (+)22,533.972292\nRemoved volume: (-)6,882.400113\n----------------------\nMatching cells: 98.1%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.4%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "dunes"
+          ],
+          "paths": {
+            "metadata": "area1/a-f/scene_metadata.json",
+            "draped": "area1/a-f/change_overlay_draped.ply",
+            "true_z": "area1/a-f/change_overlay_true_z.ply",
+            "site_map": "area1/a-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-c",
+          "label": "B-C",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 3539.5428800000004,
+            "surface_m2": 440566.83015199995,
+            "added_volume_m3": 15762.059886,
+            "removed_volume_m3": 12222.517006,
+            "matching_cells_pct": 99.00247514315892,
+            "raw": "Area1_Dunes_B_vs_C_volume_stats\nVolume: 3,091.001658\nSurface: 140,019.606870\n----------------------\nAdded volume: (+)6,622.645963\nRemoved volume: (-)3,531.644305\n----------------------\nMatching cells: 99.3%\nNon-matching cells:\n    ground = 0.5%\n    ceil = 0.2%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea1_Hawkers_B_vs_C_volume_stats\nVolume: -2,434.024509\nSurface: 141,940.276827\n----------------------\nAdded volume: (+)3,060.018659\nRemoved volume: (-)5,494.043168\n----------------------\nMatching cells: 98.6%\nNon-matching cells:\n    ground = 0.7%\n    ceil = 0.7%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea1_Tregirls_B_vs_C_volume_stats\nVolume: 2,882.565731\nSurface: 158,606.946455\n----------------------\nAdded volume: (+)6,079.395264\nRemoved volume: (-)3,196.829533\n----------------------\nMatching cells: 99.1%\nNon-matching cells:\n    ground = 0.1%\n    ceil = 0.8%\nAverage neighbors per cell: 7.9 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/b-c/scene_metadata.json",
+            "draped": "area1/b-c/change_overlay_draped.ply",
+            "true_z": "area1/b-c/change_overlay_true_z.ply",
+            "site_map": "area1/b-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-d",
+          "label": "B-D",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 2640.1990749999995,
+            "surface_m2": 435252.900271,
+            "added_volume_m3": 17511.070739,
+            "removed_volume_m3": 14870.871663,
+            "matching_cells_pct": 81.43478548365255,
+            "raw": "Area1_Dunes_B_vs_D_volume_stats\nVolume: -942.829361\nSurface: 138,361.176907\n----------------------\nAdded volume: (+)6,371.347146\nRemoved volume: (-)7,314.176506\n----------------------\nMatching cells: 98.1%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 0.2%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Hawkers_B_vs_D_volume_stats\nVolume: 6,146.747546\nSurface: 141,235.436843\n----------------------\nAdded volume: (+)7,616.413517\nRemoved volume: (-)1,469.665971\n----------------------\nMatching cells: 98.1%\nNon-matching cells:\n    ground = 1.2%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Tregirls_B_vs_D_volume_stats\nVolume: -2,563.719110\nSurface: 155,656.286521\n----------------------\nAdded volume: (+)3,523.310076\nRemoved volume: (-)6,087.029186\n----------------------\nMatching cells: 51.5%\nNon-matching cells:\n    ground = 1.0%\n    ceil = 47.5%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/b-d/scene_metadata.json",
+            "draped": "area1/b-d/change_overlay_draped.ply",
+            "true_z": "area1/b-d/change_overlay_true_z.ply",
+            "site_map": "area1/b-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-e",
+          "label": "B-E",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 17710.535157,
+            "surface_m2": 421795.430571,
+            "added_volume_m3": 33900.433863,
+            "removed_volume_m3": 16189.898706,
+            "matching_cells_pct": 94.93219764537969,
+            "raw": "Area1_Dunes_B_vs_E_volume_stats\nVolume: 4,570.364699\nSurface: 138,450.666905\n----------------------\nAdded volume: (+)13,527.326891\nRemoved volume: (-)8,956.962192\n----------------------\nMatching cells: 98.2%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 0.2%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea1_Hawkers_B_vs_E_volume_stats\nVolume: 8,312.352369\nSurface: 138,406.446906\n----------------------\nAdded volume: (+)9,725.216768\nRemoved volume: (-)1,412.864399\n----------------------\nMatching cells: 96.2%\nNon-matching cells:\n    ground = 3.2%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Tregirls_B_vs_E_volume_stats\nVolume: 4,827.818089\nSurface: 144,938.316760\n----------------------\nAdded volume: (+)10,647.890204\nRemoved volume: (-)5,820.072115\n----------------------\nMatching cells: 90.6%\nNon-matching cells:\n    ground = 8.7%\n    ceil = 0.7%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/b-e/scene_metadata.json",
+            "draped": "area1/b-e/change_overlay_draped.ply",
+            "true_z": "area1/b-e/change_overlay_true_z.ply",
+            "site_map": "area1/b-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-f",
+          "label": "B-F",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 20116.758917,
+            "surface_m2": 415320.640717,
+            "added_volume_m3": 36845.730072,
+            "removed_volume_m3": 16728.971156,
+            "matching_cells_pct": 93.67628942600253,
+            "raw": "Area1_Dunes_B_vs_F_volume_stats\nVolume: 11,442.143994\nSurface: 138,685.056900\n----------------------\nAdded volume: (+)18,411.875229\nRemoved volume: (-)6,969.731235\n----------------------\nMatching cells: 98.3%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.2%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea1_Hawkers_B_vs_F_volume_stats\nVolume: 3,008.431669\nSurface: 138,549.596903\n----------------------\nAdded volume: (+)7,343.035330\nRemoved volume: (-)4,334.603661\n----------------------\nMatching cells: 96.3%\nNon-matching cells:\n    ground = 3.1%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Tregirls_B_vs_F_volume_stats\nVolume: 5,666.183254\nSurface: 138,085.986914\n----------------------\nAdded volume: (+)11,090.819513\nRemoved volume: (-)5,424.636260\n----------------------\nMatching cells: 86.4%\nNon-matching cells:\n    ground = 13.0%\n    ceil = 0.6%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/b-f/scene_metadata.json",
+            "draped": "area1/b-f/change_overlay_draped.ply",
+            "true_z": "area1/b-f/change_overlay_true_z.ply",
+            "site_map": "area1/b-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-d",
+          "label": "C-D",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -842.6057680000008,
+            "surface_m2": 435925.25025599997,
+            "added_volume_m3": 12024.810015000001,
+            "removed_volume_m3": 12867.415781,
+            "matching_cells_pct": 81.38841798710621,
+            "raw": "Area1_Dunes_C_vs_D_volume_stats\nVolume: -3,935.602179\nSurface: 137,877.516918\n----------------------\nAdded volume: (+)2,143.196533\nRemoved volume: (-)6,078.798711\n----------------------\nMatching cells: 97.8%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Hawkers_C_vs_D_volume_stats\nVolume: 8,504.445053\nSurface: 141,259.046843\n----------------------\nAdded volume: (+)9,536.045480\nRemoved volume: (-)1,031.600427\n----------------------\nMatching cells: 98.1%\nNon-matching cells:\n    ground = 1.2%\n    ceil = 0.7%\nAverage neighbors per cell: 7.9 / 8.0\n\nArea1_Tregirls_C_vs_D_volume_stats\nVolume: -5,411.448642\nSurface: 156,788.686495\n----------------------\nAdded volume: (+)345.568002\nRemoved volume: (-)5,757.016643\n----------------------\nMatching cells: 51.9%\nNon-matching cells:\n    ground = 1.0%\n    ceil = 47.1%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/c-d/scene_metadata.json",
+            "draped": "area1/c-d/change_overlay_draped.ply",
+            "true_z": "area1/c-d/change_overlay_true_z.ply",
+            "site_map": "area1/c-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-e",
+          "label": "C-E",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 14646.338499,
+            "surface_m2": 422275.22056199994,
+            "added_volume_m3": 27174.6788,
+            "removed_volume_m3": 12528.340301,
+            "matching_cells_pct": 94.96053135534258,
+            "raw": "Area1_Dunes_C_vs_E_volume_stats\nVolume: 1,577.426056\nSurface: 137,978.616916\n----------------------\nAdded volume: (+)9,488.324376\nRemoved volume: (-)7,910.898320\n----------------------\nMatching cells: 97.9%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Hawkers_C_vs_E_volume_stats\nVolume: 10,792.904494\nSurface: 138,390.426907\n----------------------\nAdded volume: (+)11,431.603142\nRemoved volume: (-)638.698648\n----------------------\nMatching cells: 96.1%\nNon-matching cells:\n    ground = 3.2%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Tregirls_C_vs_E_volume_stats\nVolume: 2,276.007949\nSurface: 145,906.176739\n----------------------\nAdded volume: (+)6,254.751282\nRemoved volume: (-)3,978.743333\n----------------------\nMatching cells: 91.1%\nNon-matching cells:\n    ground = 8.8%\n    ceil = 0.1%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/c-e/scene_metadata.json",
+            "draped": "area1/c-e/change_overlay_draped.ply",
+            "true_z": "area1/c-e/change_overlay_true_z.ply",
+            "site_map": "area1/c-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-f",
+          "label": "C-F",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 17229.692302,
+            "surface_m2": 415704.390708,
+            "added_volume_m3": 32169.984658,
+            "removed_volume_m3": 14940.292357,
+            "matching_cells_pct": 93.65629238949617,
+            "raw": "Area1_Dunes_C_vs_F_volume_stats\nVolume: 8,402.398627\nSurface: 138,210.386911\n----------------------\nAdded volume: (+)16,111.490173\nRemoved volume: (-)7,709.091547\n----------------------\nMatching cells: 98.0%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 0.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Hawkers_C_vs_F_volume_stats\nVolume: 5,522.926411\nSurface: 138,535.586903\n----------------------\nAdded volume: (+)8,085.873451\nRemoved volume: (-)2,562.947040\n----------------------\nMatching cells: 96.2%\nNon-matching cells:\n    ground = 3.1%\n    ceil = 0.7%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Tregirls_C_vs_F_volume_stats\nVolume: 3,304.367264\nSurface: 138,958.416894\n----------------------\nAdded volume: (+)7,972.621034\nRemoved volume: (-)4,668.253770\n----------------------\nMatching cells: 86.8%\nNon-matching cells:\n    ground = 13.1%\n    ceil = 0.1%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "dunes",
+            "hawkers",
+            "tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/c-f/scene_metadata.json",
+            "draped": "area1/c-f/change_overlay_draped.ply",
+            "true_z": "area1/c-f/change_overlay_true_z.ply",
+            "site_map": "area1/c-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-e",
+          "label": "D-E",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 14923.470772,
+            "surface_m2": 417318.020673,
+            "added_volume_m3": 24061.614267,
+            "removed_volume_m3": 9138.143494,
+            "matching_cells_pct": 79.44708002196458,
+            "raw": "Area1_Padstow_Estuary_Boundary_Dunes_D_vs_E_volume_stats\nVolume: 5,408.507136\nSurface: 136,342.796953\n----------------------\nAdded volume: (+)10,770.733220\nRemoved volume: (-)5,362.226084\n----------------------\nMatching cells: 96.7%\nNon-matching cells:\n    ground = 1.6%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea1_Padstow_Estuary_Boundary_Hawkers_D_vs_E_volume_stats\nVolume: 2,332.679579\nSurface: 137,725.136922\n----------------------\nAdded volume: (+)4,107.682457\nRemoved volume: (-)1,775.002877\n----------------------\nMatching cells: 95.7%\nNon-matching cells:\n    ground = 3.2%\n    ceil = 1.1%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Padstow_Estuary_Boundary_Tregirls_D_vs_E_volume_stats\nVolume: 7,182.284057\nSurface: 143,250.086798\n----------------------\nAdded volume: (+)9,183.198590\nRemoved volume: (-)2,000.914533\n----------------------\nMatching cells: 47.4%\nNon-matching cells:\n    ground = 51.6%\n    ceil = 0.9%\nAverage neighbors per cell: 7.6 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary dunes",
+            "padstow estuary boundary hawkers",
+            "padstow estuary boundary tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/d-e/scene_metadata.json",
+            "draped": "area1/d-e/change_overlay_draped.ply",
+            "true_z": "area1/d-e/change_overlay_true_z.ply",
+            "site_map": "area1/d-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-f",
+          "label": "D-F",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 17122.906541,
+            "surface_m2": 410911.66081499995,
+            "added_volume_m3": 33962.195041,
+            "removed_volume_m3": 16839.2885,
+            "matching_cells_pct": 79.36055899550246,
+            "raw": "Area1_Padstow_Estuary_Boundary_Dunes_D_vs_F_volume_stats\nVolume: 12,142.438339\nSurface: 136,570.806947\n----------------------\nAdded volume: (+)18,539.695749\nRemoved volume: (-)6,397.257410\n----------------------\nMatching cells: 96.9%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea1_Padstow_Estuary_Boundary_Hawkers_D_vs_F_volume_stats\nVolume: -2,933.765351\nSurface: 137,870.776918\n----------------------\nAdded volume: (+)4,337.073213\nRemoved volume: (-)7,270.838564\n----------------------\nMatching cells: 95.8%\nNon-matching cells:\n    ground = 3.0%\n    ceil = 1.2%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Padstow_Estuary_Boundary_Tregirls_D_vs_F_volume_stats\nVolume: 7,914.233553\nSurface: 136,470.076950\n----------------------\nAdded volume: (+)11,085.426079\nRemoved volume: (-)3,171.192526\n----------------------\nMatching cells: 45.2%\nNon-matching cells:\n    ground = 53.9%\n    ceil = 0.9%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary dunes",
+            "padstow estuary boundary hawkers",
+            "padstow estuary boundary tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/d-f/scene_metadata.json",
+            "draped": "area1/d-f/change_overlay_draped.ply",
+            "true_z": "area1/d-f/change_overlay_true_z.ply",
+            "site_map": "area1/d-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "e-f",
+          "label": "E-F",
+          "display_label": "Survey Round 5 - 10 September 2026 to Survey Round 6 - 29 October 2026",
+          "area_id": "area1",
+          "area_label": "Area 1",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 5 - 10 September 2026 to Survey Round 6 - 29 October 2026 sediment change for Area 1.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 29 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 4138.291623,
+            "surface_m2": 409232.730853,
+            "added_volume_m3": 22294.830919,
+            "removed_volume_m3": 18156.539295000002,
+            "matching_cells_pct": 94.67759936069656,
+            "raw": "Area1_Padstow_Estuary_Boundary_Dunes_E_vs_F_volume_stats\nVolume: 6,733.312846\nSurface: 136,670.736945\n----------------------\nAdded volume: (+)13,280.902108\nRemoved volume: (-)6,547.589262\n----------------------\nMatching cells: 96.9%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 1.6%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea1_Padstow_Estuary_Boundary_Hawkers_E_vs_F_volume_stats\nVolume: -5,226.789024\nSurface: 136,913.206940\n----------------------\nAdded volume: (+)2,472.147136\nRemoved volume: (-)7,698.936159\n----------------------\nMatching cells: 96.4%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 1.8%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea1_Padstow_Estuary_Boundary_Tregirls_E_vs_F_volume_stats\nVolume: 2,631.767801\nSurface: 135,648.786968\n----------------------\nAdded volume: (+)6,541.781675\nRemoved volume: (-)3,910.013874\n----------------------\nMatching cells: 90.7%\nNon-matching cells:\n    ground = 7.0%\n    ceil = 2.3%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary dunes",
+            "padstow estuary boundary hawkers",
+            "padstow estuary boundary tregirls"
+          ],
+          "paths": {
+            "metadata": "area1/e-f/scene_metadata.json",
+            "draped": "area1/e-f/change_overlay_draped.ply",
+            "true_z": "area1/e-f/change_overlay_true_z.ply",
+            "site_map": "area1/e-f/site_underlay.png"
+          }
+        }
+      ]
+    }
+  ]
+}
