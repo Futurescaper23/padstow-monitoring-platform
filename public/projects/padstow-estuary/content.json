@@ -633,6 +633,81 @@
           ]
         }
       ]
+    },
+    "scan_06": {
+      "heroTitle": "What Survey Round 6 showed us",
+      "heroText": "Two October visits, a 17-day gap and some changeable weather brought the sixth round of estuary monitoring together.",
+      "storyTitle": "Survey Round 6 Learnings",
+      "contentsSubtext": "A look back at the two survey days, the conditions and the places that make up the estuary monitoring programme.",
+      "glance": [
+        ["High tide reference", "Not recorded"],
+        ["Total mapped area", "7.25 km² monitoring footprint"],
+        ["Survey dates", "12 and 29 October 2026"],
+        ["Low tide reference", "13:23 Day 1 - 0.92 m | 13:27 Day 2 - 1.05 m"],
+        ["Images captured", "Not recorded"],
+        ["Air time overall", "Not confirmed"]
+      ],
+      "story": [
+        {
+          "id": "round6-two-days",
+          "title": "A Survey Spread Across Two October Days",
+          "paragraphs": [
+            "Survey Round 6 covered all eight monitoring areas, but it took two visits to the estuary to get there. The first four areas were flown on 12 October, with the remaining four completed on 29 October.",
+            "The plan was to return sooner, but strong winds and unsettled weather kept getting in the way. Storms passed through during the 17-day gap, making this a particularly interesting round to look at alongside the earlier surveys.",
+            "The gap also matters when reading the results: Areas 2, 3, 5 and 8 were surveyed before that spell of weather, while Areas 1, 4, 6 and 7 were surveyed afterwards. The comparisons can help us explore what changed, but cannot on their own say what caused it."
+          ]
+        },
+        {
+          "id": "round6-first-day",
+          "title": "Day 1 Followed The Familiar Route",
+          "paragraphs": [
+            "The first day began at Daymer Bay before continuing through Rock Beach and Porthilly Cove, with Wadebridge completing the route. By now the launch spots and flight patterns were familiar, and the survey moved along well.",
+            "There was some wind at the exposed Daymer Bay launch, but the aircraft handled it well. Porthilly Cove was as muddy as ever, while the quieter autumn conditions meant there were fewer visitors around the survey areas.",
+            "The final journey to Wadebridge was by bicycle along the Camel Trail. It was a peaceful end to the day, with swans, geese and ducks around the estuary."
+          ]
+        },
+        {
+          "id": "round6-second-day",
+          "title": "Day 2 Brought The Wind",
+          "paragraphs": [
+            "The team returned on 29 October to complete Hawker’s Cove and Tregirls Beach, Padstow Harbour, Old Town Cove and Slate Quarry. It was mild, but the wind made this a more demanding day than the first.",
+            "The exposed start at Tregirls was particularly windy. The drone gave wind warnings, and flying into the gusts placed more demand on the batteries, so extra flights and battery changes were needed to complete the coverage.",
+            "From Padstow the team continued along the estuary by bicycle, covering the waterfront and Iron Bridge before finishing the remaining areas. The final flight landed at 16:18, with daylight becoming a consideration as the team headed back."
+          ]
+        },
+        {
+          "id": "round6-flight-evidence",
+          "title": "Familiar Places Helped The Days Run Smoothly",
+          "paragraphs": [
+            "After six rounds, knowing where to park, launch and recharge makes a real difference. Familiar routes and established flight plans helped the team work through all eight areas while adapting to the conditions on each day.",
+            "There are 18 flight records across the two visits. One Daymer Bay flight is missing from the DroneDesk register, although a separate aircraft record exists; its exact end time still needs checking. For 29 October, the listed flights add up to about 168.4 minutes, while the register appears to show 161 minutes."
+          ]
+        },
+        {
+          "id": "round6-tide-context",
+          "title": "Working Around Low Tide",
+          "paragraphs": [
+            "As with the earlier rounds, the aim was to make the most of the exposed estuary around low water. The supplied tide tables put low tide at 13:23 on 12 October and 13:27 on 29 October.",
+            "The area cards show how the flight window sits around those times. Their midpoint is taken between first launch and last landing, not an airtime-weighted average. The tide heights are predictions, and the datum has not been independently verified."
+          ]
+        },
+        {
+          "id": "round6-method",
+          "title": "The Estuary Is Becoming A Familiar Place To Work",
+          "paragraphs": [
+            "The combination of a vehicle, bicycles and familiar access points has become an important part of the survey method. It keeps equipment and batteries moving between sites without losing sight of the weather and the tide.",
+            "At Old Town Cove the team met another group surveying around the estuary with LiDAR. It was a chance to compare experiences while both teams went about their own work."
+          ]
+        },
+        {
+          "id": "round6-observations",
+          "title": "What Caught The Eye",
+          "paragraphs": [
+            "At Daymer Bay, some of the exposed sandbars looked different from previous visits. That is a useful place to start looking, but it is a field impression rather than a measured change.",
+            "The imagery, sections and change comparisons can be explored together to see what the surveys show. The two October visits give us another valuable step in the growing picture of how the estuary changes over time."
+          ]
+        }
+      ]
     }
   },
   "panoramaGuides": {

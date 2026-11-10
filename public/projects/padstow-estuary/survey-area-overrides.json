@@ -793,6 +793,417 @@
         "cardNote": "Best logged Day 3 low-water block",
         "purpose": "Shows Padstow Harbour on the falling tide, close enough to low water to provide a strong Scan 5 comparison window."
       }
+    },    "scan_06": {
+      "area1": {
+        "day": "29 October 2026",
+        "dataFolder": "2026-10-29",
+        "cardNote": "Survey Round 6 - 29 October 2026",
+        "surveyNotes": "The exposed Tregirls Beach launch was one of the windiest locations; the operator reported wind warnings and greater battery demands. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:27 GMT, 1.05 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day2",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "11:25:29 GMT",
+        "finish": "12:20:13 GMT",
+        "lowTide": "13:27 GMT (predicted)",
+        "lowTideHeight": "1.05 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "43m 04s (sum of transcribed times; unverified)",
+        "launchOffset": "121m 31s before predicted low water",
+        "midOffset": -94,
+        "tideScore": null,
+        "tideWindow": "Before predicted low water; tide height at flight time not measured",
+        "missionRole": "Opened day 2 at Hawker's Cove / Tregirls Beach using flights 1–3.",
+        "operationalNote": "Flight 1: 11:25:29–11:46:13 (20m 44s); Flight 2: 11:48:06–11:54:32 (6m 26s); Flight 3: 12:04:19–12:20:13 (15m 54s). Times are local GMT; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The exposed Tregirls Beach launch was one of the windiest locations; the operator reported wind warnings and greater battery demands.",
+        "purpose": "Opened day 2 at Hawker's Cove / Tregirls Beach using flights 1–3.",
+        "tags": [
+          "Day 2",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 1,
+            "startLocal": "11:25:29",
+            "endLocal": "11:46:13",
+            "timezone": "GMT",
+            "durationFromTimes": "20m 44s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 2,
+            "startLocal": "11:48:06",
+            "endLocal": "11:54:32",
+            "timezone": "GMT",
+            "durationFromTimes": "6m 26s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 3,
+            "startLocal": "12:04:19",
+            "endLocal": "12:20:13",
+            "timezone": "GMT",
+            "durationFromTimes": "15m 54s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      },
+      "area2": {
+        "day": "12 October 2026",
+        "dataFolder": "2026-10-12",
+        "cardNote": "Survey Round 6 - 12 October 2026",
+        "surveyNotes": "The operator reported some wind at the exposed Daymer Bay launch, fewer visitors than in summer and a subjective impression that sandbars looked different; this is not a measured change. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:23 BST, 0.92 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level. Flight 2 is absent from DroneDesk; the operator handover refers to DJIFlightRecord_2026-10-12_[12-16-19]-aircraft.csv, but the exact end time remains unverified. Its 12:34:32 end and total flying time are approximate.",
+        "filterKey": "day1",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "11:52:20 BST",
+        "finish": "Approx. 12:34:32 BST",
+        "lowTide": "13:23 BST (predicted)",
+        "lowTideHeight": "0.92 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "Approx. 41m 00s (sum of transcribed times; unverified)",
+        "launchOffset": "90m 40s before predicted low water",
+        "midOffset": -70,
+        "tideScore": null,
+        "tideWindow": "Before predicted low water; tide height at flight time not measured",
+        "missionRole": "Opened day 1 at Daymer Bay using flights 1–2.",
+        "operationalNote": "Flight 1: 11:52:20–12:15:07 (22m 47s); Flight 2: 12:16:19–approximately 12:34:32 (approximately 18m 13s). Times are local BST; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The operator reported some wind at the exposed Daymer Bay launch, fewer visitors than in summer and a subjective impression that sandbars looked different; this is not a measured change.",
+        "purpose": "Opened day 1 at Daymer Bay using flights 1–2.",
+        "tags": [
+          "Day 1",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 1,
+            "startLocal": "11:52:20",
+            "endLocal": "12:15:07",
+            "timezone": "BST",
+            "durationFromTimes": "22m 47s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 2,
+            "startLocal": "12:16:19",
+            "endLocal": "12:34:32",
+            "timezone": "BST",
+            "durationFromTimes": "18m 13s",
+            "endAndDurationApproximate": true,
+            "provenance": "operator handover telemetry estimate; original telemetry not independently verified"
+          }
+        ]
+      },
+      "area3": {
+        "day": "12 October 2026",
+        "dataFolder": "2026-10-12",
+        "cardNote": "Survey Round 6 - 12 October 2026",
+        "surveyNotes": "The operator confirmed two flights and the established Rock Beach approach; no additional area-specific observations were supplied. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:23 BST, 0.92 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day1",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "12:51:58 BST",
+        "finish": "13:56:33 BST",
+        "lowTide": "13:23 BST (predicted)",
+        "lowTideHeight": "0.92 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "39m 26s (sum of transcribed times; unverified)",
+        "launchOffset": "31m 02s before predicted low water",
+        "midOffset": 1,
+        "tideScore": null,
+        "tideWindow": "Across predicted low water; tide height at flight time not measured",
+        "missionRole": "Continued day 1 through Rock Beach using flights 3–4.",
+        "operationalNote": "Flight 3: 12:51:58–13:14:29 (22m 31s); Flight 4: 13:39:38–13:56:33 (16m 55s). Times are local BST; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The operator confirmed two flights and the established Rock Beach approach; no additional area-specific observations were supplied.",
+        "purpose": "Continued day 1 through Rock Beach using flights 3–4.",
+        "tags": [
+          "Day 1",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 3,
+            "startLocal": "12:51:58",
+            "endLocal": "13:14:29",
+            "timezone": "BST",
+            "durationFromTimes": "22m 31s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 4,
+            "startLocal": "13:39:38",
+            "endLocal": "13:56:33",
+            "timezone": "BST",
+            "durationFromTimes": "16m 55s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      },
+      "area4": {
+        "day": "29 October 2026",
+        "dataFolder": "2026-10-29",
+        "cardNote": "Survey Round 6 - 29 October 2026",
+        "surveyNotes": "The operator reported gusts, flights along the Padstow waterfront and additional coverage from the opposite side of the Iron Bridge. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:27 GMT, 1.05 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day2",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "13:11:22 GMT",
+        "finish": "14:15:06 GMT",
+        "lowTide": "13:27 GMT (predicted)",
+        "lowTideHeight": "1.05 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "42m 06s (sum of transcribed times; unverified)",
+        "launchOffset": "15m 38s before predicted low water",
+        "midOffset": 16,
+        "tideScore": null,
+        "tideWindow": "Across predicted low water; tide height at flight time not measured",
+        "missionRole": "Covered Padstow Harbour and the Iron Bridge on day 2 using flights 4–6.",
+        "operationalNote": "Flight 4: 13:11:22–13:27:57 (16m 35s); Flight 5: 13:35:42–13:52:31 (16m 49s); Flight 6: 14:06:24–14:15:06 (8m 42s). Times are local GMT; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The operator reported gusts, flights along the Padstow waterfront and additional coverage from the opposite side of the Iron Bridge.",
+        "purpose": "Covered Padstow Harbour and the Iron Bridge on day 2 using flights 4–6.",
+        "tags": [
+          "Day 2",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 4,
+            "startLocal": "13:11:22",
+            "endLocal": "13:27:57",
+            "timezone": "GMT",
+            "durationFromTimes": "16m 35s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 5,
+            "startLocal": "13:35:42",
+            "endLocal": "13:52:31",
+            "timezone": "GMT",
+            "durationFromTimes": "16m 49s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 6,
+            "startLocal": "14:06:24",
+            "endLocal": "14:15:06",
+            "timezone": "GMT",
+            "durationFromTimes": "8m 42s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      },
+      "area5": {
+        "day": "12 October 2026",
+        "dataFolder": "2026-10-12",
+        "cardNote": "Survey Round 6 - 12 October 2026",
+        "surveyNotes": "The operator described sheltered, quiet conditions and very muddy ground at Porthilly Cove; no new operational difficulty was reported. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:23 BST, 0.92 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day1",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "14:05:41 BST",
+        "finish": "15:09:00 BST",
+        "lowTide": "13:23 BST (predicted)",
+        "lowTideHeight": "0.92 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "41m 26s (sum of transcribed times; unverified)",
+        "launchOffset": "42m 41s after predicted low water",
+        "midOffset": 74,
+        "tideScore": null,
+        "tideWindow": "After predicted low water; tide height at flight time not measured",
+        "missionRole": "Covered Porthilly Cove on day 1 using flights 5–6.",
+        "operationalNote": "Flight 5: 14:05:41–14:24:43 (19m 02s); Flight 6: 14:46:36–15:09:00 (22m 24s). Times are local BST; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The operator described sheltered, quiet conditions and very muddy ground at Porthilly Cove; no new operational difficulty was reported.",
+        "purpose": "Covered Porthilly Cove on day 1 using flights 5–6.",
+        "tags": [
+          "Day 1",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 5,
+            "startLocal": "14:05:41",
+            "endLocal": "14:24:43",
+            "timezone": "BST",
+            "durationFromTimes": "19m 02s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 6,
+            "startLocal": "14:46:36",
+            "endLocal": "15:09:00",
+            "timezone": "BST",
+            "durationFromTimes": "22m 24s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      },
+      "area6": {
+        "day": "29 October 2026",
+        "dataFolder": "2026-10-29",
+        "cardNote": "Survey Round 6 - 29 October 2026",
+        "surveyNotes": "The team used the Old Town Quarry launch. Another group was conducting separate LiDAR work; no scientific comparison or collaboration is implied. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:27 GMT, 1.05 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day2",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "14:33:30 GMT",
+        "finish": "15:18:04 GMT",
+        "lowTide": "13:27 GMT (predicted)",
+        "lowTideHeight": "1.05 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "43m 26s (sum of transcribed times; unverified)",
+        "launchOffset": "66m 30s after predicted low water",
+        "midOffset": 89,
+        "tideScore": null,
+        "tideWindow": "After predicted low water; tide height at flight time not measured",
+        "missionRole": "Covered Old Town Cove on day 2 using flights 7–8.",
+        "operationalNote": "Flight 7: 14:33:30–14:56:17 (22m 47s); Flight 8: 14:57:25–15:18:04 (20m 39s). Times are local GMT; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The team used the Old Town Quarry launch. Another group was conducting separate LiDAR work; no scientific comparison or collaboration is implied.",
+        "purpose": "Covered Old Town Cove on day 2 using flights 7–8.",
+        "tags": [
+          "Day 2",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 7,
+            "startLocal": "14:33:30",
+            "endLocal": "14:56:17",
+            "timezone": "GMT",
+            "durationFromTimes": "22m 47s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 8,
+            "startLocal": "14:57:25",
+            "endLocal": "15:18:04",
+            "timezone": "GMT",
+            "durationFromTimes": "20m 39s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      },
+      "area7": {
+        "day": "29 October 2026",
+        "dataFolder": "2026-10-29",
+        "cardNote": "Survey Round 6 - 29 October 2026",
+        "surveyNotes": "The operator reported decreasing daylight during the last flights. The final transcribed landing was 16:18:18 GMT; the supplied tide table listed sunset at approximately 17:01 GMT. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:27 GMT, 1.05 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day2",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "15:36:29 GMT",
+        "finish": "16:18:18 GMT",
+        "lowTide": "13:27 GMT (predicted)",
+        "lowTideHeight": "1.05 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "39m 50s (sum of transcribed times; unverified)",
+        "launchOffset": "129m 29s after predicted low water",
+        "midOffset": 150,
+        "tideScore": null,
+        "tideWindow": "After predicted low water; tide height at flight time not measured",
+        "missionRole": "Completed day 2 at Slate Quarry using flights 9–10.",
+        "operationalNote": "Flight 9: 15:36:29–15:56:25 (19m 56s); Flight 10: 15:58:24–16:18:18 (19m 54s). Times are local GMT; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The operator reported decreasing daylight during the last flights. The final transcribed landing was 16:18:18 GMT; the supplied tide table listed sunset at approximately 17:01 GMT.",
+        "purpose": "Completed day 2 at Slate Quarry using flights 9–10.",
+        "tags": [
+          "Day 2",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 9,
+            "startLocal": "15:36:29",
+            "endLocal": "15:56:25",
+            "timezone": "GMT",
+            "durationFromTimes": "19m 56s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 10,
+            "startLocal": "15:58:24",
+            "endLocal": "16:18:18",
+            "timezone": "GMT",
+            "durationFromTimes": "19m 54s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      },
+      "area8": {
+        "day": "12 October 2026",
+        "dataFolder": "2026-10-12",
+        "cardNote": "Survey Round 6 - 12 October 2026",
+        "surveyNotes": "The team cycled along the Camel Trail to the Wadebridge launch. The operator reported quiet conditions and observed swans, geese and ducks. Source: operator handover, based on transcribed DroneDesk records and operator-confirmed assignments; source logs have not been independently verified. Low water was predicted at 13:23 BST, 0.92 m, datum unverified. The first-to-last flight-window midpoint is a calculated timing reference, not a measured water level.",
+        "filterKey": "day1",
+        "statusLabel": "Transcribed flight records",
+        "statusTone": "neutral",
+        "start": "15:59:47 BST",
+        "finish": "16:44:26 BST",
+        "lowTide": "13:23 BST (predicted)",
+        "lowTideHeight": "0.92 m (datum unverified)",
+        "estimatedDuration": "Not supplied in operator handover",
+        "actualDuration": "41m 34s (sum of transcribed times; unverified)",
+        "launchOffset": "156m 47s after predicted low water",
+        "midOffset": 179,
+        "tideScore": null,
+        "tideWindow": "After predicted low water; tide height at flight time not measured",
+        "missionRole": "Completed day 1 at Wadebridge using flights 7–8.",
+        "operationalNote": "Flight 7: 15:59:47–16:25:05 (25m 18s); Flight 8: 16:28:10–16:44:26 (16m 16s). Times are local BST; durations are calculated from handover timestamps and are not independently verified.",
+        "weatherNotes": "The team cycled along the Camel Trail to the Wadebridge launch. The operator reported quiet conditions and observed swans, geese and ducks.",
+        "purpose": "Completed day 1 at Wadebridge using flights 7–8.",
+        "tags": [
+          "Day 1",
+          "Survey 6",
+          "Transcribed flight times",
+          "Tide datum unverified"
+        ],
+        "flightRecords": [
+          {
+            "flightNumber": 7,
+            "startLocal": "15:59:47",
+            "endLocal": "16:25:05",
+            "timezone": "BST",
+            "durationFromTimes": "25m 18s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          },
+          {
+            "flightNumber": 8,
+            "startLocal": "16:28:10",
+            "endLocal": "16:44:26",
+            "timezone": "BST",
+            "durationFromTimes": "16m 16s",
+            "endAndDurationApproximate": false,
+            "provenance": "operator handover; not independently verified"
+          }
+        ]
+      }
     }
   }
 }

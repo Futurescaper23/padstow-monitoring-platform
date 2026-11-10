@@ -1,0 +1,295 @@
+{
+  "description": "Preliminary visualization images only. Scientific source data and private processing paths are excluded.",
+  "files": [
+    {
+      "path": "frames/area1/a-b.png",
+      "sha256": "7ed6831433ad6144bffabaee2cb827497c7af53a5d79b7526bc2ff56869268f7",
+      "bytes": 189757
+    },
+    {
+      "path": "frames/area1/b-c.png",
+      "sha256": "1dad4c3505a96d19e90cf92510999d115061a8ff56534093e4a4ec5b1688cc56",
+      "bytes": 312026
+    },
+    {
+      "path": "frames/area1/c-d.png",
+      "sha256": "873d05c9b71eec5c5b5e72cb3ea53bd6c93aee47016a2f91521a25049c6cc10a",
+      "bytes": 282942
+    },
+    {
+      "path": "frames/area1/d-e.png",
+      "sha256": "2cf668691c13f6f07ca51164e750b23114ab9fd557a7396eb576ee55c86deedd",
+      "bytes": 366389
+    },
+    {
+      "path": "frames/area1/e-f.png",
+      "sha256": "bb7cf66e2971e5e8ca8ea18a889927c1509b6d8d9ca51b6cf41ac89e15873c5f",
+      "bytes": 423345
+    },
+    {
+      "path": "manifests/area1.json",
+      "sha256": "0b335589ec821cf09b7cd776abb6d5bb91d58cc565ed1d94106876786b438c4a",
+      "bytes": 4032
+    },
+    {
+      "path": "frames/area2/a-c.png",
+      "sha256": "4b21c279089fefc0b332892c85acf193282f2e259e88d9c0c4ef1fcb22b49427",
+      "bytes": 232461
+    },
+    {
+      "path": "zones/area2/a-c/trebetherick.png",
+      "sha256": "e9eb5fec04e5c9d8110ec85bf171fc5d76e2c170158e3f4da346e77f2cad1209",
+      "bytes": 118943
+    },
+    {
+      "path": "frames/area2/c-d.png",
+      "sha256": "60c26f82bf5bb61b069faa1891c59ff4f9a1be7a8e4404160ff05eb2296554cb",
+      "bytes": 356613
+    },
+    {
+      "path": "zones/area2/c-d/estuary.png",
+      "sha256": "9551634ecfaaa47a4e8427ad793ba73c05cafdca34cb8f9e62b3a5ee0f4f56f7",
+      "bytes": 62679
+    },
+    {
+      "path": "zones/area2/c-d/brea-hill.png",
+      "sha256": "cdf57264542f12ecbdb5c00c189a177d038fa70c825db2da34c37dab7f4bfe13",
+      "bytes": 60102
+    },
+    {
+      "path": "zones/area2/c-d/trebetherick.png",
+      "sha256": "6f3bce8621db54802a84ce58d8423577c615f1989e4c9804773453255f2e2169",
+      "bytes": 102532
+    },
+    {
+      "path": "frames/area2/d-e.png",
+      "sha256": "ab1d7d6d97d872e615461cbec95a7b46ac8782d4f2947126dc6768cafc28e567",
+      "bytes": 387930
+    },
+    {
+      "path": "zones/area2/d-e/estuary.png",
+      "sha256": "14aeea0a7859bc98badcaaafbf6bffa5df889ee91b8a2fd4ca74b041c869da72",
+      "bytes": 63808
+    },
+    {
+      "path": "zones/area2/d-e/brea-hill.png",
+      "sha256": "25b583a0d945a342e1428bbfc36791d3cb2db6ac26b6b4bea7695ba140425da1",
+      "bytes": 67332
+    },
+    {
+      "path": "zones/area2/d-e/trebetherick.png",
+      "sha256": "16bcb44e9eb1085ac731689b3440e9a7563a36f9b446c8ea3f06f501d3c29d4f",
+      "bytes": 104091
+    },
+    {
+      "path": "frames/area2/e-f.png",
+      "sha256": "de492d60b15b69b26356fb59e93781cca83d3325716268aca583b4902e243d40",
+      "bytes": 363982
+    },
+    {
+      "path": "zones/area2/e-f/estuary.png",
+      "sha256": "7ba8fed11a23f8557ea35c3d40966046889a3f7bf6767ebcb01d97fd42efde83",
+      "bytes": 62635
+    },
+    {
+      "path": "zones/area2/e-f/brea-hill.png",
+      "sha256": "d0cde74b27f2aad9c295cb98cb33fb0eccdeac65cb0c6b86d6c7df4f627c4984",
+      "bytes": 68519
+    },
+    {
+      "path": "zones/area2/e-f/trebetherick.png",
+      "sha256": "9b4b7c0a4480d73e9590300e1dad91b7af144dd01159c5fe9499b12a03939f7a",
+      "bytes": 95857
+    },
+    {
+      "path": "manifests/area2.json",
+      "sha256": "c72e856fe96d9bdd9d364b5a523221f0dc9d146768131c2fdf4d239882b5c7e5",
+      "bytes": 5589
+    },
+    {
+      "path": "frames/area3/a-b.png",
+      "sha256": "d295b45ada0733854493d4d15b0f5dd074101967209cb6306b7d4f1f1b085863",
+      "bytes": 164960
+    },
+    {
+      "path": "frames/area3/b-c.png",
+      "sha256": "f926d2770a6c46b9e662c1d8a0c3672c1f9e09c9aaeb6b280b320188a4efe214",
+      "bytes": 133221
+    },
+    {
+      "path": "frames/area3/c-d.png",
+      "sha256": "092b9458fe62b7935d0600028d69ad27d356786e33a2f907bfde806a6cdf9c83",
+      "bytes": 74041
+    },
+    {
+      "path": "frames/area3/d-e.png",
+      "sha256": "0997ca89e24c4e11ba6fc411f9ba36e54ea4f3e0e8a6d1cc2eaf47795122cff5",
+      "bytes": 130724
+    },
+    {
+      "path": "frames/area3/e-f.png",
+      "sha256": "8e4cde2748aef990199a1787bfe465949b316fe06abae9c7a002b3fd2d8bf30a",
+      "bytes": 160210
+    },
+    {
+      "path": "manifests/area3.json",
+      "sha256": "5c28a9939971fde74bb6eaae64be1250c2602f4d4368647f4dc804c82d9a0ec2",
+      "bytes": 3089
+    },
+    {
+      "path": "frames/area4/d-e.png",
+      "sha256": "983faa73097f138cb8566757bc649c9f67eaa57687ea59e7394071ad342067a9",
+      "bytes": 883570
+    },
+    {
+      "path": "zones/area4/d-e/beach.png",
+      "sha256": "ab152ece83e2132f4b67ebc256f43c9ec7e99ccca42bc7fa1d064f0a2818588c",
+      "bytes": 48373
+    },
+    {
+      "path": "zones/area4/d-e/iron-bridge.png",
+      "sha256": "2bcc9bd5c9630d1cb29b063e3eb9c645f8bad0857c352ae481b651c0f5cfaa8c",
+      "bytes": 143094
+    },
+    {
+      "path": "zones/area4/d-e/padstow.png",
+      "sha256": "a713c5b5c4e482da056b9ad455c4bfa126839b7c1d0545a7fca259b7dfce33f9",
+      "bytes": 126282
+    },
+    {
+      "path": "frames/area4/e-f.png",
+      "sha256": "584f86defdb30e945bb222c74e2418739b62f0bfdaf5f9729ec6def84fe75fc6",
+      "bytes": 1164838
+    },
+    {
+      "path": "zones/area4/e-f/beach.png",
+      "sha256": "66699a05ceb74bef848984d6aa2b8ca762458596790c8cce66e33f0328e7a899",
+      "bytes": 90292
+    },
+    {
+      "path": "zones/area4/e-f/iron-bridge.png",
+      "sha256": "e2b7a41094500e3be3ba312746c4b94eccfbcee718dce697a854607594e68cf7",
+      "bytes": 182110
+    },
+    {
+      "path": "zones/area4/e-f/padstow.png",
+      "sha256": "c5acbabc11467f3034868e4454d09d1e524192074de76415b61a82d1265b7cee",
+      "bytes": 132282
+    },
+    {
+      "path": "manifests/area4.json",
+      "sha256": "36926f99c50ab733c5ca3ac1a75c1676ac414e64fa4151e69c3382670d9ef60c",
+      "bytes": 7197
+    },
+    {
+      "path": "frames/area8/a-b.png",
+      "sha256": "3059c8898f5e9930fb4662734476a7d03d3272a3780a1484001d3bcc659eacc3",
+      "bytes": 518516
+    },
+    {
+      "path": "frames/area8/b-c.png",
+      "sha256": "edb64abf8dcda977bf056ed187608b340e108a2c9c42fd4ff61114428a40b451",
+      "bytes": 779832
+    },
+    {
+      "path": "frames/area8/c-d.png",
+      "sha256": "1332d508eb636b005f2243c96a9d8b9ce76852cbb984b3f50843ff8ce79ed8b8",
+      "bytes": 710857
+    },
+    {
+      "path": "frames/area8/d-e.png",
+      "sha256": "c0d642a81912790781042e7aa6872ed59e0794dc2cfa3e661c208912e6b86c80",
+      "bytes": 670812
+    },
+    {
+      "path": "frames/area8/e-f.png",
+      "sha256": "fac1f8d57ac3c7fe23df72ce25710e63504fbcc6a9f287655fc65274f3038559",
+      "bytes": 457698
+    },
+    {
+      "path": "zones/area8/e-f/central.png",
+      "sha256": "d0b31b1e8be1e5731d4bcee9b28b00b2bde071d054b44d4e2554a0ce6282d66a",
+      "bytes": 150681
+    },
+    {
+      "path": "zones/area8/e-f/padstow.png",
+      "sha256": "8044d0a0d2ef8937d72dc612a71cd6cc1cc2df7c212a9b446baf5b4571ee0eb2",
+      "bytes": 95570
+    },
+    {
+      "path": "zones/area8/e-f/wadebridge.png",
+      "sha256": "4d44eeb290051ffaeb9e3720335766814c920cf03b3d72a4b62f969d57ef8f3b",
+      "bytes": 97735
+    },
+    {
+      "path": "manifests/area8.json",
+      "sha256": "d5d6ab23e88eb85733e9c84d60ca7c1ba43cdf4f0f548f51689e9f3c872ac046",
+      "bytes": 4531
+    },
+    {
+      "path": "areas.json",
+      "sha256": "190d06acfeca9bf043087b291b372da34fdb5b2ee5911774b8cb1f8cd85ccef5",
+      "bytes": 450
+    },
+    {
+      "path": "frames/area4/a-b.png",
+      "sha256": "e1631d63c8db4f806ce2c04f89697397659cdbc29c900568504314170fe80b4e",
+      "bytes": 1229438
+    },
+    {
+      "path": "zones/area4/a-b/beach.png",
+      "sha256": "250c9b43e2244e10c1ac596833748f06f12f8e9e7d752d77f2a2dec76db01ed6",
+      "bytes": 90424
+    },
+    {
+      "path": "zones/area4/a-b/iron-bridge.png",
+      "sha256": "070828ecd3506b192c6dda36ce0d71b621244f51344c028a6dd2fcc073ff8cfc",
+      "bytes": 183904
+    },
+    {
+      "path": "zones/area4/a-b/padstow.png",
+      "sha256": "ca5a7469b1fe4a2c575c51e3ed73db9d66462b1c8d1954ab813373cd0a5b58f7",
+      "bytes": 137510
+    },
+    {
+      "path": "frames/area4/b-c.png",
+      "sha256": "2b844d079f21b214e8c674a034543ec328a7edccfd6c0fd90293eeb1881ff5f0",
+      "bytes": 1128352
+    },
+    {
+      "path": "zones/area4/b-c/beach.png",
+      "sha256": "7d92baac3ee82aaf12612f262b0a1e89fc1b73130a7b88120c93e1fac8cdab5f",
+      "bytes": 90634
+    },
+    {
+      "path": "zones/area4/b-c/iron-bridge.png",
+      "sha256": "bc6c4312eb4cf2e416e87a9ff30daa76d339e9c70a20d2428effc7d729f12282",
+      "bytes": 175193
+    },
+    {
+      "path": "zones/area4/b-c/padstow.png",
+      "sha256": "09589283b48e881a88c3ac5c76fcd65850029611cd267edae8c52b1176b1c518",
+      "bytes": 129557
+    },
+    {
+      "path": "frames/area4/c-d.png",
+      "sha256": "db3f10dff0dfe06d78160fbc65bba164ce7e5fe56a31d4b479cff1e45d801fa3",
+      "bytes": 1100393
+    },
+    {
+      "path": "zones/area4/c-d/beach.png",
+      "sha256": "fe64d910eb145caa7c05eea807e82c50c3eed199d739814fdb4bcd4065373682",
+      "bytes": 90153
+    },
+    {
+      "path": "zones/area4/c-d/iron-bridge.png",
+      "sha256": "1b083299a66e2954afc13c6e9be74bf3e8e71a77f7277c6f9bf4d46e81872c10",
+      "bytes": 171918
+    },
+    {
+      "path": "zones/area4/c-d/padstow.png",
+      "sha256": "c02b37ec54be15abda8249eba1b1cf3bd3d3ddb0cffea298c1c10f5708fc0bca",
+      "bytes": 124414
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "areaId": "area3",
+  "label": "Area 3",
+  "initialIndex": 3,
+  "grid": {
+    "width": 303,
+    "height": 665,
+    "crs": "EPSG:27700",
+    "resolutionM": 1,
+    "thresholdM": 0.05,
+    "limitM": 0.5
+  },
+  "warning": "PRELIMINARY ANALYSIS — EXPERIMENTAL — registration, datum, surface classification and reporting boundaries require review. Not a validated scientific conclusion.",
+  "evidence": "Survey alignment, datum and uncertainty require independent review.",
+  "frames": [
+    {
+      "pair": "A-B",
+      "label": "Survey 1 → 2",
+      "fromDate": null,
+      "toDate": null,
+      "status": "provisional",
+      "summary": {
+        "increaseCells": 78387,
+        "decreaseCells": 17188,
+        "occupiedCells": 136536,
+        "matchingPercent": 99.2
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area3/a-b.png",
+      "sha256": "d295b45ada0733854493d4d15b0f5dd074101967209cb6306b7d4f1f1b085863"
+    },
+    {
+      "pair": "B-C",
+      "label": "Survey 2 → 3",
+      "fromDate": null,
+      "toDate": null,
+      "status": "provisional",
+      "summary": {
+        "increaseCells": 28660,
+        "decreaseCells": 56118,
+        "occupiedCells": 136535,
+        "matchingPercent": 99.4
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area3/b-c.png",
+      "sha256": "f926d2770a6c46b9e662c1d8a0c3672c1f9e09c9aaeb6b280b320188a4efe214"
+    },
+    {
+      "pair": "C-D",
+      "label": "Survey 3 → 4",
+      "fromDate": "2026-06-16",
+      "toDate": "2026-07-15",
+      "status": "provisional",
+      "summary": {
+        "increaseCells": 18669,
+        "decreaseCells": 16378,
+        "occupiedCells": 136531,
+        "matchingPercent": 97.2
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area3/c-d.png",
+      "sha256": "092b9458fe62b7935d0600028d69ad27d356786e33a2f907bfde806a6cdf9c83"
+    },
+    {
+      "pair": "D-E",
+      "label": "Survey 4 → 5",
+      "fromDate": "2026-07-15",
+      "toDate": "2026-09-10",
+      "status": "provisional",
+      "coverageNote": "CloudCompare reported 16.2% matching and 83.4% ground-only cells across its larger 4→5 grid; the earlier input was the full merged cloud.",
+      "summary": {
+        "increaseCells": 50236,
+        "decreaseCells": 23165,
+        "occupiedCells": 136540,
+        "matchingPercent": 16.2
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area3/d-e.png",
+      "sha256": "0997ca89e24c4e11ba6fc411f9ba36e54ea4f3e0e8a6d1cc2eaf47795122cff5"
+    },
+    {
+      "pair": "E-F",
+      "label": "Survey 5 → 6",
+      "fromDate": "2026-09-10",
+      "toDate": "2026-10-12",
+      "status": "provisional",
+      "summary": {
+        "increaseCells": 78932,
+        "decreaseCells": 17224,
+        "occupiedCells": 136530,
+        "matchingPercent": 97.3
+      },
+      "image": "/public/projects/padstow-estuary/trend-animation/frames/area3/e-f.png",
+      "sha256": "8e4cde2748aef990199a1787bfe465949b316fe06abae9c7a002b3fd2d8bf30a"
+    }
+  ]
+}

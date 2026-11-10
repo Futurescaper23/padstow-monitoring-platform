@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "area_id": "area3",
   "area_label": "Area 3",
-  "generated_at": "2026-09-15T17:33:18",
+  "generated_at": "2026-11-03T21:21:30",
   "files": {
     "classification_geotiff": "Area3_Trend_Classification.tif",
     "classification_png": "Area3_Trend_Classification.png",

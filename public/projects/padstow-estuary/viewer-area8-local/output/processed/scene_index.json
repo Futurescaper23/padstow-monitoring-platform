@@ -1,0 +1,540 @@
+{
+  "title": "Sediment Change Viewer",
+  "default_area_id": "area8",
+  "areas": [
+    {
+      "id": "area8",
+      "label": "Area 8",
+      "terrain_label": "Survey Round 3 base terrain",
+      "survey_labels": {
+        "A": "Survey Round 1 - 22 and 23 March 2026",
+        "B": "Survey Round 2 - 18 and 19 April 2026",
+        "C": "Survey Round 3 - 16 and 17 June 2026",
+        "D": "Survey Round 4 - 15 and 16 July 2026",
+        "E": "Survey Round 5 - 10 September 2026",
+        "F": "Survey Round 6 - 12 October 2026"
+      },
+      "default_dataset_id": "c-f",
+      "datasets": [
+        {
+          "id": "a-b",
+          "label": "A-B",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 2 - 18 and 19 April 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -19104.891255,
+            "surface_m2": 605920.736457,
+            "added_volume_m3": 5696.353757,
+            "removed_volume_m3": 24801.245012,
+            "matching_cells_pct": 95.68295380542742,
+            "raw": "Area8_Padstow_Estuary_Boundary_A_vs_B_volume_stats\nVolume: 19.545126\nSurface: 174,267.286105\n----------------------\nAdded volume: (+)3,243.967546\nRemoved volume: (-)3,224.422420\n----------------------\nMatching cells: 95.6%\nNon-matching cells:\n    ground = 2.9%\n    ceil = 1.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_A_vs_B_volume_stats\nVolume: -12,503.299708\nSurface: 226,968.714927\n----------------------\nAdded volume: (+)277.434105\nRemoved volume: (-)12,780.733813\n----------------------\nMatching cells: 95.1%\nNon-matching cells:\n    ground = 2.4%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_A_vs_B_volume_stats\nVolume: -6,621.136673\nSurface: 204,684.735425\n----------------------\nAdded volume: (+)2,174.952106\nRemoved volume: (-)8,796.088779\n----------------------\nMatching cells: 96.4%\nNon-matching cells:\n    ground = 1.7%\n    ceil = 1.9%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/a-b/scene_metadata.json",
+            "draped": "area8/a-b/change_overlay_draped.ply",
+            "true_z": "area8/a-b/change_overlay_true_z.ply",
+            "site_map": "area8/a-b/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-c",
+          "label": "A-C",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -77040.196472,
+            "surface_m2": 606423.516445,
+            "added_volume_m3": 3451.511562,
+            "removed_volume_m3": 80491.708035,
+            "matching_cells_pct": 95.76926261419813,
+            "raw": "Area8_Padstow_Estuary_Boundary_A_vs_C_volume_stats\nVolume: -30,477.214522\nSurface: 176,928.066045\n----------------------\nAdded volume: (+)1.646437\nRemoved volume: (-)30,478.860959\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_A_vs_C_volume_stats\nVolume: -43,322.265726\nSurface: 226,042.144948\n----------------------\nAdded volume: (+)1.758332\nRemoved volume: (-)43,324.024058\n----------------------\nMatching cells: 94.7%\nNon-matching cells:\n    ground = 2.8%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_A_vs_C_volume_stats\nVolume: -3,240.716224\nSurface: 203,453.305452\n----------------------\nAdded volume: (+)3,448.106793\nRemoved volume: (-)6,688.823018\n----------------------\nMatching cells: 95.8%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 1.9%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/a-c/scene_metadata.json",
+            "draped": "area8/a-c/change_overlay_draped.ply",
+            "true_z": "area8/a-c/change_overlay_true_z.ply",
+            "site_map": "area8/a-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-d",
+          "label": "A-D",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 181.329448,
+            "surface_m2": 608177.6964060001,
+            "added_volume_m3": 1995.596172,
+            "removed_volume_m3": 1814.266725,
+            "matching_cells_pct": 96.05160280701423,
+            "raw": "Area8_Padstow_Estuary_Boundary_A_vs_D_volume_stats\nVolume: -29.050142\nSurface: 177,016.946043\n----------------------\nAdded volume: (+)430.543108\nRemoved volume: (-)459.593250\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_A_vs_D_volume_stats\nVolume: 171.823246\nSurface: 226,879.194929\n----------------------\nAdded volume: (+)700.839396\nRemoved volume: (-)529.016150\n----------------------\nMatching cells: 95.1%\nNon-matching cells:\n    ground = 2.5%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_A_vs_D_volume_stats\nVolume: 38.556344\nSurface: 204,281.555434\n----------------------\nAdded volume: (+)864.213668\nRemoved volume: (-)825.657325\n----------------------\nMatching cells: 96.2%\nNon-matching cells:\n    ground = 1.9%\n    ceil = 1.9%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/a-d/scene_metadata.json",
+            "draped": "area8/a-d/change_overlay_draped.ply",
+            "true_z": "area8/a-d/change_overlay_true_z.ply",
+            "site_map": "area8/a-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-e",
+          "label": "A-E",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -52737.683026,
+            "surface_m2": 609434.2963779999,
+            "added_volume_m3": 1812.244338,
+            "removed_volume_m3": 54549.927363999996,
+            "matching_cells_pct": 96.1940321771518,
+            "raw": "Area8_Padstow_Estuary_Boundary_A_vs_E_volume_stats\nVolume: -22,220.766627\nSurface: 176,892.506046\n----------------------\nAdded volume: (+)19.142240\nRemoved volume: (-)22,239.908867\n----------------------\nMatching cells: 97.0%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_A_vs_E_volume_stats\nVolume: -24,342.627171\nSurface: 227,262.654920\n----------------------\nAdded volume: (+)96.191131\nRemoved volume: (-)24,438.818302\n----------------------\nMatching cells: 95.2%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_A_vs_E_volume_stats\nVolume: -6,174.289228\nSurface: 205,279.135412\n----------------------\nAdded volume: (+)1,696.910967\nRemoved volume: (-)7,871.200195\n----------------------\nMatching cells: 96.6%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.9%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/a-e/scene_metadata.json",
+            "draped": "area8/a-e/change_overlay_draped.ply",
+            "true_z": "area8/a-e/change_overlay_true_z.ply",
+            "site_map": "area8/a-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "a-f",
+          "label": "A-F",
+          "display_label": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 1 - 22 and 23 March 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -73849.314172,
+            "surface_m2": 606912.4564350001,
+            "added_volume_m3": 2976.919512,
+            "removed_volume_m3": 76826.233685,
+            "matching_cells_pct": 95.83255469606598,
+            "raw": "Area8_Central_A_vs_F_volume_stats\nVolume: -38,347.261893\nSurface: 226,042.204948\n----------------------\nAdded volume: (+)225.678814\nRemoved volume: (-)38,572.940708\n----------------------\nMatching cells: 94.7%\nNon-matching cells:\n    ground = 2.8%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_A_vs_F_volume_stats\nVolume: -30,338.957652\nSurface: 177,167.116040\n----------------------\nAdded volume: (+)36.469380\nRemoved volume: (-)30,375.427032\n----------------------\nMatching cells: 97.2%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Wadebridge_A_vs_F_volume_stats\nVolume: -5,163.094627\nSurface: 203,703.135447\n----------------------\nAdded volume: (+)2,714.771318\nRemoved volume: (-)7,877.865945\n----------------------\nMatching cells: 95.9%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 1.9%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "central",
+            "padstow",
+            "wadebridge"
+          ],
+          "paths": {
+            "metadata": "area8/a-f/scene_metadata.json",
+            "draped": "area8/a-f/change_overlay_draped.ply",
+            "true_z": "area8/a-f/change_overlay_true_z.ply",
+            "site_map": "area8/a-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-c",
+          "label": "B-C",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 3 - 16 and 17 June 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -57453.982819000004,
+            "surface_m2": 604235.696495,
+            "added_volume_m3": 8059.289438000001,
+            "removed_volume_m3": 65513.272257000004,
+            "matching_cells_pct": 95.40171581550513,
+            "raw": "Area8_Padstow_Estuary_Boundary_B_vs_C_volume_stats\nVolume: -30,027.652236\nSurface: 174,302.656104\n----------------------\nAdded volume: (+)23.748477\nRemoved volume: (-)30,051.400713\n----------------------\nMatching cells: 95.6%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 2.9%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_B_vs_C_volume_stats\nVolume: -30,910.864080\nSurface: 226,172.994945\n----------------------\nAdded volume: (+)62.415444\nRemoved volume: (-)30,973.279524\n----------------------\nMatching cells: 94.8%\nNon-matching cells:\n    ground = 2.8%\n    ceil = 2.4%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_B_vs_C_volume_stats\nVolume: 3,484.533497\nSurface: 203,760.045446\n----------------------\nAdded volume: (+)7,973.125517\nRemoved volume: (-)4,488.592020\n----------------------\nMatching cells: 95.9%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 1.8%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/b-c/scene_metadata.json",
+            "draped": "area8/b-c/change_overlay_draped.ply",
+            "true_z": "area8/b-c/change_overlay_true_z.ply",
+            "site_map": "area8/b-c/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-d",
+          "label": "B-D",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 19238.114729,
+            "surface_m2": 605886.686457,
+            "added_volume_m3": 24922.770722999998,
+            "removed_volume_m3": 5684.655994,
+            "matching_cells_pct": 95.67777047754893,
+            "raw": "Area8_Padstow_Estuary_Boundary_B_vs_D_volume_stats\nVolume: -44.597545\nSurface: 174,374.336102\n----------------------\nAdded volume: (+)3,206.538759\nRemoved volume: (-)3,251.136304\n----------------------\nMatching cells: 95.7%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 2.9%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_B_vs_D_volume_stats\nVolume: 12,679.327435\nSurface: 226,979.984927\n----------------------\nAdded volume: (+)12,953.227700\nRemoved volume: (-)273.900265\n----------------------\nMatching cells: 95.1%\nNon-matching cells:\n    ground = 2.5%\n    ceil = 2.4%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_B_vs_D_volume_stats\nVolume: 6,603.384839\nSurface: 204,532.365428\n----------------------\nAdded volume: (+)8,763.004264\nRemoved volume: (-)2,159.619425\n----------------------\nMatching cells: 96.3%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/b-d/scene_metadata.json",
+            "draped": "area8/b-d/change_overlay_draped.ply",
+            "true_z": "area8/b-d/change_overlay_true_z.ply",
+            "site_map": "area8/b-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-e",
+          "label": "B-E",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -33214.746992,
+            "surface_m2": 607281.456426,
+            "added_volume_m3": 8771.516998000001,
+            "removed_volume_m3": 41986.263989,
+            "matching_cells_pct": 95.89395065355738,
+            "raw": "Area8_Padstow_Estuary_Boundary_B_vs_E_volume_stats\nVolume: -21,895.081902\nSurface: 174,273.316105\n----------------------\nAdded volume: (+)314.739928\nRemoved volume: (-)22,209.821829\n----------------------\nMatching cells: 95.6%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 2.9%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_B_vs_E_volume_stats\nVolume: -11,840.779557\nSurface: 227,399.324917\n----------------------\nAdded volume: (+)2,514.611146\nRemoved volume: (-)14,355.390703\n----------------------\nMatching cells: 95.3%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 2.4%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_B_vs_E_volume_stats\nVolume: 521.114467\nSurface: 205,608.815404\n----------------------\nAdded volume: (+)5,942.165924\nRemoved volume: (-)5,421.051457\n----------------------\nMatching cells: 96.8%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.8%\nAverage neighbors per cell: 7.8 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/b-e/scene_metadata.json",
+            "draped": "area8/b-e/change_overlay_draped.ply",
+            "true_z": "area8/b-e/change_overlay_true_z.ply",
+            "site_map": "area8/b-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "b-f",
+          "label": "B-F",
+          "display_label": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 2 - 18 and 19 April 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -54401.925235999995,
+            "surface_m2": 604787.946483,
+            "added_volume_m3": 9532.956505,
+            "removed_volume_m3": 63934.881742,
+            "matching_cells_pct": 95.52718055266891,
+            "raw": "Area8_Central_B_vs_F_volume_stats\nVolume: -25,941.707011\nSurface: 226,207.694944\n----------------------\nAdded volume: (+)2,264.382730\nRemoved volume: (-)28,206.089741\n----------------------\nMatching cells: 94.8%\nNon-matching cells:\n    ground = 2.8%\n    ceil = 2.4%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_B_vs_F_volume_stats\nVolume: -29,873.715027\nSurface: 174,547.646099\n----------------------\nAdded volume: (+)285.446139\nRemoved volume: (-)30,159.161167\n----------------------\nMatching cells: 95.8%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 2.9%\nAverage neighbors per cell: 7.7 / 8.0\n\nArea8_Wadebridge_B_vs_F_volume_stats\nVolume: 1,413.496802\nSurface: 204,032.605440\n----------------------\nAdded volume: (+)6,983.127636\nRemoved volume: (-)5,569.630834\n----------------------\nMatching cells: 96.1%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 1.7%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "central",
+            "padstow",
+            "wadebridge"
+          ],
+          "paths": {
+            "metadata": "area8/b-f/scene_metadata.json",
+            "draped": "area8/b-f/change_overlay_draped.ply",
+            "true_z": "area8/b-f/change_overlay_true_z.ply",
+            "site_map": "area8/b-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-d",
+          "label": "C-D",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 4 - 15 and 16 July 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 77240.001634,
+            "surface_m2": 606346.9764469999,
+            "added_volume_m3": 80631.505152,
+            "removed_volume_m3": 3391.503518,
+            "matching_cells_pct": 95.73597260703767,
+            "raw": "Area8_Padstow_Estuary_Boundary_C_vs_D_volume_stats\nVolume: 30,467.444330\nSurface: 177,026.876043\n----------------------\nAdded volume: (+)30,469.038796\nRemoved volume: (-)1.594467\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 1.4%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_C_vs_D_volume_stats\nVolume: 43,493.956477\nSurface: 226,025.744948\n----------------------\nAdded volume: (+)43,495.603015\nRemoved volume: (-)1.646537\n----------------------\nMatching cells: 94.7%\nNon-matching cells:\n    ground = 2.5%\n    ceil = 2.8%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_C_vs_D_volume_stats\nVolume: 3,278.600827\nSurface: 203,294.355456\n----------------------\nAdded volume: (+)6,666.863341\nRemoved volume: (-)3,388.262514\n----------------------\nMatching cells: 95.7%\nNon-matching cells:\n    ground = 2.0%\n    ceil = 2.3%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/c-d/scene_metadata.json",
+            "draped": "area8/c-d/change_overlay_draped.ply",
+            "true_z": "area8/c-d/change_overlay_true_z.ply",
+            "site_map": "area8/c-d/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-e",
+          "label": "C-E",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 24513.185922,
+            "surface_m2": 607793.906414,
+            "added_volume_m3": 32617.710894999997,
+            "removed_volume_m3": 8104.524974,
+            "matching_cells_pct": 95.97763853248169,
+            "raw": "Area8_Padstow_Estuary_Boundary_C_vs_E_volume_stats\nVolume: 8,255.750195\nSurface: 176,932.526045\n----------------------\nAdded volume: (+)8,427.832514\nRemoved volume: (-)172.082319\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_C_vs_E_volume_stats\nVolume: 19,127.120017\nSurface: 226,453.244938\n----------------------\nAdded volume: (+)19,195.050567\nRemoved volume: (-)67.930550\n----------------------\nMatching cells: 94.9%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 2.8%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_C_vs_E_volume_stats\nVolume: -2,869.684290\nSurface: 204,408.135431\n----------------------\nAdded volume: (+)4,994.827814\nRemoved volume: (-)7,864.512105\n----------------------\nMatching cells: 96.2%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 2.3%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/c-e/scene_metadata.json",
+            "draped": "area8/c-e/change_overlay_draped.ply",
+            "true_z": "area8/c-e/change_overlay_true_z.ply",
+            "site_map": "area8/c-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "c-f",
+          "label": "C-F",
+          "display_label": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 3 - 16 and 17 June 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": 3154.236039,
+            "surface_m2": 605266.216471,
+            "added_volume_m3": 14060.558073,
+            "removed_volume_m3": 10906.322035,
+            "matching_cells_pct": 95.58833421781995,
+            "raw": "Area8_Central_C_vs_F_volume_stats\nVolume: 4,957.668659\nSurface: 225,260.854965\n----------------------\nAdded volume: (+)6,492.345061\nRemoved volume: (-)1,534.676402\n----------------------\nMatching cells: 94.4%\nNon-matching cells:\n    ground = 2.8%\n    ceil = 2.8%\nAverage neighbors per cell: 7.5 / 8.0\n\nArea8_Padstow_C_vs_F_volume_stats\nVolume: 189.106788\nSurface: 177,207.446039\n----------------------\nAdded volume: (+)2,115.971859\nRemoved volume: (-)1,926.865072\n----------------------\nMatching cells: 97.2%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 1.5%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Wadebridge_C_vs_F_volume_stats\nVolume: -1,992.539408\nSurface: 202,797.915467\n----------------------\nAdded volume: (+)5,452.241153\nRemoved volume: (-)7,444.780561\n----------------------\nMatching cells: 95.5%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 2.3%\nAverage neighbors per cell: 7.6 / 8.0"
+          },
+          "parts": [
+            "central",
+            "padstow",
+            "wadebridge"
+          ],
+          "paths": {
+            "metadata": "area8/c-f/scene_metadata.json",
+            "draped": "area8/c-f/change_overlay_draped.ply",
+            "true_z": "area8/c-f/change_overlay_true_z.ply",
+            "site_map": "area8/c-f/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-e",
+          "label": "D-E",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 5 - 10 September 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -52923.507068,
+            "surface_m2": 609384.446379,
+            "added_volume_m3": 1773.012199,
+            "removed_volume_m3": 54696.519264999995,
+            "matching_cells_pct": 96.18943515231778,
+            "raw": "Area8_Padstow_Estuary_Boundary_D_vs_E_volume_stats\nVolume: -22,204.574344\nSurface: 176,988.556044\n----------------------\nAdded volume: (+)19.220632\nRemoved volume: (-)22,223.794975\n----------------------\nMatching cells: 97.1%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 1.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Padstow_Estuary_Central_Boundary_D_vs_E_volume_stats\nVolume: -24,512.605258\nSurface: 227,266.554920\n----------------------\nAdded volume: (+)93.906634\nRemoved volume: (-)24,606.511891\n----------------------\nMatching cells: 95.2%\nNon-matching cells:\n    ground = 2.3%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_Estuary_Wadebridge_Boundary_D_vs_E_volume_stats\nVolume: -6,206.327466\nSurface: 205,129.335415\n----------------------\nAdded volume: (+)1,659.884933\nRemoved volume: (-)7,866.212399\n----------------------\nMatching cells: 96.5%\nNon-matching cells:\n    ground = 1.5%\n    ceil = 2.0%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "padstow estuary boundary",
+            "padstow estuary central boundary",
+            "padstow estuary wadebridge boundary"
+          ],
+          "paths": {
+            "metadata": "area8/d-e/scene_metadata.json",
+            "draped": "area8/d-e/change_overlay_draped.ply",
+            "true_z": "area8/d-e/change_overlay_true_z.ply",
+            "site_map": "area8/d-e/site_underlay.png"
+          }
+        },
+        {
+          "id": "d-f",
+          "label": "D-F",
+          "display_label": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 12 October 2026",
+          "area_id": "area8",
+          "area_label": "Area 8",
+          "terrain_label": "Survey Round 3 base terrain",
+          "description": "Survey Round 4 - 15 and 16 July 2026 to Survey Round 6 - 12 October 2026 sediment change for Area 8.",
+          "survey_labels": {
+            "A": "Survey Round 1 - 22 and 23 March 2026",
+            "B": "Survey Round 2 - 18 and 19 April 2026",
+            "C": "Survey Round 3 - 16 and 17 June 2026",
+            "D": "Survey Round 4 - 15 and 16 July 2026",
+            "E": "Survey Round 5 - 10 September 2026",
+            "F": "Survey Round 6 - 12 October 2026"
+          },
+          "subarea_label": null,
+          "stats": {
+            "net_volume_m3": -74040.412564,
+            "surface_m2": 606874.896435,
+            "added_volume_m3": 2944.5837690000003,
+            "removed_volume_m3": 76984.996334,
+            "matching_cells_pct": 95.79919540750267,
+            "raw": "Area8_Central_D_vs_F_volume_stats\nVolume: -38,519.218079\nSurface: 226,058.104947\n----------------------\nAdded volume: (+)223.724510\nRemoved volume: (-)38,742.942589\n----------------------\nMatching cells: 94.7%\nNon-matching cells:\n    ground = 2.8%\n    ceil = 2.5%\nAverage neighbors per cell: 7.6 / 8.0\n\nArea8_Padstow_D_vs_F_volume_stats\nVolume: -30,329.621271\nSurface: 177,268.306038\n----------------------\nAdded volume: (+)36.728931\nRemoved volume: (-)30,366.350202\n----------------------\nMatching cells: 97.2%\nNon-matching cells:\n    ground = 1.3%\n    ceil = 1.4%\nAverage neighbors per cell: 7.8 / 8.0\n\nArea8_Wadebridge_D_vs_F_volume_stats\nVolume: -5,191.573214\nSurface: 203,548.485450\n----------------------\nAdded volume: (+)2,684.130328\nRemoved volume: (-)7,875.703543\n----------------------\nMatching cells: 95.8%\nNon-matching cells:\n    ground = 2.2%\n    ceil = 2.0%\nAverage neighbors per cell: 7.7 / 8.0"
+          },
+          "parts": [
+            "central",
+            "padstow",
+            "wadebridge"
+          ],
+          "paths": {
+            "metadata": "area8/d-f/scene_metadata.json",
+            "draped": "area8/d-f/change_overlay_draped.ply",
+            "true_z": "area8/d-f/change_overlay_true_z.ply",
+            "site_map": "area8/d-f/site_underlay.png"
+          }
+        }
+      ]
+    }
+  ]
+}

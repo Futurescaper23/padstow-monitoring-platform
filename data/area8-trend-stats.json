@@ -1,19 +1,19 @@
 {
   "area_id": "area8",
   "area_label": "Area 8",
-  "generated_at": "2026-09-17T08:28:07",
+  "generated_at": "2026-11-05T12:59:37",
   "classification_threshold_m": 0.05,
   "grid": {
     "resolution_m": 0.1,
-    "width": 15728,
-    "height": 9390,
-    "origin_x_min": 196649.234375,
-    "origin_y_max": 74573.023875,
+    "width": 10127,
+    "height": 9391,
+    "origin_x_min": 197209.28125,
+    "origin_y_max": 74573.1014375,
     "extent": {
-      "x_min": 196649.234375,
-      "x_max": 198222.034375,
-      "y_min": 73634.023875,
-      "y_max": 74573.023875
+      "x_min": 197209.28125,
+      "x_max": 198221.98125,
+      "y_min": 73634.00143749999,
+      "y_max": 74573.1014375
     },
     "cell_area_m2": 0.010000000000000002,
     "crs": {
@@ -28,8 +28,8 @@
     "name": "Area8-Boundary",
     "geojson": "data/areas/area8/boundary/boundary.geojson",
     "role": "reporting_mask",
-    "masked_cell_count": 63368398,
-    "masked_area_m2": 633683.9800000001
+    "masked_cell_count": 45140916,
+    "masked_area_m2": 451409.1600000001
   },
   "survey_rounds": [
     {
@@ -69,272 +69,208 @@
       "dates": [
         "2026-09-10"
       ]
+    },
+    {
+      "id": "F",
+      "label": "Survey Round 6 - 12 October 2026",
+      "dates": [
+        "2026-10-12"
+      ]
     }
   ],
   "classification_inputs": {
     "primary_pair_1": {
-      "pair": "A->D",
-      "from_round": "Survey Round 1",
-      "to_round": "Survey Round 4 - 15 July 2026",
-      "date_range": "22 Mar 2026 to 15 Jul 2026",
-      "interval_days": 115
+      "pair": "A->C at Trebetherick; no earlier interval for Brea Hill or Estuary",
+      "from_round": "Survey Round 1 at Trebetherick; no earlier interval elsewhere",
+      "to_round": "Survey Round 3",
+      "date_range": "22 Mar 2026 to 17 Jun 2026 at Trebetherick only",
+      "interval_days": 87
     },
     "primary_pair_2": {
-      "pair": "D->E",
-      "from_round": "Survey Round 4 - 15 July 2026",
-      "to_round": "Survey Round 5 - 10 September 2026",
-      "date_range": "15 Jul 2026 to 10 Sep 2026",
-      "interval_days": 57
+      "pair": "C->D across Trebetherick Point, Brea Hill, and Estuary",
+      "from_round": "Survey Round 3",
+      "to_round": "Survey Round 4 - 15 July 2026",
+      "date_range": "16 Jun 2026 to 15 Jul 2026",
+      "interval_days": 29
     },
     "cumulative_pairs": [
       {
-        "pair": "A->D",
+        "pair": "A->F",
         "from_round": "Survey Round 1",
-        "to_round": "Survey Round 4 - 15 July 2026",
-        "date_range": "22 Mar 2026 to 15 Jul 2026",
-        "interval_days": 115,
+        "to_round": "Survey Round 6 - 12 October 2026",
+        "date_range": "22 Mar 2026 to 12 Oct 2026",
+        "interval_days": 204,
         "volume_stats": {
           "source_files": [
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_A_vs_D_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_A_vs_D_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_A_vs_D_volume_stats.txt"
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\central\\Area8_Central_A_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\central\\Area8_Central_A_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\wadebridge\\Area8_Wadebridge_A_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\wadebridge\\Area8_Wadebridge_A_vs_F_volume_stats.txt"
           ],
-          "net_volume_m3": 181.329448,
-          "surface_area_m2": 608177.6964060001,
-          "added_volume_m3": 1995.596172,
-          "removed_volume_m3": 1814.266725,
-          "matching_cells_percent": 96.05160280701423,
-          "ground_non_matching_percent": 1.9782979122998139,
-          "ceil_non_matching_percent": 2.0074040349164557,
-          "average_neighbors_per_cell": 7.6918013683861375
+          "net_volume_m3": -87020.71304,
+          "surface_area_m2": 859490.68079,
+          "added_volume_m3": 5880.900264,
+          "removed_volume_m3": 92901.613306,
+          "matching_cells_percent": 95.26881073407735,
+          "ground_non_matching_percent": 2.5155946329613257,
+          "ceil_non_matching_percent": 2.215594632961326,
+          "average_neighbors_per_cell": 7.647400894506445
         }
       },
       {
-        "pair": "D->E",
-        "from_round": "Survey Round 4 - 15 July 2026",
-        "to_round": "Survey Round 5 - 10 September 2026",
-        "date_range": "15 Jul 2026 to 10 Sep 2026",
-        "interval_days": 57,
+        "pair": "C->F",
+        "from_round": "Survey Round 3",
+        "to_round": "Survey Round 6 - 12 October 2026",
+        "date_range": "16 Jun 2026 to 12 Oct 2026",
+        "interval_days": 118,
         "volume_stats": {
           "source_files": [
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_D_vs_E_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_D_vs_E_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_D_vs_E_volume_stats.txt"
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\C-F\\central\\Area8_Central_C_vs_F_volume_stats.txt",
+            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\C-F\\wadebridge\\Area8_Wadebridge_C_vs_F_volume_stats.txt"
           ],
-          "net_volume_m3": -52923.507068,
-          "surface_area_m2": 609384.446379,
-          "added_volume_m3": 1773.012199,
-          "removed_volume_m3": 54696.519264999995,
-          "matching_cells_percent": 96.18943515231778,
-          "ground_non_matching_percent": 1.7983555701435203,
-          "ceil_non_matching_percent": 2.0122092775386866,
-          "average_neighbors_per_cell": 7.691749379365562
-        }
-      },
-      {
-        "pair": "A->E",
-        "from_round": "Survey Round 1",
-        "to_round": "Survey Round 5 - 10 September 2026",
-        "date_range": "22 Mar 2026 to 10 Sep 2026",
-        "interval_days": 172,
-        "volume_stats": {
-          "source_files": [
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_A_vs_E_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_A_vs_E_volume_stats.txt",
-            "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_A_vs_E_volume_stats.txt"
-          ],
-          "net_volume_m3": -52737.683026,
-          "surface_area_m2": 609434.2963779999,
-          "added_volume_m3": 1812.244338,
-          "removed_volume_m3": 54549.927363999996,
-          "matching_cells_percent": 96.1940321771518,
-          "ground_non_matching_percent": 1.798326046001246,
-          "ceil_non_matching_percent": 2.0076417768469526,
-          "average_neighbors_per_cell": 7.69173493366334
+          "net_volume_m3": 2965.129251,
+          "surface_area_m2": 428058.77043200005,
+          "added_volume_m3": 11944.586213999999,
+          "removed_volume_m3": 8979.456963,
+          "matching_cells_percent": 94.9211380362294,
+          "ground_non_matching_percent": 2.515742889329423,
+          "ceil_non_matching_percent": 2.5631190744411856,
+          "average_neighbors_per_cell": 7.547376185111763
         }
       }
     ],
-    "zone_strategy": "Area 8 uses the requested three-scan trend window from Scan 1 to Scan 4 and Scan 4 to Scan 5. Survey C / Scan 3 is intentionally excluded from the trend inputs.",
+    "zone_strategy": "Composite area: Trebetherick uses the earlier A->C interval and the later C->D interval. Brea Hill and Estuary only contribute their available C->D latest-interval surfaces because the intermediate Scan B coverage was a washout and no reliable earlier interval is being used there.",
     "zone_inputs": [
       {
-        "zone_id": "padstow_estuary_boundary",
-        "label": "Padstow Estuary Area 08 Boundary",
-        "mode": "trend",
-        "comparison_scope": "padstow_estuary_boundary",
-        "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\boundary\\boundary-padstow_estuary_boundary.geojson",
-        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_A_vs_D_Height_Difference_010m.las",
-        "first_las_minus": null,
-        "first_pair": "A->D",
-        "first_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_A_vs_D_volume_stats.txt",
-          "net_volume_m3": -29.050142,
-          "surface_area_m2": 177016.946043,
-          "added_volume_m3": 430.543108,
-          "removed_volume_m3": 459.59325,
-          "matching_cells_percent": 97.1,
-          "ground_non_matching_percent": 1.4,
-          "ceil_non_matching_percent": 1.5,
-          "average_neighbors_per_cell": 7.8
-        },
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_D_vs_E_Height_Difference_010m.las",
-        "second_las_minus": null,
-        "second_pair": "D->E",
-        "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_D_vs_E_volume_stats.txt",
-          "net_volume_m3": -22204.574344,
-          "surface_area_m2": 176988.556044,
-          "added_volume_m3": 19.220632,
-          "removed_volume_m3": 22223.794975,
-          "matching_cells_percent": 97.1,
-          "ground_non_matching_percent": 1.5,
-          "ceil_non_matching_percent": 1.4,
-          "average_neighbors_per_cell": 7.8
-        },
-        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_A_vs_E_Height_Difference_010m.las",
-        "cumulative_pair": "A->E",
-        "cumulative_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_boundary\\Area8_Padstow_Estuary_Boundary_A_vs_E_volume_stats.txt",
-          "net_volume_m3": -22220.766627,
-          "surface_area_m2": 176892.506046,
-          "added_volume_m3": 19.14224,
-          "removed_volume_m3": 22239.908867,
-          "matching_cells_percent": 97.0,
-          "ground_non_matching_percent": 1.5,
-          "ceil_non_matching_percent": 1.5,
-          "average_neighbors_per_cell": 7.8
-        },
-        "masked_cell_count": 63368398
-      },
-      {
-        "zone_id": "padstow_estuary_central_boundary",
+        "zone_id": "central",
         "label": "A8 Central",
         "mode": "trend",
-        "comparison_scope": "padstow_estuary_central_boundary",
-        "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\boundary\\boundary-padstow_estuary_central_boundary.geojson",
-        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_A_vs_D_Height_Difference_010m.las",
+        "comparison_scope": "central",
+        "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\boundary\\boundary-central.geojson",
+        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\central\\Area8_Central_A_vs_F_Height_Difference_010m.las",
         "first_las_minus": null,
-        "first_pair": "A->D",
+        "first_pair": "A->F",
         "first_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_A_vs_D_volume_stats.txt",
-          "net_volume_m3": 171.823246,
-          "surface_area_m2": 226879.194929,
-          "added_volume_m3": 700.839396,
-          "removed_volume_m3": 529.01615,
-          "matching_cells_percent": 95.1,
-          "ground_non_matching_percent": 2.5,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\central\\Area8_Central_A_vs_F_volume_stats.txt",
+          "net_volume_m3": -38347.261893,
+          "surface_area_m2": 226042.204948,
+          "added_volume_m3": 225.678814,
+          "removed_volume_m3": 38572.940708,
+          "matching_cells_percent": 94.7,
+          "ground_non_matching_percent": 2.8,
           "ceil_non_matching_percent": 2.5,
           "average_neighbors_per_cell": 7.6
         },
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\C-F\\central\\Area8_Central_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
-        "second_pair": "D->E",
+        "second_pair": "C->F",
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_D_vs_E_volume_stats.txt",
-          "net_volume_m3": -24512.605258,
-          "surface_area_m2": 227266.55492,
-          "added_volume_m3": 93.906634,
-          "removed_volume_m3": 24606.511891,
-          "matching_cells_percent": 95.2,
-          "ground_non_matching_percent": 2.3,
-          "ceil_non_matching_percent": 2.5,
-          "average_neighbors_per_cell": 7.6
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\C-F\\central\\Area8_Central_C_vs_F_volume_stats.txt",
+          "net_volume_m3": 4957.668659,
+          "surface_area_m2": 225260.854965,
+          "added_volume_m3": 6492.345061,
+          "removed_volume_m3": 1534.676402,
+          "matching_cells_percent": 94.4,
+          "ground_non_matching_percent": 2.8,
+          "ceil_non_matching_percent": 2.8,
+          "average_neighbors_per_cell": 7.5
         },
-        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_A_vs_E_Height_Difference_010m.las",
-        "cumulative_pair": "A->E",
+        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\central\\Area8_Central_A_vs_F_Height_Difference_010m.las",
+        "cumulative_pair": "A->F",
         "cumulative_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_central_boundary\\Area8_Padstow_Estuary_Central_Boundary_A_vs_E_volume_stats.txt",
-          "net_volume_m3": -24342.627171,
-          "surface_area_m2": 227262.65492,
-          "added_volume_m3": 96.191131,
-          "removed_volume_m3": 24438.818302,
-          "matching_cells_percent": 95.2,
-          "ground_non_matching_percent": 2.3,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\central\\Area8_Central_A_vs_F_volume_stats.txt",
+          "net_volume_m3": -38347.261893,
+          "surface_area_m2": 226042.204948,
+          "added_volume_m3": 225.678814,
+          "removed_volume_m3": 38572.940708,
+          "matching_cells_percent": 94.7,
+          "ground_non_matching_percent": 2.8,
           "ceil_non_matching_percent": 2.5,
           "average_neighbors_per_cell": 7.6
         },
-        "masked_cell_count": 23887467
+        "masked_cell_count": 23887625
       },
       {
-        "zone_id": "padstow_estuary_wadebridge_boundary",
+        "zone_id": "wadebridge",
         "label": "A8 Wadebridge",
         "mode": "trend",
-        "comparison_scope": "padstow_estuary_wadebridge_boundary",
-        "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\boundary\\boundary-padstow_estuary_wadebridge_boundary.geojson",
-        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_A_vs_D_Height_Difference_010m.las",
+        "comparison_scope": "wadebridge",
+        "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\boundary\\boundary-wadebridge.geojson",
+        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\wadebridge\\Area8_Wadebridge_A_vs_F_Height_Difference_010m.las",
         "first_las_minus": null,
-        "first_pair": "A->D",
+        "first_pair": "A->F",
         "first_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-D\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_A_vs_D_volume_stats.txt",
-          "net_volume_m3": 38.556344,
-          "surface_area_m2": 204281.555434,
-          "added_volume_m3": 864.213668,
-          "removed_volume_m3": 825.657325,
-          "matching_cells_percent": 96.2,
-          "ground_non_matching_percent": 1.9,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\wadebridge\\Area8_Wadebridge_A_vs_F_volume_stats.txt",
+          "net_volume_m3": -5163.094627,
+          "surface_area_m2": 203703.135447,
+          "added_volume_m3": 2714.771318,
+          "removed_volume_m3": 7877.865945,
+          "matching_cells_percent": 95.9,
+          "ground_non_matching_percent": 2.2,
           "ceil_non_matching_percent": 1.9,
           "average_neighbors_per_cell": 7.7
         },
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\C-F\\wadebridge\\Area8_Wadebridge_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
-        "second_pair": "D->E",
+        "second_pair": "C->F",
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\D-E\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_D_vs_E_volume_stats.txt",
-          "net_volume_m3": -6206.327466,
-          "surface_area_m2": 205129.335415,
-          "added_volume_m3": 1659.884933,
-          "removed_volume_m3": 7866.212399,
-          "matching_cells_percent": 96.5,
-          "ground_non_matching_percent": 1.5,
-          "ceil_non_matching_percent": 2.0,
-          "average_neighbors_per_cell": 7.7
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\C-F\\wadebridge\\Area8_Wadebridge_C_vs_F_volume_stats.txt",
+          "net_volume_m3": -1992.539408,
+          "surface_area_m2": 202797.915467,
+          "added_volume_m3": 5452.241153,
+          "removed_volume_m3": 7444.780561,
+          "matching_cells_percent": 95.5,
+          "ground_non_matching_percent": 2.2,
+          "ceil_non_matching_percent": 2.3,
+          "average_neighbors_per_cell": 7.6
         },
-        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_A_vs_E_Height_Difference_010m.las",
-        "cumulative_pair": "A->E",
+        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\wadebridge\\Area8_Wadebridge_A_vs_F_Height_Difference_010m.las",
+        "cumulative_pair": "A->F",
         "cumulative_volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-E\\padstow_estuary_wadebridge_boundary\\Area8_Padstow_Estuary_Wadebridge_Boundary_A_vs_E_volume_stats.txt",
-          "net_volume_m3": -6174.289228,
-          "surface_area_m2": 205279.135412,
-          "added_volume_m3": 1696.910967,
-          "removed_volume_m3": 7871.200195,
-          "matching_cells_percent": 96.6,
-          "ground_non_matching_percent": 1.5,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area8\\differences\\A-F\\wadebridge\\Area8_Wadebridge_A_vs_F_volume_stats.txt",
+          "net_volume_m3": -5163.094627,
+          "surface_area_m2": 203703.135447,
+          "added_volume_m3": 2714.771318,
+          "removed_volume_m3": 7877.865945,
+          "matching_cells_percent": 95.9,
+          "ground_non_matching_percent": 2.2,
           "ceil_non_matching_percent": 1.9,
           "average_neighbors_per_cell": 7.7
         },
-        "masked_cell_count": 21256020
+        "masked_cell_count": 21257053
       }
     ],
     "overall_state_counts": {
       "first_interval": {
-        "erosion": 87718,
-        "stable": 56285840,
-        "accretion": 91501
+        "erosion": 26296437,
+        "stable": 11232241,
+        "accretion": 1508175
       },
       "second_interval": {
-        "erosion": 40322329,
-        "stable": 15160265,
-        "accretion": 1087018
+        "erosion": 4033145,
+        "stable": 27542541,
+        "accretion": 5756523
       }
     },
     "overall_grid_mean_change_m": {
-      "first_interval": 0.00026273971889168024,
-      "second_interval": -0.0852629691362381
+      "first_interval": -0.10891725867986679,
+      "second_interval": 0.00938793458044529
     }
   },
   "classified_area": {
-    "valid_cell_count": 55203120,
-    "valid_area_m2": 552031.2000000001,
-    "nodata_cell_count": 92482800,
-    "coverage_percent_of_boundary": 87.11458983072288
+    "valid_cell_count": 35984366,
+    "valid_area_m2": 359843.6600000001,
+    "nodata_cell_count": 59118291,
+    "coverage_percent_of_boundary": 79.71563093668725
   },
   "trend_classes": [
     {
       "class_id": 1,
       "key": "consistent_accretion",
       "label": "Consistent accretion",
-      "cell_count": 19569,
-      "area_m2": 195.69000000000003,
-      "percent_of_classified_area": 0.03544908331268233,
+      "cell_count": 1053627,
+      "area_m2": 10536.270000000002,
+      "percent_of_classified_area": 2.92801323774886,
       "color_rgba": [
         34,
         94,
@@ -346,9 +282,9 @@
       "class_id": 2,
       "key": "consistent_erosion",
       "label": "Consistent erosion",
-      "cell_count": 23166,
-      "area_m2": 231.66000000000005,
-      "percent_of_classified_area": 0.041965019368470476,
+      "cell_count": 2209619,
+      "area_m2": 22096.190000000006,
+      "percent_of_classified_area": 6.140497237050113,
       "color_rgba": [
         183,
         28,
@@ -360,9 +296,9 @@
       "class_id": 3,
       "key": "accretion_then_erosion",
       "label": "Accretion then erosion",
-      "cell_count": 43418,
-      "area_m2": 434.18000000000006,
-      "percent_of_classified_area": 0.07865135159027244,
+      "cell_count": 49126,
+      "area_m2": 491.2600000000001,
+      "percent_of_classified_area": 0.1365203988865609,
       "color_rgba": [
         123,
         31,
@@ -374,9 +310,9 @@
       "class_id": 4,
       "key": "erosion_then_accretion",
       "label": "Erosion then accretion",
-      "cell_count": 37926,
-      "area_m2": 379.26000000000005,
-      "percent_of_classified_area": 0.06870263854651693,
+      "cell_count": 2385079,
+      "area_m2": 23850.790000000005,
+      "percent_of_classified_area": 6.6280978800626915,
       "color_rgba": [
         0,
         121,
@@ -388,9 +324,9 @@
       "class_id": 5,
       "key": "stable",
       "label": "Stable",
-      "cell_count": 14734473,
-      "area_m2": 147344.73000000004,
-      "percent_of_classified_area": 26.691377226504585,
+      "cell_count": 6148961,
+      "area_m2": 61489.610000000015,
+      "percent_of_classified_area": 17.087868103609217,
       "color_rgba": [
         189,
         189,
@@ -402,9 +338,9 @@
       "class_id": 6,
       "key": "new_latest_accretion",
       "label": "New/latest accretion",
-      "cell_count": 997245,
-      "area_m2": 9972.450000000003,
-      "percent_of_classified_area": 1.806501154282584,
+      "cell_count": 2158704,
+      "area_m2": 21587.040000000005,
+      "percent_of_classified_area": 5.999005234662187,
       "color_rgba": [
         100,
         181,
@@ -416,9 +352,9 @@
       "class_id": 7,
       "key": "new_latest_erosion",
       "label": "New/latest erosion",
-      "cell_count": 39297487,
-      "area_m2": 392974.87000000005,
-      "percent_of_classified_area": 71.18707602034088,
+      "cell_count": 1686594,
+      "area_m2": 16865.940000000002,
+      "percent_of_classified_area": 4.687018801442826,
       "color_rgba": [
         239,
         83,
@@ -430,9 +366,9 @@
       "class_id": 8,
       "key": "earlier_accretion_now_stable",
       "label": "Earlier accretion, now stable",
-      "cell_count": 25753,
-      "area_m2": 257.53000000000003,
-      "percent_of_classified_area": 0.04665134869188553,
+      "cell_count": 240835,
+      "area_m2": 2408.3500000000004,
+      "percent_of_classified_area": 0.6692767631365244,
       "color_rgba": [
         144,
         202,
@@ -444,9 +380,9 @@
       "class_id": 9,
       "key": "earlier_erosion_now_stable",
       "label": "Earlier erosion, now stable",
-      "cell_count": 24083,
-      "area_m2": 240.83000000000004,
-      "percent_of_classified_area": 0.04362615736212011,
+      "cell_count": 20051821,
+      "area_m2": 200518.21000000005,
+      "percent_of_classified_area": 55.723702343401015,
       "color_rgba": [
         255,
         138,

@@ -1,19 +1,19 @@
 {
   "area_id": "area1",
   "area_label": "Area 1",
-  "generated_at": "2026-09-15T17:31:58",
+  "generated_at": "2026-11-04T16:33:13",
   "classification_threshold_m": 0.05,
   "grid": {
     "resolution_m": 0.1,
-    "width": 8616,
+    "width": 8613,
     "height": 11748,
-    "origin_x_min": 191144.15625,
-    "origin_y_max": 77898.468875,
+    "origin_x_min": 191144.140625,
+    "origin_y_max": 77898.4610625,
     "extent": {
-      "x_min": 191144.15625,
-      "x_max": 192005.75625,
-      "y_min": 76723.668875,
-      "y_max": 77898.468875
+      "x_min": 191144.140625,
+      "x_max": 192005.440625,
+      "y_min": 76723.6610625,
+      "y_max": 77898.4610625
     },
     "cell_area_m2": 0.010000000000000002,
     "crs": {
@@ -28,8 +28,8 @@
     "name": "Area1-Composite",
     "geojson": "data/areas/area1/boundary/boundary-dunes.geojson",
     "role": "reporting_mask",
-    "masked_cell_count": 44507538,
-    "masked_area_m2": 445075.38000000006
+    "masked_cell_count": 44507360,
+    "masked_area_m2": 445073.6000000001
   },
   "survey_rounds": [
     {
@@ -69,25 +69,32 @@
       "dates": [
         "2026-09-10"
       ]
+    },
+    {
+      "id": "F",
+      "label": "Survey Round 6 - 29 October 2026",
+      "dates": [
+        "2026-10-29"
+      ]
     }
   ],
   "classification_inputs": {
     "primary_pair_1": {
-      "pair": "A->D at Dunes; no earlier interval for Hawkers or Tregirls",
-      "from_round": "Survey Round 1 at Dunes; no earlier interval elsewhere",
-      "to_round": "Survey Round 4 - 15 July 2026",
-      "date_range": "22 Mar 2026 to 15 Jul 2026 at Dunes only",
-      "interval_days": 115
+      "pair": "A->C at Trebetherick; no earlier interval for Brea Hill or Estuary",
+      "from_round": "Survey Round 1 at Trebetherick; no earlier interval elsewhere",
+      "to_round": "Survey Round 3",
+      "date_range": "22 Mar 2026 to 17 Jun 2026 at Trebetherick only",
+      "interval_days": 87
     },
     "primary_pair_2": {
-      "pair": "D->E across Dunes, Hawkers, and Tregirls",
-      "from_round": "Survey Round 4 - 15 July 2026",
-      "to_round": "Survey Round 5 - 10 September 2026",
-      "date_range": "15 Jul 2026 to 10 Sep 2026",
-      "interval_days": 57
+      "pair": "C->D across Trebetherick Point, Brea Hill, and Estuary",
+      "from_round": "Survey Round 3",
+      "to_round": "Survey Round 4 - 15 July 2026",
+      "date_range": "16 Jun 2026 to 15 Jul 2026",
+      "interval_days": 29
     },
     "cumulative_pairs": [],
-    "zone_strategy": "Composite area: Dunes uses the requested three-scan trend window from March to July and July to September. Hawkers and Tregirls only contribute their available July-to-September latest-interval surfaces, so those zones are latest-change-only until matching March-to-July surfaces are available.",
+    "zone_strategy": "Composite area: Trebetherick uses the earlier A->C interval and the later C->D interval. Brea Hill and Estuary only contribute their available C->D latest-interval surfaces because the intermediate Scan B coverage was a washout and no reliable earlier interval is being used there.",
     "zone_inputs": [
       {
         "zone_id": "dunes",
@@ -95,28 +102,28 @@
         "mode": "trend",
         "comparison_scope": "dunes",
         "boundary_geojson": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\boundary\\boundary-dunes.geojson",
-        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-D\\dunes\\Area1_Dunes_A_vs_D_Height_Difference_010m.las",
+        "first_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-C\\dunes\\Area1_Dunes_A_vs_C_Height_Difference_010m.las",
         "first_las_minus": null,
         "first_pair": null,
         "first_volume_stats": null,
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\D-E\\padstow_estuary_boundary_dunes\\Area1_Padstow_Estuary_Boundary_Dunes_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\C-F\\dunes\\Area1_Dunes_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
         "second_pair": null,
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\D-E\\padstow_estuary_boundary_dunes\\Area1_Padstow_Estuary_Boundary_Dunes_D_vs_E_volume_stats.txt",
-          "net_volume_m3": 5408.507136,
-          "surface_area_m2": 136342.796953,
-          "added_volume_m3": 10770.73322,
-          "removed_volume_m3": 5362.226084,
-          "matching_cells_percent": 96.7,
-          "ground_non_matching_percent": 1.6,
-          "ceil_non_matching_percent": 1.7,
-          "average_neighbors_per_cell": 7.7
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\C-F\\dunes\\Area1_Dunes_C_vs_F_volume_stats.txt",
+          "net_volume_m3": 8402.398627,
+          "surface_area_m2": 138210.386911,
+          "added_volume_m3": 16111.490173,
+          "removed_volume_m3": 7709.091547,
+          "matching_cells_percent": 98.0,
+          "ground_non_matching_percent": 1.5,
+          "ceil_non_matching_percent": 0.5,
+          "average_neighbors_per_cell": 7.8
         },
-        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-E\\dunes\\Area1_Dunes_A_vs_E_Height_Difference_010m.las",
+        "cumulative_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\A-F\\dunes\\Area1_Dunes_A_vs_F_Height_Difference_010m.las",
         "cumulative_pair": null,
         "cumulative_volume_stats": null,
-        "masked_cell_count": 14099106
+        "masked_cell_count": 14100660
       },
       {
         "zone_id": "hawkers",
@@ -128,24 +135,24 @@
         "first_las_minus": null,
         "first_pair": null,
         "first_volume_stats": null,
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\D-E\\padstow_estuary_boundary_hawkers\\Area1_Padstow_Estuary_Boundary_Hawkers_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\C-F\\hawkers\\Area1_Hawkers_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
         "second_pair": null,
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\D-E\\padstow_estuary_boundary_hawkers\\Area1_Padstow_Estuary_Boundary_Hawkers_D_vs_E_volume_stats.txt",
-          "net_volume_m3": 2332.679579,
-          "surface_area_m2": 137725.136922,
-          "added_volume_m3": 4107.682457,
-          "removed_volume_m3": 1775.002877,
-          "matching_cells_percent": 95.7,
-          "ground_non_matching_percent": 3.2,
-          "ceil_non_matching_percent": 1.1,
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\C-F\\hawkers\\Area1_Hawkers_C_vs_F_volume_stats.txt",
+          "net_volume_m3": 5522.926411,
+          "surface_area_m2": 138535.586903,
+          "added_volume_m3": 8085.873451,
+          "removed_volume_m3": 2562.94704,
+          "matching_cells_percent": 96.2,
+          "ground_non_matching_percent": 3.1,
+          "ceil_non_matching_percent": 0.7,
           "average_neighbors_per_cell": 7.8
         },
         "cumulative_las": null,
         "cumulative_pair": null,
         "cumulative_volume_stats": null,
-        "masked_cell_count": 14397991
+        "masked_cell_count": 14396121
       },
       {
         "zone_id": "tregirls",
@@ -157,57 +164,57 @@
         "first_las_minus": null,
         "first_pair": null,
         "first_volume_stats": null,
-        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\D-E\\padstow_estuary_boundary_tregirls\\Area1_Padstow_Estuary_Boundary_Tregirls_D_vs_E_Height_Difference_010m.las",
+        "second_las": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\C-F\\tregirls\\Area1_Tregirls_C_vs_F_Height_Difference_010m.las",
         "second_las_minus": null,
         "second_pair": null,
         "volume_stats": {
-          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\D-E\\padstow_estuary_boundary_tregirls\\Area1_Padstow_Estuary_Boundary_Tregirls_D_vs_E_volume_stats.txt",
-          "net_volume_m3": 7182.284057,
-          "surface_area_m2": 143250.086798,
-          "added_volume_m3": 9183.19859,
-          "removed_volume_m3": 2000.914533,
-          "matching_cells_percent": 47.4,
-          "ground_non_matching_percent": 51.6,
-          "ceil_non_matching_percent": 0.9,
-          "average_neighbors_per_cell": 7.6
+          "source_file": "G:\\My Drive\\Futurescaping\\CODEX\\Internal Tools\\estuary-sediment-trend-processor\\data\\areas\\area1\\differences\\C-F\\tregirls\\Area1_Tregirls_C_vs_F_volume_stats.txt",
+          "net_volume_m3": 3304.367264,
+          "surface_area_m2": 138958.416894,
+          "added_volume_m3": 7972.621034,
+          "removed_volume_m3": 4668.25377,
+          "matching_cells_percent": 86.8,
+          "ground_non_matching_percent": 13.1,
+          "ceil_non_matching_percent": 0.1,
+          "average_neighbors_per_cell": 7.8
         },
         "cumulative_las": null,
         "cumulative_pair": null,
         "cumulative_volume_stats": null,
-        "masked_cell_count": 16010441
+        "masked_cell_count": 16010579
       }
     ],
     "overall_state_counts": {
       "first_interval": {
-        "erosion": 3668510,
-        "stable": 32089593,
-        "accretion": 6132192
+        "erosion": 2415745,
+        "stable": 30994265,
+        "accretion": 8298779
       },
       "second_interval": {
-        "erosion": 5236869,
-        "stable": 20384638,
-        "accretion": 16102935
+        "erosion": 8046422,
+        "stable": 12729918,
+        "accretion": 20787367
       }
     },
     "overall_grid_mean_change_m": {
-      "first_interval": 0.007807701360434294,
-      "second_interval": 0.03575419262051582
+      "first_interval": 0.017587188631296158,
+      "second_interval": 0.04143708944320679
     }
   },
   "classified_area": {
-    "valid_cell_count": 41543023,
-    "valid_area_m2": 415430.2300000001,
-    "nodata_cell_count": 59677745,
-    "coverage_percent_of_boundary": 93.33929681754134
+    "valid_cell_count": 41458421,
+    "valid_area_m2": 414584.2100000001,
+    "nodata_cell_count": 59727103,
+    "coverage_percent_of_boundary": 93.14958469790166
   },
   "trend_classes": [
     {
       "class_id": 1,
       "key": "consistent_accretion",
       "label": "Consistent accretion",
-      "cell_count": 2658664,
-      "area_m2": 26586.640000000007,
-      "percent_of_classified_area": 6.399784628095071,
+      "cell_count": 4548130,
+      "area_m2": 45481.30000000001,
+      "percent_of_classified_area": 10.970340621510886,
       "color_rgba": [
         34,
         94,
@@ -219,9 +226,9 @@
       "class_id": 2,
       "key": "consistent_erosion",
       "label": "Consistent erosion",
-      "cell_count": 838268,
-      "area_m2": 8382.680000000002,
-      "percent_of_classified_area": 2.0178310085907807,
+      "cell_count": 533890,
+      "area_m2": 5338.9000000000015,
+      "percent_of_classified_area": 1.2877721512838127,
       "color_rgba": [
         183,
         28,
@@ -233,9 +240,9 @@
       "class_id": 3,
       "key": "accretion_then_erosion",
       "label": "Accretion then erosion",
-      "cell_count": 1230147,
-      "area_m2": 12301.470000000003,
-      "percent_of_classified_area": 2.9611398284616888,
+      "cell_count": 2376493,
+      "area_m2": 23764.930000000004,
+      "percent_of_classified_area": 5.732232300887677,
       "color_rgba": [
         123,
         31,
@@ -247,9 +254,9 @@
       "class_id": 4,
       "key": "erosion_then_accretion",
       "label": "Erosion then accretion",
-      "cell_count": 1200727,
-      "area_m2": 12007.270000000002,
-      "percent_of_classified_area": 2.8903216792865556,
+      "cell_count": 1277110,
+      "area_m2": 12771.100000000002,
+      "percent_of_classified_area": 3.080459817801551,
       "color_rgba": [
         0,
         121,
@@ -261,9 +268,9 @@
       "class_id": 5,
       "key": "stable",
       "label": "Stable",
-      "cell_count": 16690705,
-      "area_m2": 166907.05000000005,
-      "percent_of_classified_area": 40.17691490578334,
+      "cell_count": 10929408,
+      "area_m2": 109294.08000000002,
+      "percent_of_classified_area": 26.362335410699796,
       "color_rgba": [
         189,
         189,
@@ -275,9 +282,9 @@
       "class_id": 6,
       "key": "new_latest_accretion",
       "label": "New/latest accretion",
-      "cell_count": 12159927,
-      "area_m2": 121599.27000000002,
-      "percent_of_classified_area": 29.27068403279174,
+      "cell_count": 14901809,
+      "area_m2": 149018.09000000003,
+      "percent_of_classified_area": 35.94398590337051,
       "color_rgba": [
         100,
         181,
@@ -289,9 +296,9 @@
       "class_id": 7,
       "key": "new_latest_erosion",
       "label": "New/latest erosion",
-      "cell_count": 3136437,
-      "area_m2": 31364.370000000006,
-      "percent_of_classified_area": 7.549852594983278,
+      "cell_count": 5108886,
+      "area_m2": 51088.86000000001,
+      "percent_of_classified_area": 12.32291504782587,
       "color_rgba": [
         239,
         83,
@@ -303,9 +310,9 @@
       "class_id": 8,
       "key": "earlier_accretion_now_stable",
       "label": "Earlier accretion, now stable",
-      "cell_count": 2066220,
-      "area_m2": 20662.200000000004,
-      "percent_of_classified_area": 4.973687158009661,
+      "cell_count": 1208250,
+      "area_m2": 12082.500000000002,
+      "percent_of_classified_area": 2.9143656966578635,
       "color_rgba": [
         144,
         202,
@@ -317,9 +324,9 @@
       "class_id": 9,
       "key": "earlier_erosion_now_stable",
       "label": "Earlier erosion, now stable",
-      "cell_count": 1561928,
-      "area_m2": 15619.280000000002,
-      "percent_of_classified_area": 3.7597841639978875,
+      "cell_count": 574445,
+      "area_m2": 5744.450000000001,
+      "percent_of_classified_area": 1.385593049962033,
       "color_rgba": [
         255,
         138,

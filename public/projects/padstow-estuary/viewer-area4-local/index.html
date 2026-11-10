@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sediment Change Viewer</title>
+    <link rel="stylesheet" href="./src/viewer/style.css" />
+  </head>
+  <body>
+    <div id="app" class="fs-stage">
+      <div class="fs-stage__glow" aria-hidden="true"></div>
+
+      <header class="brand-block">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div>
+          <p class="eyebrow">FutureScaping Labs</p>
+          <p class="subeyebrow">Sediment Change Monitoring</p>
+          <h1 id="hero-title">Sediment Change Viewer</h1>
+          <p id="hero-intro" class="intro">
+            Lightweight multi-comparison terrain viewer with true elevation change overlays and a site map underlay.
+          </p>
+        </div>
+      </header>
+
+      <aside class="pill-stack" aria-label="Context">
+        <div class="pill">
+          <p class="pill__label">Survey</p>
+          <p id="survey-pill-value" class="pill__value">Loading…</p>
+          <p id="survey-pill-subtext" class="pill__subtext">Preparing comparison metadata</p>
+        </div>
+        <div class="pill">
+          <p class="pill__label">Area</p>
+          <p id="area-pill-value" class="pill__value">Area</p>
+          <p id="area-pill-subtext" class="pill__subtext">Terrain, gain/loss overlay, and site underlay</p>
+        </div>
+      </aside>
+
+      <aside class="panel">
+        <div class="panel__section">
+          <p class="panel__title">Layers</p>
+          <div class="controls">
+            <label id="area-select-row">
+              <span>Area</span>
+              <select id="area-select"></select>
+            </label>
+
+            <label>
+              <span>Comparison</span>
+              <select id="comparison-select"></select>
+            </label>
+
+            <section class="comparison-shelf" aria-labelledby="comparison-shelf-title">
+              <p id="comparison-shelf-title" class="comparison-shelf__title">Available comparisons</p>
+              <p class="comparison-shelf__hint">Choose one verified pair to load in the 3D view.</p>
+              <div id="pair-picker" class="pair-picker" role="list" aria-live="polite"></div>
+            </section>
+
+            <label class="toggle">
+              <input id="toggle-site-map" type="checkbox" checked />
+              <span>Show site map underlay</span>
+            </label>
+            <label class="toggle">
+              <input id="toggle-grid" type="checkbox" />
+              <span>Show grid</span>
+            </label>
+            <label class="toggle">
+              <input id="toggle-overlay" type="checkbox" checked />
+              <span>Show gain/loss overlay</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel__section">
+          <p class="panel__title">Display</p>
+          <div class="controls">
+            <label>
+              <span>Overlay mode</span>
+              <select id="overlay-mode">
+                <option value="true_z" selected>True terrain change</option>
+                <option value="draped">Draped on base</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Point size</span>
+              <input id="point-size" type="range" min="0.5" max="8" step="0.1" value="1.6" />
+            </label>
+
+            <label>
+              <span>Opacity</span>
+              <input id="opacity" type="range" min="0.1" max="1" step="0.05" value="0.9" />
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="reset-camera" type="button">Reset camera</button>
+          <button id="overview-camera" type="button">Site overview</button>
+          <button id="fullscreen" type="button">Fullscreen</button>
+        </div>
+      </aside>
+
+      <aside class="dock">
+        <div class="legend">
+          <h2>Legend</h2>
+          <p><span class="swatch gain"></span> Blue = gain / deposition</p>
+          <p><span class="swatch loss"></span> Red = loss / erosion</p>
+        </div>
+
+        <div class="legend">
+          <h2>Height Probe</h2>
+          <p id="probe-readout">Click the terrain or change points to inspect height.</p>
+        </div>
+
+        <div id="status" class="status">Loading processed point clouds...</div>
+      </aside>
+
+      <main class="viewport-wrap">
+        <canvas id="viewer"></canvas>
+      </main>
+    </div>
+
+    <script>
+      window.__viewerStartupErrors = [];
+      window.addEventListener('error', function (event) {
+        window.__viewerStartupErrors.push({
+          type: 'error',
+          message: event.message || 'Unknown error',
+          source: event.filename || null
+        });
+      });
+      window.addEventListener('unhandledrejection', function (event) {
+        window.__viewerStartupErrors.push({
+          type: 'rejection',
+          message: String(event.reason)
+        });
+      });
+    </script>
+    <script type="module" src="./src/viewer/main.js?v=34"></script>
+  </body>
+</html>

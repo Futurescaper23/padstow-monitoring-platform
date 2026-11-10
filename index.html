@@ -25,20 +25,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css?v=20260709a">
-  </head>
+  <style id="local-area8-safety-style">
+html[data-local-volume-safety="pending"] [data-panel="volume"] { visibility:hidden!important }
+html[data-local-volume-safety="area8"] [data-panel="volume"] > :not(.volume-hero):not(#volumeTrendPanel):not(#volumeReferencePanel),
+html[data-local-volume-safety="area8"] #volumeSummary,
+html[data-local-volume-safety="area8"] #volumeSandboxBanner,
+html[data-local-volume-safety="area8"] #volumeMetricGrid {display:none!important}
+html[data-local-volume-safety="area8"] #volumeTrendPanel {display:block!important}
+html[data-local-volume-safety="area8"] #volumeTrendPanel > :not(#local-area8-animation) {display:none!important}
+#local-area8-safety-notice {display:none}
+html[data-local-volume-safety="area8"] #local-area8-safety-notice {display:block;margin-top:12px}
+</style><script>document.documentElement.dataset.localVolumeSafety="pending";</script></head>
   <body>
     <main class="shell">
       <div class="shell-topbar">
         <section class="hero panel">
           <div class="shell-brand">
-            <div class="shell-brand__mark" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
             <div class="shell-brand__wordmark">
-              <p class="shell-brand__name">FutureScaping</p>
-              <p class="shell-brand__sub">Monitoring</p>
+              <img class="futurescaping-brand-logo" src="/public/projects/padstow-estuary/assets/branding/futurescaping-logo-white-horizontal.png" alt="FutureScaping">
+              <p class="shell-brand__sub">Estuary Monitoring</p>
             </div>
           </div>
           <div class="shell-project-meta">
@@ -105,12 +110,8 @@
       <section class="shell-stagebar panel">
         <div class="shell-stagebar__copy">
           <div class="shell-stagebar__brand">
-            <div class="shell-brand__mark" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
             <div class="shell-stagebar__brandword">
+              <img class="futurescaping-brand-logo" src="/public/projects/padstow-estuary/assets/branding/futurescaping-logo-white-horizontal.png" alt="FutureScaping">
               <p id="shellStageBrandName" class="shell-stagebar__brandname">Monitoring Platform</p>
             </div>
           </div>
@@ -205,17 +206,17 @@
         </article>
 
         <div class="two-col">
-          <article class="panel">
-            <p class="eyebrow">Area Catalogue</p>
-            <h2>Monitoring Areas</h2>
-            <div id="areaList" class="stack section-gap"></div>
-          </article>
           <article id="selectedAreaPanel" class="panel">
             <p class="eyebrow">Selected Area And Round Comparison</p>
             <h2 id="selectedAreaTitle">Area</h2>
             <p id="selectedAreaSummary" class="muted section-gap"></p>
             <div id="selectedAreaChips" class="chips"></div>
             <div id="selectedAreaAssets" class="card-grid section-gap"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Area Catalogue</p>
+            <h2>Monitoring Areas</h2>
+            <div id="areaList" class="stack section-gap"></div>
           </article>
         </div>
       </section>
@@ -241,7 +242,7 @@
             <div>
               <p class="eyebrow">Immersive Area Tour</p>
               <h2>Area Panorama</h2>
-              <p id="panoramaSummary" class="muted">Panorama guidance for the selected area will appear here.</p>
+              <p id="panoramaSummary" class="muted">Panorama guidance for the selected area will appear here.</p><p id="local-pano-review-notice" class="notice-banner" hidden>Scan 6 panorama content is not verified; this existing tour may be from an earlier survey.</p>
             </div>
             <div id="panoramaStats" class="stats-grid panorama-shell__stats"></div>
           </div>
@@ -269,7 +270,7 @@
             </div>
           </div>
           <div id="volumeQuickAreas" class="chips section-gap"></div>
-          <div id="volumeSandboxBanner" class="notice-banner section-gap"></div>
+          <div id="volumeSandboxBanner" class="notice-banner section-gap"></div><div id="local-area2-animation" hidden></div><div id="local-area4-animation" hidden></div><div id="local-scan6-review-notice" role="status" class="notice-banner section-gap" hidden></div><div id="local-area8-safety-notice" role="status"><p>Survey 5→6 is not available in the 3D viewer. Historical comparisons are preliminary.</p><iframe title="Area 8 3D change viewer" src="/public/projects/padstow-estuary/viewer-area8-local/index.html?embed=1" loading="lazy" allowfullscreen style="display:block;width:100%;height:820px;border:0;border-radius:10px;background:#e5ebee"></iframe></div>
           <div id="volumeMetricGrid" class="stats-grid section-gap"></div>
         </article>
 
@@ -300,7 +301,7 @@
           </div>
         </article>
 
-        <article id="volumeTrendPanel" class="panel section-gap is-hidden">
+        <article id="volumeTrendPanel" class="panel section-gap is-hidden"><div id="local-area8-animation"></div>
           <div class="panel-head">
             <div>
               <p class="eyebrow">Trend Analysis</p>
@@ -777,7 +778,7 @@
         });
       }());
     </script>
-  </body>
+  <script>(function(){function u(){let n=document.getElementById('local-contour-review-notice'),a=document.getElementById('areaSelect'),s=document.getElementById('surveySelect');if(n)n.hidden=!(a?.value==='area3'&&s?.value==='scan_06');let p=document.getElementById('local-pano-review-notice');if(p)p.hidden=s?.value!=='scan_06'}document.addEventListener('change',u);document.addEventListener('DOMContentLoaded',u);new MutationObserver(u).observe(document.documentElement,{childList:true,subtree:true});})();</script><script type="module" src="/public/projects/padstow-estuary/trend-animation/animation-component.mjs"></script></body>
 </html>
 
 
